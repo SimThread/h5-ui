@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders demo correctly 1`] = `
+<div>
+  <div>
+    <div class="h5-loading h5-loading--circular h5-loading" style="color:#c9c9c9;"><span class="h5-loading__spinner h5-loading__spinner--circular"><svg viewBox="25 25 50 50" class="h5-loading__circular"><circle cx="50" cy="50" r="20" fill="none"></circle></svg></span></div>
+    <div class="h5-loading h5-loading--circular h5-loading--white" style="color:white;"><span class="h5-loading__spinner h5-loading__spinner--circular"><svg viewBox="25 25 50 50" class="h5-loading__circular"><circle cx="50" cy="50" r="20" fill="none"></circle></svg></span></div>
+  </div>
+  <div>
+    <div class="h5-loading h5-loading--spinner h5-loading" style="color:#c9c9c9;"><span class="h5-loading__spinner h5-loading__spinner--spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="h5-loading h5-loading--spinner h5-loading--white" style="color:white;"><span class="h5-loading__spinner h5-loading__spinner--spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+  </div>
+</div>
+`;
