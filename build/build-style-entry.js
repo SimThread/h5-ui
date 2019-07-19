@@ -8,13 +8,14 @@ const path = require('path');
 const dependencyTree = require('dependency-tree');
 const components = require('./get-components')();
 
+// 设置不用进行依赖查找的组件，名称为packages下的目录名
 const whiteList = [
   'info',
   'icon',
   'loading',
-  'cell',
-  'cell-group',
-  'button',
+  // 'cell',
+  // 'cell-group',
+  // 'button',
   'overlay',
   'exporthk'
 ];
@@ -39,7 +40,7 @@ function destEntryFile(component, filename, ext = '') {
   fs.outputFileSync(libEntry, libContent);
 }
 
-// analyze component dependencies
+// 分析组件依赖
 function analyzeDependencies(component) {
   const checkList = ['base'];
 
@@ -60,9 +61,11 @@ function analyzeDependencies(component) {
   return checkList.filter(item => checkComponentHasStyle(item));
 }
 
+// 递归搜寻
 function search(tree, component, checkList) {
   Object.keys(tree).forEach(key => {
     search(tree[key], component, checkList);
+
     components
       .filter(item => (
         key
@@ -82,6 +85,7 @@ function search(tree, component, checkList) {
   });
 }
 
+// 返回指定格式的样式文件路径
 function getStylePath(component, ext = '.css') {
   if (component === 'base') {
     return path.join(__dirname, `../es/style/base${ext}`);
@@ -96,10 +100,12 @@ function getStyleRelativePath(component, style, ext) {
   );
 }
 
+// 检查组件是否含有样式文件
 function checkComponentHasStyle(component) {
   return fs.existsSync(getStylePath(component));
 }
 
+// 循环为每个组件创建index.js(less.js)，并将其.css(.less)依赖导入index.js文件
 components.forEach(component => {
   // css entry
   destEntryFile(component, 'index.js', '.css');

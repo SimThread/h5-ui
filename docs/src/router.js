@@ -10,51 +10,46 @@ const registerRoute = (isDemo) => {
   const route = [{
     path: '*',
     redirect: () => {
-      return `/${Vue.prototype.$h5Lang}/`
+      return `/components`
     }
   }];
 
-  Object.keys(docConfig).forEach((lang) => {
-    if (isDemo) {
+  Object.keys(docConfig).forEach((moduleName) => {
+    if (isDemo) { // demo页面路由配置
       route.push({
-        path: `/${lang}`,
+        path: `/${moduleName}`,
         component: DemoList,
         meta: {
-          lang
+          moduleName
         }
       });
-    } else {
+    } else { // 文档页面配置
       route.push({
-        path: `/${lang}`,
-        redirect: `/${lang}/intro`
+        path: `/${moduleName}`,
+        redirect: `/${moduleName}/intro`
       });
     }
 
-    function addRoute(page, lang) {
-      let {
-        path
-      } = page;
+    function addRoute(page, moduleName) {
+      let { path } = page;
 
       if (path) {
         path = path.replace('/', '');
 
+        // 从入口文件获取组件
         let component;
-        if (path === 'demo') { // 正对demo页面进行特殊处理
-          component = DemoPages;
-        } else {
-          component = isDemo ? componentDemos[path] : componentDocs[`${path}`];
-        }
+        component = isDemo ? componentDemos[path] : componentDocs[`${path}`];
 
         if (!component) {
           return;
         }
 
         route.push({
-          name: lang + '/' + path,
+          name: `/${moduleName}/${path}`,
           component,
-          path: `/${lang}/${path}`,
+          path: `/${moduleName}/${path}`,
           meta: {
-            lang,
+            moduleName,
             path,
             name: page.title
           }
@@ -62,23 +57,18 @@ const registerRoute = (isDemo) => {
       }
     }
 
-    const navs = docConfig[lang].nav || [];
+    const navs = docConfig[moduleName].nav || [];
     navs.forEach(nav => {
       if (nav.groups) {
         nav.groups.forEach(group => {
-          group.list.forEach(page => addRoute(page, lang));
+          group.list.forEach(page => addRoute(page, moduleName));
         });
       } else {
-        console.log('nav:', nav);
-        console.log('lang:', lang);
-        addRoute(nav, lang);
+        addRoute(nav, moduleName);
       }
     });
   });
 
-  if (!isDemo) {
-    console.log('route:', route);
-  }
   return route;
 };
 

@@ -71,7 +71,7 @@ export default {
   fs.writeFileSync(path.join(dir, '../docs/src/demo-entry.js'), content);
 }
 
-// generate webpack entry file for markdown docs
+// 为markdown文档生成webpack入口文件
 function buildDocsEntry() {
   const output = join('docs/src/docs-entry.js');
   const getName = fullPath => fullPath.replace(/\/(zh-CN)/, '').split('/').pop().replace('.md', '');

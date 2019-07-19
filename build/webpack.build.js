@@ -3,7 +3,7 @@ const config = require('./webpack.dev.js');
 
 const isMinify = process.argv.indexOf('-p') !== -1;
 
-delete config.serve;
+delete config.devServer;
 
 module.exports = Object.assign(config, {
   mode: 'production',

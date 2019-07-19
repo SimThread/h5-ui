@@ -10,25 +10,14 @@ module.exports = {
     'h5-mobile': './docs/src/mobile.js'
   },
   output: {
-    path: path.join(__dirname, '../docs/dist'),
-    publicPath: '/',
+    path: path.join(__dirname, '../docs/testdist'),
+    publicPath: '/111ddd',
     chunkFilename: 'async_[name].js'
   },
   stats: {
     modules: false,
     children: false
   },
-  // serve: {
-  //   open: true,
-  //   host: 'localhost',
-  //   devMiddleware: {
-  //     logLevel: 'warn'
-  //   },
-  //   hotClient: {
-  //     logLevel: 'warn',
-  //     allEntries: true
-  //   }
-  // },
   devServer: {
     hot: true, // 开启热点
     inline: true, // 开启页面自动刷新

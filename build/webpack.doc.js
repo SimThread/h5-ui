@@ -2,7 +2,7 @@ const path = require('path');
 const config = require('./webpack.dev.js');
 
 
-delete config.serve;
+delete config.devServer;
 
 module.exports = Object.assign(config, {
   mode: 'production',

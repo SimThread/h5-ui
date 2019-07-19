@@ -17,7 +17,7 @@ import Progress from './progress';
 import Row from './row';
 import Uploader from './uploader';
 
-const version = '0.0.1';
+const version = '0.0.2';
 const components = [
   Button,
   Cell,

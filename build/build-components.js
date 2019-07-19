@@ -50,7 +50,8 @@ fs.emptyDirSync(libDir);
 fs.copySync(srcDir, esDir);
 compile(esDir);
 
-// 编译 lib dir
 process.env.BABEL_MODULE = 'commonjs';
+
+// 编译 lib dir
 fs.copySync(srcDir, libDir);
 compile(libDir);
