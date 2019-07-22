@@ -1,0 +1,58 @@
+variables:
+  Project: hk591-ui
+  HtdocsDir: /home/htdocs
+  ProjecHtdocsDir: /home/htdocs/dist
+  ProjectName: ${Project}-${CI_COMMIT_REF_NAME}
+  ProjectDir: ${HtdocsDir}/${Project}-${CI_COMMIT_REF_NAME}
+  ProjectBuildDir: ${HtdocsDir}_191/${Project}-${CI_COMMIT_REF_NAME}
+  IMAGE: hub.591.com.tw/nginx-alpine:hk591-ui-${CI_COMMIT_REF_NAME}
+  KUBE_MASTER: 192.168.8.39
+  KUBE_MASTER_PORT: "8080"
+  KUBE_DEV: 192.168.8.39
+  KUBE_DEV_PORT: "8080"
+  replicas: "1"
+  
+stages:
+  - build
+  - buildshell
+  - BuildDocker
+  - deploy
+
+job_build_master:
+  stage: build
+  script:
+    - sh _gitlabci/build.sh
+  only:
+    - master
+  tags:
+    - tw591-runner-php7211-node10-nfs41
+    
+job_buildshell_master:
+  stage: buildshell
+  script:
+    - sh _gitlabci/buildshell.sh
+  only:
+    - master
+  tags:
+    - tw591-runner-php7211-node10-nfs41
+    
+job_BuildDocker_master:
+  stage: BuildDocker
+  script:
+    - sh _gitlabci/BuildDocker.sh
+  only:
+    - master
+  tags:
+    - tw591-runner-php7211-node10-nfs41
+    
+job_deploy_master:
+  stage: deploy
+  script:
+    - sh _gitlabci/deploy.sh
+  only:
+    - master
+  tags:
+    - tw591-runner-php7211-node10-nfs41
+    
+
+    
