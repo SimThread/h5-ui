@@ -1,6 +1,6 @@
 {
   "name": "h5-ui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lightweight Mobile UI Components built on Vue",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -14,7 +14,7 @@
     "vetur"
   ],
   "scripts": {
-    "bootstrap": "yarn || npm i",
+    "bootstrap": "npm i",
     "dev": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "lint": "eslint ./src --ext .js,.vue && stylelint \"src/*.css\"",
     "build:entry": "node build/build-entry.js",

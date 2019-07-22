@@ -1,3 +1,4 @@
+# 发布npm包脚本
 git checkout master
 git merge dev
 
