@@ -26,7 +26,7 @@ npm run dev
 h5-ui
 ├─ build            # 构建脚本
 ├─ docs             # 文档网站
-├─ packages              # 组件文件
+├─ packages         # 组件文件
 └─ types            # 类型定义
 ```
 
@@ -110,7 +110,7 @@ import Button from '../button';
 
 #### 组件创建
 
-Vant 中的组件会通过 `create` 方法统一创建，`create` 方法会在选项文件中注入基本的依赖和方法。
+h5-ui 中的组件会通过 `create` 方法统一创建，`create` 方法会在选项文件中注入基本的依赖和方法。
 
 ```js
 import create from '../utils/create';

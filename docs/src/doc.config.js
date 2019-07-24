@@ -40,10 +40,10 @@ module.exports = {
               path: '/style',
               title: '内置样式'
             },
-            {
-              path: '/theme',
-              title: '定制主题'
-            },
+            // {
+            //   path: '/theme',
+            //   title: '定制主题'
+            // },
             {
               path: '/contribution',
               title: '开发指南'
