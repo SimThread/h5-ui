@@ -13,7 +13,7 @@ npm run bootstrap
 npm run dev
 ```
 
-浏览器访问 [http://localhost:8080](http://localhost:8080) 就可以看到所有组件的示例了。
+浏览器访问 [http://localhost:8050](http://localhost:8050) 就可以看到所有组件的示例了。
 
 ### 目录结构
 

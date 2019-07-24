@@ -11,7 +11,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '../docs/testdist'),
-    publicPath: '/111ddd',
+    publicPath: '/',
     chunkFilename: 'async_[name].js'
   },
   stats: {
@@ -21,7 +21,7 @@ module.exports = {
   devServer: {
     hot: true, // 开启热点
     inline: true, // 开启页面自动刷新
-    port: 8181,
+    port: 8050,
     proxy: {
       '/Home': {
         target: 'https://www.dev.591.com.hk/',
