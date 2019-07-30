@@ -1,41 +1,41 @@
 <template>
   <demo-section>
-    <van-tabs
+    <h5-tabs
       v-model="tab"
       sticky
       :color="BLUE"
     >
-      <van-tab title="基础图标">
-        <van-col
+      <h5-tab title="基础图标">
+        <h5-col
           v-for="icon in icons.basic"
           :key="icon"
           span="6"
         >
           <h5-icon :name="icon" />
           <span>{{ icon }}</span>
-        </van-col>
-      </van-tab>
-      <van-tab title="线框风格">
-        <van-col
+        </h5-col>
+      </h5-tab>
+      <h5-tab title="线框风格">
+        <h5-col
           v-for="icon in icons.outline"
           :key="icon"
           span="6"
         >
           <h5-icon :name="icon" />
           <span>{{ icon }}</span>
-        </van-col>
-      </van-tab>
-      <van-tab title="实底风格">
-        <van-col
+        </h5-col>
+      </h5-tab>
+      <h5-tab title="实底风格">
+        <h5-col
           v-for="icon in icons.filled"
           :key="icon"
           span="6"
         >
           <h5-icon :name="icon" />
           <span>{{ icon }}</span>
-        </van-col>
-      </van-tab>
-    </van-tabs>
+        </h5-col>
+      </h5-tab>
+    </h5-tabs>
   </demo-section>
 </template>
 
@@ -79,7 +79,7 @@ export default {
     min-height: calc(100vh - 65px);
   }
 
-  .van-col {
+  .h5-col {
     float: none;
     text-align: center;
     height: 100px;
@@ -94,13 +94,13 @@ export default {
     }
   }
 
-  .h5-icon {
+  .van-icon {
     font-size: 32px;
     margin: 15px 0;
     color: @text-color;
   }
 
-  .van-tab__pane {
+  .h5-tab__pane {
     padding-top: 10px;
   }
 }

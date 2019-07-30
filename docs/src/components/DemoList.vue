@@ -7,7 +7,7 @@
       <mobile-nav
         v-for="(group, index) in item.groups"
         :group="group"
-        :base="$h5Lang"
+        :base="$active"
         :key="index"
       />
     </template>
@@ -31,7 +31,8 @@ export default {
 
   computed: {
     navList() {
-      return this.docConfig[this.$h5Lang].nav || [];
+      console.log('$active:', this.$active);
+      return this.docConfig[this.$active].nav || [];
     },
   }
 };

@@ -1,11 +1,9 @@
 import useBem from './bem';
 import useSfc from './sfc';
-import useI18n from './i18n';
 
 type UseReturn = [
   ReturnType<typeof useSfc>,
   ReturnType<typeof useBem>,
-  ReturnType<typeof useI18n>
 ];
 
 /**
@@ -13,5 +11,5 @@ type UseReturn = [
  */
 export function use(name: string): UseReturn {
   name = 'h5-' + name;
-  return [useSfc(name), useBem(name), useI18n(name)];
+  return [useSfc(name), useBem(name)];
 }

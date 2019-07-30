@@ -1,7 +1,6 @@
 /**
  * Create a basic component with common options
  */
-import '../../locale';
 import { camelize } from '..';
 import SlotsMixin from '../../mixins/slots';
 import Vue, {

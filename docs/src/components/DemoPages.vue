@@ -24,30 +24,6 @@
 </template>
 
 <script>
-import { Locale } from '../../../packages';
-
-Locale.add({
-  'zh-CN': {
-    H5DocDemoPages: {
-      title: '示例',
-      source: '源代码',
-      description: '下面是一些使用 Vant 搭建的示例页面，点击图片切换至对应示例。',
-      goodsDetail: '商品详情',
-      userCenter: '会员中心',
-      shoppingCart: '购物车'
-    }
-  },
-  'en-US': {
-    H5DocDemoPages: {
-      title: 'Demo Pages',
-      source: 'Source code',
-      description: 'Here are some of the demo pages built using Vant, click on the picture to switch to the corresponding demo.',
-      goodsDetail: 'Goods Detail',
-      userCenter: 'User Center',
-      shoppingCart: 'Shopping Cart'
-    }
-  }
-});
 
 export default {
   name: 'h5-doc-demo-pages',

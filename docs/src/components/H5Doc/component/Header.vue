@@ -23,6 +23,7 @@
           >
             <a
               class="h5-doc-header__top-nav-title"
+              @click="switchNav(key)"
               :href="typeof value === 'string' ? value : 'javascript:;'"
               :target="key === 'github' ? '_blank' : ''"
               :class="{
@@ -74,6 +75,15 @@ export default {
   methods: {
     onSwitchLang(lang) {
       this.$router.push(this.$route.path.replace(lang.from, lang.to));
+    },
+    switchNav(key) {
+      if (key === 'Vue 组件') {
+        this.$active = 'components';
+        window.localStorage.setItem('active', 'components');
+      } else if (key === 'UI设计规范') {
+        this.$active = 'design';
+        window.localStorage.setItem('active', 'design');
+      }
     }
   }
 };

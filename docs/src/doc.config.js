@@ -68,7 +68,32 @@ module.exports = {
             list: [
               {
                 path: '/button',
-                title: '按钮'
+                title: 'Button 按钮'
+              },
+              {
+                path: '/popup',
+                title: 'Popup 弹出层'
+              },
+              {
+                path: '/icon',
+                title: 'Icon 图标'
+              },
+              {
+                path: '/collapse',
+                title: 'Collapse 折叠面板'
+              },
+              {
+                path: '/picker',
+                title: 'picker 选择器'
+              }
+            ]
+          },
+          {
+            groupName: '业务组件',
+            list: [
+              {
+                path: '/share-popup',
+                title: 'SharePopup 分享弹窗'
               }
             ]
           }

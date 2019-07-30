@@ -5,6 +5,12 @@ import App from './DocsApp';
 import routes from './router';
 import { isMobile } from './utils';
 
+const {
+  defineReactive
+} = Vue.util;
+
+defineReactive(Vue.prototype, '$active', window.localStorage.getItem('active') || 'components');
+
 Vue.use(VueRouter).use(H5Doc);
 
 const router = new VueRouter({

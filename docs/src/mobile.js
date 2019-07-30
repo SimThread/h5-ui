@@ -7,6 +7,11 @@ import {
 import App from './WapApp';
 import routes from './router';
 import '@vant/doc/helper/touch-simulator';
+const {
+  defineReactive
+} = Vue.util;
+
+defineReactive(Vue.prototype, '$active', window.localStorage.getItem('active') || 'components');
 
 const router = new VueRouter({
   mode: 'hash',

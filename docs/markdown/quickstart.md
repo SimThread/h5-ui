@@ -19,7 +19,7 @@ vue create hello-world
 vue ui
 ```
 
-~~在图形化界面中，点击`依赖` -> `安装依赖`，然后将 `h5-ui` 添加到依赖中即可。（h5-ui只在公司私有npm仓库发布，故通过官方@vue/cli的图形化界面找不到相关依赖，推荐使用NPM安装）~~
+~~在图形化界面中，点击依赖 -> 安装依赖，然后将 h5-ui 添加到依赖中即可。（h5-ui只在公司私有npm仓库发布，故通过官方@vue/cli的图形化界面找不到相关依赖，推荐使用NPM安装）~~
 
 <img width="100%" style="box-shadow: 0 1px 1px rgba(0, 0, 0, .1); border-radius: 3px;" src="https://img.yzcdn.cn/vant/vue-cli-demo-201809032000.png" >
 

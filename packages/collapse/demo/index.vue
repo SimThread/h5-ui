@@ -1,41 +1,41 @@
 <template>
   <demo-section>
-    <demo-block :title="$t('basicUsage')">
+    <demo-block title="基础用法">
       <h5-collapse v-model="active1">
-        <h5-collapse-item :title="$t('title1')">{{ $t('content1') }}</h5-collapse-item>
-        <h5-collapse-item :title="$t('title2')">{{ $t('content2') }}</h5-collapse-item>
+        <h5-collapse-item title="香港591">提供丰富屋苑信息，快速找房买房</h5-collapse-item>
+        <h5-collapse-item title="香港591租房">快速租房</h5-collapse-item>
         <h5-collapse-item
-          :title="$t('title3')"
+          title="香港591售房"
           disabled
         >
-          {{ $t('content3') }}
+          内容
         </h5-collapse-item>
       </h5-collapse>
     </demo-block>
 
-    <demo-block :title="$t('accordion')">
+    <demo-block title="手风琴">
       <h5-collapse
         v-model="active2"
         accordion
       >
-        <h5-collapse-item :title="$t('title1')">{{ $t('content1') }}</h5-collapse-item>
-        <h5-collapse-item :title="$t('title2')">{{ $t('content2') }}</h5-collapse-item>
-        <h5-collapse-item :title="$t('title3')">{{ $t('content3') }}</h5-collapse-item>
+        <h5-collapse-item title="香港591">提供丰富屋苑信息，快速找房买房</h5-collapse-item>
+        <h5-collapse-item title="香港591租房">快速租房</h5-collapse-item>
+        <h5-collapse-item title="香港591售房">快速买房</h5-collapse-item>
       </h5-collapse>
     </demo-block>
 
-    <demo-block :title="$t('titleSlot')">
+    <demo-block title="自定义标题内容">
       <h5-collapse v-model="active3">
         <h5-collapse-item>
-          <div slot="title">{{ $t('title1') }}<h5-icon name="question-o" /></div>
-          {{ $t('content1') }}
+          <div slot="title">香港591<h5-icon name="question-o" /></div>
+          内容
         </h5-collapse-item>
         <h5-collapse-item
-          :title="$t('title2')"
-          :value="$t('content')"
+          title="香港591租房"
+          value="内容"
           icon="shop-o"
         >
-          {{ $t('content2') }}
+          快速租房
         </h5-collapse-item>
       </h5-collapse>
     </demo-block>
@@ -44,29 +44,6 @@
 
 <script>
 export default {
-  i18n: {
-    'zh-CN': {
-      accordion: '手风琴',
-      titleSlot: '自定义标题内容',
-      title1: '有赞微商城',
-      title2: '有赞零售',
-      title3: '有赞美业',
-      content1: '提供多样店铺模板，快速搭建网上商城',
-      content2: '网店吸粉获客、会员分层营销、一机多种收款，告别经营低效和客户流失',
-      content3: '线上拓客，随时预约，贴心顺手的开单收银'
-    },
-    'en-US': {
-      accordion: 'Accordion',
-      titleSlot: 'Custom title',
-      title1: 'Title1',
-      title2: 'Title2',
-      title3: 'Title3',
-      content1: 'Only those who have the patience to do simple things perfectly ever acquire the skill to do difficult things easily.',
-      content2: 'When someone walk out your life, let them. They are just making more room for someone else better to walk in.',
-      content3: 'The world is big and life is short. Live the life the way you want.'
-    }
-  },
-
   data() {
     return {
       active1: [0],

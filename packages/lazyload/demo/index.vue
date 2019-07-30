@@ -1,20 +1,20 @@
 <template>
   <demo-section>
-    <demo-block :title="$t('basicUsage')">
+    <demo-block title="基础用法">
       <img
         v-for="img in imageList"
         v-lazy="img"
       >
     </demo-block>
 
-    <demo-block :title="$t('title2')">
+    <demo-block title="背景图懒加载">
       <div
         v-for="img in backgroundImageList"
         v-lazy:background-image="img"
       />
     </demo-block>
 
-    <demo-block :title="$t('title3')">
+    <demo-block title="懒加载模块">
       <lazy-component>
         <img
           v-for="img in componentImageList"

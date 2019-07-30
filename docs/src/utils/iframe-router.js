@@ -2,7 +2,6 @@
  * 同步父窗口和 iframe 的 vue-router 状态
  */
 
-import { setLang } from './lang';
 import { iframeReady, isMobile } from '.';
 
 window.syncPath = function () {
@@ -22,13 +21,11 @@ window.syncPath = function () {
         iframe.contentWindow.changePath(lang, currentDir);
       });
     }
-    setLang(lang);
   } else if (isInIframe) {
     window.top.changePath(lang, currentDir);
   }
 };
 
 window.changePath = function (lang, path = '') {
-  setLang(lang);
   window.vueRouter.replace(path);
 };

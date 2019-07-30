@@ -20,17 +20,17 @@ export default {
     return {
       simulators: [`mobile.html${location.hash}`],
       demoURL: '',
-      activeVal: 'components'
+      activeVal: this.$active
     };
   },
 
   computed: {
     base() {
-      return `/${this.$h5Lang}`;
+      return `/${this.$active}`;
     },
 
     config() {
-      return docConfig[this.$h5Lang];
+      return docConfig[this.$active];
     },
 
     currentSimulator() {
@@ -41,7 +41,7 @@ export default {
 
   watch: {
     $route(to, from) {
-      const { nav } = docConfig[this.$h5Lang].header;
+      const { nav } = docConfig[this.$active].header;
       Object.keys(nav).forEach((navItem) => {
         if (nav[navItem].indexOf(location.hash.split('/')[1]) !== -1) {
           this.activeVal = navItem;
