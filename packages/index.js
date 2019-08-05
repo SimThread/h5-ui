@@ -32,7 +32,7 @@ import Tag from './tag';
 import Toast from './toast';
 import Uploader from './uploader';
 
-const version = '2.0.3';
+const version = '0.0.7';
 const components = [
   Button,
   Card,
