@@ -22,6 +22,7 @@ export default {
   'icon': () => import('../../packages/icon/zh-CN.md'),
   'lazyload': () => import('../../packages/lazyload/zh-CN.md'),
   'loading': () => import('../../packages/loading/zh-CN.md'),
+  'locale': () => import('../../packages/locale/zh-CN.md'),
   'nav-bar': () => import('../../packages/nav-bar/zh-CN.md'),
   'panel': () => import('../../packages/panel/zh-CN.md'),
   'picker': () => import('../../packages/picker/zh-CN.md'),

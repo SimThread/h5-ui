@@ -97,7 +97,7 @@ function getStyleRelativePath(component, style, ext) {
   return path.relative(
     path.join(__dirname, `../es/${component}/style`),
     getStylePath(style, ext)
-  );
+  ).split(path.sep).join('/');
 }
 
 // 检查组件是否含有样式文件

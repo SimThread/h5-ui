@@ -14,6 +14,7 @@ import Icon from './icon';
 import Info from './info';
 import Lazyload from './lazyload';
 import Loading from './loading';
+import Locale from './locale';
 import NavBar from './nav-bar';
 import Overlay from './overlay';
 import Panel from './panel';
@@ -32,7 +33,7 @@ import Tag from './tag';
 import Toast from './toast';
 import Uploader from './uploader';
 
-const version = '2.0.3';
+const version = '0.0.2';
 const components = [
   Button,
   Card,
@@ -94,6 +95,7 @@ export {
   Info,
   Lazyload,
   Loading,
+  Locale,
   NavBar,
   Overlay,
   Panel,
