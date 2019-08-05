@@ -70,7 +70,7 @@ function search(tree, component, checkList) {
       .filter(item => (
         key
           .replace(dir, '')
-          .split('/')
+          .split(path.sep)
           .includes(item)
       ))
       .forEach(item => {

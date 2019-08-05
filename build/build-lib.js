@@ -12,7 +12,7 @@ const tasks = [
   'build:components',
   'build:style',
   'build:style-entry',
-  // 'build:h5'
+  'build:h5'
 ];
 
 tasks.forEach(task => {
