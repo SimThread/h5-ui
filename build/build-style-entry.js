@@ -17,7 +17,6 @@ const whiteList = [
   // 'cell-group',
   // 'button',
   'overlay',
-  'exporthk'
 ];
 const dir = path.join(__dirname, '../es');
 
