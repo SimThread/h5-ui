@@ -60,7 +60,7 @@ function install(this: ComponentOptions<Vue>, Vue: VueConstructor) {
 
 // unify slots & scopedSlots
 export function unifySlots(context: RenderContext) {
-  const { scopedSlots } = context;
+  var scopedSlots = context.scopedSlots || context.data.scopedSlots || {};
   const slots = context.slots();
 
   Object.keys(slots).forEach(key => {
