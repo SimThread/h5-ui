@@ -10,9 +10,11 @@ const defaultConfig = {
 export default {
   open(vm, config) {
     /* istanbul ignore next */
+    // 如果context.stack中不存在传递进来的vm，则放进context.stack, 然后更新蒙版配置
     if (!context.stack.some(item => item.vm === vm)) {
       const el = vm.$el;
       const target = el && el.parentNode ? el.parentNode : document.body;
+      console.log('config:', config);
       context.stack.push({ vm, config, target });
       this.update();
     }
@@ -35,6 +37,7 @@ export default {
     let { modal } = context;
 
     if (!modal) {
+      // modal继承overlay对象，其中overlay也是Vue对象
       modal = new (Vue.extend(Overlay))({
         el: document.createElement('div')
       });
@@ -42,15 +45,17 @@ export default {
 
       context.modal = modal;
     }
-
+    // 如果蒙版有父节点，则关闭弹窗
     if (modal.$el.parentNode) {
       modal.visible = false;
     }
 
+    // 开启弹窗
     if (context.top) {
       const { target, config } = context.top;
-
+      // 把蒙版插入到和弹窗同层位置
       target.appendChild(modal.$el);
+      console.log('config////:', config);
       Object.assign(modal, defaultConfig, config, {
         visible: true
       });
@@ -65,6 +70,7 @@ export default {
       vm.$emit('click-overlay');
 
       if (vm.closeOnClickOverlay) {
+        // 针对Dialog做的扩展
         if (vm.onClickOverlay) {
           vm.onClickOverlay();
         } else {

@@ -4,11 +4,13 @@ import { wrapper } from './demo-common';
 
 export default {
   'button': () => wrapper(import('../../packages/button/demo'), 'button'),
+  'card': () => wrapper(import('../../packages/card/demo'), 'card'),
   'cell': () => wrapper(import('../../packages/cell/demo'), 'cell'),
   'col': () => wrapper(import('../../packages/col/demo'), 'col'),
   'collapse': () => wrapper(import('../../packages/collapse/demo'), 'collapse'),
   'color': () => wrapper(import('../../packages/color/demo'), 'color'),
   'dialog': () => wrapper(import('../../packages/dialog/demo'), 'dialog'),
+  'filter-area': () => wrapper(import('../../packages/filter-area/demo'), 'filter-area'),
   'icon': () => wrapper(import('../../packages/icon/demo'), 'icon'),
   'lazyload': () => wrapper(import('../../packages/lazyload/demo'), 'lazyload'),
   'loading': () => wrapper(import('../../packages/loading/demo'), 'loading'),
@@ -21,5 +23,6 @@ export default {
   'style': () => wrapper(import('../../packages/style/demo'), 'style'),
   'tab': () => wrapper(import('../../packages/tab/demo'), 'tab'),
   'tabbar': () => wrapper(import('../../packages/tabbar/demo'), 'tabbar'),
+  'tag': () => wrapper(import('../../packages/tag/demo'), 'tag'),
   'toast': () => wrapper(import('../../packages/toast/demo'), 'toast')
 };

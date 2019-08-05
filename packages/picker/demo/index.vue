@@ -67,7 +67,9 @@ export default {
     onChange1(picker, value, index) {
       this.$toast((value, index) => `Value: ${value}, Index：${index}`, value, index);
     },
-    onChange2(picker, values) {
+    onChange2(picker, values, index) {
+      console.log('index:', index);
+      console.log('values:', values);
       picker.setColumnValues(1, {
         浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
         福建: ['福州', '厦门', '莆田', '三明', '泉州']

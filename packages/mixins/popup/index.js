@@ -8,19 +8,19 @@ export default {
   mixins: [Touch],
 
   props: {
-    // whether to show popup
+    // 是否显示弹窗
     value: Boolean,
-    // whether to show overlay
+    // 是否显示蒙版
     overlay: Boolean,
-    // overlay custom style
+    // 自定义蒙版样式
     overlayStyle: Object,
-    // overlay custom class name
+    // 自定义蒙版类名
     overlayClass: String,
-    // whether to close popup when click overlay
+    // 是否点击蒙版时关闭弹窗
     closeOnClickOverlay: Boolean,
     // z-index
     zIndex: [String, Number],
-    // return the mount node for popup
+    // 返回挂载蒙版的节点
     getContainer: [String, Function],
     // prevent body scroll
     lockScroll: {
@@ -31,7 +31,7 @@ export default {
     lazyRender: {
       type: Boolean,
       default: true
-    }
+    },
   },
 
   data() {
@@ -64,6 +64,7 @@ export default {
   },
 
   mounted() {
+    console.log('popup mounted:', this.value);
     if (this.getContainer) {
       this.move();
     }
@@ -135,6 +136,7 @@ export default {
 
       this.opened = false;
       manager.close(this);
+
       this.$emit('input', false);
     },
 

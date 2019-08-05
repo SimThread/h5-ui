@@ -85,6 +85,10 @@ module.exports = {
               {
                 path: '/picker',
                 title: 'picker 选择器'
+              },
+              {
+                path: '/tab',
+                title: 'tab 切换'
               }
             ]
           },
@@ -94,6 +98,14 @@ module.exports = {
               {
                 path: '/share-popup',
                 title: 'SharePopup 分享弹窗'
+              },
+              {
+                path: '/card',
+                title: 'Card 物件卡片'
+              },
+              {
+                path: '/filter-area',
+                title: 'FilterArea 筛选区'
               }
             ]
           }

@@ -6,6 +6,7 @@ export const isServer: boolean = Vue.prototype.$isServer;
 
 export function noop() {}
 
+// 判断值是否定义
 export function isDef(value: any): boolean {
   return value !== undefined && value !== null;
 }
@@ -26,8 +27,8 @@ export function get(object: any, path: string): any {
   return result;
 }
 
-const camelizeRE = /-(\w)/g;
 // 将中划线模式改为小驼峰模式
+const camelizeRE = /-(\w)/g;
 export function camelize(str: string): string {
   return str.replace(camelizeRE, (_, c) => c.toUpperCase());
 }

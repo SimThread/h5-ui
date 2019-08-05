@@ -1,13 +1,13 @@
 <template>
   <demo-section>
-    <demo-block :title="$t('basicUsage')">
+    <demo-block title="基础用法">
       <h5-tabs v-model="active">
         <h5-tab
           :title="'标签' + index"
           v-for="index in tabs"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -19,7 +19,7 @@
           :title="'标签' + index"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -32,7 +32,7 @@
           :disabled="index === 2"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -44,7 +44,7 @@
           :title="'标签' + index"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -56,7 +56,7 @@
           :title="'标签' + index"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -71,7 +71,7 @@
           v-for="index in tabs"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -83,9 +83,9 @@
           :key="index"
         >
           <div slot="title">
-            <van-icon name="more-o" />{{ '标签' }}
+            <h5-icon name="more-o" />{{ '标签' }}
           </div>
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -99,7 +99,7 @@
           v-for="index in tabs"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
@@ -114,7 +114,7 @@
           v-for="index in tabs"
           :key="index"
         >
-          {{ $t('content') }} {{ index }}
+          内容 {{ index }}
         </h5-tab>
       </h5-tabs>
     </demo-block>
