@@ -86,6 +86,7 @@ export default sfc({
     return {
       tabs: [],
       tabsTop: 0,
+      contentTop: 0,
       position: '',
       curActive: null,
       lineStyle: {
@@ -119,6 +120,16 @@ export default sfc({
           };
         default:
           return null;
+      }
+    },
+
+    filterStyle() {
+      if (this.contentTop) {
+        return {
+          paddingTop: this.contentTop + 'px',
+        }
+      } else {
+        return null;
       }
     },
 
@@ -184,8 +195,7 @@ export default sfc({
     this.$nextTick(() => {
       this.inited = true;
       this.handlers(true);
-      this.tabsTop = this.$refs.filterArea.getBoundingClientRect().top;
-      console.log('mounted-------------:', this.$refs.filterArea.getBoundingClientRect().top);
+      // this.tabsTop = getElementTop(this.$el);
     });
   },
 
@@ -261,13 +271,13 @@ export default sfc({
       const scrollTop = getScrollTop(window) + this.offsetTop;
       const elTopToPageTop = getElementTop(this.$el);
       const elBottomToPageTop =
-        elTopToPageTop + this.$el.offsetHeight - this.$refs.wrap.offsetHeight;
-      if (scrollTop > elBottomToPageTop) {
-        this.position = 'bottom';
-      } else if (scrollTop > elTopToPageTop) {
+      elTopToPageTop + this.$el.offsetHeight - this.$refs.wrap.offsetHeight;
+      if (scrollTop > elTopToPageTop) {
         this.position = 'top';
+        this.contentTop = `${this.offsetTop + this.$refs.wrap.offsetHeight}`;
       } else {
         this.position = '';
+        this.contentTop = '';
       }
       const scrollParams = {
         scrollTop,
@@ -351,7 +361,6 @@ export default sfc({
     // emit event when clicked
     onClick(index) {
       if (index === this.curActive) {
-        console.log('关闭。。。。。');
         this.setCurActive(-1);
         return;
       }
@@ -365,7 +374,6 @@ export default sfc({
     },
 
     onClickOverlay() {
-      console.log('onClickOverlay:');
       this.setCurActive(-1);
     },
 
@@ -410,6 +418,7 @@ export default sfc({
         title.parentNode.replaceChild(el, title);
       });
     },
+
 
     getTabStyle(item, index) {
       const style = {};
@@ -488,7 +497,7 @@ export default sfc({
         manager.open(this, {
           zIndex: context.zIndex++,
           className: this.overlayClass,
-          customStyle: {top: `${this.tabsTop}px`, ...this.overlayStyle},
+          customStyle: {top: `${getElementTop(this.$el)}px`, ...this.overlayStyle},
         });
       } else {
         manager.close(this);
@@ -501,7 +510,7 @@ export default sfc({
   },
 
   render(h) {
-    const { type, ellipsis, animated, scrollable } = this;
+    const { type, ellipsis, animated, scrollable} = this;
 
     const Nav = this.tabs.map((tab, index) => (
       <div
@@ -510,7 +519,8 @@ export default sfc({
         class={[tabBem({
           active: index === this.curActive,
           disabled: tab.disabled,
-          complete: !ellipsis
+          complete: !ellipsis,
+          highlight: tab.highlight,
         }), bem('title')]}
         style={this.getTabStyle(tab, index)}
         onClick={() => {
@@ -524,7 +534,7 @@ export default sfc({
     ));
 
     return (
-      <div class={bem([type])} ref="filterArea">
+      <div class={bem([type])} ref="filterArea" style={this.filterStyle}>
         <div
           ref="wrap"
           style={this.wrapStyle}

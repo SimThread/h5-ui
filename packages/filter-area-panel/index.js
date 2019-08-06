@@ -10,6 +10,10 @@ export default sfc({
   props: {
     title: String,
     disabled: Boolean,
+    highlight: {
+      type: Boolean,
+      default: false,
+    },
     immediateRender: {
       type: Boolean,
       default: false,

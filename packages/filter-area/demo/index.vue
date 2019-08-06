@@ -1,16 +1,16 @@
 <template>
   <demo-section background="white">
     <demo-block title="基础用法">
-      <h5-filter-area type="devision" v-model="activeIndex" :closeOnClickOverlay="true">
+      <h5-filter-area type="devision" v-model="activeIndex" :closeOnClickOverlay="true"  :sticky="true" :offset-top="30">
 
-        <h5-filter-area-panel :immediateRender="true" :title="area.title" style="position: relative;z-index: 9999;">
+        <h5-filter-area-panel :immediateRender="true" :title="area.title" style="position: relative;z-index: 9999;" :highlight="(area.title !== '區域' &&  area.title !== '港鐵')">
           <h5-select ref="areaSelect" :columns="area.options" @change="onChange" value-key="text">
             <div slot="footer" class="estate-footer">
               共找到<span class="count fc-org">12133</span>間房屋&nbsp;&nbsp;&nbsp;<span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span> <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span></div>
           </h5-select>
         </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediateRender="true" :title="price.title" style="position: relative;z-index: 9999;">
+        <h5-filter-area-panel :immediateRender="true" :title="price.title" style="position: relative;z-index: 9999;" :highlight="price.title !== '呎價'">
           <h5-select ref="priceSelect" :columns="price.options" value-key="text" @change="onPriceChange" :default-index="price.defaultIndex">
             <div slot="footer" class="price-footer">
               <input type="text" class="min-price" v-model="minPrice"> ~
@@ -20,11 +20,11 @@
           </h5-select>
         </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediateRender="true" :title="age.title" style="position: relative;z-index: 9999;">
+        <h5-filter-area-panel :immediateRender="true" :title="age.title" style="position: relative;z-index: 9999;" :highlight="age.title !== '樓齡'">
           <h5-select ref="ageSelect" :columns="age.options" @change="onAgeChange"></h5-select>
         </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediateRender="true" :title="sort.title" style="position: relative;z-index: 9999;">
+        <h5-filter-area-panel :immediateRender="true" :title="sort.title" style="position: relative;z-index: 9999;" :highlight="sort.title !== '排序'">
           <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange"></h5-select>
         </h5-filter-area-panel>
       </h5-filter-area>
@@ -191,12 +191,12 @@ export default {
         options: areaColumns,
       },
       price: {
-        title: '尺价',
+        title: '呎價',
         select: null,
         options: areaPrice,
       },
       age: {
-        title: '楼龄',
+        title: '樓齡',
         select: null,
         options: ageOfBuilding
       },
@@ -320,6 +320,7 @@ export default {
       this.area.select.reset(0);
       this.area.select.reset(1);
       this.area.select.reset(2);
+      this.updateTitle(this.area, '區域');
       this.updateURL();
     },
     updateURL() {
@@ -336,14 +337,16 @@ export default {
         picker.setColumnValues(2, []);
 
         if (values[0].id === 'subwayOptions') {
+          this.updateTitle(this.area, '港鐵');
           delete params.areaId;
           delete params.districtId;
         } else {
+          this.updateTitle(this.area, '區域');
           delete params.subwayLine;
           delete params.subwayStation;
         }
       } else if (index === 1) {
-        this.area.title = values[1].text;
+        this.updateTitle(this.area, values[1].text);
         if (values[1].type === 'area') {
           delete params.districtId;
           params.areaId = values[1].id;
@@ -356,6 +359,8 @@ export default {
         
         // picker.setColumnValues(2, district[citys[values[0]][0]]);
       } else {
+        const numStr = values[2].length > 0 ? `(${values[2].length})` : '';
+        this.updateTitle(this.area, `${values[1].text}${numStr}`);
         if (values[2].length === 0) {
           delete params.districtId;
           delete params.subwayStation;
@@ -497,7 +502,7 @@ export default {
   }
 
   .h5-filter-area-panel__pane {
-    background-color: @white;
+    // background-color: @white;
     // padding: 20px 0;
   }
 
