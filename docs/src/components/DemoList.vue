@@ -31,7 +31,6 @@ export default {
 
   computed: {
     navList() {
-      console.log('$active:', this.$active);
       return this.docConfig[this.$active].nav || [];
     },
   }

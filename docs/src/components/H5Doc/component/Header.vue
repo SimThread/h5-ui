@@ -68,9 +68,7 @@ export default {
     active: String
   },
 
-  mounted() {
-    console.log("this.active:", this.active);
-  },
+  mounted() {},
 
   methods: {
     onSwitchLang(lang) {

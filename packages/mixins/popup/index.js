@@ -64,7 +64,6 @@ export default {
   },
 
   mounted() {
-    console.log('popup mounted:', this.value);
     if (this.getContainer) {
       this.move();
     }

@@ -327,8 +327,6 @@ export default sfc({
       active = +active;
       const exist = this.tabs.some(tab => tab.index === active);
       // const defaultActive = (this.tabs[0] || {}).index;
-      console.log('active:', active);
-      // console.log('defaultActive:', defaultActive);
       this.setCurActive(exist ? active : -1);
     },
 
@@ -497,7 +495,7 @@ export default sfc({
         manager.open(this, {
           zIndex: context.zIndex++,
           className: this.overlayClass,
-          customStyle: {top: `${getElementTop(this.$el)}px`, ...this.overlayStyle},
+          customStyle: {top: `${getElementTop(this.$refs.wrap)}px`, ...this.overlayStyle},
         });
       } else {
         manager.close(this);

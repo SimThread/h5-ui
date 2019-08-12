@@ -44,7 +44,6 @@ export default sfc({
 
   watch: {
     defaultIndex() {
-      console.log('change:', this.defaultIndex);
       this.setIndex(this.defaultIndex);
     }
   },

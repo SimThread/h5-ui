@@ -52,7 +52,6 @@ export default sfc({
     },
 
     render(h) {
-        console.log(this.tabs);
         const Nav = this.tabs.map((tab, index) => (
             <div
               ref="tabs"

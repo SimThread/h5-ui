@@ -13,7 +13,6 @@ export default sfc({
   },
 
   render(h) {
-    console.log('customStyle:', this.customStyle);
     const style = {
       zIndex: this.zIndex,
       ...this.customStyle

@@ -28,6 +28,8 @@
           <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange"></h5-select>
         </h5-filter-area-panel>
       </h5-filter-area>
+
+      <button @click="test()">測試</button>
     </demo-block>
   </demo-section>
 </template>
@@ -306,6 +308,9 @@ export default {
     }
   },
   methods: {
+    test() {
+      this.price.select.reset(0);
+    },
     complete() {
       this.activeIndex = -1;
       lastIndex = undefined;

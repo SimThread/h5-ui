@@ -14,7 +14,6 @@ export default {
     if (!context.stack.some(item => item.vm === vm)) {
       const el = vm.$el;
       const target = el && el.parentNode ? el.parentNode : document.body;
-      console.log('config:', config);
       context.stack.push({ vm, config, target });
       this.update();
     }
@@ -55,7 +54,6 @@ export default {
       const { target, config } = context.top;
       // 把蒙版插入到和弹窗同层位置
       target.appendChild(modal.$el);
-      console.log('config////:', config);
       Object.assign(modal, defaultConfig, config, {
         visible: true
       });

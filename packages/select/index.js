@@ -32,14 +32,12 @@ export default sfc({
     
       watch: {
         columns() {
-            console.log('watch columns');
           this.setColumns();
         }
       },
     
       methods: {
         setColumns() {
-            console.log('setColumns');
           const columns = this.simple ? [{ values: this.columns }] : this.columns;
           columns.forEach((column, index) => {
             this.setColumnValues(index, deepClone(column.values));
@@ -69,50 +67,42 @@ export default sfc({
     
         // 通过index获取column实例
         getColumn(index) {
-            console.log('getColumn');
           return this.children[index];
         },
     
         // 通过index获取column的值
         getColumnValue(index) {
-            console.log('getColumnValue');
           const column = this.getColumn(index);
           return column && column.getValue();
         },
     
         // 通过index设置column的值
         setColumnValue(index, value) {
-            console.log('setColumnValue');
           const column = this.getColumn(index);
           column && column.setValue(value);
         },
     
         // 通过column的index获取column的配置项
         getColumnIndex(columnIndex) {
-            console.log('getColumnIndex');
           return (this.getColumn(columnIndex) || {}).currentIndex;
         },
     
         // set column option index by column index
         setColumnIndex(columnIndex, optionIndex) {
-            console.log('setColumnIndex');
           const column = this.getColumn(columnIndex);
           column && column.setIndex(optionIndex);
         },
     
         // 通过index获取column的配置
         getColumnValues(index) {
-            console.log('getColumnValues');
           return (this.children[index] || {}).options;
         },
     
         // 通过index设置column的配置
         setColumnValues(index, options) {
-            console.log('setColumnValues:', index);
           const column = this.children[index];
           if (column && JSON.stringify(column.options) !== JSON.stringify(options)) {
               column.options = options;
-              console.log('setColumnValues options:', column.options);
 
             if (!column.multiple) {
                 column.setIndex(-1);
@@ -124,13 +114,11 @@ export default sfc({
     
         // get values of all columns
         getValues() {
-            console.log('getValues');
           return this.children.map(child => child.getValue());
         },
     
         // set values of all columns
         setValues(values) {
-            console.log('setValues');
           values.forEach((value, index) => {
             this.setColumnValue(index, value);
           });
@@ -138,20 +126,17 @@ export default sfc({
     
         // get indexes of all columns
         getIndexes() {
-            console.log('getIndexes');
           return this.children.map(child => child.currentIndex);
         },
     
         // set indexes of all columns
         setIndexes(indexes) {
-            console.log('setIndexes');
           indexes.forEach((optionIndex, columnIndex) => {
             this.setColumnIndex(columnIndex, optionIndex);
           });
         },
 
         reset (columnIndex) {
-          console.log('select columnIndex:', columnIndex);
           const column = this.children[columnIndex];
           column.reset();
         },
