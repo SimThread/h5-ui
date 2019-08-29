@@ -12,7 +12,7 @@
           <span
             v-if="config.logo.version"
             class="h5-doc-header__version"
-          >v{{ config.logo.version }}</span>
+          >v{{ config.logo.version }} ©基于有赞<a href="https://youzan.github.io/vant/#/zh-CN/intro">vant-ui</a>开发</span>
         </a>
         <ul class="h5-doc-header__top-nav">
           <li
@@ -193,8 +193,8 @@ export default {
     }
 
     img {
-      /* width: 100px;
-      height: auto; */
+      width: 40px;
+      height: auto;
       margin-right: 15px;
     }
 

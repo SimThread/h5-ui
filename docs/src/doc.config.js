@@ -3,7 +3,7 @@ const version = require('../../package.json').version;
 
 const header =  {
   logo: {
-    image: 'http://iph.href.lu/200x50?text=儘做內部文檔使用',
+    image: 'https://img.yzcdn.cn/vant/logo.png',
     title: 'h5-ui',
     version,
     href: '#/'
