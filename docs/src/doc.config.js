@@ -3,7 +3,7 @@ const version = require('../../package.json').version;
 
 const header =  {
   logo: {
-    image: 'https://statics.591.com.hk/public/images/newlogo.png',
+    image: 'http://iph.href.lu/200x50?text=儘做內部文檔使用',
     title: 'h5-ui',
     version,
     href: '#/'
@@ -24,34 +24,35 @@ module.exports = {
       {
         name: '开发指南',
         groups: [{
-          list: [{
+          list: [
+            {
               path: '/intro',
               title: '介绍'
             },
-            {
-              path: '/quickstart',
-              title: '快速上手'
-            },
-            {
-              path: '/changelog',
-              title: '更新日志'
-            },
-            {
-              path: '/style',
-              title: '内置样式'
-            },
+            // {
+            //   path: '/quickstart',
+            //   title: '快速上手'
+            // },
+            // {
+            //   path: '/changelog',
+            //   title: '更新日志'
+            // },
+            // {
+            //   path: '/style',
+            //   title: '内置样式'
+            // },
             // {
             //   path: '/theme',
             //   title: '定制主题'
             // },
-            {
-              path: '/contribution',
-              title: '开发指南'
-            },
-            {
-              path: '/style-guide',
-              title: '风格指南'
-            },
+            // {
+            //   path: '/contribution',
+            //   title: '开发指南'
+            // },
+            // {
+            //   path: '/style-guide',
+            //   title: '风格指南'
+            // },
             // {
             //   path: '/demo',
             //   title: '示例页面'
@@ -63,35 +64,35 @@ module.exports = {
         name: '组件',
         showInMobile: true,
         groups: [
-          {
-            groupName: '基础组件',
-            list: [
-              {
-                path: '/button',
-                title: 'Button 按钮'
-              },
-              {
-                path: '/popup',
-                title: 'Popup 弹出层'
-              },
-              {
-                path: '/icon',
-                title: 'Icon 图标'
-              },
-              {
-                path: '/collapse',
-                title: 'Collapse 折叠面板'
-              },
-              {
-                path: '/picker',
-                title: 'picker 选择器'
-              },
-              {
-                path: '/tab',
-                title: 'tab 切换'
-              }
-            ]
-          },
+          // {
+          //   groupName: '基础组件',
+          //   list: [
+          //     {
+          //       path: '/button',
+          //       title: 'Button 按钮'
+          //     },
+          //     {
+          //       path: '/popup',
+          //       title: 'Popup 弹出层'
+          //     },
+          //     {
+          //       path: '/icon',
+          //       title: 'Icon 图标'
+          //     },
+          //     {
+          //       path: '/collapse',
+          //       title: 'Collapse 折叠面板'
+          //     },
+          //     {
+          //       path: '/picker',
+          //       title: 'picker 选择器'
+          //     },
+          //     {
+          //       path: '/tab',
+          //       title: 'tab 切换'
+          //     }
+          //   ]
+          // },
           {
             groupName: '业务组件',
             list: [

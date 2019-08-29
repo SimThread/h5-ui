@@ -1,5 +1,5 @@
 <div class="h5-doc-intro">
-  <img class="h5-doc-intro__logo" src="https://statics.591.com.hk/public/images/newlogo.png">
+  <!-- <img class="h5-doc-intro__logo" src="https://statics.591.com.hk/public/images/newlogo.png"> -->
   <h2>h5-ui</h2>
   <p>轻量、可靠的移动端 Vue 组件库</p>
 </div>
