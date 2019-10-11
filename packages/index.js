@@ -4,6 +4,7 @@ import Button from './button';
 import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
+import Checkbox from './checkbox';
 import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
@@ -38,6 +39,7 @@ const components = [
   Card,
   Cell,
   CellGroup,
+  Checkbox,
   Col,
   Collapse,
   CollapseItem,
@@ -84,6 +86,7 @@ export {
   Card,
   Cell,
   CellGroup,
+  Checkbox,
   Col,
   Collapse,
   CollapseItem,

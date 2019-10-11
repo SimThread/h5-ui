@@ -13,6 +13,7 @@ export default {
   'en-US': () => import('../../packages/card/en-US.md'),
   'card': () => import('../../packages/card/zh-CN.md'),
   'cell': () => import('../../packages/cell/zh-CN.md'),
+  'checkbox': () => import('../../packages/checkbox/zh-CN.md'),
   'en-US': () => import('../../packages/col/en-US.md'),
   'col': () => import('../../packages/col/zh-CN.md'),
   'collapse': () => import('../../packages/collapse/zh-CN.md'),

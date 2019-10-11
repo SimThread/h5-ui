@@ -16,7 +16,7 @@ export default (parent, bem) => ({
     labelDisabled: Boolean,
     shape: {
       type: String,
-      default: 'round'
+      default: 'square'
     }
   },
 

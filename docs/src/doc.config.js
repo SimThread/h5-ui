@@ -94,6 +94,15 @@ module.exports = {
           //   ]
           // },
           {
+            groupName: '表单组件',
+            list: [
+              {
+                path: '/checkbox',
+                title: 'Checkbox 复选框'
+              },
+            ]
+          },
+          {
             groupName: '业务组件',
             list: [
               {

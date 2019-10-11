@@ -6,6 +6,7 @@ export default {
   'button': () => wrapper(import('../../packages/button/demo'), 'button'),
   'card': () => wrapper(import('../../packages/card/demo'), 'card'),
   'cell': () => wrapper(import('../../packages/cell/demo'), 'cell'),
+  'checkbox': () => wrapper(import('../../packages/checkbox/demo'), 'checkbox'),
   'col': () => wrapper(import('../../packages/col/demo'), 'col'),
   'collapse': () => wrapper(import('../../packages/collapse/demo'), 'collapse'),
   'color': () => wrapper(import('../../packages/color/demo'), 'color'),
