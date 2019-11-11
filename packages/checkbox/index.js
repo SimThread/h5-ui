@@ -4,7 +4,7 @@ import CheckboxMixin from '../mixins/checkbox';
 const [sfc, bem] = use('checkbox');
 
 export default sfc({
-  mixins: [CheckboxMixin('van-checkbox-group', bem)],
+  mixins: [CheckboxMixin('h5-checkbox-group', bem)],
 
   computed: {
     checked: {
@@ -46,6 +46,7 @@ export default sfc({
     },
 
     setParentValue(val) {
+      console.log('val:', val);
       const { parent } = this;
       const value = parent.value.slice();
 

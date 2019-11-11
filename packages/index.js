@@ -1,14 +1,18 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
+import Anchor from './anchor';
 import Button from './button';
 import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
 import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
+import ClickOutside from './click-outside';
 import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
 import Dialog from './dialog';
+import Field from './field';
 import FilterArea from './filter-area';
 import FilterAreaPanel from './filter-area-panel';
 import Icon from './icon';
@@ -31,19 +35,28 @@ import TabbarItem from './tabbar-item';
 import Tabs from './tabs';
 import Tag from './tag';
 import Toast from './toast';
+import ToolBom from './tool-bom';
+import ToolDate from './tool-date';
+import ToolDom from './tool-dom';
+import ToolNumberFormat from './tool-number-format';
+import ToolUrl from './tool-url';
 import Uploader from './uploader';
 
-const version = '0.0.11';
+const version = '0.0.14-beta';
 const components = [
+  Anchor,
   Button,
   Card,
   Cell,
   CellGroup,
   Checkbox,
+  CheckboxGroup,
+  ClickOutside,
   Col,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   FilterArea,
   FilterAreaPanel,
   Icon,
@@ -65,6 +78,11 @@ const components = [
   Tabs,
   Tag,
   Toast,
+  ToolBom,
+  ToolDate,
+  ToolDom,
+  ToolNumberFormat,
+  ToolUrl,
   Uploader
 ];
 
@@ -82,15 +100,19 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
+  Anchor,
   Button,
   Card,
   Cell,
   CellGroup,
   Checkbox,
+  CheckboxGroup,
+  ClickOutside,
   Col,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   FilterArea,
   FilterAreaPanel,
   Icon,
@@ -113,6 +135,11 @@ export {
   Tabs,
   Tag,
   Toast,
+  ToolBom,
+  ToolDate,
+  ToolDom,
+  ToolNumberFormat,
+  ToolUrl,
   Uploader
 };
 

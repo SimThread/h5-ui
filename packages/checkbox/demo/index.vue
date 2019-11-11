@@ -4,7 +4,7 @@
       <h5-checkbox v-model="checkbox1">复选框</h5-checkbox>
     </demo-block>
 
-    <!-- <demo-block title="禁用状态">
+    <demo-block title="禁用状态">
       <h5-checkbox
         :value="false"
         disabled
@@ -37,9 +37,9 @@
           :src="props.checked ? icon.active : icon.normal"
         >
       </h5-checkbox>
-    </demo-block> -->
+    </demo-block>
 
-    <!-- <demo-block title="复选框组">
+    <demo-block title="复选框组">
       <h5-checkbox-group v-model="result">
         <h5-checkbox
           v-for="(item, index) in list"
@@ -64,7 +64,7 @@
           复选框 {{ item }}
         </h5-checkbox>
       </h5-checkbox-group>
-    </demo-block> -->
+    </demo-block>
 
     <!-- <demo-block title="搭配单元格组件使用">
       <h5-checkbox-group v-model="result3">

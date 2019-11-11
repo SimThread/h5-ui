@@ -28,8 +28,6 @@
           <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange"></h5-select>
         </h5-filter-area-panel>
       </h5-filter-area>
-
-      <button @click="test()">測試</button>
     </demo-block>
   </demo-section>
 </template>
@@ -144,7 +142,7 @@ function toQueryParams(){
       if((pair = pair.split('='))[0]){
           var key   = decodeURIComponent(pair.shift());
           var value = pair.length > 1 ? pair.join('=') : pair[0];
-          
+
           if(value != undefined){
               value = decodeURIComponent(value);
           }
@@ -241,12 +239,12 @@ export default {
           this.area.select.setColumnValues(2, subOptions.areaOptions[index]);
           this.area.select.setColumnIndex(2, districtDefaultIndex);
         }
-      } else if (queryPrams.subwayLine) {  
+      } else if (queryPrams.subwayLine) {
         this.area.select.setColumnIndex(0, 1);
         const index = options.subwayOptions.findIndex((item) => Number(queryPrams.subwayLine) == item.id);
         this.area.select.setColumnValues(1, options.subwayOptions);
         this.area.select.setColumnIndex(1, index);
-        
+
         if (queryPrams.subwayStation) {
           const subwayStation = queryPrams.subwayStation.split(',');
           const subwayStationDefaultIndex = subwayStation.map((id) => {
@@ -361,7 +359,7 @@ export default {
           params.subwayLine = values[1].id;
           picker.setColumnValues(2, subOptions.subwayOptions[values[1].id]);
         }
-        
+
         // picker.setColumnValues(2, district[citys[values[0]][0]]);
       } else {
         const numStr = values[2].length > 0 ? `(${values[2].length})` : '';
@@ -436,13 +434,11 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 @import '../../style/reset';
 @import '../../style/var';
 
 .demo-filter-area {
-  margin-bottom: 300px;
-
   .estate-footer {
     width: 100%;
     padding: 7px 0;

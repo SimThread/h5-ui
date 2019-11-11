@@ -1,23 +1,14 @@
 <template>
   <demo-section>
     <demo-block title="按钮类型">
-      <div class="demo-button-row">
-        <h5-button type="primary">主要按钮</h5-button>
-        <h5-button type="danger">危险按钮</h5-button>
-      </div>
+      <h5-button type="primary">主要按钮</h5-button>
       <h5-button type="default">默认按钮</h5-button>
-      <h5-button type="warning">警告按钮</h5-button>
     </demo-block>
 
     <demo-block title="朴素按钮">
       <h5-button
         plain
         type="primary"
-        text="朴素按钮"
-      />
-      <h5-button
-        plain
-        type="danger"
         text="朴素按钮"
       />
     </demo-block>
@@ -28,22 +19,12 @@
         type="primary"
         text="禁用按钮"
       />
-      <h5-button
-        disabled
-        type="danger"
-        text="禁用按钮"
-      />
     </demo-block>
 
     <demo-block title="加载状态">
       <h5-button
         loading
         type="primary"
-      />
-      <h5-button
-        loading
-        loading-text="加载文本"
-        type="danger"
       />
     </demo-block>
 
@@ -54,7 +35,7 @@
         text="方形按钮"
       />
       <h5-button
-        type="danger"
+        type="primary"
         round
         text="圆形按钮"
       />

@@ -35,7 +35,7 @@ Icon.props = {
   info: [String, Number],
   classPrefix: {
     type: String,
-    default: 'van-icon'
+    default: 'h5-icon'
   }
 };
 

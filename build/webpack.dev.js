@@ -21,6 +21,7 @@ module.exports = {
   devServer: {
     hot: true, // 开启热点
     inline: true, // 开启页面自动刷新
+    host: "0.0.0.0",
     port: 8050,
     proxy: {
       '/Home': {
@@ -34,7 +35,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.vue', '.css'],
     alias: {
-      packages: path.join(__dirname, '../src')
+      packages: path.join(__dirname, '../src'),
+      'h5-ui': path.join(__dirname, '../packages'),
     }
   },
   module: {
@@ -105,9 +107,13 @@ module.exports = {
         }
       },
       {
-        test: /\.(ttf|svg)$/,
-        loader: 'url-loader'
-      }
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+        }
+      },
     ]
   },
   plugins: [
