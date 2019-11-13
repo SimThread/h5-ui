@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { ToolBom } from 'h5-ui';
+import { TBom } from 'h5-ui';
 console.log('getScrollTop:', ToolBom);
 export default {
 

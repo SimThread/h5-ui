@@ -1,6 +1,6 @@
-import { use, isDef } from '../utils';
+import { use, isDef } from '../_utils';
 
-import findParent from '../mixins/find-parent';
+import findParent from '../_mixins/find-parent';
 const [sfc, bem] = use('filter-area');
 
 export default sfc({

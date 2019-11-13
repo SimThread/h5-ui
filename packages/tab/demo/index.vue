@@ -147,7 +147,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../style/var';
+@import '../../packages/_style/var';
 
 .demo-tab {
   margin-bottom: 300px;

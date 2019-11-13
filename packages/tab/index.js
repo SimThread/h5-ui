@@ -1,6 +1,6 @@
 /* eslint-disable object-shorthand */
-import { use } from '../utils';
-import findParent from '../mixins/find-parent';
+import { use } from '../_utils';
+import findParent from '../_mixins/find-parent';
 
 const [sfc, bem] = use('tab');
 

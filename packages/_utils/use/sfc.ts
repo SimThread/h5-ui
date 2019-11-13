@@ -2,7 +2,7 @@
  * Create a basic component with common options
  */
 import { camelize } from '..';
-import SlotsMixin from '../../mixins/slots';
+import SlotsMixin from '../../_mixins/slots';
 import Vue, {
   VueConstructor,
   ComponentOptions,

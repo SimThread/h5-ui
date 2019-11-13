@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { ToolNumberFormat } from 'h5-ui';
+import { TNumberFormat } from 'h5-ui';
 
 export default {
   data() {
@@ -37,17 +37,17 @@ export default {
     }
   },
   filters: {
-    addZero: ToolNumberFormat.addZero,
-    thousands: ToolNumberFormat.thousands,
+    addZero: TNumberFormat.addZero,
+    thousands: TNumberFormat.thousands,
   },
   methods: {
-    // dateFormat: ToolDate.dateFormat,
+    // dateFormat: TDate.dateFormat,
     // parseDate() {
-    //   console.log(ToolDate.dateFormat('1994/04/08'));
+    //   console.log(TDate.dateFormat('1994/04/08'));
     //   if (this.value) {
-    //     this.result = ToolDate.dateFormat(new Date(), this.value);
+    //     this.result = TDate.dateFormat(new Date(), this.value);
     //   } else {
-    //     this.result = ToolDate.dateFormat(new Date());
+    //     this.result = TDate.dateFormat(new Date());
     //   }
     // }
   }

@@ -1,7 +1,7 @@
 import {
   use,
   isDef
-} from '../utils';
+} from '../_utils';
 
 const [sfc, bem] = use('info');
 

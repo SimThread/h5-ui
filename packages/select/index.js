@@ -1,6 +1,6 @@
-import { use } from '../utils';
-import findParent from '../mixins/find-parent';
-import deepClone from '../utils/deep-clone';
+import { use } from '../_utils';
+import findParent from '../_mixins/find-parent';
+import deepClone from '../_utils/deep-clone';
 import SelectColumn from './SelectColumn';
 
 const [sfc, bem] = use('select');

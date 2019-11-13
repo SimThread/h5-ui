@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { ToolDate } from 'h5-ui';
+import { TDate } from 'h5-ui';
 
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
     }
   },
   filters: {
-    dateFormat: ToolDate.dateFormat
+    dateFormat: TDate.dateFormat
   },
 }
 </script>

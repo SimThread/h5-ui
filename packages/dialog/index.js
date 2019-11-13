@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VanDialog from './Dialog';
-import { isServer } from '../utils';
+import { isServer } from '../_utils';
 
 let instance;
 

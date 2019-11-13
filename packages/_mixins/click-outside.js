@@ -1,7 +1,7 @@
 import {
   on,
   off
-} from '../utils/event';
+} from '../_utils/event';
 
 export default config => ({
   mounted() {

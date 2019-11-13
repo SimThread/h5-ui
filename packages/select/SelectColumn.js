@@ -1,5 +1,5 @@
-import deepClone from '../utils/deep-clone';
-import { use, isObj, range } from '../utils';
+import deepClone from '../_utils/deep-clone';
+import { use, isObj, range } from '../_utils';
 
 const DEFAULT_DURATION = 200;
 const [sfc, bem] = use('select-column');

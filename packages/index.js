@@ -1,13 +1,11 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
-import Anchor from './anchor';
 import Button from './button';
 import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
 import Checkbox from './checkbox';
 import CheckboxGroup from './checkbox-group';
-import ClickOutside from './click-outside';
 import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
@@ -29,29 +27,29 @@ import Row from './row';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
+import TBom from './t-bom';
+import TDate from './t-date';
+import TDom from './t-dom';
+import TNumberFormat from './t-number-format';
+import TUrl from './t-url';
 import Tab from './tab';
 import Tabbar from './tabbar';
 import TabbarItem from './tabbar-item';
 import Tabs from './tabs';
 import Tag from './tag';
 import Toast from './toast';
-import ToolBom from './tool-bom';
-import ToolDate from './tool-date';
-import ToolDom from './tool-dom';
-import ToolNumberFormat from './tool-number-format';
-import ToolUrl from './tool-url';
 import Uploader from './uploader';
+import VAnchor from './v-anchor';
+import VClickOutside from './v-click-outside';
 
 const version = '0.0.14-beta';
 const components = [
-  Anchor,
   Button,
   Card,
   Cell,
   CellGroup,
   Checkbox,
   CheckboxGroup,
-  ClickOutside,
   Col,
   Collapse,
   CollapseItem,
@@ -72,18 +70,20 @@ const components = [
   Select,
   SharePopup,
   SharePopupItem,
+  TBom,
+  TDate,
+  TDom,
+  TNumberFormat,
+  TUrl,
   Tab,
   Tabbar,
   TabbarItem,
   Tabs,
   Tag,
   Toast,
-  ToolBom,
-  ToolDate,
-  ToolDom,
-  ToolNumberFormat,
-  ToolUrl,
-  Uploader
+  Uploader,
+  VAnchor,
+  VClickOutside
 ];
 
 const install = Vue => {
@@ -100,14 +100,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
-  Anchor,
   Button,
   Card,
   Cell,
   CellGroup,
   Checkbox,
   CheckboxGroup,
-  ClickOutside,
   Col,
   Collapse,
   CollapseItem,
@@ -129,18 +127,20 @@ export {
   Select,
   SharePopup,
   SharePopupItem,
+  TBom,
+  TDate,
+  TDom,
+  TNumberFormat,
+  TUrl,
   Tab,
   Tabbar,
   TabbarItem,
   Tabs,
   Tag,
   Toast,
-  ToolBom,
-  ToolDate,
-  ToolDom,
-  ToolNumberFormat,
-  ToolUrl,
-  Uploader
+  Uploader,
+  VAnchor,
+  VClickOutside
 };
 
 export default {

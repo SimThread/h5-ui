@@ -1,4 +1,4 @@
-import { use, isObj, isDef } from '../utils';
+import { use, isObj, isDef } from '../_utils';
 import Icon from '../icon';
 import Cell from '../cell';
 import { cellProps } from '../cell/shared';

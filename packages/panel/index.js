@@ -1,6 +1,6 @@
 import {
   use
-} from '../utils';
+} from '../_utils';
 import Cell from '../cell';
 import CellGroup from '../cell-group';
 

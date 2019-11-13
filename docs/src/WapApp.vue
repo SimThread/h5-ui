@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../packages/style/var';
+@import '../../packages/_style/var';
 
 body {
   min-width: auto;

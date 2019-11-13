@@ -87,14 +87,14 @@ function search(tree, component, checkList) {
 // 返回指定格式的样式文件路径
 function getStylePath(component, ext = '.css') {
   if (component === 'base') {
-    return path.join(__dirname, `../es/style/base${ext}`);
+    return path.join(__dirname, `../es/_style/base${ext}`);
   }
   return path.join(__dirname, `../es/${component}/index${ext}`);
 }
 
 function getStyleRelativePath(component, style, ext) {
   return path.relative(
-    path.join(__dirname, `../es/${component}/style`),
+    path.join(__dirname, `../es/${component}/_style`),
     getStylePath(style, ext)
   ).split(path.sep).join('/');
 }

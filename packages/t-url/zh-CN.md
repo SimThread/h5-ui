@@ -3,7 +3,7 @@
 ### 使用指南
 
 ``` javascript
-import { ToolURL } from 'h5-ui';
+import { TUrl } from 'h5-ui';
 ```
 
 ### 代码演示
@@ -11,16 +11,16 @@ import { ToolURL } from 'h5-ui';
 #### 对象转查询字符串
 
 ```javascript
-ToolURL.stringify({foo: 'bar'})
+TUrl.stringify({foo: 'bar'})
 // returns 'foo=bar'
 
-ToolURL.stringify({foo: 'bar', baz: 'bob'}, ';', ':')
+TUrl.stringify({foo: 'bar', baz: 'bob'}, ';', ':')
 // returns 'foo:bar;baz:bob'
 ```
 
 #### 查询字符串转对象
 
 ```javascript
-ToolURL.parse('a=b&c=d')
+TUrl.parse('a=b&c=d')
 // returns {a: 'b', c: 'c'}
 ```

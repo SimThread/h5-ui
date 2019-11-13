@@ -1,7 +1,7 @@
-import { use } from '../utils';
+import { use } from '../_utils';
 import Icon from '../icon';
 import Info from '../info';
-import { route, routeProps } from '../mixins/router';
+import { route, routeProps } from '../_mixins/router';
 
 const [sfc, bem] = use('tabbar-item');
 

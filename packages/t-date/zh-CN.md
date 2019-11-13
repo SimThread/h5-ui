@@ -1,9 +1,9 @@
-## Date 日期操作
+## URL 路径解析
 
 ### 使用指南
 
 ``` javascript
-import { ToolDate } from 'h5-ui';
+import { TDate } from 'h5-ui';
 ```
 
 ### 代码演示
@@ -11,7 +11,7 @@ import { ToolDate } from 'h5-ui';
 #### 日期对象转字符串
 
 ```javascript
-ToolDate.dateFormat(new Date(), 'YYYY-MM-DD HH:mm:ss')
+TDate.dateFormat(new Date(), 'YYYY-MM-DD HH:mm:ss')
 ```
 
 #### 作为 filter 使用
@@ -19,7 +19,7 @@ ToolDate.dateFormat(new Date(), 'YYYY-MM-DD HH:mm:ss')
 ```javascript
 export default {
   filters: {
-    dateFormat: ToolDate.dateFormat
+    dateFormat: TDate.dateFormat
   }
 }
 ```

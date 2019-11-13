@@ -1,11 +1,11 @@
 import {
   use,
   isDef
-} from '../utils';
+} from '../_utils';
 import {
   BLUE,
   WHITE
-} from '../utils/color';
+} from '../_utils/color';
 
 const [sfc, bem] = use('progress');
 

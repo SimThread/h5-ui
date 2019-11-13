@@ -1,11 +1,11 @@
-import { use, isDef } from '../utils';
-import { prevent } from '../utils/event';
-import Touch from '../mixins/touch';
-import { raf } from '../utils/raf';
-import { on, off } from '../utils/event';
-import manager from '../mixins/popup/manager';
-import context from '../mixins/popup/context';
-import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../utils/scroll';
+import { use, isDef } from '../_utils';
+import { prevent } from '../_utils/event';
+import Touch from '../_mixins/touch';
+import { raf } from '../_utils/raf';
+import { on, off } from '../_utils/event';
+import manager from '../_mixins/popup/manager';
+import context from '../_mixins/popup/context';
+import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
 
 const [sfc, bem] = use('filter-area');
 const tabBem = use('filter-area-panel')[1];

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { BLUE } from '../../../packages/utils/color';
+import { BLUE } from '../../_utils/color';
 
 export default {
   data() {
@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../style/var';
+@import '../../packages/_style/var';
 
 .demo-icon {
   font-size: 0;

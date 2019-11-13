@@ -1,5 +1,5 @@
-import { use } from '../utils';
-import CheckboxMixin from '../mixins/checkbox';
+import { use } from '../_utils';
+import CheckboxMixin from '../_mixins/checkbox';
 
 const [sfc, bem] = use('checkbox');
 

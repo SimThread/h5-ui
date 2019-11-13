@@ -66,19 +66,19 @@ module.exports = {
         groups: [{
           list: [
             {
-              path: '/tool-date',
+              path: '/t-date',
               title: 'Date 日期类'
             },
             {
-              path: '/tool-number-format',
+              path: '/t-number-format',
               title: 'NumberFormat 数字格式化'
             },
             {
-              path: '/tool-url',
+              path: '/t-url',
               title: 'URL 路径解析'
             },
             {
-              path: '/tool-dom',
+              path: '/t-dom',
               title: 'DOM 文档对象操作'
             },
           ]
@@ -90,11 +90,11 @@ module.exports = {
         groups: [{
           list: [
             {
-              path: '/anchor',
+              path: '/v-anchor',
               title: 'Anchor 锚点'
             },
             {
-              path: '/click-outside',
+              path: '/v-click-outside',
               title: 'ClickOutside 点击外部'
             },
           ]

@@ -3,12 +3,10 @@
 import { wrapper } from './demo-common';
 
 export default {
-  'anchor': () => wrapper(import('../../packages/anchor/demo'), 'anchor'),
   'button': () => wrapper(import('../../packages/button/demo'), 'button'),
   'card': () => wrapper(import('../../packages/card/demo'), 'card'),
   'cell': () => wrapper(import('../../packages/cell/demo'), 'cell'),
   'checkbox': () => wrapper(import('../../packages/checkbox/demo'), 'checkbox'),
-  'click-outside': () => wrapper(import('../../packages/click-outside/demo'), 'click-outside'),
   'col': () => wrapper(import('../../packages/col/demo'), 'col'),
   'collapse': () => wrapper(import('../../packages/collapse/demo'), 'collapse'),
   'color': () => wrapper(import('../../packages/color/demo'), 'color'),
@@ -24,12 +22,14 @@ export default {
   'popup': () => wrapper(import('../../packages/popup/demo'), 'popup'),
   'progress': () => wrapper(import('../../packages/progress/demo'), 'progress'),
   'share-popup': () => wrapper(import('../../packages/share-popup/demo'), 'share-popup'),
-  'style': () => wrapper(import('../../packages/style/demo'), 'style'),
+  't-bom': () => wrapper(import('../../packages/t-bom/demo'), 't-bom'),
+  't-date': () => wrapper(import('../../packages/t-date/demo'), 't-date'),
+  't-number-format': () => wrapper(import('../../packages/t-number-format/demo'), 't-number-format'),
   'tab': () => wrapper(import('../../packages/tab/demo'), 'tab'),
   'tabbar': () => wrapper(import('../../packages/tabbar/demo'), 'tabbar'),
   'tag': () => wrapper(import('../../packages/tag/demo'), 'tag'),
   'toast': () => wrapper(import('../../packages/toast/demo'), 'toast'),
-  'tool-bom': () => wrapper(import('../../packages/tool-bom/demo'), 'tool-bom'),
-  'tool-date': () => wrapper(import('../../packages/tool-date/demo'), 'tool-date'),
-  'tool-number-format': () => wrapper(import('../../packages/tool-number-format/demo'), 'tool-number-format')
+  'v-anchor': () => wrapper(import('../../packages/v-anchor/demo'), 'v-anchor'),
+  'v-click-outside': () => wrapper(import('../../packages/v-click-outside/demo'), 'v-click-outside'),
+  '_style': () => wrapper(import('../../packages/_style/demo'), '_style')
 };

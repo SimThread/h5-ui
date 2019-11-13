@@ -435,8 +435,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import '../../style/reset';
-@import '../../style/var';
+@import '../../_style/reset';
+@import '../../packages/_style/var';
 
 .demo-filter-area {
   .estate-footer {
