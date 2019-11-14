@@ -1,74 +1,41 @@
 <template>
-  <demo-section>
-    <h5-tabs
-      v-model="tab"
-      sticky
-      :color="BLUE"
-    >
-      <h5-tab title="基础图标">
-        <h5-col
-          v-for="icon in icons.basic"
+  <demo-section demoName="icon">
+    <h5-col
+          v-for="icon in icons"
           :key="icon"
           span="6"
         >
-          <h5-icon :name="icon" />
+        <h5-icon :name="icon" />
           <span>{{ icon }}</span>
         </h5-col>
-      </h5-tab>
-      <h5-tab title="线框风格">
-        <h5-col
-          v-for="icon in icons.outline"
-          :key="icon"
-          span="6"
-        >
-          <h5-icon :name="icon" />
-          <span>{{ icon }}</span>
-        </h5-col>
-      </h5-tab>
-      <h5-tab title="实底风格">
-        <h5-col
-          v-for="icon in icons.filled"
-          :key="icon"
-          span="6"
-        >
-          <h5-icon :name="icon" />
-          <span>{{ icon }}</span>
-        </h5-col>
-      </h5-tab>
-    </h5-tabs>
   </demo-section>
 </template>
 
 <script>
-import icons from '@vant/icons';
-import { BLUE } from '../../../packages/utils/color';
+import { BLUE } from '../../_utils/color';
 
 export default {
-  i18n: {
-    'zh-CN': {
-      title: '图标列表',
-      info: '显示徽标',
-      basic: '基础图标'
-    },
-    'en-US': {
-      title: 'Icon List',
-      info: 'Show Info',
-      basic: 'Basic Icon'
-    }
-  },
-
   data() {
     this.BLUE = BLUE;
-    this.icons = icons;
     return {
-      tab: 0
+      tab: 0,
+      icons: [
+        'success',
+        'plus',
+        'cross',
+        'fail',
+        'arrow',
+        'arrow-left',
+        'arrow-up',
+        'arrow-down'
+      ],
     };
   }
 };
 </script>
 
 <style lang="less">
-@import '../../style/var';
+@import '../../packages/_style/var';
 
 .demo-icon {
   font-size: 0;
@@ -94,7 +61,7 @@ export default {
     }
   }
 
-  .van-icon {
+  .h5-icon {
     font-size: 32px;
     margin: 15px 0;
     color: @text-color;

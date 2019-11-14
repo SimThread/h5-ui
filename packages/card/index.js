@@ -1,4 +1,4 @@
-import { use, isDef } from '../utils';
+import { use, isDef } from '../_utils';
 import Tag from '../tag';
 
 const [sfc, bem] = use('card');

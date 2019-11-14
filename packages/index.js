@@ -4,10 +4,13 @@ import Button from './button';
 import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
+import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
 import Dialog from './dialog';
+import Field from './field';
 import FilterArea from './filter-area';
 import FilterAreaPanel from './filter-area-panel';
 import Icon from './icon';
@@ -24,6 +27,11 @@ import Row from './row';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
+import TBom from './t-bom';
+import TDate from './t-date';
+import TDom from './t-dom';
+import TNumberFormat from './t-number-format';
+import TUrl from './t-url';
 import Tab from './tab';
 import Tabbar from './tabbar';
 import TabbarItem from './tabbar-item';
@@ -31,17 +39,22 @@ import Tabs from './tabs';
 import Tag from './tag';
 import Toast from './toast';
 import Uploader from './uploader';
+import VAnchor from './v-anchor';
+import VClickOutside from './v-click-outside';
 
-const version = '0.0.11';
+const version = '0.0.16-beta';
 const components = [
   Button,
   Card,
   Cell,
   CellGroup,
+  Checkbox,
+  CheckboxGroup,
   Col,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   FilterArea,
   FilterAreaPanel,
   Icon,
@@ -57,13 +70,20 @@ const components = [
   Select,
   SharePopup,
   SharePopupItem,
+  TBom,
+  TDate,
+  TDom,
+  TNumberFormat,
+  TUrl,
   Tab,
   Tabbar,
   TabbarItem,
   Tabs,
   Tag,
   Toast,
-  Uploader
+  Uploader,
+  VAnchor,
+  VClickOutside
 ];
 
 const install = Vue => {
@@ -84,10 +104,13 @@ export {
   Card,
   Cell,
   CellGroup,
+  Checkbox,
+  CheckboxGroup,
   Col,
   Collapse,
   CollapseItem,
   Dialog,
+  Field,
   FilterArea,
   FilterAreaPanel,
   Icon,
@@ -104,13 +127,20 @@ export {
   Select,
   SharePopup,
   SharePopupItem,
+  TBom,
+  TDate,
+  TDom,
+  TNumberFormat,
+  TUrl,
   Tab,
   Tabbar,
   TabbarItem,
   Tabs,
   Tag,
   Toast,
-  Uploader
+  Uploader,
+  VAnchor,
+  VClickOutside
 };
 
 export default {

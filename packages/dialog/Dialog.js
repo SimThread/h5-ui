@@ -1,6 +1,6 @@
-import { use } from '../utils';
+import { use } from '../_utils';
 import Button from '../button';
-import Popup from '../mixins/popup';
+import Popup from '../_mixins/popup';
 
 const [sfc, bem, t] = use('dialog');
 

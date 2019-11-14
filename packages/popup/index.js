@@ -1,5 +1,5 @@
-import { use } from '../utils';
-import Popup from '../mixins/popup';
+import { use } from '../_utils';
+import Popup from '../_mixins/popup';
 
 const [sfc, bem] = use('popup');
 

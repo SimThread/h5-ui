@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueToast from './Toast';
-import { isObj, isServer } from '../utils';
+import { isObj, isServer } from '../_utils';
 
 const defaultOptions = {
   type: 'text',

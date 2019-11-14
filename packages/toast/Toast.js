@@ -1,7 +1,7 @@
-import { use, isDef } from '../utils';
+import { use, isDef } from '../_utils';
 import Icon from '../icon';
 import Loading from '../loading';
-import Popup from '../mixins/popup';
+import Popup from '../_mixins/popup';
 
 const [sfc, bem] = use('toast');
 const STYLE = ['success', 'fail', 'loading'];

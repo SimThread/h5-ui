@@ -1,6 +1,6 @@
 ## SharePopup 分享弹窗
 
-### 使用指南
+### 引入
 ``` javascript
 import { SharePopup, SharePopupItem } from 'h5-ui';
 
@@ -71,13 +71,13 @@ Vue.use(SharePopup).use(SharePopupItem);
 ```
 
 ### SharePopup API
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|------|------|
-| v-model | 当前组件是否显示 | `Boolean` | `false` |
-| showPanel.sync | 是否打开面板 | `Boolean` | `false` |
+| v-model | 当前组件是否显示 | `Boolean` |
+| showPanel.sync | 是否打开面板 | `Boolean` |
 
-### CollapseItem API
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| imgSrc | 项目图片地址 | `String` | - | - |
-| text | 项目描述内容 | `String` | - | - |
+### SharePopupItem  API
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| imgSrc | 项目图片地址 | `String` | - |
+| text | 项目描述内容 | `String` | - |

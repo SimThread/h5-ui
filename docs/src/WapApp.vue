@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../packages/style/var';
+@import '../../packages/_style/var';
 
 body {
   min-width: auto;
@@ -69,6 +69,33 @@ body {
   background-color: #fafafa;
   font-family: 'PingFang SC', Helvetica, 'STHeiti STXihei', 'Microsoft YaHei', Tohoma, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2.5px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 2.5px rgba(0, 0, 0, 0.3);
+    border-radius: 2.5px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 2.5px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 2.5px rgba(0, 0, 0, .3);
+    border-radius: 2.5px;
+    // background-color: #294E80;
+    background: #e5e5e5;
+    opacity: .7;
+    transition: opacity ease-in-out 200ms;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
 }
 
 .h5-doc-nav-bar {

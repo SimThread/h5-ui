@@ -1,8 +1,8 @@
-import { use, isDef } from '../utils';
-import { raf } from '../utils/raf';
+import { use, isDef } from '../_utils';
+import { raf } from '../_utils/raf';
 import Cell from '../cell';
 import { cellProps } from '../cell/shared';
-import FindParent from '../mixins/find-parent';
+import FindParent from '../_mixins/find-parent';
 
 const [sfc, bem] = use('collapse-item');
 const CELL_SLOTS = ['title', 'icon', 'right-icon'];

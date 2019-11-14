@@ -1,6 +1,6 @@
 import {
   use
-} from '../utils';
+} from '../_utils';
 
 const [sfc, bem] = use('collapse');
 

@@ -8,11 +8,11 @@ const header =  {
     version,
     href: '#/'
   },
-  
+
   nav: {
     'Vue 组件': '/#/components/intro',
-    'UI设计规范': '/#/design/intro',
-    github: 'https://github.com/SimThread/h5-ui'
+    // 'UI设计规范': '/#/design/intro',
+    // github: 'https://github.com/SimThread/h5-ui'
   }
 };
 
@@ -61,38 +61,91 @@ module.exports = {
         }]
       },
       {
+        name: '工具类',
+        showInMobile: false,
+        groups: [{
+          list: [
+            {
+              path: '/t-date',
+              title: 'Date 日期类'
+            },
+            {
+              path: '/t-number-format',
+              title: 'NumberFormat 数字格式化'
+            },
+            {
+              path: '/t-url',
+              title: 'URL 路径解析'
+            },
+            {
+              path: '/t-dom',
+              title: 'DOM 文档对象操作'
+            },
+          ]
+        }]
+      },
+      {
+        name: '指令',
+        showInMobile: false,
+        groups: [{
+          list: [
+            {
+              path: '/v-anchor',
+              title: 'Anchor 锚点'
+            },
+            {
+              path: '/v-click-outside',
+              title: 'ClickOutside 点击外部'
+            },
+          ]
+        }]
+      },
+      {
         name: '组件',
         showInMobile: true,
         groups: [
-          // {
-          //   groupName: '基础组件',
-          //   list: [
-          //     {
-          //       path: '/button',
-          //       title: 'Button 按钮'
-          //     },
-          //     {
-          //       path: '/popup',
-          //       title: 'Popup 弹出层'
-          //     },
-          //     {
-          //       path: '/icon',
-          //       title: 'Icon 图标'
-          //     },
-          //     {
-          //       path: '/collapse',
-          //       title: 'Collapse 折叠面板'
-          //     },
-          //     {
-          //       path: '/picker',
-          //       title: 'picker 选择器'
-          //     },
-          //     {
-          //       path: '/tab',
-          //       title: 'tab 切换'
-          //     }
-          //   ]
-          // },
+          {
+            groupName: '基础组件',
+            list: [
+              {
+                path: '/button',
+                title: 'Button 按钮'
+              },
+              // {
+              //   path: '/popup',
+              //   title: 'Popup 弹出层'
+              // },
+              {
+                path: '/icon',
+                title: 'Icon 图标'
+              },
+              // {
+              //   path: '/collapse',
+              //   title: 'Collapse 折叠面板'
+              // },
+              // {
+              //   path: '/picker',
+              //   title: 'picker 选择器'
+              // },
+              // {
+              //   path: '/tab',
+              //   title: 'tab 切换'
+              // }
+            ]
+          },
+          {
+            groupName: '表单组件',
+            list: [
+              {
+                path: '/checkbox',
+                title: 'Checkbox 复选框'
+              },
+              {
+                path: '/field',
+                title: 'Field 输入框'
+              },
+            ]
+          },
           {
             groupName: '业务组件',
             list: [

@@ -1,6 +1,6 @@
 ## Button 按钮
 
-### 使用指南
+### 引入
 ``` javascript
 import { Button } from 'h5-ui';
 
@@ -64,20 +64,20 @@ Vue.use(Button);
 
 ### API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| type | 类型，可选值为 `primary` `warning` `danger` | `String` | `default` | - |
-| size | 尺寸，可选值为 `large` `small` `mini` | `String` | `normal` | - |
-| text | 文字 | `String` | - | - |
-| tag | HTML 标签 | `String` | `button` | - |
-| native-type | 原生 type 属性 | `String` | - | - |
-| block | 是否为块级元素 | `Boolean` | `false` | - |
-| plain | 是否为朴素按钮 | `Boolean` | `false` | 1.1.13 |
-| square | 是否为方形按钮 | `Boolean` | `false` | 1.2.0 |
-| round | 是否为圆形按钮 | `Boolean` | `false` | 1.3.4 |
-| disabled | 是否禁用按钮 | `Boolean` | `false` | - |
-| loading | 是否显示为加载状态 | `Boolean` | `false` | - |
-| loading-text | 加载状态提示文字 | `String` | - | 1.6.3 |
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| type | 类型，可选值为 `primary` `warning` `danger` | `String` | `default` |
+| size | 尺寸，可选值为 `large` `small` `mini` | `String` | `normal` |
+| text | 文字 | `String` | - |
+| tag | HTML 标签 | `String` | `button` |
+| native-type | 原生 type 属性 | `String` | - |
+| block | 是否为块级元素 | `Boolean` | `false` |
+| plain | 是否为朴素按钮 | `Boolean` | `false` |
+| square | 是否为方形按钮 | `Boolean` | `false` |
+| round | 是否为圆形按钮 | `Boolean` | `false` |
+| disabled | 是否禁用按钮 | `Boolean` | `false` |
+| loading | 是否显示为加载状态 | `Boolean` | `false` |
+| loading-text | 加载状态提示文字 | `String` | - |
 
 ### Event
 

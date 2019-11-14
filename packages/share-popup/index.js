@@ -1,4 +1,4 @@
-import { use } from '../utils';
+import { use } from '../_utils';
 const [sfc, bem] = use('share-popup');
 import Popup from '../popup';
 

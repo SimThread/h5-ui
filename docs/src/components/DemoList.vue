@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../../packages/style/var';
+@import '../../packages/_style/var';
 
 .side-nav {
   width: 100%;

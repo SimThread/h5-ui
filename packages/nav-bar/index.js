@@ -1,7 +1,7 @@
-import { use, noop } from '../utils';
+import { use, noop } from '../_utils';
 import {
   inherit
-} from '../utils/functional';
+} from '../_utils/functional';
 import Icon from '../icon';
 
 const [sfc, bem] = use('nav-bar');

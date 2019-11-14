@@ -1,13 +1,13 @@
 import {
   use,
   isDef
-} from '../utils';
+} from '../_utils';
 import { cellProps } from './shared';
 import {
   emit,
   inherit
-} from '../utils/functional';
-import { routeProps, functionalRoute } from '../mixins/router';
+} from '../_utils/functional';
+import { routeProps, functionalRoute } from '../_mixins/router';
 import Icon from '../icon';
 
 const [sfc, bem] = use('cell');

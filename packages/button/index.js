@@ -1,10 +1,10 @@
 import {
   use
-} from '../utils';
+} from '../_utils';
 import {
   emit,
   inherit
-} from '../utils/functional';
+} from '../_utils/functional';
 import Loading from '../loading';
 
 const [sfc, bem] = use('button');

@@ -1,8 +1,8 @@
-import { use, isDef } from '../utils';
-import Touch from '../mixins/touch';
-import { raf } from '../utils/raf';
-import { on, off } from '../utils/event';
-import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../utils/scroll';
+import { use, isDef } from '../_utils';
+import Touch from '../_mixins/touch';
+import { raf } from '../_utils/raf';
+import { on, off } from '../_utils/event';
+import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
 
 const [sfc, bem] = use('tabs');
 const tabBem = use('tab')[1];

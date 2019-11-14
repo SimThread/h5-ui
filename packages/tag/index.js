@@ -1,5 +1,5 @@
-import { use } from '../utils';
-import { RED, BLUE, GREEN, GRAY_DARK } from '../utils/color';
+import { use } from '../_utils';
+import { RED, BLUE, GREEN, GRAY_DARK } from '../_utils/color';
 
 const [sfc, bem] = use('tag');
 

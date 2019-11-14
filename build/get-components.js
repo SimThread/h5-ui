@@ -4,10 +4,11 @@ const path = require('path');
 const excludes = [
   'index.js',
   'index.less',
-  'style',
+  '_directives',
+  '_style',
+  '_mixins',
+  '_utils',
   'color',
-  'mixins',
-  'utils',
   '.DS_Store'
 ];
 

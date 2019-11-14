@@ -1,8 +1,8 @@
 import {
   use
-} from '../utils';
+} from '../_utils';
 import Info from '../info';
-import isSrc from '../utils/validate/src';
+import isSrc from '../_utils/validate/src';
 
 const [sfc] = use('icon');
 
@@ -35,7 +35,7 @@ Icon.props = {
   info: [String, Number],
   classPrefix: {
     type: String,
-    default: 'van-icon'
+    default: 'h5-icon'
   }
 };
 

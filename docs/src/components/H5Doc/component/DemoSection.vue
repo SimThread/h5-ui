@@ -1,6 +1,5 @@
 <template>
-  <section class="h5-doc-demo-section"
-:class="`demo-${demoName}`" :style="style">
+  <section class="h5-doc-demo-section" :class="`demo-${demoName}`" :style="style">
     <slot />
   </section>
 </template>
@@ -17,6 +16,7 @@ export default {
 
   computed: {
     demoName() {
+      console.log('this.name:', this.name);
       return this.name || this.getParentName();
     },
     style() {
