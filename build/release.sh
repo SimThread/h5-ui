@@ -1,6 +1,6 @@
 # 发布npm包脚本
 git checkout master
-git merge dev
+git merge develop
 
 #!/usr/bin/env sh
 set -e
@@ -22,9 +22,9 @@ then
   # publish
   git push origin master
   git push origin refs/tags/v$VERSION
-  git checkout dev
+  git checkout develop
   git rebase master
-  git push origin dev
+  git push origin develop
 
   npm publish
 fi
