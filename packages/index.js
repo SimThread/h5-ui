@@ -42,7 +42,7 @@ import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 
-const version = '0.0.23';
+const version = '0.0.24';
 const components = [
   Button,
   Card,
