@@ -4,6 +4,7 @@ const path = require('path');
 const excludes = [
   'index.js',
   'index.less',
+  '_directives',
   '_style',
   '_mixins',
   '_utils',

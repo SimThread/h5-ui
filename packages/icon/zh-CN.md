@@ -1,6 +1,6 @@
 ## Icon 图标
 
-### 使用指南
+### 引入
 ``` javascript
 import { Icon } from 'h5-ui';
 
@@ -30,7 +30,7 @@ Vue.use(Icon);
 Icon 组件默认引用 `yzcdn.cn` 域名下的字体文件，如果想要使用本地字体文件，请引入下面的 css 文件
 
 ```js
-import 'vant/lib/icon/local.css';
+import 'h5-ui/lib/icon/local.css';
 ```
 
 #### 自定义图标
@@ -58,13 +58,13 @@ import 'vant/lib/icon/local.css';
 
 ### API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| name | 图标名称或图片链接 | `String` | - | - |
-| info | 图标右上角文字提示 | `String | Number` | - | - |
-| color | 图标颜色 | `String` | `inherit` | 1.1.3 |
-| size | 图标大小，如 `20px` `2em` | `String` | `inherit` | 1.1.15 |
-| class-prefix | 类名前缀 | `String` | `h5-icon` | 1.2.1 |
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| name | 图标名称或图片链接 | `String` | - |
+| info | 图标右上角文字提示 | `String | Number` | - |
+| color | 图标颜色 | `String` | `inherit` |
+| size | 图标大小，如 `20px` `2em` | `String` | `inherit` |
+| class-prefix | 类名前缀 | `String` | `h5-icon` |
 
 ### Event
 

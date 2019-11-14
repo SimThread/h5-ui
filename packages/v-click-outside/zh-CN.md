@@ -1,13 +1,28 @@
 ## ClickOutside 点击外部
 
-### 使用指南
-``` javascript
-import { ClickOutside } from 'h5-ui';
+### 引入
 
+``` javascript
+import { VClickOutside } from 'h5-ui'
+Vue.directive(VClickOutside);
+```
+
+### 代码演示
+
+`v-click-outside`的接受一个函数类型的值，在点击绑定元素的外部时执行。
+
+``` javascript
 export default {
-  directives: {
-    ClickOutside: ClickOutside
-  }
+    data() {
+        return {
+            showBalancePanel: false
+        }
+    },
+    methods: {
+        closeBalanceTip() {
+            this.showBalancePanel = false;
+        },
+    }
 }
 ```
 

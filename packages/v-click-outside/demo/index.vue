@@ -18,9 +18,6 @@
 </template>
 
 <script>
-// import { ClickOutside } from 'h5-ui';
-// Vue.use(ClickOutside);
-
 export default {
     data() {
         return {

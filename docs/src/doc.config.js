@@ -111,10 +111,6 @@ module.exports = {
                 path: '/button',
                 title: 'Button 按钮'
               },
-              {
-                path: '/field',
-                title: 'Field 输入框'
-              },
               // {
               //   path: '/popup',
               //   title: 'Popup 弹出层'
@@ -143,6 +139,10 @@ module.exports = {
               {
                 path: '/checkbox',
                 title: 'Checkbox 复选框'
+              },
+              {
+                path: '/field',
+                title: 'Field 输入框'
               },
             ]
           },

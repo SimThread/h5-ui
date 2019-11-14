@@ -1,6 +1,6 @@
 ## FilterArea 筛选区
 
-### 使用指南
+### 引入
 ``` javascript
 import { FilterArea, FilterAreaPannel, Select } from 'h5-ui';
 
@@ -135,27 +135,27 @@ export default {
 
 ### h5-filter-area API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| v-model | 当前标签的索引 | `String` `Number` | `0` | - |
-| color | 标签颜色 | `String` | `#f44` | - |
-| type | 样式类型，可选值为`card` | `String` | `line` | - |
-| duration | 动画时间，单位秒 | `Number` | `0.3` | - |
-| line-width | 底部条宽度，单位 px | `Number` | - | - |
-| line-height | 底部条高度，单位 px | `Number` | 3 | - |
-| swipeable | 是否开启手势滑动切换 | `Boolean` | `false` | - |
-| sticky | 是否使用粘性定位布局 | `Boolean` | `false` | - |
-| offset-top | 粘性定位布局下与顶部的最小距离，单位 px | `Number` | `0` | - |
-| swipe-threshold | 滚动阈值，标签数量超过多少个可滚动 | `Number` | `4` | - |
-| animated | 是否开启切换标签内容时的转场动画 | `Boolean` | `false` | - |
-| ellipsis | 是否省略过长的标题文字 | `Boolean` | `true` | - |
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| v-model | 当前标签的索引 | `String` `Number` | `0` |
+| color | 标签颜色 | `String` | `#f44` |
+| type | 样式类型，可选值为`card` | `String` | `line` |
+| duration | 动画时间，单位秒 | `Number` | `0.3` |
+| line-width | 底部条宽度，单位 px | `Number` | - |
+| line-height | 底部条高度，单位 px | `Number` | 3 |
+| swipeable | 是否开启手势滑动切换 | `Boolean` | `false` |
+| sticky | 是否使用粘性定位布局 | `Boolean` | `false` |
+| offset-top | 粘性定位布局下与顶部的最小距离，单位 px | `Number` | `0` |
+| swipe-threshold | 滚动阈值，标签数量超过多少个可滚动 | `Number` | `4` |
+| animated | 是否开启切换标签内容时的转场动画 | `Boolean` | `false` |
+| ellipsis | 是否省略过长的标题文字 | `Boolean` | `true` |
 
 ### h5-filter-area-panel API
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-|------|------|------|------|------|
-| title | 标题 | `String` | - | - |
-| disabled | 是否禁用标签 | `Boolean` | `false` | - |
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| title | 标题 | `String` | - |
+| disabled | 是否禁用标签 | `Boolean` | `false` |
 
 ### h5-filter-area-panel Slot
 

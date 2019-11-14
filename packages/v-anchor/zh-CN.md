@@ -1,47 +1,46 @@
 ## Anchor 锚点
 
-### 使用指南
+### 引入
+
 ``` javascript
-import { Checkbox, CheckboxGroup } from 'vant';
-
-```
-
-```html
-<span class="nav-item active" v-anchor="{ index: 1, reserve: 40 }">屋苑資料</span>
+import { VAnchor } from 'h5-ui'
+Vue.directive(VAnchor);
 ```
 
 ### 代码演示
 
-#### 基础用法
+指令`v-anchor`的值与模块的id对应，例如`v-anchor="1"`,则对应的模块id为`"anchor-1"`; `anchor-distance`表示模块滚动到锚点时，距离到达的距离。
 
 ```html
-<div class="demo-wrap">
-    <!-- 導航 -->
-    <nav class="block detail-nav" ref="navItem" style="margin-top: 10px; position: relative; z-index: 100;">
-        <div class="nav-list" :class="{'fexd-nav': isFixed}" :style="{top: `0px`}">
-            <span class="nav-item active" v-anchor="{ index: 1, reserve: 40 }">屋苑資料</span>
-            <span class="nav-item" v-anchor="{ index: 2, reserve: 40 }">成交記錄</span>
-            <span class="nav-item" v-anchor="{ index: 3, reserve: 40 }">相關放盤</span>
-            <span class="nav-item" v-anchor="{ index: 4, reserve: 40 }">相關學校</span>
-            <span class="nav-item" v-anchor="{ index: 5, reserve: 40 }">地圖及周邊</span>
-        </div>
-    </nav>
+<template>
+    <div class="demo-wrap">
+        <!-- 導航 -->
+        <nav class="block detail-nav" ref="navItem" style="margin-top: 10px; position: relative; z-index: 100;">
+            <div class="nav-list" :class="{'fexd-nav': isFixed}" :style="{top: `0px`}">
+                <span class="nav-item active" v-anchor="1" anchor-distance="40">屋苑資料</span>
+                <span class="nav-item" v-anchor="2" anchor-distance="40">成交記錄</span>
+                <span class="nav-item" v-anchor="3" anchor-distance="40">相關放盤</span>
+                <span class="nav-item" v-anchor="4" anchor-distance="40">相關學校</span>
+                <span class="nav-item" v-anchor="5" anchor-distance="40">地圖及周邊</span>
+            </div>
+        </nav>
 
-    <!-- 樓盤信息 -->
-    <div class="page-block page-block1" id="anchor-1" ref="pageBlock">屋苑资料</div>
+        <!-- 樓盤信息 -->
+        <div class="page-block page-block1" id="anchor-1" ref="pageBlock">屋苑资料</div>
 
-    <!-- 成交記錄 -->
-    <div class="page-block page-block2" id="anchor-2" ref="pageBlock">成交記錄</div>
+        <!-- 成交記錄 -->
+        <div class="page-block page-block2" id="anchor-2" ref="pageBlock">成交記錄</div>
 
-    <!-- 相關學校 -->
-    <div class="page-block page-block3" id="anchor-3" ref="pageBlock">相關放盤</div>
+        <!-- 相關學校 -->
+        <div class="page-block page-block3" id="anchor-3" ref="pageBlock">相關放盤</div>
 
-    <!-- 地圖及周邊 -->
-    <div class="page-block page-block4" id="anchor-4" ref="pageBlock">相關學校</div>
+        <!-- 地圖及周邊 -->
+        <div class="page-block page-block4" id="anchor-4" ref="pageBlock">相關學校</div>
 
-    <!-- 相關放盤 -->
-    <div class="page-block page-block5" id="anchor-5" ref="pageBlock">地圖及周邊</div>
-</div>
+        <!-- 相關放盤 -->
+        <div class="page-block page-block5" id="anchor-5" ref="pageBlock">地圖及周邊</div>
+    </div>
+</template>
 ```
 
 ```javascript
@@ -166,3 +165,9 @@ export default {
     }
 }
 ```
+
+### API
+
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|------|
+| anchor-distance | 到达时与顶部的距离 | `Number` | 0 |

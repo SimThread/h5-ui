@@ -3,11 +3,11 @@
         <!-- 導航 -->
         <nav class="block detail-nav" ref="navItem" style="margin-top: 10px; position: relative; z-index: 100;">
             <div class="nav-list" :class="{'fexd-nav': isFixed}" :style="{top: `0px`}">
-                <span class="nav-item active" v-anchor="{ index: 1, reserve: 40 }">屋苑資料</span>
-                <span class="nav-item" v-anchor="{ index: 2, reserve: 40 }">成交記錄</span>
-                <span class="nav-item" v-anchor="{ index: 3, reserve: 40 }">相關放盤</span>
-                <span class="nav-item" v-anchor="{ index: 4, reserve: 40 }">相關學校</span>
-                <span class="nav-item" v-anchor="{ index: 5, reserve: 40 }">地圖及周邊</span>
+                <span class="nav-item active" v-anchor="1" anchor-distance="40">屋苑資料</span>
+                <span class="nav-item" v-anchor="2" anchor-distance="40">成交記錄</span>
+                <span class="nav-item" v-anchor="3" anchor-distance="40">相關放盤</span>
+                <span class="nav-item" v-anchor="4" anchor-distance="40">相關學校</span>
+                <span class="nav-item" v-anchor="5" anchor-distance="40">地圖及周邊</span>
             </div>
         </nav>
 
