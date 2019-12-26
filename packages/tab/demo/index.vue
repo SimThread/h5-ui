@@ -123,26 +123,26 @@
 
 <script>
 export default {
-  data() {
-    return {
-      active: 2,
-      tabs: [1, 2, 3, 4]
-    };
-  },
-
-  methods: {
-    onClickDisabled(index, title) {
-      this.$toast(title + ' 已被禁用');
+    data() {
+        return {
+            active: 2,
+            tabs: [1, 2, 3, 4]
+        };
     },
 
-    onClick(index, title) {
-      this.$toast(title);
-    },
+    methods: {
+        onClickDisabled(index, title) {
+            this.$toast(title + ' 已被禁用');
+        },
 
-    onScroll(e) {
-      console.log(e);
+        onClick(index, title) {
+            this.$toast(title);
+        },
+
+        onScroll(e) {
+            console.log(e);
+        }
     }
-  }
 };
 </script>
 

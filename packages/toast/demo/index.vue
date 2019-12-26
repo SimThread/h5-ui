@@ -22,39 +22,39 @@
 
 <script>
 export default {
-  methods: {
-    showLoadingToast() {
-      this.$toast.loading({ mask: true, message: '加载中' });
-    },
+    methods: {
+        showLoadingToast() {
+            this.$toast.loading({ mask: true, message: '加载中' });
+        },
 
-    showSuccessToast() {
-      this.$toast.success('成功文案');
-    },
+        showSuccessToast() {
+            this.$toast.success('成功文案');
+        },
 
-    showFailToast() {
-      this.$toast.fail('失败文案');
-    },
+        showFailToast() {
+            this.$toast.fail('失败文案');
+        },
 
-    showCustomizedToast() {
-      const toast = this.$toast.loading({
-        duration: 0,
-        forbidClick: true,
-        loadingType: 'spinner',
-        message: '倒计时 3 秒'
-      });
+        showCustomizedToast() {
+            const toast = this.$toast.loading({
+                duration: 0,
+                forbidClick: true,
+                loadingType: 'spinner',
+                message: '倒计时 3 秒'
+            });
 
-      let second = 3;
-      const timer = setInterval(() => {
-        second--;
-        if (second) {
-          toast.message = second => `倒计时 ${second} 秒`;
-        } else {
-          clearInterval(timer);
-          this.$toast.clear();
+            let second = 3;
+            const timer = setInterval(() => {
+                second--;
+                if (second) {
+                    toast.message = second => `倒计时 ${second} 秒`;
+                } else {
+                    clearInterval(timer);
+                    this.$toast.clear();
+                }
+            }, 1000);
         }
-      }, 1000);
     }
-  }
 };
 </script>
 

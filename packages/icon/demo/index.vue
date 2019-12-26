@@ -1,13 +1,13 @@
 <template>
-  <demo-section demoName="icon">
+  <demo-section demo-name="icon">
     <h5-col
-          v-for="icon in icons"
-          :key="icon"
-          span="6"
-        >
-        <h5-icon :name="icon" />
-          <span>{{ icon }}</span>
-        </h5-col>
+      v-for="icon in icons"
+      :key="icon"
+      span="6"
+    >
+      <h5-icon :name="icon" />
+      <span>{{ icon }}</span>
+    </h5-col>
   </demo-section>
 </template>
 
@@ -15,22 +15,22 @@
 import { BLUE } from '../../_utils/color';
 
 export default {
-  data() {
-    this.BLUE = BLUE;
-    return {
-      tab: 0,
-      icons: [
-        'success',
-        'plus',
-        'cross',
-        'fail',
-        'arrow',
-        'arrow-left',
-        'arrow-up',
-        'arrow-down'
-      ],
-    };
-  }
+    data() {
+        this.BLUE = BLUE;
+        return {
+            tab: 0,
+            icons: [
+                'success',
+                'plus',
+                'cross',
+                'fail',
+                'arrow',
+                'arrow-left',
+                'arrow-up',
+                'arrow-down'
+            ],
+        };
+    }
 };
 </script>
 

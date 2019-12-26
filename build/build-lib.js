@@ -6,20 +6,20 @@ const signale = require('signale');
 
 const { Signale } = signale;
 const tasks = [
-  'bootstrap',
-  // 'lint',
-  'build:entry',
-  'build:components',
-  'build:style',
-  'build:style-entry',
-  'build:h5'
+    'bootstrap',
+    // 'lint',
+    'build:entry',
+    'build:components',
+    'build:style',
+    'build:style-entry',
+    'build:h5'
 ];
 
 tasks.forEach(task => {
-  signale.start(task);
+    signale.start(task);
 
-  const interactive = new Signale({ interactive: true });
-  interactive.pending(task);
-  shell.exec(`npm run ${task} --silent`); // --silent 不显示安装的过程
-  interactive.success(task);
+    const interactive = new Signale({ interactive: true });
+    interactive.pending(task);
+    shell.exec(`npm run ${task} --silent`); // --silent 不显示安装的过程
+    interactive.success(task);
 });

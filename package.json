@@ -16,7 +16,8 @@
   "scripts": {
     "bootstrap": "npm i",
     "dev": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
-    "lint": "eslint ./src --ext .js,.vue && stylelint \"src/*.css\"",
+    "lint": "eslint ./packages --ext .js,.vue && stylelint \"src/*.css\"",
+    "lint-fix": "eslint ./packages --fix --ext .js,.vue --ignore-path .eslintignore .",
     "build:entry": "node build/build-entry.js",
     "build:components": "node build/build-components.js --color",
     "build:h5": "cross-env NODE_ENV=production webpack --color --config build/webpack.build.js && cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js",

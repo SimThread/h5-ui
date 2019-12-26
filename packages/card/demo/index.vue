@@ -22,7 +22,8 @@
       >
         <div
           slot="mask"
-          class="card__mask">
+          class="card__mask"
+        >
           租金回报率3.83%
         </div>
       </h5-card>
@@ -32,11 +33,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      imageURL: '//p2.591.com.hk/estate/crop/2019/03/29/155382676533251509_212x160.jpg'
-    };
-  }
+    data() {
+        return {
+            imageURL: '//p2.591.com.hk/estate/crop/2019/03/29/155382676533251509_212x160.jpg'
+        };
+    }
 };
 </script>
 

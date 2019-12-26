@@ -17,16 +17,16 @@
 
 <script>
 export default {
-  i18n: {
-    'zh-CN': {
-      title1: 'Circular',
-      title2: 'Spinner'
-    },
-    'en-US': {
-      title1: 'Circular',
-      title2: 'Spinner'
+    i18n: {
+        'zh-CN': {
+            title1: 'Circular',
+            title2: 'Spinner'
+        },
+        'en-US': {
+            title1: 'Circular',
+            title2: 'Spinner'
+        }
     }
-  }
 };
 </script>
 

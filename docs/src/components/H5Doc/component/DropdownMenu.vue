@@ -1,8 +1,10 @@
 <template>
   <ul class="h5-doc-dropdown"
-:style="{ top: top + 'px'}">
+      :style="{ top: top + 'px'}"
+  >
     <li v-for="(value, key) in nav"
-class="h5-doc-dropdown__item">
+        class="h5-doc-dropdown__item"
+    >
       <a :href="value">{{ key }}</a>
     </li>
   </ul>
@@ -10,15 +12,15 @@ class="h5-doc-dropdown__item">
 
 <script>
 export default {
-  name: 'h5-doc-dropdown',
+    name: 'h5-doc-dropdown',
 
-  props: {
-    nav: Object,
-    top: {
-      type: Number,
-      default: 0
+    props: {
+        nav: Object,
+        top: {
+            type: Number,
+            default: 0
+        }
     }
-  }
 };
 </script>
 

@@ -22,7 +22,6 @@ export default {
   'popup': () => wrapper(import('../../packages/popup/demo'), 'popup'),
   'progress': () => wrapper(import('../../packages/progress/demo'), 'progress'),
   'share-popup': () => wrapper(import('../../packages/share-popup/demo'), 'share-popup'),
-  't-bom': () => wrapper(import('../../packages/t-bom/demo'), 't-bom'),
   't-date': () => wrapper(import('../../packages/t-date/demo'), 't-date'),
   't-number-format': () => wrapper(import('../../packages/t-number-format/demo'), 't-number-format'),
   'tab': () => wrapper(import('../../packages/tab/demo'), 'tab'),

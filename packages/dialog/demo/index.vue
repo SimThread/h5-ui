@@ -59,43 +59,43 @@
 
 <script>
 export default {
-  data() {
-    return {
-      show: false,
-      username: '',
-      password: ''
-    };
-  },
-
-  methods: {
-    onClickAlert() {
-      this.$dialog.alert({
-        title: "标题",
-        message: "XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者"
-      });
+    data() {
+        return {
+            show: false,
+            username: '',
+            password: ''
+        };
     },
 
-    onClickAlert2() {
-      this.$dialog.alert({
-        message: "XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者"
-      });
-    },
+    methods: {
+        onClickAlert() {
+            this.$dialog.alert({
+                title: '标题',
+                message: 'XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者'
+            });
+        },
 
-    onClickConfirm() {
-      this.$dialog.confirm({
-        title: "标题",
-        message: "XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者"
-      });
-    },
+        onClickAlert2() {
+            this.$dialog.alert({
+                message: 'XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者'
+            });
+        },
 
-    beforeClose(action, done) {
-      if (action === 'confirm') {
-        setTimeout(done, 1000);
-      } else {
-        done();
-      }
+        onClickConfirm() {
+            this.$dialog.confirm({
+                title: '标题',
+                message: 'XX是一家零售科技公司，致力于成为商家服务领域里最被信任的引领者'
+            });
+        },
+
+        beforeClose(action, done) {
+            if (action === 'confirm') {
+                setTimeout(done, 1000);
+            } else {
+                done();
+            }
+        }
     }
-  }
 };
 </script>
 

@@ -61,29 +61,29 @@
 
 <script>
 export default {
-  name: 'h5-doc-header',
+    name: 'h5-doc-header',
 
-  props: {
-    config: Object,
-    active: String
-  },
-
-  mounted() {},
-
-  methods: {
-    onSwitchLang(lang) {
-      this.$router.push(this.$route.path.replace(lang.from, lang.to));
+    props: {
+        config: Object,
+        active: String
     },
-    switchNav(key) {
-      if (key === 'Vue 组件') {
-        this.$active = 'components';
-        window.localStorage.setItem('active', 'components');
-      } else if (key === 'UI设计规范') {
-        this.$active = 'design';
-        window.localStorage.setItem('active', 'design');
-      }
+
+    mounted() {},
+
+    methods: {
+        onSwitchLang(lang) {
+            this.$router.push(this.$route.path.replace(lang.from, lang.to));
+        },
+        switchNav(key) {
+            if (key === 'Vue 组件') {
+                this.$active = 'components';
+                window.localStorage.setItem('active', 'components');
+            } else if (key === 'UI设计规范') {
+                this.$active = 'design';
+                window.localStorage.setItem('active', 'design');
+            }
+        }
     }
-  }
 };
 </script>
 

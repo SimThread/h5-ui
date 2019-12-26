@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'h5-doc-block'
+    name: 'h5-doc-block'
 };
 </script>
 

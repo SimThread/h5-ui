@@ -49,34 +49,34 @@
 
 <script>
 export default {
-  data() {
-    return {
-      show1: false,
-      show2: false,
-      show3: false,
-      show4: false,
-      show5: false
-    };
-  },
+    data() {
+        return {
+            show1: false,
+            show2: false,
+            show3: false,
+            show4: false,
+            show5: false
+        };
+    },
 
-  watch: {
-    show3(val) {
-      if (val) {
-        setTimeout(() => {
-          this.show3 = false;
-        }, 2000);
-      }
-    }
-  },
+    watch: {
+        show3(val) {
+            if (val) {
+                setTimeout(() => {
+                    this.show3 = false;
+                }, 2000);
+            }
+        }
+    },
 
-  methods: {
-    showDialog() {
-      this.$dialog.confirm({
-        title: 'confirm标题',
-        message: '弹窗提示文字，左右始终距离边20PX，上下距离20PX，文字左对齐。弹窗提示文字，左右始终距离边20PX，上下距离20PX，文字左对齐。'
-      });
+    methods: {
+        showDialog() {
+            this.$dialog.confirm({
+                title: 'confirm标题',
+                message: '弹窗提示文字，左右始终距离边20PX，上下距离20PX，文字左对齐。弹窗提示文字，左右始终距离边20PX，上下距离20PX，文字左对齐。'
+            });
+        }
     }
-  }
 };
 </script>
 

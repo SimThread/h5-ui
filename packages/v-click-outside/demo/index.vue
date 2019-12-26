@@ -1,20 +1,20 @@
 <template>
-    <div class="demo-wrap">
-        <a class="check-balance" href="javascript:;" v-click-outside="closeBalanceTip">
-            <span @click="showBalancePanel = !showBalancePanel;">查看餘額</span>
-            <div class="tips-box" v-show="showBalancePanel">
-                <div class="tips-arrow"></div>
-                <p class="tips-text">
-                    <span class="label">賬戶餘額</span>
-                    <span><em>35000</em>點</span>
-                </p>
-                <p class="tips-text">
-                    <span class="label">灣區體驗</span>
-                    <span><em>35050</em>點</span>
-                </p>
-            </div>
-        </a>
-    </div>
+  <div class="demo-wrap">
+    <a class="check-balance" href="javascript:;" v-click-outside="closeBalanceTip">
+      <span @click="showBalancePanel = !showBalancePanel;">查看餘額</span>
+      <div class="tips-box" v-show="showBalancePanel">
+        <div class="tips-arrow" />
+        <p class="tips-text">
+          <span class="label">賬戶餘額</span>
+          <span><em>35000</em>點</span>
+        </p>
+        <p class="tips-text">
+          <span class="label">灣區體驗</span>
+          <span><em>35050</em>點</span>
+        </p>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -22,14 +22,14 @@ export default {
     data() {
         return {
             showBalancePanel: false
-        }
+        };
     },
     methods: {
         closeBalanceTip() {
             this.showBalancePanel = false;
         },
     }
-}
+};
 </script>
 
 <style scoped>

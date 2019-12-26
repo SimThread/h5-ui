@@ -16,45 +16,45 @@
 import docConfig from './doc.config';
 
 export default {
-  data() {
-    return {
-      simulators: [`mobile.html${location.hash}`],
-      demoURL: '',
-      activeVal: this.$active
-    };
-  },
-
-  computed: {
-    base() {
-      return `/${this.$active}`;
+    data() {
+        return {
+            simulators: [`mobile.html${location.hash}`],
+            demoURL: '',
+            activeVal: this.$active
+        };
     },
 
-    config() {
-      return docConfig[this.$active];
-    },
+    computed: {
+        base() {
+            return `/${this.$active}`;
+        },
 
-    currentSimulator() {
-      const { name } = this.$route;
-      return name && name.indexOf('demo') !== -1 ? 1 : 0;
-    }
-  },
+        config() {
+            return docConfig[this.$active];
+        },
 
-  watch: {
-    $route(to, from) {
-      const { nav } = docConfig[this.$active].header;
-      Object.keys(nav).forEach((navItem) => {
-        if (nav[navItem].indexOf(location.hash.split('/')[1]) !== -1) {
-          this.activeVal = navItem;
+        currentSimulator() {
+            const { name } = this.$route;
+            return name && name.indexOf('demo') !== -1 ? 1 : 0;
         }
-      });
     },
-  },
 
-  methods: {
-    onChangeDemoURL(url) {
-      this.simulators = [this.simulators[0], url];
+    watch: {
+        $route(to, from) {
+            const { nav } = docConfig[this.$active].header;
+            Object.keys(nav).forEach((navItem) => {
+                if (nav[navItem].indexOf(location.hash.split('/')[1]) !== -1) {
+                    this.activeVal = navItem;
+                }
+            });
+        },
+    },
+
+    methods: {
+        onChangeDemoURL(url) {
+            this.simulators = [this.simulators[0], url];
+        }
     }
-  }
 };
 </script>
 

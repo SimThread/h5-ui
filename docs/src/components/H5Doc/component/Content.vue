@@ -6,17 +6,17 @@
 
 <script>
 export default {
-  name: 'h5-doc-content',
+    name: 'h5-doc-content',
 
-  computed: {
-    currentPage() {
-      const { path } = this.$route;
-      if (path) {
-        return path.split('/').slice(-1)[0];
-      }
-      return this.$route.name;
+    computed: {
+        currentPage() {
+            const { path } = this.$route;
+            if (path) {
+                return path.split('/').slice(-1)[0];
+            }
+            return this.$route.name;
+        }
     }
-  }
 };
 </script>
 

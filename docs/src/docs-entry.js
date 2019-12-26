@@ -29,7 +29,6 @@ export default {
   'popup': () => import('../../packages/popup/zh-CN.md'),
   'progress': () => import('../../packages/progress/zh-CN.md'),
   'share-popup': () => import('../../packages/share-popup/zh-CN.md'),
-  't-bom': () => import('../../packages/t-bom/zh-CN.md'),
   't-date': () => import('../../packages/t-date/zh-CN.md'),
   't-dom': () => import('../../packages/t-dom/zh-CN.md'),
   't-number-format': () => import('../../packages/t-number-format/zh-CN.md'),

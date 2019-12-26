@@ -6,34 +6,34 @@
 
 <script>
 export default {
-  name: 'h5-doc-demo-section',
+    name: 'h5-doc-demo-section',
 
-  props: {
-    name: String,
-    title: String,
-    background: String
-  },
-
-  computed: {
-    demoName() {
-      console.log('this.name:', this.name);
-      return this.name || this.getParentName();
+    props: {
+        name: String,
+        title: String,
+        background: String
     },
-    style() {
-      return {
-        background: this.background
-      };
-    }
-  },
 
-  methods: {
-    getParentName() {
-      const { $parent } = this;
-      if ($parent && $parent.$options.name) {
-        return $parent.$options.name.replace('demo-', '');
-      }
+    computed: {
+        demoName() {
+            console.log('this.name:', this.name);
+            return this.name || this.getParentName();
+        },
+        style() {
+            return {
+                background: this.background
+            };
+        }
+    },
+
+    methods: {
+        getParentName() {
+            const { $parent } = this;
+            if ($parent && $parent.$options.name) {
+                return $parent.$options.name.replace('demo-', '');
+            }
+        }
     }
-  }
 };
 </script>
 

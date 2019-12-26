@@ -118,22 +118,22 @@
 
 <script>
 export default {
-  i18n: {
-    'zh-CN': {
-      plain: '空心样式',
-      round: '圆角样式',
-      mark: '标记样式',
-      customColor: '自定义颜色',
-      customSize: '标签大小'
-    },
-    'en-US': {
-      plain: 'Plain style',
-      round: 'Round style',
-      mark: 'Mark style',
-      customColor: 'Custom Color',
-      customSize: 'Custom Size'
+    i18n: {
+        'zh-CN': {
+            plain: '空心样式',
+            round: '圆角样式',
+            mark: '标记样式',
+            customColor: '自定义颜色',
+            customSize: '标签大小'
+        },
+        'en-US': {
+            plain: 'Plain style',
+            round: 'Round style',
+            mark: 'Mark style',
+            customColor: 'Custom Color',
+            customSize: 'Custom Size'
+        }
     }
-  }
 };
 </script>
 

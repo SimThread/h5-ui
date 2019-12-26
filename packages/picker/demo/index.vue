@@ -12,7 +12,8 @@
         { text: '杭州', disabled: true },
         { text: '宁波' },
         { text: '温州' }
-      ]" />
+      ]"
+      />
     </demo-block>
 
     <demo-block title="展示顶部栏">
@@ -43,42 +44,42 @@
 
 <script>
 export default {
-  computed: {
-    columns() {
-      const column = {
-        浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-        福建: ['福州', '厦门', '莆田', '三明', '泉州']
-      };
-      return [
-        {
-          values: Object.keys(column),
-          className: 'column1'
-        },
-        {
-          values: column[Object.keys(column)[0]],
-          className: 'column2',
-          defaultIndex: 2
+    computed: {
+        columns() {
+            const column = {
+                浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+                福建: ['福州', '厦门', '莆田', '三明', '泉州']
+            };
+            return [
+                {
+                    values: Object.keys(column),
+                    className: 'column1'
+                },
+                {
+                    values: column[Object.keys(column)[0]],
+                    className: 'column2',
+                    defaultIndex: 2
+                }
+            ];
         }
-      ];
-    }
-  },
+    },
 
-  methods: {
-    onChange1(picker, value, index) {
-      this.$toast((value, index) => `Value: ${value}, Index：${index}`, value, index);
-    },
-    onChange2(picker, values, index) {
-      picker.setColumnValues(1, {
-        浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-        福建: ['福州', '厦门', '莆田', '三明', '泉州']
-      }[values[0]]);
-    },
-    onConfirm(value, index) {
-      this.$toast((value, index) => `Value: ${value}, Index：${index}`, value, index);
-    },
-    onCancel() {
-      this.$toast('取消');
+    methods: {
+        onChange1(picker, value, index) {
+            this.$toast((value, index) => `Value: ${value}, Index：${index}`, value, index);
+        },
+        onChange2(picker, values, index) {
+            picker.setColumnValues(1, {
+                浙江: ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+                福建: ['福州', '厦门', '莆田', '三明', '泉州']
+            }[values[0]]);
+        },
+        onConfirm(value, index) {
+            this.$toast((value, index) => `Value: ${value}, Index：${index}`, value, index);
+        },
+        onCancel() {
+            this.$toast('取消');
+        }
     }
-  }
 };
 </script>

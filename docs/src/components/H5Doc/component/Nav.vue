@@ -52,47 +52,47 @@
 import NavLink from './NavLink.vue';
 
 export default {
-  name: 'h5-doc-nav',
+    name: 'h5-doc-nav',
 
-  components: {
-    [NavLink.name]: NavLink
-  },
+    components: {
+        [NavLink.name]: NavLink
+    },
 
-  props: {
-    navConfig: Array,
-    base: {
-      type: String,
-      default: ''
+    props: {
+        navConfig: Array,
+        base: {
+            type: String,
+            default: ''
+        }
+    },
+
+    data() {
+        return {
+            top: 60,
+            bottom: 0
+        };
+    },
+
+    computed: {
+        style() {
+            return {
+                top: this.top + 'px',
+                bottom: this.bottom + 'px'
+            };
+        }
+    },
+
+    created() {
+        window.addEventListener('scroll', this.onScroll);
+        this.onScroll();
+    },
+
+    methods: {
+        onScroll() {
+            const { pageYOffset: offset } = window;
+            this.top = Math.max(0, 60 - offset);
+        }
     }
-  },
-
-  data() {
-    return {
-      top: 60,
-      bottom: 0
-    };
-  },
-
-  computed: {
-    style() {
-      return {
-        top: this.top + 'px',
-        bottom: this.bottom + 'px'
-      };
-    }
-  },
-
-  created() {
-    window.addEventListener('scroll', this.onScroll);
-    this.onScroll();
-  },
-
-  methods: {
-    onScroll() {
-      const { pageYOffset: offset } = window;
-      this.top = Math.max(0, 60 - offset);
-    }
-  }
 };
 </script>
 

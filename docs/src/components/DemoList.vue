@@ -19,21 +19,21 @@ import docConfig from '../doc.config';
 import MobileNav from './MobileNav';
 
 export default {
-  components: {
-    MobileNav
-  },
-
-  data() {
-    return {
-      docConfig
-    };
-  },
-
-  computed: {
-    navList() {
-      return this.docConfig[this.$active].nav || [];
+    components: {
+        MobileNav
     },
-  }
+
+    data() {
+        return {
+            docConfig
+        };
+    },
+
+    computed: {
+        navList() {
+            return this.docConfig[this.$active].nav || [];
+        },
+    }
 };
 </script>
 

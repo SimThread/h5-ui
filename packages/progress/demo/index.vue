@@ -34,16 +34,16 @@
 
 <script>
 export default {
-  i18n: {
-    'zh-CN': {
-      title2: '置灰',
-      title3: '样式定制'
-    },
-    'en-US': {
-      title2: 'Inactive',
-      title3: 'Custom Style'
+    i18n: {
+        'zh-CN': {
+            title2: '置灰',
+            title3: '样式定制'
+        },
+        'en-US': {
+            title2: 'Inactive',
+            title3: 'Custom Style'
+        }
     }
-  }
 };
 </script>
 

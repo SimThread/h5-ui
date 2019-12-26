@@ -28,13 +28,13 @@
 
 <script>
 export default {
-  methods: {
-    onClickLeft() {
-      this.$toast(this.$t('back'));
-    },
-    onClickRight() {
-      this.$toast(this.$t('button'));
+    methods: {
+        onClickLeft() {
+            this.$toast(this.$t('back'));
+        },
+        onClickRight() {
+            this.$toast(this.$t('button'));
+        }
     }
-  }
 };
 </script>

@@ -27,7 +27,6 @@ import Row from './row';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
-import TBom from './t-bom';
 import TDate from './t-date';
 import TDom from './t-dom';
 import TNumberFormat from './t-number-format';
@@ -70,7 +69,6 @@ const components = [
   Select,
   SharePopup,
   SharePopupItem,
-  TBom,
   TDate,
   TDom,
   TNumberFormat,
@@ -127,7 +125,6 @@ export {
   Select,
   SharePopup,
   SharePopupItem,
-  TBom,
   TDate,
   TDom,
   TNumberFormat,

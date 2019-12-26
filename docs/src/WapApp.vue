@@ -23,39 +23,39 @@
 
 <script>
 function getQueryString(name) {
-  const arr = location.search.substr(1).split('&');
-  for (let i = 0, l = arr.length; i < l; i++) {
-    const item = arr[i].split('=');
-    if (item.shift() === name) {
-      return decodeURIComponent(item.join('='));
+    const arr = location.search.substr(1).split('&');
+    for (let i = 0, l = arr.length; i < l; i++) {
+        const item = arr[i].split('=');
+        if (item.shift() === name) {
+            return decodeURIComponent(item.join('='));
+        }
     }
-  }
-  return '';
+    return '';
 }
 
 export default {
-  computed: {
-    title() {
-      const { name } = this.$route.meta;
-      return name ? name.replace(/-/g, '') : '';
+    computed: {
+        title() {
+            const { name } = this.$route.meta;
+            return name ? name.replace(/-/g, '') : '';
+        },
+
+        demoLink() {
+            return `https://github.com/youzan/vant/blob/dev/packages/${
+                this.$route.meta.path
+            }/demo/index.vue`;
+        },
+
+        showNav() {
+            return getQueryString('hide_nav') !== '1';
+        }
     },
 
-    demoLink() {
-      return `https://github.com/youzan/vant/blob/dev/packages/${
-        this.$route.meta.path
-      }/demo/index.vue`;
-    },
-
-    showNav() {
-      return getQueryString('hide_nav') !== '1';
+    methods: {
+        onBack() {
+            history.back();
+        }
     }
-  },
-
-  methods: {
-    onBack() {
-      history.back();
-    }
-  }
 };
 </script>
 

@@ -22,16 +22,16 @@
 
 <script>
 export default {
-  props: {
-    base: String,
-    group: Object
-  },
+    props: {
+        base: String,
+        group: Object
+    },
 
-  data() {
-    return {
-      active: []
-    };
-  }
+    data() {
+        return {
+            active: []
+        };
+    }
 };
 </script>
 

@@ -18,77 +18,77 @@
 
 <script>
 export default {
-  name: 'h5-doc-simulator',
+    name: 'h5-doc-simulator',
 
-  props: {
-    src: String
-  },
-
-  data() {
-    return {
-      scrollTop: window.scrollY,
-      iframeHostName: '',
-      windowHeight: window.innerHeight
-    };
-  },
-
-  computed: {
-    isFixed() {
-      return this.scrollTop > 60;
+    props: {
+        src: String
     },
 
-    simulatorStyle() {
-      const height = Math.min(580, this.windowHeight - 150);
-      return {
-        height: height + 'px'
-      };
-    }
-  },
-
-  watch: {
-    src() {
-      this.onSrcChanged();
-    }
-  },
-
-  mounted() {
-    window.addEventListener('scroll', () => {
-      this.scrollTop = window.scrollY;
-    });
-    window.addEventListener('resize', () => {
-      this.windowHeight = window.innerHeight;
-    });
-
-    const { iframe } = this.$refs;
-    if (iframe) {
-      if (iframe.contentDocument.readyState === 'complete') {
-        setTimeout(this.onSrcChanged, 0);
-      } else {
-        iframe.onload = () => {
-          this.onSrcChanged();
+    data() {
+        return {
+            scrollTop: window.scrollY,
+            iframeHostName: '',
+            windowHeight: window.innerHeight
         };
-      }
-    }
-  },
-
-  methods: {
-    reloadIframe() {
-      const { iframe } = this.$refs;
-      if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.location.reload();
-      }
     },
-    onSrcChanged() {
-      const { iframe } = this.$refs;
-      if (iframe && iframe.contentWindow) {
-        if (this.src.indexOf('://') !== -1) {
-          this.iframeHostName = this.src.split('://')[1].split('/')[0];
-        } else {
-          this.iframeHostName = iframe.contentWindow.location.host || location.host;
+
+    computed: {
+        isFixed() {
+            return this.scrollTop > 60;
+        },
+
+        simulatorStyle() {
+            const height = Math.min(580, this.windowHeight - 150);
+            return {
+                height: height + 'px'
+            };
         }
-      }
+    },
+
+    watch: {
+        src() {
+            this.onSrcChanged();
+        }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', () => {
+            this.scrollTop = window.scrollY;
+        });
+        window.addEventListener('resize', () => {
+            this.windowHeight = window.innerHeight;
+        });
+
+        const { iframe } = this.$refs;
+        if (iframe) {
+            if (iframe.contentDocument.readyState === 'complete') {
+                setTimeout(this.onSrcChanged, 0);
+            } else {
+                iframe.onload = () => {
+                    this.onSrcChanged();
+                };
+            }
+        }
+    },
+
+    methods: {
+        reloadIframe() {
+            const { iframe } = this.$refs;
+            if (iframe && iframe.contentWindow) {
+                iframe.contentWindow.location.reload();
+            }
+        },
+        onSrcChanged() {
+            const { iframe } = this.$refs;
+            if (iframe && iframe.contentWindow) {
+                if (this.src.indexOf('://') !== -1) {
+                    this.iframeHostName = this.src.split('://')[1].split('/')[0];
+                } else {
+                    this.iframeHostName = iframe.contentWindow.location.host || location.host;
+                }
+            }
+        }
     }
-  }
 };
 </script>
 

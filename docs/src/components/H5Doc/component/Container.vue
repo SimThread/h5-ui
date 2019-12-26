@@ -9,11 +9,11 @@
 
 <script>
 export default {
-  name: 'h5-doc-container',
+    name: 'h5-doc-container',
 
-  props: {
-    hasSimulator: Boolean
-  }
+    props: {
+        hasSimulator: Boolean
+    }
 };
 </script>
 

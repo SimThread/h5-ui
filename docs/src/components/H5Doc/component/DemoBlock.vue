@@ -7,11 +7,11 @@
 
 <script>
 export default {
-  name: 'h5-doc-demo-block',
+    name: 'h5-doc-demo-block',
 
-  props: {
-    title: String
-  }
+    props: {
+        title: String
+    }
 };
 </script>
 

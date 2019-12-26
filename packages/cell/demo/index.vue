@@ -100,24 +100,24 @@
 
 <script>
 export default {
-  i18n: {
-    'zh-CN': {
-      cell: '单元格',
-      valueOnly: '只设置 value',
-      showIcon: '展示图标',
-      showArrow: '展示箭头',
-      largeSize: '单元格大小',
-      router: '页面跳转'
-    },
-    'en-US': {
-      cell: 'Cell title',
-      valueOnly: 'Value only',
-      showIcon: 'Left Icon',
-      showArrow: 'Link',
-      largeSize: 'Size',
-      router: 'Router'
+    i18n: {
+        'zh-CN': {
+            cell: '单元格',
+            valueOnly: '只设置 value',
+            showIcon: '展示图标',
+            showArrow: '展示箭头',
+            largeSize: '单元格大小',
+            router: '页面跳转'
+        },
+        'en-US': {
+            cell: 'Cell title',
+            valueOnly: 'Value only',
+            showIcon: 'Left Icon',
+            showArrow: 'Link',
+            largeSize: 'Size',
+            router: 'Router'
+        }
     }
-  }
 };
 </script>
 

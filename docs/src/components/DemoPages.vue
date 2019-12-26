@@ -26,45 +26,45 @@
 <script>
 
 export default {
-  name: 'h5-doc-demo-pages',
+    name: 'h5-doc-demo-pages',
 
-  data() {
-    return {
-      currentDemo: 0
-    };
-  },
+    data() {
+        return {
+            currentDemo: 0
+        };
+    },
 
-  computed: {
-    demos() {
-      return [{
-        title: '商品详情',
-        preview: 'https://img.yzcdn.cn/public_files/2017/10/24/7070a8d1d6504b864c605114d32f2aae.png',
-        url: 'https://youzan.github.io/vant-demo/#/goods',
-        source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/goods/index.vue'
-      }, {
-        title: '会员中心',
-        preview: 'https://img.yzcdn.cn/public_files/2017/10/23/e1d70757e3ab88d39a360b704be8f43f.png',
-        url: 'https://youzan.github.io/vant-demo/#/user',
-        source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/user/index.vue'
-      }, {
-        title: '购物车',
-        preview: 'https://img.yzcdn.cn/public_files/2017/10/24/06b8b5ed3692314d434db7f6854dcdbe.png',
-        url: 'https://youzan.github.io/vant-demo/#/cart',
-        source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/cart/index.vue'
-      }];
+    computed: {
+        demos() {
+            return [{
+                title: '商品详情',
+                preview: 'https://img.yzcdn.cn/public_files/2017/10/24/7070a8d1d6504b864c605114d32f2aae.png',
+                url: 'https://youzan.github.io/vant-demo/#/goods',
+                source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/goods/index.vue'
+            }, {
+                title: '会员中心',
+                preview: 'https://img.yzcdn.cn/public_files/2017/10/23/e1d70757e3ab88d39a360b704be8f43f.png',
+                url: 'https://youzan.github.io/vant-demo/#/user',
+                source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/user/index.vue'
+            }, {
+                title: '购物车',
+                preview: 'https://img.yzcdn.cn/public_files/2017/10/24/06b8b5ed3692314d434db7f6854dcdbe.png',
+                url: 'https://youzan.github.io/vant-demo/#/cart',
+                source: 'https://github.com/youzan/vant-demo/blob/master/base/src/view/cart/index.vue'
+            }];
+        }
+    },
+
+    beforeMount() {
+        this.$emit('changeDemoURL', this.demos[0].url);
+    },
+
+    methods: {
+        onChangeDemo(demo, index) {
+            this.currentDemo = index;
+            this.$emit('changeDemoURL', demo.url);
+        }
     }
-  },
-
-  beforeMount() {
-    this.$emit('changeDemoURL', this.demos[0].url);
-  },
-
-  methods: {
-    onChangeDemo(demo, index) {
-      this.currentDemo = index;
-      this.$emit('changeDemoURL', demo.url);
-    }
-  }
 };
 </script>
 
