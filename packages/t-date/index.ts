@@ -2,7 +2,15 @@
  * 拷贝自[vux](https://vux.li/)
  * 日期对象转字符串
  */
-function dateFormat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+interface Week {
+  [key: string]: any,
+}
+
+interface O {
+  [key: string]: any,
+}
+
+function dateFormat (date: string | number | Date, fmt = 'YYYY-MM-DD HH:mm:ss') {
   if (!date) {
     return ''
   }
@@ -12,7 +20,7 @@ function dateFormat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
   if (typeof date === 'number') {
     date = new Date(date)
   }
-  var o = {
+  let o:O = {
     'M+': date.getMonth() + 1,
     'D+': date.getDate(),
     'h+': date.getHours() % 12 === 0 ? 12 : date.getHours() % 12,
@@ -22,7 +30,7 @@ function dateFormat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
     'q+': Math.floor((date.getMonth() + 3) / 3),
     'S': date.getMilliseconds()
   }
-  var week = {
+  let week:Week = {
     '0': '\u65e5',
     '1': '\u4e00',
     '2': '\u4e8c',
@@ -37,7 +45,7 @@ function dateFormat (date, fmt = 'YYYY-MM-DD HH:mm:ss') {
   if (/(E+)/.test(fmt)) {
     fmt = fmt.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '\u661f\u671f' : '\u5468') : '') + week[date.getDay() + ''])
   }
-  for (var k in o) {
+  for (let k in o) {
     if (new RegExp('(' + k + ')').test(fmt)) {
       fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
     }

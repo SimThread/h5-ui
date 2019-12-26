@@ -1,17 +1,18 @@
 /**
  * 获取指定id元素的可视高度, 不传参数默认返回页面可视高度
  */
-function getClientHeight(id) {
-  var clientHeight = 0;
+function getClientHeight(elementId: string = '') {
+  let clientHeight = 0;
 
-  if (!id) {
+  if (!elementId) {
     if (document.compatMode == "CSS1Compat") {
       clientHeight = document.documentElement.clientHeight;
     } else {
       clientHeight = document.body.clientHeight;
     }
   } else {
-    clientHeight = document.getElementById(id).clientHeight;
+    const ele = document.getElementById(elementId);
+    clientHeight = ele ? ele.clientHeight : 0;
   }
 
   return clientHeight;
@@ -21,12 +22,13 @@ function getClientHeight(id) {
  * 获取指定id元素的滚动高度, 不传参数默认返回页面滚动高度
  * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
  */
-function getScrollHeight(id) {
+function getScrollHeight(elementId: string = '') {
   let scrollHeight = 0;
-  if (!id) {
+  if (!elementId) {
     scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
   } else {
-    scrollHeight = document.getElementById(id).scrollHeight;
+    const ele = document.getElementById(elementId);
+    scrollHeight = ele ? ele.scrollHeight : 0;
   }
   return scrollHeight;
 }
@@ -36,13 +38,14 @@ function getScrollHeight(id) {
  * [scrollTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop)
  * [body.scrollTop与documentElement.scrollTop](https://segmentfault.com/a/1190000008065472)
  */
-function getScrollTop(id) {
+function getScrollTop(elementId: string = '') {
   let scrollTop = 0;
 
-  if (!id) {
+  if (!elementId) {
     scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
   } else {
-    scrollTop = document.getElementById(id).scrollTop;
+    const ele = document.getElementById(elementId);
+    scrollTop = ele ? ele.scrollTop : 0;
   }
   return scrollTop;
 };
@@ -58,13 +61,13 @@ function isScrollToBottom() {
  * 元素距离页面顶部的距离
  * [HTMLElement.offsetTop](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop)
  */
-function getOffsetTop (elem) {
-  if (!elem) {
+function getOffsetTop (ele: any) {
+  if (!ele) {
       return 0;
   }
 
-  let top = elem.offsetTop;
-  let parent = elem.offsetParent;
+  let top = ele.offsetTop;
+  let parent = ele.offsetParent;
   while (parent) {
       top += parent.offsetTop;
       parent = parent.offsetParent;

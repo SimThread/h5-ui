@@ -1,12 +1,14 @@
 const reUnit = /width|height|top|left|right|bottom|margin|padding/i;
 let _amId = 1;
-const _amDisplay = {};
+const _amDisplay: {
+  [key: string]:any
+} = {};
 
-let requestAnimationFrame;
+let requestAnimationFrame: (callback: ()=> {}) => {};
 if (typeof window !== 'undefined') {
   requestAnimationFrame = window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
+    (<any>window).mozRequestAnimationFrame ||
     function (callback) {
       window.setTimeout(callback, 1000 / 60);
     };
@@ -16,25 +18,77 @@ if (typeof window !== 'undefined') {
   };
 }
 
-function getAmId(obj) {
+function getAmId(obj:any) {
   return obj._amId || (obj._amId = _amId++);
 }
 
-function setAmDisplay(elem, display) {
+function setAmDisplay(elem:any, display:any) {
   const id = getAmId(elem);
   _amDisplay[`_am_${id}`] = display;
 }
 
-function getAmDisplay(elem) {
+function getAmDisplay(elem:any) {
   const id = getAmId(elem);
   return _amDisplay[`_am_${id}`];
+}
+
+/**
+ * 获取指定id元素的滚动距离, 不传参数默认返回页面滚动距离
+ * [scrollTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop)
+ * [body.scrollTop与documentElement.scrollTop](https://segmentfault.com/a/1190000008065472)
+ */
+function getScrollTop(id?:any) {
+  let scrollTop = 0;
+
+  if (!id) {
+    scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+  } else {
+    const ele = document.getElementById(id);
+    scrollTop = ele ? ele.scrollTop : 0;
+  }
+  return scrollTop;
+}
+
+/**
+ * 获取指定id元素的可视高度, 不传参数默认返回页面可视高度
+ */
+function getClientHeight(id?:any) {
+  var clientHeight = 0;
+
+  if (!id) {
+    if (document.compatMode == "CSS1Compat") {
+      clientHeight = document.documentElement.clientHeight;
+    } else {
+      clientHeight = document.body.clientHeight;
+    }
+  } else {
+    const ele = document.getElementById(id);
+    clientHeight = ele ? ele.clientHeight : 0;
+  }
+
+  return clientHeight;
+}
+
+ /**
+ * 获取指定id元素的滚动高度, 不传参数默认返回页面滚动高度
+ * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
+ */
+function getScrollHeight(id?:any) {
+  let scrollHeight = 0;
+  if (!id) {
+    scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
+  } else {
+    const ele = document.getElementById(id);
+    scrollHeight = ele ? ele.scrollHeight : 0;
+  }
+  return scrollHeight;
 }
 
 export default {
   /**
    * 添加类名
    */
-  addClass(el, className) {
+  addClass(el: any, className: string) {
     if (typeof el === 'string') el = document.querySelectorAll(el);
     const els = (el instanceof NodeList) ? [].slice.call(el) : [el];
 
@@ -53,7 +107,7 @@ export default {
    * 移除类名
    * el支持类型：Element,NodeList,Selector
    */
-  removeClass(el, className) {
+  removeClass(el:any, className: string) {
     if (typeof el === 'string') el = document.querySelectorAll(el);
     const els = (el instanceof NodeList) ? [].slice.call(el) : [el];
 
@@ -72,7 +126,7 @@ export default {
    * 是否含有类名
    * el支持类型：Element|Selector
    */
-  hasClass(el, className) {
+  hasClass(el:any, className:string) {
     if (typeof el === 'string') el = document.querySelector(el);
     if (el.classList) {
       return el.classList.contains(className);
@@ -84,7 +138,7 @@ export default {
    * 切换类名
    * el支持类型：Element|Selector
    */
-  toggleClass(el, className) {
+  toggleClass(el:any, className:string) {
     if (typeof el === 'string') el = document.querySelector(el);
     const flag = this.hasClass(el, className);
     if (flag) {
@@ -98,8 +152,12 @@ export default {
   /**
    * 插入到目标元素之后
    */
-  insertAfter(newEl, targetEl) {
+  insertAfter(newEl:HTMLElement, targetEl:HTMLElement) {
     const parent = targetEl.parentNode;
+
+    if (!parent) {
+      throw new Error('未找到目标元素的父元素');
+    }
 
     if (parent.lastChild === targetEl) {
       parent.appendChild(newEl);
@@ -112,9 +170,9 @@ export default {
    * 移除元素
    * el支持类型：Element|Selector|NodeList
    */
-  remove(el) {
+  remove(el: any) {
     if (typeof el === 'string') {
-      [].forEach.call(document.querySelectorAll(el), node => {
+      [].forEach.call(document.querySelectorAll(el), (node:any) => {
         node.parentNode.removeChild(node);
       });
     } else if (el.parentNode) {
@@ -122,7 +180,7 @@ export default {
       el.parentNode.removeChild(el);
     } else if (el instanceof NodeList) {
       // it's an array of elements
-      [].forEach.call(el, node => {
+      [].forEach.call(el, (node:any) => {
         node.parentNode.removeChild(node);
       });
     } else {
@@ -134,16 +192,16 @@ export default {
    * 获取元素高度（包含外边框）
    * [HTMLElement.offsetHeight](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetHeight)
    */
-  outerHeight(el) {
+  outerHeight(el:any) {
     return el.offsetHeight;
   },
 
   /**
    * 获取元素高度（包含margin）
    */
-  outerHeightWithMargin(el) {
+  outerHeightWithMargin(el:any) {
     let height = el.offsetHeight;
-    const style = getComputedStyle(el);
+    const style:any = getComputedStyle(el);
 
     height += (parseFloat(style.marginTop) || 0) + (parseFloat(style.marginBottom) || 0);
     return height;
@@ -153,16 +211,16 @@ export default {
    * 获取元素宽度（包含外边框）
    * [HTMLElement.offsetWidth](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetWidth)
    */
-  outerWidth(el) {
+  outerWidth(el:any) {
     return el.offsetWidth;
   },
 
    /**
    * 获取元素宽度（包含margin）
    */
-  outerWidthWithMargin(el) {
+  outerWidthWithMargin(el:any) {
     let width = el.offsetWidth;
-    const style = getComputedStyle(el);
+    const style:any = getComputedStyle(el);
 
     width += (parseFloat(style.marginLeft) || 0) + (parseFloat(style.marginRight) || 0);
     return width;
@@ -171,14 +229,14 @@ export default {
   /**
    * 获取渲染后的样式
    */
-  getComputedStyles(el) {
+  getComputedStyles(el:any) {
     return el.ownerDocument.defaultView.getComputedStyle(el, null);
   },
 
   /**
    * 获取元素距离文档边界的距离（如果文档设置了边框，以内边框为参照）
    */
-  getOffset(el) {
+  getOffset(el:any) {
     const html = el.ownerDocument.documentElement;
     let box = { top: 0, left: 0 };
 
@@ -198,7 +256,7 @@ export default {
    * 返回当前元素相对于关系为offsetParent的节点的位置
    * [offsetTop](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop)
    */
-  getPosition(el) {
+  getPosition(el:any) {
     if (!el) {
       return {
         left: 0,
@@ -215,7 +273,7 @@ export default {
   /**
    * 设置样式
    */
-  setStyle(node, att, val, style) {
+  setStyle(node:any, att:any, val:any, style:any) {
     style = style || node.style;
 
     if (style) {
@@ -236,19 +294,21 @@ export default {
   /**
    * 设置样式
    */
-  setStyles(el, hash) {
+  setStyles(el:any, hash:any) {
     const HAS_CSSTEXT_FEATURE = typeof (el.style.cssText) !== 'undefined';
-    function trim(str) {
+    function trim(str:any) {
       return str.replace(/^\s+|\s+$/g, '');
     }
     let originStyleText;
-    const originStyleObj = {};
+    const originStyleObj:{
+      [key:string]:any
+    } = {};
     if (!!HAS_CSSTEXT_FEATURE) {
       originStyleText = el.style.cssText;
     } else {
       originStyleText = el.getAttribute('style');
     }
-    originStyleText.split(';').forEach(item => {
+    originStyleText.split(';').forEach((item:any) => {
       if (item.indexOf(':') !== -1) {
         const obj = item.split(':');
         originStyleObj[trim(obj[0])] = trim(obj[1]);
@@ -274,7 +334,7 @@ export default {
   /**
    * 获取样式
    */
-  getStyle(el, att, style) {
+  getStyle(el:any, att:any, style:any) {
     style = style || el.style;
 
     let val = '';
@@ -291,7 +351,7 @@ export default {
   },
 
   // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  getComputedStyle(el, att) {
+  getComputedStyle(el:any, att:any) {
     const win = el.ownerDocument.defaultView;
     // null means not return presudo styles
     const computed = win.getComputedStyle(el, null);
@@ -302,9 +362,9 @@ export default {
   getPageSize() {
     let xScroll, yScroll;
 
-    if (window.innerHeight && window.scrollMaxY) {
-      xScroll = window.innerWidth + window.scrollMaxX;
-      yScroll = window.innerHeight + window.scrollMaxY;
+    if (window.innerHeight && (<any>window).scrollMaxY) {
+      xScroll = window.innerWidth + (<any>window).scrollMaxX;
+      yScroll = window.innerHeight + (<any>window).scrollMaxY;
     } else {
       if (document.body.scrollHeight > document.body.offsetHeight) { // all but Explorer Mac
         xScroll = document.body.scrollWidth;
@@ -315,7 +375,7 @@ export default {
       }
     }
 
-    let windowWidth, windowHeight;
+    let windowWidth:any, windowHeight:any;
 
     if (self.innerHeight) { // all except Explorer
       if (document.documentElement.clientWidth) {
@@ -359,17 +419,17 @@ export default {
     };
   },
 
-  get(selector) {
+  get(selector:any) {
     return document.querySelector(selector) || {};
   },
 
-  getAll(selector) {
+  getAll(selector:any) {
     return document.querySelectorAll(selector);
   },
 
   // selector 可选。字符串值，规定在何处停止对祖先元素进行匹配的选择器表达式。
   // filter   可选。字符串值，包含用于匹配元素的选择器表达式。
-  parentsUntil(el, selector, filter) {
+  parentsUntil(el:any, selector:any, filter:any) {
     const result = [];
     const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
     // match start from parent
@@ -388,7 +448,7 @@ export default {
   },
 
   // 获得匹配选择器的第一个祖先元素，从当前元素开始沿 DOM 树向上
-  closest(el, selector) {
+  closest(el:any, selector:any) {
     const matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
 
     while (el) {
@@ -402,11 +462,11 @@ export default {
   },
 
   // el can be an Element, NodeList or selector
-  _showHide(el, show) {
+  _showHide(el:any, show:any) {
     if (typeof el === 'string') el = document.querySelectorAll(el);
     const els = (el instanceof NodeList) ? [].slice.call(el) : [el];
     let display;
-    const values = [];
+    const values:any[] = [];
     if (els.length === 0) {
       return;
     }
@@ -433,15 +493,15 @@ export default {
     });
   },
 
-  show(elements) {
+  show(elements:any) {
     this._showHide(elements, true);
   },
 
-  hide(elements) {
+  hide(elements:any) {
     this._showHide(elements, false);
   },
 
-  toggle(element) {
+  toggle(element:any) {
     if (element.style.display === 'none') {
       this.show(element);
     } else {
@@ -478,11 +538,11 @@ export default {
   },
 
   // matches(el, '.my-class'); 这里不能使用伪类选择器
-  is(el, selector) {
+  is(el:any, selector:any) {
     return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector || el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
   },
 
-  width(el) {
+  width(el:any) {
     const styles = this.getComputedStyles(el);
     const width = parseFloat(styles.width.indexOf('px') !== -1 ? styles.width : 0);
 
@@ -498,7 +558,7 @@ export default {
     return width - borderRightWidth - borderLeftWidth - paddingLeft - paddingRight;
   },
 
-  height(el) {
+  height(el:any) {
     const styles = this.getComputedStyles(el);
     const height = parseFloat(styles.height.indexOf('px') !== -1 ? styles.height : 0);
 
@@ -517,51 +577,15 @@ export default {
   /**
  * 获取指定id元素的可视高度, 不传参数默认返回页面可视高度
  */
-  getClientHeight(id) {
-    var clientHeight = 0;
-
-    if (!id) {
-      if (document.compatMode == "CSS1Compat") {
-        clientHeight = document.documentElement.clientHeight;
-      } else {
-        clientHeight = document.body.clientHeight;
-      }
-    } else {
-      clientHeight = document.getElementById(id).clientHeight;
-    }
-
-    return clientHeight;
-  },
+  getClientHeight: getClientHeight,
 
   /**
  * 获取指定id元素的滚动高度, 不传参数默认返回页面滚动高度
  * https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollHeight
  */
-  getScrollHeight(id) {
-    let scrollHeight = 0;
-    if (!id) {
-      scrollHeight = (document.documentElement && document.documentElement.scrollHeight) || document.body.scrollHeight;
-    } else {
-      scrollHeight = document.getElementById(id).scrollHeight;
-    }
-    return scrollHeight;
-  },
+  getScrollHeight: getScrollHeight,
 
-  /**
-   * 获取指定id元素的滚动距离, 不传参数默认返回页面滚动距离
-   * [scrollTop](https://developer.mozilla.org/zh-CN/docs/Web/API/Element/scrollTop)
-   * [body.scrollTop与documentElement.scrollTop](https://segmentfault.com/a/1190000008065472)
-   */
-  getScrollTop(id) {
-    let scrollTop = 0;
-
-    if (!id) {
-      scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-    } else {
-      scrollTop = document.getElementById(id).scrollTop;
-    }
-    return scrollTop;
-  },
+  getScrollTop: getScrollTop,
 
   /**
    * 页面是否滚动到底部
@@ -574,7 +598,7 @@ export default {
    * 元素距离页面顶部的距离
    * [HTMLElement.offsetTop](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/offsetTop)
    */
-  getOffsetTop(elem) {
+  getOffsetTop(elem:any) {
     if (!elem) {
       return 0;
     }

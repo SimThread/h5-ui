@@ -1,7 +1,7 @@
 /**
  * 添加前导0
  */
-function addZero (num) {
+function addZero (num:any) {
   if (num <= 9) {
       return `0${num}`;
   }
@@ -11,7 +11,7 @@ function addZero (num) {
 /**
  * 千分符
  */
-function thousands (num) {
+function thousands (num:any) {
   if (!num && num != 0) {
       return '';
   }
