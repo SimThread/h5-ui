@@ -33,16 +33,6 @@
       "pre-commit": "echo 'husky' && npm run lint-fix"
     }
   },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "eslint ./packages --fix --ext .js,.vue --ignore-path .eslintignore .",
-      "git add"
-    ],
-    "*.{vue,css}": [
-      "stylelint **/*.{vue,less} --fix",
-      "git add"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "http://code.addcn.com/hk591/h5-ui.git"
