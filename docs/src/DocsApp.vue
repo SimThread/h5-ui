@@ -3,7 +3,7 @@
         <h5-doc
             :base="base"
             :config="config"
-            :active="activeVal"
+                :active="activeVal"
             :simulators="simulators"
             :current-simulator="currentSimulator"
         >
