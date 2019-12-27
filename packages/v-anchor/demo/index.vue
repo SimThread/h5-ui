@@ -93,7 +93,7 @@ export default {
         // 导航滚动
         navScroll() {
             // 滚动到相对应的模块
-               document.addEventListener('scroll', this.onScroll);
+            document.addEventListener('scroll', this.onScroll);
         },
         onScroll() {
             const headHeight = document.querySelector('.h5-nav-bar__title').clientHeight;
