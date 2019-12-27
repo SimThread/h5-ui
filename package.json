@@ -16,7 +16,7 @@
   "scripts": {
     "bootstrap": "npm i",
     "dev": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
-    "lint-fix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore . && stylelint **/*.{vue,less} --fix",
+    "lint-fix": "eslint --fix --ext .js,ts,.vue --ignore-path .eslintignore . && stylelint **/*.{css,less,vue} --fix",
     "build:entry": "node build/build-entry.js",
     "build:components": "node build/build-components.js --color",
     "build:h5": "cross-env NODE_ENV=production webpack --color --config build/webpack.build.js && cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js",
@@ -33,11 +33,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,ts,vue}": [
       "eslint --fix --ignore-path .eslintignore .",
       "git add"
     ],
-    "*.{vue,less}": [
+    "*.{css,less,vue}": [
       "stylelint **/*.{vue,less} --fix",
       "git add"
     ]
@@ -86,7 +86,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "dependency-tree": "^7.0.2",
-    "eslint": "^5.13.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-vue": "^6.0.2",

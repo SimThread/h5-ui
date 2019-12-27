@@ -1,3 +1,3 @@
 export default function number(value: string): boolean {
-  return /^\d+$/.test(value);
+    return /^\d+$/.test(value);
 }
