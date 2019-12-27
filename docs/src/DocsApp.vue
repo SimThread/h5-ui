@@ -2,8 +2,8 @@
     <div class="app">
         <h5-doc
             :base="base"
-            :config="config"
-                :active="activeVal"
+               :config="config"
+            :active="activeVal"
             :simulators="simulators"
             :current-simulator="currentSimulator"
         >
