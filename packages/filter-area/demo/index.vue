@@ -1,35 +1,35 @@
 <template>
-  <demo-section background="white">
-    <demo-block title="基础用法">
-      <h5-filter-area type="devision" v-model="activeIndex" :close-on-click-overlay="true" :sticky="true" :offset-top="30">
-        <h5-filter-area-panel :immediate-render="true" :title="area.title" style="position: relative;z-index: 9999;" :highlight="(area.title !== '區域' && area.title !== '港鐵')">
-          <h5-select ref="areaSelect" :columns="area.options" @change="onChange" value-key="text">
-            <div slot="footer" class="estate-footer">
-              共找到<span class="count fc-org">12133</span>間房屋&nbsp;&nbsp;&nbsp;<span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span> <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span>
-            </div>
-          </h5-select>
-        </h5-filter-area-panel>
+    <demo-section background="white">
+        <demo-block title="基础用法">
+            <h5-filter-area type="devision" v-model="activeIndex" :close-on-click-overlay="true" :sticky="true" :offset-top="30">
+                <h5-filter-area-panel :immediate-render="true" :title="area.title" style="position: relative; z-index: 9999;" :highlight="(area.title !== '區域' && area.title !== '港鐵')">
+                    <h5-select ref="areaSelect" :columns="area.options" @change="onChange" value-key="text">
+                        <div slot="footer" class="estate-footer">
+                            共找到<span class="count fc-org">12133</span>間房屋&nbsp;&nbsp;&nbsp;<span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span> <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span>
+                        </div>
+                    </h5-select>
+                </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediate-render="true" :title="price.title" style="position: relative;z-index: 9999;" :highlight="price.title !== '呎價'">
-          <h5-select ref="priceSelect" :columns="price.options" value-key="text" @change="onPriceChange" :default-index="price.defaultIndex">
-            <div slot="footer" class="price-footer">
-              <input type="text" class="min-price" v-model="minPrice"> ~
-              <input type="text" class="max-price" v-model="maxPrice"> 元
-              <span class="btn" @click="onPriceConfirm(minPrice, maxPrice)">确定</span>
-            </div>
-          </h5-select>
-        </h5-filter-area-panel>
+                <h5-filter-area-panel :immediate-render="true" :title="price.title" style="position: relative; z-index: 9999;" :highlight="price.title !== '呎價'">
+                    <h5-select ref="priceSelect" :columns="price.options" value-key="text" @change="onPriceChange" :default-index="price.defaultIndex">
+                        <div slot="footer" class="price-footer">
+                            <input type="text" class="min-price" v-model="minPrice"> ~
+                            <input type="text" class="max-price" v-model="maxPrice"> 元
+                            <span class="btn" @click="onPriceConfirm(minPrice, maxPrice)">确定</span>
+                        </div>
+                    </h5-select>
+                </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediate-render="true" :title="age.title" style="position: relative;z-index: 9999;" :highlight="age.title !== '樓齡'">
-          <h5-select ref="ageSelect" :columns="age.options" @change="onAgeChange" />
-        </h5-filter-area-panel>
+                <h5-filter-area-panel :immediate-render="true" :title="age.title" style="position: relative; z-index: 9999;" :highlight="age.title !== '樓齡'">
+                    <h5-select ref="ageSelect" :columns="age.options" @change="onAgeChange" />
+                </h5-filter-area-panel>
 
-        <h5-filter-area-panel :immediate-render="true" :title="sort.title" style="position: relative;z-index: 9999;" :highlight="sort.title !== '排序'">
-          <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange" />
-        </h5-filter-area-panel>
-      </h5-filter-area>
-    </demo-block>
-  </demo-section>
+                <h5-filter-area-panel :immediate-render="true" :title="sort.title" style="position: relative; z-index: 9999;" :highlight="sort.title !== '排序'">
+                    <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange" />
+                </h5-filter-area-panel>
+            </h5-filter-area>
+        </demo-block>
+    </demo-section>
 </template>
 
 <script>
@@ -424,96 +424,102 @@ export default {
 @import '../../packages/_style/var';
 
 .demo-filter-area {
-  .estate-footer {
-    width: 100%;
-    padding: 7px 0;
-    // position: absolute;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    box-shadow: 0 -3px 3px 0 hsla(0,0%,60.8%,.4);
-    // z-index: 21;
-    background: #fff;
-    .fc-org {
-      color: #f60;
-    }
-    .btn {
-      padding: 5px 15px;
-      line-height: 1.42857143;
-      border-radius: 4px;
-    }
-    .btn-warning {
-      background-color: #f60;
-      border-color: #f60;
-      color: #fff;
-    }
-    .btn-link {
-      color: #428bca;
-      border-radius: 0;
-    }
-  }
+    .estate-footer {
+        width: 100%;
+        padding: 7px 0;
+        // position: absolute;
+        left: 0;
+        bottom: 0;
+        text-align: center;
+        box-shadow: 0 -3px 3px 0 hsla(0, 0%, 60.8%, .4);
+        // z-index: 21;
+        background: #fff;
 
-  .price-footer {
-    padding: 5px 10px;
-    .min-price, .max-price {
-      padding: 5px;
-      line-height: 20px;
-      width: 70px;
-      height: 30px;
-      display: inline-block;
-      color: #555;
-      background-color: #fff;
-      background-image: none;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+        .fc-org {
+            color: #f60;
+        }
+
+        .btn {
+            padding: 5px 15px;
+            line-height: 1.42857143;
+            border-radius: 4px;
+        }
+
+        .btn-warning {
+            background-color: #f60;
+            border-color: #f60;
+            color: #fff;
+        }
+
+        .btn-link {
+            color: #428bca;
+            border-radius: 0;
+        }
     }
 
-    .btn {
-      vertical-align: top;
-      background-color: #f60;
-      border-color: #f60;
-      color: #fff;
-      height: 30px;
-      line-height: 1.5;
-      padding: 3px 15px;
-      font-size: 15px;
-      display: inline-block;
-      border-radius: 5px;
+    .price-footer {
+        padding: 5px 10px;
+
+        .min-price,
+        .max-price {
+            padding: 5px;
+            line-height: 20px;
+            width: 70px;
+            height: 30px;
+            display: inline-block;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            vertical-align: top;
+            background-color: #f60;
+            border-color: #f60;
+            color: #fff;
+            height: 30px;
+            line-height: 1.5;
+            padding: 3px 15px;
+            font-size: 15px;
+            display: inline-block;
+            border-radius: 5px;
+        }
     }
-  }
 
-  .h5-filter-area-panel .van-icon {
-    margin-right: 5px;
-    vertical-align: -2px;
-  }
+    .h5-filter-area-panel .van-icon {
+        margin-right: 5px;
+        vertical-align: -2px;
+    }
 
-  .h5-filter-area-panel__pane {
-    // background-color: @white;
-    // padding: 20px 0;
-  }
-
-  .h5-filter-area--card .h5-filter-area-panel__pane {
-    background-color: transparent;
-  }
-
-  .custom-tabwrap .h5-filter-area-panel-active {
-    color: #20a0ff;
-  }
-
-  .custom-tabwrap .h5-filter-area-nav-bar {
-    background: #20a0ff;
-  }
-
-  .custom-pane {
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-  }
-
-  .h5-doc-demo-block:last-child {
     .h5-filter-area-panel__pane {
-      // padding: 50px 20px;
+        // background-color: @white;
+        // padding: 20px 0;
     }
-  }
+
+    .h5-filter-area--card .h5-filter-area-panel__pane {
+        background-color: transparent;
+    }
+
+    .custom-tabwrap .h5-filter-area-panel-active {
+        color: #20a0ff;
+    }
+
+    .custom-tabwrap .h5-filter-area-nav-bar {
+        background: #20a0ff;
+    }
+
+    .custom-pane {
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .h5-doc-demo-block:last-child {
+        .h5-filter-area-panel__pane {
+            // padding: 50px 20px;
+        }
+    }
 }
 </style>

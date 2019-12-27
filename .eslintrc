@@ -50,6 +50,7 @@
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": 0,
     "vue/no-v-html": 0,
+    "vue/html-indent": ["error", 4],
     "vue/attributes-order": 0,
     "vue/require-v-for-key": 0,
     "vue/require-default-prop": 0,

@@ -1,45 +1,45 @@
 <template>
-  <demo-section>
-    <demo-block title="基础用法">
-      <h5-picker
-        :columns="['杭州', '宁波', '温州', '嘉兴', '湖州']"
-        @change="onChange1"
-      />
-    </demo-block>
+    <demo-section>
+        <demo-block title="基础用法">
+            <h5-picker
+                :columns="['杭州', '宁波', '温州', '嘉兴', '湖州']"
+                @change="onChange1"
+            />
+        </demo-block>
 
-    <demo-block title="禁用选项">
-      <h5-picker :columns="[
-        { text: '杭州', disabled: true },
-        { text: '宁波' },
-        { text: '温州' }
-      ]"
-      />
-    </demo-block>
+        <demo-block title="禁用选项">
+            <h5-picker :columns="[
+                { text: '杭州', disabled: true },
+                { text: '宁波' },
+                { text: '温州' }
+            ]"
+            />
+        </demo-block>
 
-    <demo-block title="展示顶部栏">
-      <h5-picker
-        show-toolbar
-        title="标题"
-        :columns="['杭州', '宁波', '温州', '嘉兴', '湖州']"
-        @cancel="onCancel"
-        @confirm="onConfirm"
-      />
-    </demo-block>
+        <demo-block title="展示顶部栏">
+            <h5-picker
+                show-toolbar
+                title="标题"
+                :columns="['杭州', '宁波', '温州', '嘉兴', '湖州']"
+                @cancel="onCancel"
+                @confirm="onConfirm"
+            />
+        </demo-block>
 
-    <demo-block title="多列联动">
-      <h5-picker
-        :columns="columns"
-        @change="onChange2"
-      />
-    </demo-block>
+        <demo-block title="多列联动">
+            <h5-picker
+                :columns="columns"
+                @change="onChange2"
+            />
+        </demo-block>
 
-    <demo-block title="加载状态">
-      <h5-picker
-        loading
-        :columns="columns"
-      />
-    </demo-block>
-  </demo-section>
+        <demo-block title="加载状态">
+            <h5-picker
+                loading
+                :columns="columns"
+            />
+        </demo-block>
+    </demo-section>
 </template>
 
 <script>

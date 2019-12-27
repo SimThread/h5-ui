@@ -1,56 +1,56 @@
 <template>
-  <demo-section>
-    <demo-block :title="$t('basicUsage')">
-      <h5-tabbar v-model="active">
-        <h5-tabbar-item icon="home-o">{{ $t('tab') }}</h5-tabbar-item>
-        <h5-tabbar-item
-          icon="search"
-          dot
-        >
-          {{ $t('tab') }}
-        </h5-tabbar-item>
-        <h5-tabbar-item
-          icon="friends-o"
-          info="5"
-        >
-          {{ $t('tab') }}
-        </h5-tabbar-item>
-        <h5-tabbar-item
-          icon="setting-o"
-          info="20"
-        >
-          {{ $t('tab') }}
-        </h5-tabbar-item>
-      </h5-tabbar>
-    </demo-block>
+    <demo-section>
+        <demo-block :title="$t('basicUsage')">
+            <h5-tabbar v-model="active">
+                <h5-tabbar-item icon="home-o">{{ $t('tab') }}</h5-tabbar-item>
+                <h5-tabbar-item
+                    icon="search"
+                    dot
+                >
+                    {{ $t('tab') }}
+                </h5-tabbar-item>
+                <h5-tabbar-item
+                    icon="friends-o"
+                    info="5"
+                >
+                    {{ $t('tab') }}
+                </h5-tabbar-item>
+                <h5-tabbar-item
+                    icon="setting-o"
+                    info="20"
+                >
+                    {{ $t('tab') }}
+                </h5-tabbar-item>
+            </h5-tabbar>
+        </demo-block>
 
-    <demo-block title="自定义图标">
-      <h5-tabbar v-model="active2">
-        <h5-tabbar-item info="3">
-          <span>{{ $t('custom') }}</span>
-          <img
-            slot="icon"
-            slot-scope="props"
-            :src="props.active ? icon.active : icon.normal"
-          >
-        </h5-tabbar-item>
-        <h5-tabbar-item icon="search">{{ $t('tab') }}</h5-tabbar-item>
-        <h5-tabbar-item icon="setting-o">{{ $t('tab') }}</h5-tabbar-item>
-      </h5-tabbar>
-    </demo-block>
+        <demo-block title="自定义图标">
+            <h5-tabbar v-model="active2">
+                <h5-tabbar-item info="3">
+                    <span>{{ $t('custom') }}</span>
+                    <img
+                        slot="icon"
+                        slot-scope="props"
+                        :src="props.active ? icon.active : icon.normal"
+                    >
+                </h5-tabbar-item>
+                <h5-tabbar-item icon="search">{{ $t('tab') }}</h5-tabbar-item>
+                <h5-tabbar-item icon="setting-o">{{ $t('tab') }}</h5-tabbar-item>
+            </h5-tabbar>
+        </demo-block>
 
-    <demo-block title="自定义颜色">
-      <h5-tabbar
-        v-model="active3"
-        active-color="#07c160"
-      >
-        <h5-tabbar-item icon="home-o">{{ $t('tab') }}</h5-tabbar-item>
-        <h5-tabbar-item icon="search">{{ $t('tab') }}</h5-tabbar-item>
-        <h5-tabbar-item icon="friends-o">{{ $t('tab') }}</h5-tabbar-item>
-        <h5-tabbar-item icon="setting-o">{{ $t('tab') }}</h5-tabbar-item>
-      </h5-tabbar>
-    </demo-block>
-  </demo-section>
+        <demo-block title="自定义颜色">
+            <h5-tabbar
+                v-model="active3"
+                active-color="#07c160"
+            >
+                <h5-tabbar-item icon="home-o">{{ $t('tab') }}</h5-tabbar-item>
+                <h5-tabbar-item icon="search">{{ $t('tab') }}</h5-tabbar-item>
+                <h5-tabbar-item icon="friends-o">{{ $t('tab') }}</h5-tabbar-item>
+                <h5-tabbar-item icon="setting-o">{{ $t('tab') }}</h5-tabbar-item>
+            </h5-tabbar>
+        </demo-block>
+    </demo-section>
 </template>
 
 <script>
@@ -71,12 +71,12 @@ export default {
 
 <style lang="less">
 .demo-tabbar {
-  .h5-tabbar {
-    position: relative;
+    .h5-tabbar {
+        position: relative;
 
-    &-item {
-      cursor: pointer;
+        &-item {
+            cursor: pointer;
+        }
     }
-  }
 }
 </style>

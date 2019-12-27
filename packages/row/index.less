@@ -1,41 +1,41 @@
 @import '../_style/var';
 
 .h5-row {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  &--flex {
-    display: flex;
-
     &::after {
-      display: none;
+        content: "";
+        display: table;
+        clear: both;
     }
-  }
 
-  &--justify-center {
-    justify-content: center;
-  }
+    &--flex {
+        display: flex;
 
-  &--justify-end {
-    justify-content: flex-end;
-  }
+        &::after {
+            display: none;
+        }
+    }
 
-  &--justify-space-between {
-    justify-content: space-between;
-  }
+    &--justify-center {
+        justify-content: center;
+    }
 
-  &--justify-space-around {
-    justify-content: space-around;
-  }
+    &--justify-end {
+        justify-content: flex-end;
+    }
 
-  &--align-center {
-    align-items: center;
-  }
+    &--justify-space-between {
+        justify-content: space-between;
+    }
 
-  &--align-bottom {
-    align-items: bottom;
-  }
+    &--justify-space-around {
+        justify-content: space-around;
+    }
+
+    &--align-center {
+        align-items: center;
+    }
+
+    &--align-bottom {
+        align-items: bottom;
+    }
 }

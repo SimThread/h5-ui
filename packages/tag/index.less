@@ -1,40 +1,40 @@
 @import '../_style/var';
 
 .h5-tag {
-  color: @white;
-  font-size: 10px;
-  padding: .2em .5em;
-  line-height: normal;
-  border-radius: .2em;
-  display: inline-block;
-
-  &::after {
-    border-color: currentColor;
-    border-radius: .4em;
-  }
-
-  &--mark {
-    padding-right: .6em;
-    border-radius: 0 .8em .8em 0;
+    color: @white;
+    font-size: 10px;
+    padding: .2em .5em;
+    line-height: normal;
+    border-radius: .2em;
+    display: inline-block;
 
     &::after {
-      border-radius: 0 1.6em 1.6em 0;
+        border-color: currentColor;
+        border-radius: .4em;
     }
-  }
 
-  &--round {
-    border-radius: .8em;
+    &--mark {
+        padding-right: .6em;
+        border-radius: 0 .8em .8em 0;
 
-    &::after {
-      border-radius: 1.6em;
+        &::after {
+            border-radius: 0 1.6em 1.6em 0;
+        }
     }
-  }
 
-  &--medium {
-    font-size: 12px;
-  }
+    &--round {
+        border-radius: .8em;
 
-  &--large {
-    font-size: 14px;
-  }
+        &::after {
+            border-radius: 1.6em;
+        }
+    }
+
+    &--medium {
+        font-size: 12px;
+    }
+
+    &--large {
+        font-size: 14px;
+    }
 }

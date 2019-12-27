@@ -1,28 +1,28 @@
 <template>
-  <demo-section>
-    <demo-block title="基础用法">
-      <img
-        v-for="img in imageList"
-        v-lazy="img"
-      >
-    </demo-block>
+    <demo-section>
+        <demo-block title="基础用法">
+            <img
+                v-for="img in imageList"
+                v-lazy="img"
+            >
+        </demo-block>
 
-    <demo-block title="背景图懒加载">
-      <div
-        v-for="img in backgroundImageList"
-        v-lazy:background-image="img"
-      />
-    </demo-block>
+        <demo-block title="背景图懒加载">
+            <div
+                v-for="img in backgroundImageList"
+                v-lazy:background-image="img"
+            />
+        </demo-block>
 
-    <demo-block title="懒加载模块">
-      <lazy-component>
-        <img
-          v-for="img in componentImageList"
-          v-lazy="img"
-        >
-      </lazy-component>
-    </demo-block>
-  </demo-section>
+        <demo-block title="懒加载模块">
+            <lazy-component>
+                <img
+                    v-for="img in componentImageList"
+                    v-lazy="img"
+                >
+            </lazy-component>
+        </demo-block>
+    </demo-section>
 </template>
 
 <script>
@@ -61,25 +61,25 @@ export default {
 
 <style lang="less">
 .demo-lazyload {
-  padding: 0 15px;
+    padding: 0 15px;
 
-  img,
-  div[lazy] {
-    padding: 15px;
-    width: 100%;
-    height: 250px;
-    margin: 10px 0 0;
-    background-color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    background-size: 315px 250px;
-    background-position: 15px;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
-  }
+    img,
+    div[lazy] {
+        padding: 15px;
+        width: 100%;
+        height: 250px;
+        margin: 10px 0 0;
+        background-color: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        background-size: 315px 250px;
+        background-position: 15px;
+        background-repeat: no-repeat;
+        box-sizing: border-box;
+    }
 
-  .h5-doc-demo-block__title,
-  .h5-doc-demo-section__title {
-    padding-left: 0;
-  }
+    .h5-doc-demo-block__title,
+    .h5-doc-demo-section__title {
+        padding-left: 0;
+    }
 }
 </style>

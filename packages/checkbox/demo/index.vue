@@ -1,70 +1,70 @@
 <template>
-  <demo-section>
-    <demo-block title="基础用法">
-      <h5-checkbox v-model="checkbox1">复选框</h5-checkbox>
-    </demo-block>
+    <demo-section>
+        <demo-block title="基础用法">
+            <h5-checkbox v-model="checkbox1">复选框</h5-checkbox>
+        </demo-block>
 
-    <demo-block title="禁用状态">
-      <h5-checkbox
-        :value="false"
-        disabled
-      >
-        复选框
-      </h5-checkbox>
-      <h5-checkbox
-        :value="true"
-        disabled
-      >
-        复选框
-      </h5-checkbox>
-    </demo-block>
+        <demo-block title="禁用状态">
+            <h5-checkbox
+                :value="false"
+                disabled
+            >
+                复选框
+            </h5-checkbox>
+            <h5-checkbox
+                :value="true"
+                disabled
+            >
+                复选框
+            </h5-checkbox>
+        </demo-block>
 
-    <demo-block title="自定义颜色">
-      <h5-checkbox
-        v-model="checkbox2"
-        checked-color="#07c160"
-      >
-        自定义颜色
-      </h5-checkbox>
-    </demo-block>
+        <demo-block title="自定义颜色">
+            <h5-checkbox
+                v-model="checkbox2"
+                checked-color="#07c160"
+            >
+                自定义颜色
+            </h5-checkbox>
+        </demo-block>
 
-    <demo-block title="自定义图标">
-      <h5-checkbox v-model="checkbox3">
-        自定义图标
-        <img
-          slot="icon"
-          slot-scope="props"
-          :src="props.checked ? icon.active : icon.normal"
-        >
-      </h5-checkbox>
-    </demo-block>
+        <demo-block title="自定义图标">
+            <h5-checkbox v-model="checkbox3">
+                自定义图标
+                <img
+                    slot="icon"
+                    slot-scope="props"
+                    :src="props.checked ? icon.active : icon.normal"
+                >
+            </h5-checkbox>
+        </demo-block>
 
-    <demo-block title="复选框组">
-      <h5-checkbox-group v-model="result">
-        <h5-checkbox
-          v-for="(item, index) in list"
-          :key="index"
-          :name="item"
-        >
-          复选框 {{ item }}
-        </h5-checkbox>
-      </h5-checkbox-group>
-    </demo-block>
+        <demo-block title="复选框组">
+            <h5-checkbox-group v-model="result">
+                <h5-checkbox
+                    v-for="(item, index) in list"
+                    :key="index"
+                    :name="item"
+                >
+                    复选框 {{ item }}
+                </h5-checkbox>
+            </h5-checkbox-group>
+        </demo-block>
 
-    <demo-block title="设置最大可选数">
-      <h5-checkbox-group
-        v-model="result2"
-        :max="2"
-      >
-        <h5-checkbox
-          v-for="(item, index) in list"
-          :key="index"
-          :name="item"
-        >
-          复选框 {{ item }}
-        </h5-checkbox>
-      </h5-checkbox-group>
-    </demo-block>
+        <demo-block title="设置最大可选数">
+            <h5-checkbox-group
+                v-model="result2"
+                :max="2"
+            >
+                <h5-checkbox
+                    v-for="(item, index) in list"
+                    :key="index"
+                    :name="item"
+                >
+                    复选框 {{ item }}
+                </h5-checkbox>
+            </h5-checkbox-group>
+        </demo-block>
 
     <!-- <demo-block title="搭配单元格组件使用">
       <h5-checkbox-group v-model="result3">
@@ -84,7 +84,7 @@
         </van-cell-group>
       </h5-checkbox-group>
     </demo-block> -->
-  </demo-section>
+    </demo-section>
 </template>
 
 <script>
@@ -138,18 +138,18 @@ export default {
 
 <style lang="less">
 .demo-checkbox {
-  .h5-checkbox {
-    margin: 10px 0 0 20px;
-  }
-
-  .h5-cell {
     .h5-checkbox {
-      margin: 0;
+        margin: 10px 0 0 20px;
     }
-  }
 
-  img {
-    height: 20px;
-  }
+    .h5-cell {
+        .h5-checkbox {
+            margin: 0;
+        }
+    }
+
+    img {
+        height: 20px;
+    }
 }
 </style>

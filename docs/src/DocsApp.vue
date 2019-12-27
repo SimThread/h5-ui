@@ -1,15 +1,15 @@
 <template>
-  <div class="app">
-    <h5-doc
-      :base="base"
-      :config="config"
-      :active="activeVal"
-      :simulators="simulators"
-      :current-simulator="currentSimulator"
-    >
-      <router-view @changeDemoURL="onChangeDemoURL" />
-    </h5-doc>
-  </div>
+    <div class="app">
+        <h5-doc
+            :base="base"
+            :config="config"
+            :active="activeVal"
+            :simulators="simulators"
+            :current-simulator="currentSimulator"
+        >
+            <router-view @changeDemoURL="onChangeDemoURL" />
+        </h5-doc>
+    </div>
 </template>
 
 <script>
@@ -60,31 +60,31 @@ export default {
 
 <style lang="less">
 .h5-doc-intro {
-  padding-top: 40px;
-  text-align: center;
-  font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    padding-top: 40px;
+    text-align: center;
+    font-family: "Dosis", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
 
-  &__youzan {
-    width: 32px;
-    height: 32px;
-    display: block;
-    margin: 25px 0 0;
-  }
+    &__youzan {
+        width: 32px;
+        height: 32px;
+        display: block;
+        margin: 25px 0 0;
+    }
 
-  &__logo {
-    // width: 120px;
-    // height: 120px;
-  }
+    &__logo {
+        // width: 120px;
+        // height: 120px;
+    }
 
-  h2 {
-    font-size: 36px;
-    line-height: 60px;
-    font-weight: normal;
-  }
+    h2 {
+        font-size: 36px;
+        line-height: 60px;
+        font-weight: normal;
+    }
 
-  p {
-    font-size: 15px;
-    color: #455a64;
-  }
+    p {
+        font-size: 15px;
+        color: #455a64;
+    }
 }
 </style>

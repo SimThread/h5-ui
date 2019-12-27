@@ -1,49 +1,49 @@
 @import '../_style/var';
 
 .h5-collapse-item {
-  &__title {
-    .h5-cell__right-icon::before {
-      transform: rotate(90deg);
-      transition: @collapse-item-transition-duration;
+    &__title {
+        .h5-cell__right-icon::before {
+            transform: rotate(90deg);
+            transition: @collapse-item-transition-duration;
+        }
+
+        &::after {
+            visibility: hidden;
+        }
+
+        &--expanded {
+            .h5-cell__right-icon::before {
+                transform: rotate(-90deg);
+            }
+
+            &::after {
+                visibility: visible;
+            }
+        }
+
+        &--disabled {
+            &,
+            & .h5-cell__right-icon {
+                color: @collapse-item-title-disabled-color;
+            }
+
+            &:active {
+                background-color: @white;
+            }
+        }
     }
 
-    &::after {
-      visibility: hidden;
+    &__wrapper {
+        overflow: hidden;
+        will-change: height;
+        transition: height @collapse-item-transition-duration ease-in-out;
     }
 
-    &--expanded {
-      .h5-cell__right-icon::before {
-        transform: rotate(-90deg);
-      }
-
-      &::after {
-        visibility: visible;
-      }
+    &__content {
+        color: @collapse-item-content-text-color;
+        padding: @collapse-item-content-padding;
+        font-size: @collapse-item-content-font-size;
+        line-height: @collapse-item-content-line-height;
+        background-color: @collapse-item-content-background-color;
     }
-
-    &--disabled {
-      &,
-      & .h5-cell__right-icon {
-        color: @collapse-item-title-disabled-color;
-      }
-
-      &:active {
-        background-color: @white;
-      }
-    }
-  }
-
-  &__wrapper {
-    overflow: hidden;
-    will-change: height;
-    transition: height @collapse-item-transition-duration ease-in-out;
-  }
-
-  &__content {
-    color: @collapse-item-content-text-color;
-    padding: @collapse-item-content-padding;
-    font-size: @collapse-item-content-font-size;
-    line-height: @collapse-item-content-line-height;
-    background-color: @collapse-item-content-background-color;
-  }
 }

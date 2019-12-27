@@ -1,31 +1,31 @@
 <template>
-  <div class="h5-doc">
-    <h5-doc-header
-      :config="config.header"
-      :active="active"
-    />
-    <h5-doc-nav
-      :nav-config="config.nav"
-      :base="base"
-    />
-    <h5-doc-container :has-simulator="!!(simulator || simulators.length)">
-      <h5-doc-content>
-        <slot />
-      </h5-doc-content>
-    </h5-doc-container>
-    <h5-doc-simulator
-      v-if="simulator"
-      :src="simulator"
-    />
-    <template v-if="config.showSimulator">
-      <h5-doc-simulator
-        v-for="(url, index) in simulators"
-        v-show="index === currentSimulator"
-        :src="url"
-        :key="url"
-      />
-    </template>
-  </div>
+    <div class="h5-doc">
+        <h5-doc-header
+            :config="config.header"
+            :active="active"
+        />
+        <h5-doc-nav
+            :nav-config="config.nav"
+            :base="base"
+        />
+        <h5-doc-container :has-simulator="!!(simulator || simulators.length)">
+            <h5-doc-content>
+                <slot />
+            </h5-doc-content>
+        </h5-doc-container>
+        <h5-doc-simulator
+            v-if="simulator"
+            :src="simulator"
+        />
+        <template v-if="config.showSimulator">
+            <h5-doc-simulator
+                v-for="(url, index) in simulators"
+                v-show="index === currentSimulator"
+                :src="url"
+                :key="url"
+            />
+        </template>
+    </div>
 </template>
 
 <script>

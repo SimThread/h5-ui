@@ -1,23 +1,23 @@
 <template>
-  <demo-section>
-    <demo-block title="文字提示">
-      <van-button @click="$toast('文字提示')">文字提示</van-button>
-      <van-button @click="$toast('这是一条长文字提示，超过一定字数就会换行')">这是一条长文字提示，超过一定字数就会换行</van-button>
-    </demo-block>
+    <demo-section>
+        <demo-block title="文字提示">
+            <van-button @click="$toast('文字提示')">文字提示</van-button>
+            <van-button @click="$toast('这是一条长文字提示，超过一定字数就会换行')">这是一条长文字提示，超过一定字数就会换行</van-button>
+        </demo-block>
 
-    <demo-block title="加载提示">
-      <van-button @click="showLoadingToast">加载提示</van-button>
-    </demo-block>
+        <demo-block title="加载提示">
+            <van-button @click="showLoadingToast">加载提示</van-button>
+        </demo-block>
 
-    <demo-block title="成功/失败提示">
-      <van-button @click="showSuccessToast">成功提示</van-button>
-      <van-button @click="showFailToast">失败提示</van-button>
-    </demo-block>
+        <demo-block title="成功/失败提示">
+            <van-button @click="showSuccessToast">成功提示</van-button>
+            <van-button @click="showFailToast">失败提示</van-button>
+        </demo-block>
 
-    <demo-block title="高级用法">
-      <van-button @click="showCustomizedToast">高级用法</van-button>
-    </demo-block>
-  </demo-section>
+        <demo-block title="高级用法">
+            <van-button @click="showCustomizedToast">高级用法</van-button>
+        </demo-block>
+    </demo-section>
 </template>
 
 <script>
@@ -60,8 +60,8 @@ export default {
 
 <style lang="less">
 .demo-toast {
-  .van-button {
-    margin-left: 15px;
-  }
+    .van-button {
+        margin-left: 15px;
+    }
 }
 </style>
