@@ -14,34 +14,34 @@ const ELEMENT = '__';
 const MODS = '--';
 
 function join(name: string, el: string, symbol: string): string {
-  return el ? name + symbol + el : name;
+    return el ? name + symbol + el : name;
 }
 
 function prefix(name: string, mods: Mods): Mods {
-  if (typeof mods === 'string') {
-    return join(name, mods, MODS);
-  }
+    if (typeof mods === 'string') {
+        return join(name, mods, MODS);
+    }
 
-  if (Array.isArray(mods)) {
-    return mods.map(item => <Mod>prefix(name, item));
-  }
+    if (Array.isArray(mods)) {
+        return mods.map(item => <Mod>prefix(name, item));
+    }
 
-  const ret: Mods = {};
-  if (mods) {
-    Object.keys(mods).forEach(key => {
-      ret[name + MODS + key] = mods[key];
-    });
-  }
+    const ret: Mods = {};
+    if (mods) {
+        Object.keys(mods).forEach(key => {
+            ret[name + MODS + key] = mods[key];
+        });
+    }
 
-  return ret;
+    return ret;
 }
 
 export default (name: string) => (el: Mods, mods?: Mods): Mods => {
-  if (el && typeof el !== 'string') {
-    mods = el;
-    el = '';
-  }
-  el = join(name, el, ELEMENT);
+    if (el && typeof el !== 'string') {
+        mods = el;
+        el = '';
+    }
+    el = join(name, el, ELEMENT);
 
-  return mods ? [el, prefix(el, mods)] : el;
+    return mods ? [el, prefix(el, mods)] : el;
 };

@@ -1,12 +1,12 @@
 <template>
-  <div class="h5-doc-block">
-    <slot />
-  </div>
+    <div class="h5-doc-block">
+        <slot />
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'h5-doc-block'
+    name: 'h5-doc-block'
 };
 </script>
 
@@ -14,16 +14,16 @@ export default {
 @import '../style/variable';
 
 .h5-doc-block {
-  display: flex;
-  margin-bottom: 20px;
+    display: flex;
+    margin-bottom: 20px;
 
-  .highlight {
-    flex: 1;
-    box-sizing: border-box;
+    .highlight {
+        flex: 1;
+        box-sizing: border-box;
 
-    pre {
-      word-break: break-all;
+        pre {
+            word-break: break-all;
+        }
     }
-  }
 }
 </style>

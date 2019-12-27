@@ -1,10 +1,8 @@
-import { use, isDef } from '../_utils';
-import { raf } from '../_utils/raf';
-import Cell from '../cell';
+import { use } from '../_utils';
 import { cellProps } from '../cell/shared';
 import FindParent from '../_mixins/find-parent';
 
-const [sfc, bem] = use('share-popup-item');
+const [sfc] = use('share-popup-item');
 
 export default sfc({
     mixins: [FindParent],
@@ -15,8 +13,8 @@ export default sfc({
         imgSrc: String,
         text: String,
         isLink: {
-          type: Boolean,
-          default: true
+            type: Boolean,
+            default: true
         }
     },
 
@@ -27,10 +25,10 @@ export default sfc({
     render(h) {
         return (
             <li>
-                <a href="javascript:;">
+                <div>
                     <img src={this.imgSrc}/>
                     <p>{ this.text }</p>
-                </a>
+                </div>
             </li>
         );
     }

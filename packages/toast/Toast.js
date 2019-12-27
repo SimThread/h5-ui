@@ -7,93 +7,93 @@ const [sfc, bem] = use('toast');
 const STYLE = ['success', 'fail', 'loading'];
 
 export default sfc({
-  mixins: [Popup],
+    mixins: [Popup],
 
-  props: {
-    className: null,
-    forbidClick: Boolean,
-    message: [String, Number],
-    type: {
-      type: String,
-      default: 'text'
+    props: {
+        className: null,
+        forbidClick: Boolean,
+        message: [String, Number],
+        type: {
+            type: String,
+            default: 'text'
+        },
+        loadingType: {
+            type: String,
+            default: 'circular'
+        },
+        position: {
+            type: String,
+            default: 'middle'
+        },
+        lockScroll: {
+            type: Boolean,
+            default: false
+        }
     },
-    loadingType: {
-      type: String,
-      default: 'circular'
+
+    data() {
+        return {
+            clickable: false
+        };
     },
-    position: {
-      type: String,
-      default: 'middle'
+
+    mounted() {
+        this.toggleClickale();
     },
-    lockScroll: {
-      type: Boolean,
-      default: false
+
+    destroyed() {
+        this.toggleClickale();
+    },
+
+    watch: {
+        value() {
+            this.toggleClickale();
+        },
+
+        forbidClick() {
+            this.toggleClickale();
+        }
+    },
+
+    methods: {
+        toggleClickale() {
+            const clickable = this.value && this.forbidClick;
+            if (this.clickable !== clickable) {
+                this.clickable = clickable;
+                const action = clickable ? 'add' : 'remove';
+                document.body.classList[action]('van-toast--unclickable');
+            }
+        }
+    },
+
+    render(h) {
+        const { type, message } = this;
+        const style = STYLE.indexOf(type) !== -1 ? 'default' : type;
+
+        const Content = () => {
+            switch (style) {
+            case 'text':
+                return <div>{message}</div>;
+            case 'html':
+                return <div domPropsInnerHTML={message} />;
+            default:
+                return [
+                    type === 'loading' ? (
+                        <Loading color="white" type={this.loadingType} />
+                    ) : (
+                        <Icon class={bem('icon')} name={type} />
+                    ),
+                    isDef(message) && <div class={bem('text')}>{message}</div>
+                ];
+            }
+        };
+
+        return (
+            <transition name="van-fade">
+                <div vShow={this.value} class={[bem([style, this.position]), this.className]}>
+                    {Content()}
+                </div>
+            </transition>
+        );
     }
-  },
-
-  data() {
-    return {
-      clickable: false
-    };
-  },
-
-  mounted() {
-    this.toggleClickale();
-  },
-
-  destroyed() {
-    this.toggleClickale();
-  },
-
-  watch: {
-    value() {
-      this.toggleClickale();
-    },
-
-    forbidClick() {
-      this.toggleClickale();
-    }
-  },
-
-  methods: {
-    toggleClickale() {
-      const clickable = this.value && this.forbidClick;
-      if (this.clickable !== clickable) {
-        this.clickable = clickable;
-        const action = clickable ? 'add' : 'remove';
-        document.body.classList[action]('van-toast--unclickable');
-      }
-    }
-  },
-
-  render(h) {
-    const { type, message } = this;
-    const style = STYLE.indexOf(type) !== -1 ? 'default' : type;
-
-    const Content = () => {
-      switch (style) {
-        case 'text':
-          return <div>{message}</div>;
-        case 'html':
-          return <div domPropsInnerHTML={message} />;
-        default:
-          return [
-            type === 'loading' ? (
-              <Loading color="white" type={this.loadingType} />
-            ) : (
-              <Icon class={bem('icon')} name={type} />
-            ),
-            isDef(message) && <div class={bem('text')}>{message}</div>
-          ];
-      }
-    };
-
-    return (
-      <transition name="van-fade">
-        <div vShow={this.value} class={[bem([style, this.position]), this.className]}>
-          {Content()}
-        </div>
-      </transition>
-    );
-  }
 });

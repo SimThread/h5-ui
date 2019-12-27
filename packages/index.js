@@ -27,7 +27,6 @@ import Row from './row';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
-import TBom from './t-bom';
 import TDate from './t-date';
 import TDom from './t-dom';
 import TNumberFormat from './t-number-format';
@@ -42,7 +41,7 @@ import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 
-const version = '0.0.25';
+const version = '0.0.26';
 const components = [
   Button,
   Card,
@@ -70,7 +69,6 @@ const components = [
   Select,
   SharePopup,
   SharePopupItem,
-  TBom,
   TDate,
   TDom,
   TNumberFormat,
@@ -127,7 +125,6 @@ export {
   Select,
   SharePopup,
   SharePopupItem,
-  TBom,
   TDate,
   TDom,
   TNumberFormat,

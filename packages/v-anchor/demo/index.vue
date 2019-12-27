@@ -2,7 +2,7 @@
     <div class="demo-wrap">
         <!-- 導航 -->
         <nav class="block detail-nav" ref="navItem" style="margin-top: 10px; position: relative; z-index: 100;">
-            <div class="nav-list" :class="{'fexd-nav': isFixed}" :style="{top: `0px`}">
+            <div class="nav-list" :class="{ 'fexd-nav': isFixed }" :style="{ top: `0px` }">
                 <span class="nav-item active" v-anchor="1" anchor-distance="40">屋苑資料</span>
                 <span class="nav-item" v-anchor="2" anchor-distance="40">成交記錄</span>
                 <span class="nav-item" v-anchor="3" anchor-distance="40">相關放盤</span>
@@ -29,30 +29,28 @@
 </template>
 
 <script>
-function getScrollHeight(){
-    var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
-    if(document.body){
+function getScrollHeight() {
+    let scrollHeight = 0;
+    let bodyScrollHeight = 0;
+    let documentScrollHeight = 0;
+    if (document.body) {
         bodyScrollHeight = document.body.scrollHeight;
     }
-    if(document.documentElement){
+    if (document.documentElement) {
         documentScrollHeight = document.documentElement.scrollHeight;
     }
-    scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+    scrollHeight = bodyScrollHeight - documentScrollHeight > 0 ? bodyScrollHeight : documentScrollHeight;
     return scrollHeight;
 }
 
-function getWindowHeight(){
-    var windowHeight = 0;
-    if(document.compatMode == "CSS1Compat"){
+function getWindowHeight() {
+    let windowHeight = 0;
+    if (document.compatMode == 'CSS1Compat') {
         windowHeight = document.documentElement.clientHeight;
-    }else{
+    } else {
         windowHeight = document.body.clientHeight;
     }
     return windowHeight;
-}
-
-function isScrollToBottom() {
-    return getScrollTop() + getWindowHeight() == getScrollHeight();
 }
 
 function getScrollTop(id) {
@@ -60,41 +58,32 @@ function getScrollTop(id) {
 
     if (!id) {
         if (document.documentElement && document.documentElement.scrollTop) {
-            scrollTop = document.documentElement.scrollTop;
+            ({ scrollTop } = document.documentElement);
         } else if (document.body) {
-            scrollTop = document.body.scrollTop;
+            ({ scrollTop } = document.body);
         }
     } else {
-        scrollTop = document.getElementById(id).scrollTop;
+        ({ scrollTop } = document.getElementById(id));
     }
     return scrollTop;
-};
+}
 
-
-function getContentScrollTop () {
-    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
-    if(document.body){
-        bodyScrollTop = document.body.scrollTop;
-    }
-    if(document.documentElement){
-        documentScrollTop = document.documentElement.scrollTop;
-    }
-    scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
-    return scrollTop;
+function isScrollToBottom() {
+    return getScrollTop() + getWindowHeight() == getScrollHeight();
 }
 
 export default {
     data() {
         return {
             isFixed: false
-        }
+        };
     },
     beforeRouteEnter(to, from, next) {
-      next(vm => {
-        vm.$nextTick(() => {
-          vm.navScroll();
+        next(vm => {
+            vm.$nextTick(() => {
+                vm.navScroll();
+            });
         });
-      });
     },
     beforeRouteLeave(to, from, next) {
         document.removeEventListener('scroll', this.onScroll);
@@ -104,104 +93,95 @@ export default {
         // 导航滚动
         navScroll() {
             // 滚动到相对应的模块
-            const navtop = this.$refs.navItem.offsetTop;
-            const {
-                top,
-            } = this.$refs.navItem.getBoundingClientRect();
-
             document.addEventListener('scroll', this.onScroll);
         },
         onScroll() {
-            const headHeight = document.querySelector(".h5-nav-bar__title").clientHeight;
-            const navHeight = document.querySelector(".nav-list").clientHeight;
-            const _h = headHeight + navHeight;
+            const headHeight = document.querySelector('.h5-nav-bar__title').clientHeight;
+            const navHeight = document.querySelector('.nav-list').clientHeight;
             const currtScrollTop = getScrollTop();
 
             // 黏連判斷
-            if (currtScrollTop > (headHeight)) {
+            if (currtScrollTop > headHeight) {
                 this.isFixed = true;
             } else {
                 this.isFixed = false;
             }
 
-            document.querySelectorAll(".page-block").forEach((item, index) => {
-                const _index = index;
-                const _itemTop = item.getBoundingClientRect().top + window.pageYOffset;
+            document.querySelectorAll('.page-block').forEach((item, index) => {
+                const itemIndex = index;
+                const itemTop = item.getBoundingClientRect().top + window.pageYOffset;
                 // +1是为了点击时能够高亮，正好距离为0时是不会高亮的
-                const _h = navHeight + 1;
+                const h = navHeight + 1;
 
                 // 如果到達底部,只保持最后一个元素高亮
                 if (isScrollToBottom()) {
-                    document.querySelectorAll(".nav-item").forEach((navItem) => {
-                        navItem.classList.remove("active");
+                    document.querySelectorAll('.nav-item').forEach(navItem => {
+                        navItem.classList.remove('active');
                     });
-                    document.querySelectorAll(".nav-item")[document.querySelectorAll(".page-block").length - 1].classList.add("active");
+                    document.querySelectorAll('.nav-item')[document.querySelectorAll('.page-block').length - 1].classList.add('active');
                     return;
                 }
 
-                if (currtScrollTop > (_itemTop - _h)) {
-                    document.querySelectorAll(".nav-item").forEach((navItem) => {
-                        navItem.classList.remove("active");
+                if (currtScrollTop > itemTop - h) {
+                    document.querySelectorAll('.nav-item').forEach(navItem => {
+                        navItem.classList.remove('active');
                     });
-                    document.querySelectorAll(".nav-item")[_index].classList.add("active");
+                    document.querySelectorAll('.nav-item')[itemIndex].classList.add('active');
                 }
             });
         }
     }
-}
+};
 </script>
 
-<style scoped>
-.demo-wrap {
-    /* position: relative; */
-}
+<style lang="less" scoped>
 .detail-nav {
-  height: 40px;
-  .nav-list {
-    display: flex;
-    line-height: 40px;
-    justify-content: space-between;
-    padding: 0 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 2.5px 0px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box;
-  }
-  .fexd-nav {
-    position: fixed;
-    top:0;
-    width: 100%;
-    z-index: 999;
-  }
-  .nav-item {
-    font-size: 12px;
-    color: #333333;
-    cursor: pointer;
+    height: 40px;
 
-    &.active {
-      position: relative;
-      color: #ff8000;
-
-      &:after {
-        position: absolute;
-        top: auto;
-        right: 0;
-        bottom: 5px;
-        left: 0;
-        margin: auto;
-        content: '';
-        width: 35px;
-        height: 0;
-        border-bottom: 1.5px solid #ff8000;
-      }
+    .nav-list {
+        display: flex;
+        line-height: 40px;
+        justify-content: space-between;
+        padding: 0 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
     }
-  }
+
+    .fexd-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .nav-item {
+        font-size: 12px;
+        color: #333;
+        cursor: pointer;
+
+        &.active {
+            position: relative;
+            color: #ff8000;
+
+            &::after {
+                position: absolute;
+                top: auto;
+                right: 0;
+                bottom: 5px;
+                left: 0;
+                margin: auto;
+                content: '';
+                width: 35px;
+                height: 0;
+                border-bottom: 1.5px solid #ff8000;
+            }
+        }
+    }
 }
 
 .page-block {
     height: 400px;
     padding: 10px 10px 0;
-    &.page-block1 {
-        /* background: #bbb; */
-    }
 }
 </style>

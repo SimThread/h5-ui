@@ -3,58 +3,58 @@ import { use } from '../_utils';
 const [sfc, bem] = use('tabbar');
 
 export default sfc({
-  data() {
-    return {
-      items: []
-    };
-  },
-
-  props: {
-    value: Number,
-    activeColor: String,
-    fixed: {
-      type: Boolean,
-      default: true
-    },
-    zIndex: {
-      type: Number,
-      default: 1
-    }
-  },
-
-  watch: {
-    items() {
-      this.setActiveItem();
+    data() {
+        return {
+            items: []
+        };
     },
 
-    value() {
-      this.setActiveItem();
-    }
-  },
-
-  methods: {
-    setActiveItem() {
-      this.items.forEach((item, index) => {
-        item.active = index === this.value;
-      });
+    props: {
+        value: Number,
+        activeColor: String,
+        fixed: {
+            type: Boolean,
+            default: true
+        },
+        zIndex: {
+            type: Number,
+            default: 1
+        }
     },
 
-    onChange(active) {
-      if (active !== this.value) {
-        this.$emit('input', active);
-        this.$emit('change', active);
-      }
-    }
-  },
+    watch: {
+        items() {
+            this.setActiveItem();
+        },
 
-  render(h) {
-    return (
-      <div
-        style={{ zIndex: this.zIndex }}
-        class={['van-hairline--top-bottom', bem({ fixed: this.fixed })]}
-      >
-        {this.slots()}
-      </div>
-    );
-  }
+        value() {
+            this.setActiveItem();
+        }
+    },
+
+    methods: {
+        setActiveItem() {
+            this.items.forEach((item, index) => {
+                item.active = index === this.value;
+            });
+        },
+
+        onChange(active) {
+            if (active !== this.value) {
+                this.$emit('input', active);
+                this.$emit('change', active);
+            }
+        }
+    },
+
+    render(h) {
+        return (
+            <div
+                style={{ zIndex: this.zIndex }}
+                class={['van-hairline--top-bottom', bem({ fixed: this.fixed })]}
+            >
+                {this.slots()}
+            </div>
+        );
+    }
 });

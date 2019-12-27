@@ -1,113 +1,113 @@
 import {
-  use
+    use
 } from '../_utils';
 
 const [sfc, bem] = use('uploader');
 
 export default sfc({
-  inheritAttrs: false,
+    inheritAttrs: false,
 
-  props: {
-    disabled: Boolean,
-    beforeRead: Function,
-    afterRead: Function,
-    accept: {
-      type: String,
-      default: 'image/*'
+    props: {
+        disabled: Boolean,
+        beforeRead: Function,
+        afterRead: Function,
+        accept: {
+            type: String,
+            default: 'image/*'
+        },
+        resultType: {
+            type: String,
+            default: 'dataUrl'
+        },
+        maxSize: {
+            type: Number,
+            default: Number.MAX_VALUE
+        }
     },
-    resultType: {
-      type: String,
-      default: 'dataUrl'
-    },
-    maxSize: {
-      type: Number,
-      default: Number.MAX_VALUE
-    }
-  },
 
-  methods: {
-    onChange(event) {
-      let { files } = event.target;
-      if (this.disabled || !files.length) {
-        return;
-      }
-
-      files = files.length === 1 ? files[0] : [].slice.call(files, 0);
-      if (!files || (this.beforeRead && !this.beforeRead(files))) {
-        return;
-      }
-
-      if (Array.isArray(files)) {
-        Promise.all(files.map(this.readFile)).then(contents => {
-          let oversize = false;
-          const payload = files.map((file, index) => {
-            if (file.size > this.maxSize) {
-              oversize = true;
+    methods: {
+        onChange(event) {
+            let { files } = event.target;
+            if (this.disabled || !files.length) {
+                return;
             }
 
-            return {
-              file: files[index],
-              content: contents[index]
-            };
-          });
+            files = files.length === 1 ? files[0] : [].slice.call(files, 0);
+            if (!files || (this.beforeRead && !this.beforeRead(files))) {
+                return;
+            }
 
-          this.onAfterRead(payload, oversize);
-        });
-      } else {
-        this.readFile(files).then(content => {
-          this.onAfterRead(
-            { file: files, content },
-            files.size > this.maxSize
-          );
-        });
-      }
-    },
+            if (Array.isArray(files)) {
+                Promise.all(files.map(this.readFile)).then(contents => {
+                    let oversize = false;
+                    const payload = files.map((file, index) => {
+                        if (file.size > this.maxSize) {
+                            oversize = true;
+                        }
 
-    readFile(file) {
-      return new Promise(resolve => {
-        const reader = new FileReader();
+                        return {
+                            file: files[index],
+                            content: contents[index]
+                        };
+                    });
 
-        reader.onload = event => {
-          resolve(event.target.result);
-        };
+                    this.onAfterRead(payload, oversize);
+                });
+            } else {
+                this.readFile(files).then(content => {
+                    this.onAfterRead(
+                        { file: files, content },
+                        files.size > this.maxSize
+                    );
+                });
+            }
+        },
 
-        if (this.resultType === 'dataUrl') {
-          reader.readAsDataURL(file);
-        } else if (this.resultType === 'text') {
-          reader.readAsText(file);
+        readFile(file) {
+            return new Promise(resolve => {
+                const reader = new FileReader();
+
+                reader.onload = event => {
+                    resolve(event.target.result);
+                };
+
+                if (this.resultType === 'dataUrl') {
+                    reader.readAsDataURL(file);
+                } else if (this.resultType === 'text') {
+                    reader.readAsText(file);
+                }
+            });
+        },
+
+        onAfterRead(files, oversize) {
+            if (oversize) {
+                this.$emit('oversize', files);
+            } else {
+                this.afterRead && this.afterRead(files);
+                this.$refs.input && (this.$refs.input.value = '');
+            }
         }
-      });
     },
 
-    onAfterRead(files, oversize) {
-      if (oversize) {
-        this.$emit('oversize', files);
-      } else {
-        this.afterRead && this.afterRead(files);
-        this.$refs.input && (this.$refs.input.value = '');
-      }
+    render(h) {
+        const {
+            accept,
+            disabled
+        } = this;
+
+        return (
+            <div class={bem()}>
+                {this.slots()}
+                <input
+                    { ...{ attrs: this.$attrs } }
+                    ref="input"
+                    type="file"
+                    accept={accept}
+                    class={bem('input')}
+                    disabled={disabled}
+                    onChange={this.onChange}
+                />
+            </div>
+        );
     }
-  },
-
-  render(h) {
-    const {
-      accept,
-      disabled
-    } = this;
-
-    return (
-      <div class={bem()}>
-        {this.slots()}
-        <input
-          { ...{ attrs: this.$attrs } }
-          ref="input"
-          type="file"
-          accept={accept}
-          class={bem('input')}
-          disabled={disabled}
-          onChange={this.onChange}
-        />
-      </div>
-    );
-  }
 });

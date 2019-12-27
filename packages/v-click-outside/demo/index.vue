@@ -3,7 +3,7 @@
         <a class="check-balance" href="javascript:;" v-click-outside="closeBalanceTip">
             <span @click="showBalancePanel = !showBalancePanel;">查看餘額</span>
             <div class="tips-box" v-show="showBalancePanel">
-                <div class="tips-arrow"></div>
+                <div class="tips-arrow" />
                 <p class="tips-text">
                     <span class="label">賬戶餘額</span>
                     <span><em>35000</em>點</span>
@@ -22,14 +22,14 @@ export default {
     data() {
         return {
             showBalancePanel: false
-        }
+        };
     },
     methods: {
         closeBalanceTip() {
             this.showBalancePanel = false;
         },
     }
-}
+};
 </script>
 
 <style scoped>
@@ -37,10 +37,12 @@ export default {
     width: 70px;
     margin: 100px auto;
 }
+
 .check-balance {
     position: relative;
-    color: #888888;
+    color: #888;
     text-decoration: underline;
+
     .tips-box {
         position: absolute;
         left: -100px;
@@ -49,12 +51,13 @@ export default {
         width: 141px;
         height: 38px;
         background: #fff;
-        box-shadow:0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
         font-size: 13px;
         border-radius: 1px;
         z-index: 1;
+
         .tips-arrow {
-            &:before {
+            &::before {
                 content: "";
                 position: absolute;
                 right: 20px;
@@ -67,7 +70,8 @@ export default {
                 border-left: 10px solid transparent;
                 z-index: 999;
             }
-            &:after {
+
+            &::after {
                 content: "";
                 position: absolute;
                 right: 18.5px;
@@ -80,19 +84,23 @@ export default {
                 border-left: 12px solid transparent;
             }
         }
+
         .tips-text {
-            color: #333333;
+            color: #333;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+
             &:nth-child(3) {
                 margin-top: 10px;
             }
+
             .label {
                 margin-right: 10px;
             }
+
             em {
-                color: #FF8000;
+                color: #ff8000;
             }
         }
     }
