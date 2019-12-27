@@ -16,8 +16,7 @@
   "scripts": {
     "bootstrap": "npm i",
     "dev": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
-    "lint": "eslint ./packages --ext .js,.vue && stylelint \"packages/*.less,*.vue\"",
-    "lint-fix": "eslint ./packages --fix --ext .js,.vue --ignore-path .eslintignore . && stylelint **/*.{vue,less} --fix",
+    "lint-fix": "eslint --fix --ext .js,.vue --ignore-path .eslintignore . && stylelint **/*.{vue,less} --fix",
     "build:entry": "node build/build-entry.js",
     "build:components": "node build/build-components.js --color",
     "build:h5": "cross-env NODE_ENV=production webpack --color --config build/webpack.build.js && cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js",
@@ -35,10 +34,10 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "eslint ./packages --fix --ext .js,.vue --ignore-path .eslintignore .",
+      "eslint --fix --ignore-path .eslintignore .",
       "git add"
     ],
-    "*.{vue,css}": [
+    "*.{vue,less}": [
       "stylelint **/*.{vue,less} --fix",
       "git add"
     ]
