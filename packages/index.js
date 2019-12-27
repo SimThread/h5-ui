@@ -41,7 +41,7 @@ import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 
-const version = '0.0.26';
+const version = '0.0.27';
 const components = [
   Button,
   Card,
