@@ -6,7 +6,6 @@ import {
 } from './components/H5Doc/index';
 import App from './WapApp';
 import routes from './router';
-import '@vant/doc/helper/touch-simulator';
 
 const {
     defineReactive
