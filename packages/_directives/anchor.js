@@ -1,13 +1,13 @@
 export default {
     name: 'anchor',
     bind(el, binding) {
-        const distance = Number.parseFloat(el.getAttribute('anchor-distance')) || 0;
+        el.distance = Number.parseFloat(el.getAttribute('anchor-distance')) || 0;
         el.onclick = function () {
             let total;
             if (binding.value == 0) {
                 total = 0;
             } else {
-                total = document.getElementById(`anchor-${binding.value}`).offsetTop - distance;
+                total = document.getElementById(`anchor-${binding.value}`).offsetTop - el.distance;
             }
 
             // 滚动距离
@@ -44,4 +44,9 @@ export default {
             }
         };
     },
+    update: function update(el, bidding) {
+        if (el) {
+            el.distance = Number.parseFloat(el.getAttribute('anchor-distance')) || 0;
+        }
+    }
 };
