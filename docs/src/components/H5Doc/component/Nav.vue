@@ -15,8 +15,8 @@
             <div v-if="item.children">
                 <div
                     class="nav-item"
-                    v-for="(navItem, index) in item.children"
-                    :key="index"
+                    v-for="(navItem, childrenIndex) in item.children"
+                    :key="childrenIndex"
                 >
                     <h5-doc-nav-link
                         :item="navItem"
@@ -26,15 +26,15 @@
             </div>
             <div
                 v-if="item.groups"
-                v-for="(group, index) in item.groups"
-                :key="index"
+                v-for="(group, groupsIndex) in item.groups"
+                :key="groupsIndex"
             >
                 <div class="h5-doc-nav__group-title">{{ group.groupName }}</div>
                 <div>
                     <div
-                        :key="index"
                         class="h5-doc-nav__subitem"
-                        v-for="(navItem, index) in group.list"
+                        v-for="(navItem, subItemIndex) in group.list"
+                        :key="subItemIndex"
                         v-if="!navItem.disabled"
                     >
                         <h5-doc-nav-link
