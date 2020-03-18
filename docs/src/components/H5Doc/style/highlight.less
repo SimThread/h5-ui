@@ -1,4 +1,4 @@
-@import './variable';
+@import './variable.less';
 
 code {
     display: block;
@@ -11,9 +11,9 @@ code {
     position: relative;
     word-break: break-all;
     white-space: pre-wrap;
-    color: $h5-doc-code-color;
+    color: @h5-doc-code-color;
     padding: 18px 10px 18px 20px;
-    background-color: $h5-doc-code-background-color;
+    background-color: @h5-doc-code-background-color;
     font-family: "Source Code Pro", "Monaco", "Inconsolata", monospace;
 
     &::after {
@@ -59,7 +59,7 @@ code.language-css {
 }
 
 .hljs-subst {
-    color: $h5-doc-code-color;
+    color: @h5-doc-code-color;
 }
 
 .hljs-string,

@@ -15,15 +15,15 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-demo-block {
     &__title {
         margin: 0;
         font-weight: normal;
         font-size: 14px;
-        color: $h5-doc-text-light-blue;
+        color: @h5-doc-text-light-blue;
         padding: 35px 15px 15px;
     }
 

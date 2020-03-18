@@ -92,8 +92,8 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-simulator {
     z-index: 1;
@@ -102,15 +102,15 @@ export default {
     border-radius: 6px;
     background: #fafafa;
     box-sizing: border-box;
-    right: $h5-doc-padding;
-    width: $h5-doc-simulator-width;
-    min-width: $h5-doc-simulator-width;
-    top: calc($h5-doc-padding + $h5-doc-header-top-height);
+    right: @h5-doc-padding;
+    width: @h5-doc-simulator-width;
+    min-width: @h5-doc-simulator-width;
+    top: calc(@h5-doc-padding + @h5-doc-header-top-height);
     box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px, rgba(0, 0, 0, 0.2) 0 1px 2px;
 
     @media (max-width: 1300px) {
-        width: $h5-doc-simulator-small-width;
-        min-width: $h5-doc-simulator-small-width;
+        width: @h5-doc-simulator-small-width;
+        min-width: @h5-doc-simulator-small-width;
     }
 
     @media (max-width: 1100px) {
@@ -118,14 +118,14 @@ export default {
         right: auto;
     }
 
-    @media (min-width: $h5-doc-row-max-width) {
+    @media (min-width: @h5-doc-row-max-width) {
         right: 50%;
-        margin-right: calc(-$h5-doc-row-max-width/2 + 40px);
+        margin-right: calc(-@h5-doc-row-max-width/2 + 40px);
     }
 
     &-fixed {
         position: fixed;
-        top: $h5-doc-padding;
+        top: @h5-doc-padding;
     }
 
     iframe {

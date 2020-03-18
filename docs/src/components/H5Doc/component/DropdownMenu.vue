@@ -24,8 +24,8 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-dropdown {
     position: absolute;
@@ -34,7 +34,7 @@ export default {
     padding: 8px 0;
     z-index: 10;
     background: #fff;
-    border: 1px solid $h5-doc-border-color;
+    border: 1px solid @h5-doc-border-color;
     text-align: left;
     border-radius: 4px;
 
@@ -48,10 +48,10 @@ export default {
         a {
             display: block;
             padding: 0 20px;
-            color: $h5-doc-text-color;
+            color: @h5-doc-text-color;
 
             &:hover {
-                color: $h5-doc-blue;
+                color: @h5-doc-blue;
             }
         }
     }

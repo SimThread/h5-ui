@@ -17,20 +17,20 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-container {
     overflow: hidden;
     box-sizing: border-box;
     background-color: #fff;
-    padding-left: $h5-doc-nav-width;
+    padding-left: @h5-doc-nav-width;
 
     &--with-simulator {
-        padding-right: calc($h5-doc-simulator-width + $h5-doc-padding);
+        padding-right: calc(@h5-doc-simulator-width + @h5-doc-padding);
 
         @media (max-width: 1300px) {
-            padding-right: calc($h5-doc-simulator-small-width + $h5-doc-padding);
+            padding-right: calc(@h5-doc-simulator-small-width + @h5-doc-padding);
         }
     }
 }

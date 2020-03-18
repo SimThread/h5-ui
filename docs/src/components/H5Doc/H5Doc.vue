@@ -125,6 +125,6 @@ export default {
 };
 </script>
 
-<style>
-@import './style/index.css';
+<style lang="less">
+@import './style/index.less';
 </style>

@@ -87,21 +87,21 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-header {
     width: 100%;
     user-select: none;
-    border-bottom: 1px solid $h5-doc-border-color;
+    border-bottom: 1px solid @h5-doc-border-color;
 
     &__top {
         display: flex;
         align-items: center;
         background-color: #fff;
-        padding: 0 $h5-doc-padding;
-        height: $h5-doc-header-top-height;
-        line-height: $h5-doc-header-top-height;
+        padding: 0 @h5-doc-padding;
+        height: @h5-doc-header-top-height;
+        line-height: @h5-doc-header-top-height;
 
         &-nav {
             flex: 1;
@@ -120,13 +120,13 @@ export default {
                 display: block;
                 border-radius: 3px;
                 text-align: center;
-                color: $h5-doc-code-color;
+                color: @h5-doc-code-color;
                 border: 1px solid currentColor;
                 font-family: 'Helvetica Neue', Arial, sans-serif;
                 transition: 0.3s ease-in-out;
 
                 &:hover {
-                    color: $h5-doc-blue;
+                    color: @h5-doc-blue;
                 }
             }
 
@@ -139,31 +139,31 @@ export default {
                 font-size: 15px;
 
                 svg {
-                    fill: $h5-doc-code-color;
+                    fill: @h5-doc-code-color;
                     display: block;
                     vertical-align: middle;
                     transition: 0.3s ease-in-out;
 
                     &:hover {
-                        fill: $h5-doc-blue;
+                        fill: @h5-doc-blue;
                     }
                 }
 
                 &.link {
-                    color: $h5-doc-text-color;
+                    color: @h5-doc-text-color;
                     border-bottom: 1px solid transparent;
                     transition: 0.3s ease-in-out;
 
                     &:hover,
                     &.active {
-                        color: $h5-doc-blue;
+                        color: @h5-doc-blue;
                         border-bottom-color: #19b5fe;
                     }
                 }
             }
 
             .h5-doc-header__arrow:hover {
-                color: $h5-doc-text-color;
+                color: @h5-doc-text-color;
             }
 
             .h5-doc-header__arrow::after {
@@ -200,7 +200,7 @@ export default {
 
         span {
             font-size: 22px;
-            color: $h5-doc-black;
+            color: @h5-doc-black;
             font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
         }
 
@@ -214,8 +214,8 @@ export default {
     }
 
     &__bottom {
-        height: $h5-doc-header-bottom-height;
-        line-height: $h5-doc-header-bottom-height;
+        height: @h5-doc-header-bottom-height;
+        line-height: @h5-doc-header-bottom-height;
 
         &-nav {
             text-align: center;

@@ -1,4 +1,4 @@
-@import './variable';
+@import './variable.less';
 
 body {
     margin: 0;
@@ -39,8 +39,8 @@ a {
 .h5-doc-row {
     width: 100%;
 
-    @media (min-width: $h5-doc-row-max-width) {
-        width: $h5-doc-row-max-width;
+    @media (min-width: @h5-doc-row-max-width) {
+        width: @h5-doc-row-max-width;
         margin: 0 auto;
     }
 }

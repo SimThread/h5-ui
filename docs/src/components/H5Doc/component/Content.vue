@@ -20,8 +20,8 @@ export default {
 };
 </script>
 
-<style>
-@import '../style/variable';
+<style lang="less">
+@import '../style/variable.less';
 
 .h5-doc-content {
     flex: 1;
@@ -29,11 +29,11 @@ export default {
     padding: 0 0 75px;
 
     a {
-        color: $h5-doc-blue;
+        color: @h5-doc-blue;
     }
 
     section {
-        padding: 13px $h5-doc-padding;
+        padding: 13px @h5-doc-padding;
         overflow: hidden;
 
         > h1,
@@ -45,7 +45,7 @@ export default {
             line-height: 1.5;
             font-weight: normal;
             margin: 20px 0 10px;
-            color: $h5-doc-black;
+            color: @h5-doc-black;
         }
 
         > h1 {
@@ -77,19 +77,19 @@ export default {
 
         > h6 {
             font-size: 14px;
-            color: $h5-doc-dark-grey;
+            color: @h5-doc-dark-grey;
         }
 
         > p {
             margin: 15px 0;
             font-size: 14px;
             line-height: 26px;
-            color: $h5-doc-text-color;
+            color: @h5-doc-text-color;
         }
 
         > ul li,
         > ol li {
-            color: $h5-doc-text-color;
+            color: @h5-doc-text-color;
             font-size: 14px;
             line-height: 22px;
             margin: 5px 0 5px 10px;
@@ -106,7 +106,7 @@ export default {
                 margin-top: 8px;
                 border-radius: 50%;
                 box-sizing: border-box;
-                border: 1px solid $h5-doc-dark-grey;
+                border: 1px solid @h5-doc-dark-grey;
             }
 
             li {
@@ -145,13 +145,13 @@ export default {
         margin-bottom: 45px;
         background-color: #fff;
         border-collapse: collapse;
-        color: $h5-doc-text-color;
+        color: @h5-doc-text-color;
 
         th {
             padding: 8px 10px;
             text-align: left;
             font-weight: normal;
-            background-color: $h5-doc-code-background-color;
+            background-color: @h5-doc-code-background-color;
 
             &:first-child {
                 padding-left: 10px;
@@ -160,7 +160,7 @@ export default {
 
         td {
             padding: 8px;
-            border-bottom: 1px solid $h5-doc-code-background-color;
+            border-bottom: 1px solid @h5-doc-code-background-color;
         }
 
         code {
