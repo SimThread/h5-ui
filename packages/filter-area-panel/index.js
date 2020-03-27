@@ -1,10 +1,10 @@
 /* eslint-disable object-shorthand */
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import findParent from '../_mixins/find-parent';
 
-const [sfc, bem] = use('filter-area-panel');
+const [createComponent, bem] = createNamespace('filter-area-panel');
 
-export default sfc({
+export default createComponent({
     mixins: [findParent],
 
     props: {

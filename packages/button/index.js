@@ -1,13 +1,13 @@
 import {
-    use
-} from '../_utils';
+    createNamespace
+} from '../_utils/index';
 import {
     emit,
     inherit
 } from '../_utils/functional';
 import Loading from '../loading';
 
-const [sfc, bem] = use('button');
+const [createComponent, bem] = createNamespace('button');
 
 function Button(h, props, slots, ctx) {
     const { type, disabled, loading, loadingText } = props;
@@ -77,4 +77,4 @@ Button.props = {
     }
 };
 
-export default sfc(Button);
+export default createComponent(Button);

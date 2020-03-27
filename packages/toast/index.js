@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueToast from './Toast';
-import { isObj, isServer } from '../_utils';
+import { isObject, isServer } from '../_utils';
 
 const defaultOptions = {
     type: 'text',
@@ -15,7 +15,7 @@ const defaultOptions = {
     getContainer: 'body',
     overlayStyle: null
 };
-const parseOptions = message => (isObj(message) ? message : { message });
+const parseOptions = message => (isObject(message) ? message : { message });
 
 let queue = [];
 let singleton = true;

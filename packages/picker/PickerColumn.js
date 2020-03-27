@@ -1,10 +1,11 @@
 import deepClone from '../_utils/deep-clone';
-import { use, isObj, range } from '../_utils';
+import { createNamespace, isObject } from '../_utils';
+import { range } from '../_utils/format/number';
 
 const DEFAULT_DURATION = 200;
-const [sfc, bem] = use('picker-column');
+const [createComponent, bem] = createNamespace('picker-column');
 
-export default sfc({
+export default createComponent({
     props: {
         valueKey: String,
         className: String,
@@ -83,11 +84,11 @@ export default sfc({
         },
 
         isDisabled(option) {
-            return isObj(option) && option.disabled;
+            return isObject(option) && option.disabled;
         },
 
         getOptionText(option) {
-            return isObj(option) && this.valueKey in option ? option[this.valueKey] : option;
+            return isObject(option) && this.valueKey in option ? option[this.valueKey] : option;
         },
 
         setIndex(index, userAction) {

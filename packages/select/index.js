@@ -1,10 +1,10 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import deepClone from '../_utils/deep-clone';
 import SelectColumn from './SelectColumn';
 
-const [sfc, bem] = use('select');
+const [createComponent, bem] = createNamespace('select');
 
-export default sfc({
+export default createComponent({
     props: {
         defaultIndex: {
             type: Number,

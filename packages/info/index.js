@@ -1,9 +1,9 @@
 import {
-    use,
+    createNamespace,
     isDef
 } from '../_utils';
 
-const [sfc, bem] = use('info');
+const [createComponent, bem] = createNamespace('info');
 
 function Info(h, props, slots, ctx) {
     return (
@@ -19,4 +19,4 @@ Info.props = {
     info: [String, Number]
 };
 
-export default sfc(Info);
+export default createComponent(Info);

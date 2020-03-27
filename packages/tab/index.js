@@ -1,10 +1,10 @@
 /* eslint-disable object-shorthand */
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import findParent from '../_mixins/find-parent';
 
-const [sfc, bem] = use('tab');
+const [createComponent, bem] = createNamespace('tab');
 
-export default sfc({
+export default createComponent({
     mixins: [findParent],
 
     props: {

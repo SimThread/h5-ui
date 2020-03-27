@@ -1,8 +1,8 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 
-const [sfc, bem] = use('checkbox-group');
+const [createComponent, bem] = createNamespace('checkbox-group');
 
-export default sfc({
+export default createComponent({
     props: {
         max: Number,
         value: Array,

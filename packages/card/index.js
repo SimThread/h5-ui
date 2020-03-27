@@ -1,9 +1,9 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import Tag from '../tag';
 
-const [sfc, bem] = use('card');
+const [createComponent, bem] = createNamespace('card');
 
-export default sfc({
+export default createComponent({
     props: {
         tag: String,
         desc: String,

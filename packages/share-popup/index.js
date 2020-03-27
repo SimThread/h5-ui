@@ -1,9 +1,9 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import Popup from '../popup';
 
-const [sfc, bem] = use('share-popup');
+const [createComponent, bem] = createNamespace('share-popup');
 
-export default sfc({
+export default createComponent({
     props: {
         value: Boolean,
         showPanel: Boolean,

@@ -74,7 +74,7 @@ export default {
 // 为markdown文档生成webpack入口文件
 function buildDocsEntry() {
     const output = join('docs/src/docs-entry.js');
-    const getName = fullPath => fullPath.replace(/\/(zh-CN)/, '').split('/').pop().replace('.md', '');
+    const getName = fullPath => fullPath.replace(/\/(en|zh)/, '.$1').split('/').pop().replace('.md', '');
     const docs = glob
         .sync([
             join('docs/**/*.md'),
@@ -83,7 +83,8 @@ function buildDocsEntry() {
         ])
         .map(fullPath => {
             const name = getName(fullPath);
-            return `'${name}': () => import('${path.relative(join('docs/src'), fullPath).replace(/\\/g, '/')}')`;
+            const mdFilePath = path.relative(join('docs/src'), fullPath).replace(/\\/g, '/');
+            return `'${name}': () => import('${mdFilePath}')`;
         });
 
     const content = `${tips}

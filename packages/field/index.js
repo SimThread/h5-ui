@@ -1,11 +1,11 @@
-import { use, isObj, isDef } from '../_utils';
+import { createNamespace, isObject, isDef } from '../_utils';
 import Icon from '../icon';
 import Cell from '../cell';
 import { cellProps } from '../cell/shared';
 
-const [sfc, bem] = use('field');
+const [createComponent, bem] = createNamespace('field');
 
-export default sfc({
+export default createComponent({
     inheritAttrs: false,
 
     props: {
@@ -149,7 +149,7 @@ export default sfc({
             input.style.height = 'auto';
 
             let height = input.scrollHeight;
-            if (isObj(this.autosize)) {
+            if (isObject(this.autosize)) {
                 const { maxHeight, minHeight } = this.autosize;
                 if (maxHeight) {
                     height = Math.min(height, maxHeight);

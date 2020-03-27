@@ -30,7 +30,8 @@ export default {
         },
 
         config() {
-            return docConfig[this.$active];
+            console.log('this.$active:', this.$active);
+            return docConfig.site.locales[this.$active];
         },
 
         currentSimulator() {
@@ -39,16 +40,16 @@ export default {
         }
     },
 
-    watch: {
-        $route(to, from) {
-            const { nav } = docConfig[this.$active].header;
-            Object.keys(nav).forEach((navItem) => {
-                if (nav[navItem].indexOf(location.hash.split('/')[1]) !== -1) {
-                    this.activeVal = navItem;
-                }
-            });
-        },
-    },
+    // watch: {
+    //     $route(to, from) {
+    //         const { nav } = docConfig.site.locales[this.$active].header;
+    //         Object.keys(nav).forEach((navItem) => {
+    //             if (nav[navItem].indexOf(location.hash.split('/')[1]) !== -1) {
+    //                 this.activeVal = navItem;
+    //             }
+    //         });
+    //     },
+    // },
 
     methods: {
         onChangeDemoURL(url) {

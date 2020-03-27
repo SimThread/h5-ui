@@ -1,9 +1,9 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import CheckboxMixin from '../_mixins/checkbox';
 
-const [sfc, bem] = use('checkbox');
+const [createComponent, bem] = createNamespace('checkbox');
 
-export default sfc({
+export default createComponent({
     mixins: [CheckboxMixin('h5-checkbox-group', bem)],
 
     computed: {

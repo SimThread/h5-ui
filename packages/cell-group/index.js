@@ -1,8 +1,6 @@
-import {
-    use
-} from '../_utils';
+import { createNamespace } from '../_utils';
 
-const [sfc, bem] = use('cell-group');
+const [createComponent, bem] = createNamespace('cell-group');
 
 function CellGroup(h, props, slots, ctx) {
     return (
@@ -22,4 +20,4 @@ CellGroup.props = {
     }
 };
 
-export default sfc(CellGroup);
+export default createComponent(CellGroup);

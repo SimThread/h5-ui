@@ -1,8 +1,8 @@
 import {
-    use
+    createNamespace
 } from '../_utils';
 
-const [sfc, bem] = use('loading');
+const [createComponent, bem] = createNamespace('loading');
 const DEFAULT_COLOR = '#c9c9c9';
 
 function Loading(h, props, slots, ctx) {
@@ -51,4 +51,4 @@ Loading.props = {
     }
 };
 
-export default sfc(Loading);
+export default createComponent(Loading);

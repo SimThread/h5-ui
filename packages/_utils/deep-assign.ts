@@ -1,27 +1,24 @@
-/* eslint-disable no-use-before-define */
-import { isDef, isObj } from '.';
+import { isDef, isObject } from './index';
+import { ObjectIndex } from './types';
 
 const { hasOwnProperty } = Object.prototype;
 
-type Object = {
-  [key: string]: any;
-}
-
-function assignKey(to: Object, from: Object, key: string) {
+function assignKey(to: ObjectIndex, from: ObjectIndex, key: string) {
     const val = from[key];
 
-    if (!isDef(val) || (hasOwnProperty.call(to, key) && !isDef(to[key]))) {
+    if (!isDef(val)) {
         return;
     }
 
-    if (!hasOwnProperty.call(to, key) || !isObj(val)) {
+    if (!hasOwnProperty.call(to, key) || !isObject(val)) {
         to[key] = val;
     } else {
-        to[key] = assign(Object(to[key]), from[key]);
+    // eslint-disable-next-line no-use-before-define
+        to[key] = deepAssign(Object(to[key]), from[key]);
     }
 }
 
-export default function assign(to: Object, from: Object) {
+export function deepAssign(to: ObjectIndex, from: ObjectIndex): ObjectIndex {
     Object.keys(from).forEach(key => {
         assignKey(to, from, key);
     });

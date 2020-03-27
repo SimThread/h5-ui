@@ -1,11 +1,11 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import Icon from '../icon';
 import Info from '../info';
 import { route, routeProps } from '../_mixins/router';
 
-const [sfc, bem] = use('tabbar-item');
+const [createComponent, bem] = createNamespace('tabbar-item');
 
-export default sfc({
+export default createComponent({
     props: {
         ...routeProps,
         icon: String,

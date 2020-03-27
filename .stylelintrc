@@ -6,6 +6,7 @@
     "no-descending-specificity": null,
     "declaration-colon-newline-after": null,
     "font-family-no-missing-generic-family-keyword": null,
+    "rule-empty-line-before": null,
     "indentation": 4
   }
 }

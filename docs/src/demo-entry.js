@@ -22,6 +22,8 @@ export default {
   'popup': () => wrapper(import('../../packages/popup/demo'), 'popup'),
   'progress': () => wrapper(import('../../packages/progress/demo'), 'progress'),
   'share-popup': () => wrapper(import('../../packages/share-popup/demo'), 'share-popup'),
+  'skeleton': () => wrapper(import('../../packages/skeleton/demo'), 'skeleton'),
+  'switch': () => wrapper(import('../../packages/switch/demo'), 'switch'),
   't-date': () => wrapper(import('../../packages/t-date/demo'), 't-date'),
   't-number-format': () => wrapper(import('../../packages/t-number-format/demo'), 't-number-format'),
   'tab': () => wrapper(import('../../packages/tab/demo'), 'tab'),

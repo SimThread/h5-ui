@@ -1,10 +1,8 @@
-import {
-    use
-} from '../_utils';
+import { createNamespace } from '../_utils';
 import Cell from '../cell';
 import CellGroup from '../cell-group';
 
-const [sfc, bem] = use('panel');
+const [createComponent, bem] = createNamespace('panel');
 
 function Panel(h, props, slots, ctx) {
     return (
@@ -36,4 +34,4 @@ Panel.props = {
     status: String
 };
 
-export default sfc(Panel);
+export default createComponent(Panel);

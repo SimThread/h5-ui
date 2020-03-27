@@ -1,4 +1,4 @@
-import deepAssign from './deep-assign';
+import { deepAssign } from './deep-assign';
 
 export default function deepClone(obj: object): object {
     if (Array.isArray(obj)) {

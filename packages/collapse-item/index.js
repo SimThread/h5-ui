@@ -1,13 +1,13 @@
-import { use, isDef } from '../_utils';
+import { createNamespace, isDef } from '../_utils';
 import { raf } from '../_utils/raf';
 import Cell from '../cell';
 import { cellProps } from '../cell/shared';
 import FindParent from '../_mixins/find-parent';
 
-const [sfc, bem] = use('collapse-item');
+const [createComponent, bem] = createNamespace('collapse-item');
 const CELL_SLOTS = ['title', 'icon', 'right-icon'];
 
-export default sfc({
+export default createComponent({
     mixins: [FindParent],
 
     props: {

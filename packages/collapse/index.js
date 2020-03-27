@@ -1,10 +1,10 @@
 import {
-    use
+    createNamespace
 } from '../_utils';
 
-const [sfc, bem] = use('collapse');
+const [createComponent, bem] = createNamespace('collapse');
 
-export default sfc({
+export default createComponent({
     props: {
         accordion: Boolean,
         value: [String, Number, Array]

@@ -1,10 +1,10 @@
 import {
-    use
+    createNamespace
 } from '../_utils';
 import Info from '../info';
 import isSrc from '../_utils/validate/src';
 
-const [sfc] = use('icon');
+const [createComponent] = createNamespace('icon');
 
 function Icon(h, props, slots, ctx) {
     const urlIcon = isSrc(props.name);
@@ -39,4 +39,4 @@ Icon.props = {
     }
 };
 
-export default sfc(Icon);
+export default createComponent(Icon);

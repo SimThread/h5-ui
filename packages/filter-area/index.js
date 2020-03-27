@@ -1,4 +1,4 @@
-import { use, isDef } from '../_utils';
+import { createNamespace, isDef } from '../_utils';
 import { on, off } from '../_utils/event';
 import Touch from '../_mixins/touch';
 import { raf } from '../_utils/raf';
@@ -7,10 +7,10 @@ import manager from '../_mixins/popup/manager';
 import context from '../_mixins/popup/context';
 import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
 
-const [sfc, bem] = use('filter-area');
-const tabBem = use('filter-area-panel')[1];
+const [createComponent, bem] = createNamespace('filter-area');
+const tabBem = createNamespace('filter-area-panel')[1];
 
-export default sfc({
+export default createComponent({
     mixins: [Touch],
 
     model: {

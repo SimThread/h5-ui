@@ -1,13 +1,13 @@
-import { use, isDef } from '../_utils';
+import { createNamespace, isDef } from '../_utils';
 import Touch from '../_mixins/touch';
 import { raf } from '../_utils/raf';
 import { on, off } from '../_utils/event';
 import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
 
-const [sfc, bem] = use('tabs');
-const tabBem = use('tab')[1];
+const [createComponent, bem] = createNamespace('tabs');
+const tabBem = createNamespace('tab')[1];
 
-export default sfc({
+export default createComponent({
     mixins: [Touch],
 
     model: {

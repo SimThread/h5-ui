@@ -1,51 +1,67 @@
 import docConfig from './doc.config';
-import DemoList from './components/DemoList';
+import DemoList from './components/DemoList.vue';
 import componentDocs from './docs-entry';
 import componentDemos from './demo-entry';
+import { getLang, setDefaultLang } from './utils/locales';
 import './utils/iframe-router';
 
-const registerRoute = (isDemo) => {
+const { locales, defaultLang } = docConfig.site;
+
+setDefaultLang(defaultLang);
+
+function getLangFromRoute(route) {
+    const lang = route.path.split('/')[1];
+    const langs = Object.keys(locales);
+
+    if (langs.indexOf(lang) !== -1) {
+        return lang;
+    }
+
+    return getLang();
+}
+
+const registerRoute = (isMobileDemo) => {
     const route = [{
         path: '*',
-        redirect: () => '/components'
+        redirect: route => `/${getLangFromRoute(route)}`
     }];
 
-    Object.keys(docConfig).forEach((moduleName) => {
-        if (isDemo) { // demo页面路由配置
+    Object.keys(docConfig.site.locales).forEach((lang) => {
+        if (isMobileDemo) { // demo页面路由配置
             route.push({
-                path: `/${moduleName}`,
+                path: `/${lang}`,
                 component: DemoList,
                 meta: {
-                    moduleName
+                    lang
                 }
             });
         } else { // 文档页面配置
             route.push({
-                path: `/${moduleName}`,
-                redirect: `/${moduleName}/intro`
+                path: `/${lang}`,
+                redirect: (r) => `/${lang}/intro`
             });
         }
 
-        function addRoute(page, moduleName) {
+        function addRoute(page, lang) {
             let { path } = page;
 
             if (path) {
                 path = path.replace('/', '');
 
                 // 从入口文件获取组件
-                const component = isDemo ? componentDemos[path] : componentDocs[`${path}`];
-
+                const componentDoc = componentDocs[`${path}.${lang}`] ? componentDocs[`${path}.${lang}`] : componentDocs[`${path}.${defaultLang}`];
+                const component = isMobileDemo ? componentDemos[path] : componentDoc;
 
                 if (!component) {
                     return;
                 }
 
                 route.push({
-                    name: `/${moduleName}/${path}`,
+                    name: `/${lang}/${path}`,
                     component,
-                    path: `/${moduleName}/${path}`,
+                    path: `/${lang}/${path}`,
                     meta: {
-                        moduleName,
+                        lang,
                         path,
                         name: page.title
                     }
@@ -53,14 +69,14 @@ const registerRoute = (isDemo) => {
             }
         }
 
-        const navs = docConfig[moduleName].nav || [];
+        const navs = docConfig.site.locales[lang].nav || [];
         navs.forEach(nav => {
             if (nav.groups) {
                 nav.groups.forEach(group => {
-                    group.list.forEach(page => addRoute(page, moduleName));
+                    group.list.forEach(page => addRoute(page, lang));
                 });
             } else {
-                addRoute(nav, moduleName);
+                addRoute(nav, lang);
             }
         });
     });

@@ -1,15 +1,9 @@
-import {
-    use,
-    isDef
-} from '../_utils';
-import {
-    BLUE,
-    WHITE
-} from '../_utils/color';
+import { createNamespace, isDef } from '../_utils';
+import { BLUE, WHITE } from '../_utils/color';
 
-const [sfc, bem] = use('progress');
+const [createComponent, bem] = createNamespace('progress');
 
-export default sfc({
+export default createComponent({
     props: {
         inactive: Boolean,
         pivotText: String,

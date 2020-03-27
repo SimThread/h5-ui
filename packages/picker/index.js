@@ -1,13 +1,13 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import { prevent } from '../_utils/event';
 import Loading from '../loading';
 import PickerColumn from './PickerColumn';
 import deepClone from '../_utils/deep-clone';
 import PickerMixin from '../_mixins/picker';
 
-const [sfc, bem] = use('picker');
+const [createComponent, bem] = createNamespace('picker');
 
-export default sfc({
+export default createComponent({
     mixins: [PickerMixin],
 
     props: {

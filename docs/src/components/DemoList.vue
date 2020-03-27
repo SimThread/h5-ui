@@ -31,7 +31,7 @@ export default {
 
     computed: {
         navList() {
-            return this.docConfig[this.$active].nav || [];
+            return this.docConfig.site.locales[this.$active].nav || [];
         },
     }
 };

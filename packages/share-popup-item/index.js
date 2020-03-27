@@ -1,10 +1,10 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import { cellProps } from '../cell/shared';
 import FindParent from '../_mixins/find-parent';
 
-const [sfc] = use('share-popup-item');
+const [createComponent] = createNamespace('share-popup-item');
 
-export default sfc({
+export default createComponent({
     mixins: [FindParent],
 
     props: {

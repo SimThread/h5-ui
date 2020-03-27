@@ -1,10 +1,10 @@
-import { use, noop } from '../_utils';
+import { createNamespace, noop } from '../_utils';
 import {
     inherit
 } from '../_utils/functional';
 import Icon from '../icon';
 
-const [sfc, bem] = use('nav-bar');
+const [createComponent, bem] = createNamespace('nav-bar');
 
 function NavBar(h, props, slots, ctx) {
     return (
@@ -58,4 +58,4 @@ NavBar.props = {
     }
 };
 
-export default sfc(NavBar);
+export default createComponent(NavBar);

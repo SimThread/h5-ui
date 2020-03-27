@@ -1,10 +1,10 @@
 import {
-    use
+    createNamespace
 } from '../_utils';
 
-const [sfc, bem] = use('uploader');
+const [createComponent, bem] = createNamespace('uploader');
 
-export default sfc({
+export default createComponent({
     inheritAttrs: false,
 
     props: {

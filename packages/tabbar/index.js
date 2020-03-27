@@ -1,8 +1,8 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 
-const [sfc, bem] = use('tabbar');
+const [createComponent, bem] = createNamespace('tabbar');
 
-export default sfc({
+export default createComponent({
     data() {
         return {
             items: []

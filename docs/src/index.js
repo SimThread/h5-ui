@@ -5,17 +5,19 @@ import App from './DocsApp';
 import routes from './router';
 import { isMobile } from './utils';
 
-const {
-    defineReactive
-} = Vue.util;
+// const {
+//     defineReactive
+// } = Vue.util;
 
-defineReactive(Vue.prototype, '$active', window.localStorage.getItem('active') || 'components');
+// defineReactive(Vue.prototype, '$active', window.localStorage.getItem('active') || 'zh-CN');
 
 Vue.use(VueRouter).use(H5Doc);
 
+const routesArr = routes();
+console.log('routesArr:', routesArr);
 const router = new VueRouter({
     mode: 'hash',
-    routes: routes()
+    routes: routesArr
 });
 
 router.beforeEach((route, redirect, next) => {

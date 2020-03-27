@@ -1,8 +1,8 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 
-const [sfc, bem] = use('col');
+const [createComponent, bem] = createNamespace('col');
 
-export default sfc({
+export default createComponent({
     props: {
         span: [Number, String],
         offset: [Number, String],

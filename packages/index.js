@@ -27,6 +27,8 @@ import Row from './row';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
+import Skeleton from './skeleton';
+import Switch from './switch';
 import TDate from './t-date';
 import TDom from './t-dom';
 import TNumberFormat from './t-number-format';
@@ -40,6 +42,7 @@ import Toast from './toast';
 import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
+import Locale from './_locale';
 
 const version = '0.0.2';
 const components = [
@@ -69,6 +72,8 @@ const components = [
   Select,
   SharePopup,
   SharePopupItem,
+  Skeleton,
+  Switch,
   TDate,
   TDom,
   TNumberFormat,
@@ -125,6 +130,8 @@ export {
   Select,
   SharePopup,
   SharePopupItem,
+  Skeleton,
+  Switch,
   TDate,
   TDom,
   TNumberFormat,
@@ -137,7 +144,8 @@ export {
   Toast,
   Uploader,
   VAnchor,
-  VClickOutside
+  VClickOutside,
+  Locale
 };
 
 export default {

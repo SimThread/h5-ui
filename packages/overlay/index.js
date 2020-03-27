@@ -1,10 +1,10 @@
 import {
-    use
+    createNamespace
 } from '../_utils';
 
-const [sfc, bem] = use('overlay');
+const [createComponent, bem] = createNamespace('overlay');
 
-export default sfc({
+export default createComponent({
     props: {
         zIndex: Number,
         className: null,

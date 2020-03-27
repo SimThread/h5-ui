@@ -1,16 +1,10 @@
-import {
-    use,
-    isDef
-} from '../_utils';
+import { createNamespace, isDef } from '../_utils';
 import { cellProps } from './shared';
-import {
-    emit,
-    inherit
-} from '../_utils/functional';
+import { emit, inherit } from '../_utils/functional';
 import { routeProps, functionalRoute } from '../_mixins/router';
 import Icon from '../icon';
 
-const [sfc, bem] = use('cell');
+const [createComponent, bem] = createNamespace('cell');
 
 function Cell(h, props, slots, ctx) {
     const { icon, size, title, label, value, isLink, arrowDirection } = props;
@@ -83,4 +77,4 @@ Cell.props = {
     arrowDirection: String
 };
 
-export default sfc(Cell);
+export default createComponent(Cell);

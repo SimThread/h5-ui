@@ -1,7 +1,7 @@
-import { use } from '../_utils';
+import { createNamespace } from '../_utils';
 import { RED, BLUE, GREEN, GRAY_DARK } from '../_utils/color';
 
-const [sfc, bem] = use('tag');
+const [createComponent, bem] = createNamespace('tag');
 
 const COLOR_MAP = {
     danger: RED,
@@ -46,4 +46,4 @@ Tag.props = {
     textColor: String
 };
 
-export default sfc(Tag);
+export default createComponent(Tag);
