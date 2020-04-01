@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .demo-wrap {
     width: 70px;
     margin: 100px auto;

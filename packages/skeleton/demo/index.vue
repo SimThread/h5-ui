@@ -1,6 +1,6 @@
 <template>
     <demo-section>
-        <demo-block :title="t('basicUsage')">
+        <demo-block title="基础用法">
             <h5-skeleton title :row="3" />
         </demo-block>
 
@@ -19,6 +19,18 @@
                     </div>
                 </div>
             </h5-skeleton>
+        </demo-block>
+
+        <demo-block title="首页">
+            <h5-skeleton home :home-items="7" />
+        </demo-block>
+
+        <demo-block title="列表">
+            <h5-skeleton list reverse row="4" />
+        </demo-block>
+
+        <demo-block title="详情">
+            <h5-skeleton detail top-row="3" bottom-row="3" />
         </demo-block>
     </demo-section>
 </template>
