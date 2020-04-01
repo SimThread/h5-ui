@@ -44,7 +44,7 @@ import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 import Locale from './_locale';
 
-const version = '0.0.2';
+const version = '0.0.3';
 const components = [
   Button,
   Card,
