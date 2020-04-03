@@ -22,20 +22,6 @@ Vue.use(SharePopup).use(SharePopupItem);
             :imgSrc="require('./images/Facebook.png')" 
             text="Facebook">
         </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/WhatsApp.png')" 
-            text="WhatsApp">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Wechat.png')" 
-            text="Wechat" 
-            @click.native="showPanel1 = true">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/copy.png')" 
-            text="拷贝链接" 
-            @click.native="showPanel1 = true">
-        </h5-share-popup-item>
 </h5-share-popup>
 ```
 
@@ -49,24 +35,6 @@ Vue.use(SharePopup).use(SharePopupItem);
         <template v-slot:panel>
             <div style="position: absolute; top: 0; padding: 20px; width: 100%; height: 128px; background: #fff; box-sizing: border-box;">自定义内容</div>
         </template>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Facebook.png')" 
-            text="Facebook">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/WhatsApp.png')" 
-            text="WhatsApp">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Wechat.png')" 
-            text="Wechat" 
-            @click.native="showPanel2 = true">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/copy.png')" 
-            text="拷贝链接" 
-            @click.native="showPanel2 = true">
-        </h5-share-popup-item>
 </h5-share-popup>
 ```
 

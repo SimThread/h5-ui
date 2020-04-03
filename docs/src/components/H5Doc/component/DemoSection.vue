@@ -16,7 +16,6 @@ export default {
 
     computed: {
         demoName() {
-            console.log('this.name:', this.name);
             return this.name || this.getParentName();
         },
         style() {

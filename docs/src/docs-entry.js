@@ -28,7 +28,6 @@ export default {
   'popup.zh-CN': () => import('../../packages/popup/zh-CN.md'),
   'progress.zh-CN': () => import('../../packages/progress/zh-CN.md'),
   'share-popup.zh-CN': () => import('../../packages/share-popup/zh-CN.md'),
-  'skeleton.en-US': () => import('../../packages/skeleton/en-US.md'),
   'skeleton.zh-CN': () => import('../../packages/skeleton/zh-CN.md'),
   'README': () => import('../../packages/switch/README.md'),
   'README.zh-CN': () => import('../../packages/switch/README.zh-CN.md'),

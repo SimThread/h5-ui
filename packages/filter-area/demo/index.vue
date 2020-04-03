@@ -1,7 +1,7 @@
 <template>
     <demo-section background="white">
         <demo-block title="基础用法">
-            <h5-filter-area type="devision" v-model="activeIndex" :close-on-click-overlay="true" :sticky="true" :offset-top="30">
+            <h5-filter-area type="devision" v-model="activeIndex" :close-on-click-overlay="true" :sticky="true" :offset-top="0">
                 <h5-filter-area-panel :immediate-render="true" :title="area.title" style="position: relative; z-index: 9999;" :highlight="(area.title !== '區域' && area.title !== '港鐵')">
                     <h5-select ref="areaSelect" :columns="area.options" @change="onChange" value-key="text">
                         <div slot="footer" class="estate-footer">
@@ -424,6 +424,7 @@ export default {
 @import '../../packages/_style/var';
 
 .demo-filter-area {
+    height: 2000px;
     .estate-footer {
         width: 100%;
         padding: 7px 0;

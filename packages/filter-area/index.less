@@ -39,12 +39,11 @@
     position: relative;
 
     &__wrap {
-        top: 0;
         left: 0;
         right: 0;
         z-index: 99;
         overflow: hidden;
-        position: absolute;
+        border-bottom: 1px solid #e7e7e7;
 
         &--page-top {
             position: fixed;
@@ -166,6 +165,12 @@
     }
 
     &__content {
+        position: absolute;
+        width: 100%;
+        .h5-select-column {
+            height: 316px;
+            max-height: 500px;
+        }
         &--animated {
             overflow: hidden;
         }

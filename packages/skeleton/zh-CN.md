@@ -1,83 +1,68 @@
-## SharePopup 分享弹窗
+## Skeleton 骨架屏
 
 ### 引入
 ``` javascript
-import { SharePopup, SharePopupItem } from 'h5-ui';
+import { Skeleton } from 'h5-ui';
 
-Vue.use(SharePopup).use(SharePopupItem);
+Vue.use(Skeleton);
 ```
 
 ### 代码演示
 
 #### 基础用法
 ```html
-<h5-button @click="showSharePopup1=true;">弹出分享弹窗</h5-button>
-
-<h5-share-popup 
-    v-model="showSharePopup1" 
-    :showPanel.sync="showPanel1"
-    panelTip="長按拷貝下面鏈接，去貼上給好友吧："
-    :panelContent="`1111<br/>2222`">
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Facebook.png')" 
-            text="Facebook">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/WhatsApp.png')" 
-            text="WhatsApp">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Wechat.png')" 
-            text="Wechat" 
-            @click.native="showPanel1 = true">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/copy.png')" 
-            text="拷贝链接" 
-            @click.native="showPanel1 = true">
-        </h5-share-popup-item>
-</h5-share-popup>
+<h5-skeleton title :row="3" />
 ```
 
-#### 自定义panel
+#### 显示头像
 ```html
-<h5-button @click="showSharePopup2=true;">弹出自定义分享弹窗</h5-button>
-
-<h5-share-popup
-    v-model="showSharePopup2" 
-    :showPanel.sync="showPanel2">
-        <template v-slot:panel>
-            <div style="position: absolute; top: 0; padding: 20px; width: 100%; height: 128px; background: #fff; box-sizing: border-box;">自定义内容</div>
-        </template>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Facebook.png')" 
-            text="Facebook">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/WhatsApp.png')" 
-            text="WhatsApp">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/Wechat.png')" 
-            text="Wechat" 
-            @click.native="showPanel2 = true">
-        </h5-share-popup-item>
-        <h5-share-popup-item 
-            :imgSrc="require('./images/copy.png')" 
-            text="拷贝链接" 
-            @click.native="showPanel2 = true">
-        </h5-share-popup-item>
-</h5-share-popup>
+<h5-skeleton title avatar :row="3" />
 ```
 
-### SharePopup API
-| 参数 | 说明 | 类型 | 默认值 |
-|------|------|------|------|------|
-| v-model | 当前组件是否显示 | `Boolean` |
-| showPanel.sync | 是否打开面板 | `Boolean` |
+#### 首页
+```html
+<h5-skeleton home :home-items="7" />
+```
 
-### SharePopupItem  API
+#### 列表
+```html
+<h5-skeleton list reverse row="4" :list-items="3" />
+```
+
+#### 详情
+```html
+<h5-skeleton detail top-row="3" bottom-row="3" />
+```
+
+### 基础 - Skeleton Props
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|------|
-| imgSrc | 项目图片地址 | `String` | - |
-| text | 项目描述内容 | `String` | - |
+| row | 段落占位图行数 | `number | string` | `0` |
+| row-width | 段落占位图宽度，可传数组来设置每一行的宽度 | `number | string`或此类型数组 | `100%` |
+| title | 是否显示标题占位图 | `boolean` | `false` |
+| avatar | 是否显示头像占位图 | `boolean` | `false` |
+| loading | 是否显示骨架屏，传false时会展示子组件内容 | `boolean` | `true` |
+| animate | 是否开启动画 | `boolean` | `true` |
+| title-width | 标题占位图宽度 | `number | string` | `40%` |
+| avatar-size | 头像占位图大小 | `number | string` | `32px` |
+| avatar-shape | 头像占位图形状，可选值为`square` | `string` | `round` |
+
+### 首页 - Skeleton Props
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| home | 是否显示首页类型 | `boolean` | `false` |
+| home-items | 首页入口数量 | `number | string` | `10` |
+
+### 列表 - Skeleton Props
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| list | 是否显示列表类型 | `boolean` | `false` |
+| list-items | 列表项目数量 | `number | string` | `3` |
+| reverse | 是否翻转列表项目的图片和内容位置 | `boolean` | `false` |
+
+### 详情 - Skeleton Props
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| detail | 是否显示详情类型 | `boolean` | `false` |
+| top-row | 详情上部分段落占位图行数 | `number | string` | `0` |
+| bottom-row | 详情下部分段落占位图行数 | `number | string` | `0` |

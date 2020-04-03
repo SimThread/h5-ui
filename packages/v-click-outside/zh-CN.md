@@ -7,9 +7,13 @@ import { VClickOutside } from 'h5-ui'
 Vue.directive(VClickOutside);
 ```
 
-### 代码演示
+### 基础用法
 
 `v-click-outside`的接受一个函数类型的值，在点击绑定元素的外部时执行。
+
+```html
+<a class="check-balance" href="javascript:;"  v-click-outside="closeBalanceTip">
+```
 
 ``` javascript
 export default {
@@ -24,8 +28,4 @@ export default {
         },
     }
 }
-```
-
-```html
-<a class="check-balance" href="javascript:;"  v-click-outside="closeBalanceTip">
 ```

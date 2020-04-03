@@ -34,56 +34,9 @@ Vue.use(FilterArea).use(FilterAreaPannel).use(Select);
         <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span></div>
     </h5-select>
   </h5-filter-area-panel>
-
-  <h5-filter-area-panel 
-    :immediateRender="true" 
-    :title="price.title" 
-    style="position: relative;z-index: 9999;">
-    <h5-select 
-      ref="priceSelect" 
-      :columns="price.options" 
-      value-key="text" 
-      @change="onPriceChange" 
-      :default-index="price.defaultIndex">
-      <div slot="footer" class="price-footer">
-        <input type="text" class="min-price" v-model="minPrice"> ~
-        <input type="text" class="max-price" v-model="maxPrice"> 元
-        <span class="btn" @click="onPriceConfirm(minPrice, maxPrice)">确定</span>
-      </div>
-    </h5-select>
-  </h5-filter-area-panel>
-
-  <h5-filter-area-panel 
-    :immediateRender="true" 
-    :title="age.title" 
-    style="position: relative;z-index: 9999;">
-    <h5-select 
-      ref="ageSelect" 
-      :columns="age.options" 
-      @change="onAgeChange"></h5-select>
-  </h5-filter-area-panel>
-
-  <h5-filter-area-panel 
-    :immediateRender="true" 
-    :title="sort.title" 
-    style="position: relative;z-index: 9999;">
-    <h5-select 
-      ref="sortSelect" 
-      :columns="sort.options" 
-      @change="onSortChange"></h5-select>
-  </h5-filter-area-panel>
 </h5-filter-area>
 ```
 
-```js
-export default {
-  data() {
-    return {
-      ...
-    };
-  }
-}
-```
 
 #### 点击事件
 
