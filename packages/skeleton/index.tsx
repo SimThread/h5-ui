@@ -20,6 +20,8 @@ export type SkeletonProps = {
   home?: boolean;
   homeItems?: number | string;
   list?: boolean;
+  listItems?: number | string;
+  listItemDistance?: number | string;
   reverse?: boolean;
   detail?: boolean;
   topRow: number | string;
@@ -98,7 +100,7 @@ function Skeleton(
       return Rows;
     }
 
-  function BottomRows() {
+    function BottomRows() {
     const Rows = [];
     const { rowWidth } = props;
 
@@ -150,6 +152,39 @@ function Skeleton(
         return HomeItems;
     }
 
+    function listItem() {
+        const listItem = [
+            <div class={bem('list-img')}></div>,
+            <div class={bem('list-content')}>
+                {Rows()}
+            </div>,
+        ];
+        props.reverse && listItem.reverse();
+        return listItem;
+    }
+
+    function listItems() {
+        const listItems = [];
+        for (let i = 0; i < props.listItems; i++) {
+            if (i === 0) {
+                listItems.push(
+                    <div class={bem('list-item')}>
+                        {listItem()}
+                    </div>
+                );
+            } else {
+                 listItems.push(
+                    <div class={bem('list-item')} style={{ marginTop: addUnit(props.listItemDistance) }}>
+                        {listItem()}
+                    </div>
+                );
+            }
+
+        }
+
+        return listItems;
+    }
+
     if (props.home) {
         return (
             <div class={bem({ animate: props.animate, home: props.home })} {...inherit(ctx)}>
@@ -159,17 +194,12 @@ function Skeleton(
     }
 
     if (props.list) {
-        const listChildren = [
-          <div class={bem('list-img')}></div>,
-          <div class={bem('list-content')}>
-              {Rows()}
-          </div>,
-        ];
 
-        props.reverse && listChildren.reverse();
         return (
           <div class={bem({ animate: props.animate, list: props.list })} {...inherit(ctx)}>
-            {listChildren}
+            <div class={bem('list-item-wrap')}>
+                {listItems()}
+            </div>
           </div>
         );
     }
@@ -231,14 +261,25 @@ Skeleton.props = {
         type: [Number, String, Array],
         default: DEFAULT_ROW_WIDTH,
     },
-    // 扩展
+    /** 扩展 */
+    // 首页
     home: Boolean,
     homeItems: {
         type: [Number, String],
-        default: 0,
+        default: 10,
     },
+    // 列表
     list: Boolean,
+    listItems: {
+        type: [Number, String],
+        default: 3,
+    },
+    listItemDistance: {
+        type: [Number, String],
+        default: 20,
+    },
     reverse: Boolean,
+    // 详情
     detail: Boolean,
     topRow: {
       type: [Number, String],

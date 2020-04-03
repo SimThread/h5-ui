@@ -26,7 +26,7 @@
         </demo-block>
 
         <demo-block title="列表">
-            <h5-skeleton list reverse row="4" />
+            <h5-skeleton list reverse row="4" :list-items="3" />
         </demo-block>
 
         <demo-block title="详情">
