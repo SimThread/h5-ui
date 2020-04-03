@@ -5,11 +5,13 @@ const gulp = require('gulp');
 const less = require('gulp-less');
 const csso = require('gulp-csso');
 const postcss = require('gulp-postcss');
+// const debug = require('gulp-debug');
 
 // 编译组件css
 gulp.task('compile', () => (
     gulp
         .src(['../es/**/*.less', '../lib/**/*.less'])
+        // .pipe(debug({ title: 'src:' }))
         .pipe(less({
             paths: [path.resolve(__dirname, 'node_modules')]
         }))
