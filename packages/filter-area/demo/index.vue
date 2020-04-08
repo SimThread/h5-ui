@@ -1,30 +1,27 @@
 <template>
-    <demo-section background="white">
+    <demo-section background="white" style="padding-top: 46px;">
         <demo-block title="基础用法">
-            <h5-filter-area type="devision" v-model="activeIndex" :close-on-click-overlay="true" :sticky="true" :offset-top="0">
-                <h5-filter-area-panel :immediate-render="true" :title="area.title" style="position: relative; z-index: 9999;" :highlight="(area.title !== '區域' && area.title !== '港鐵')">
+            <h5-filter-area type="devision" v-model="activeIndex" :offset-top="46">
+                <h5-filter-area-panel :title="area.title" :highlight="area.title !== '區域' && area.title !== '港鐵'">
                     <h5-select ref="areaSelect" :columns="area.options" @change="onChange" value-key="text">
-                        <div slot="footer" class="estate-footer">
-                            共找到<span class="count fc-org">12133</span>間房屋&nbsp;&nbsp;&nbsp;<span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span> <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span>
-                        </div>
+                        <div slot="footer" class="estate-footer">共找到<span class="count fc-org">12133</span>間房屋 <span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span> <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span></div>
                     </h5-select>
                 </h5-filter-area-panel>
 
-                <h5-filter-area-panel :immediate-render="true" :title="price.title" style="position: relative; z-index: 9999;" :highlight="price.title !== '呎價'">
+                <h5-filter-area-panel :title="price.title" :highlight="price.title !== '呎價'">
                     <h5-select ref="priceSelect" :columns="price.options" value-key="text" @change="onPriceChange" :default-index="price.defaultIndex">
                         <div slot="footer" class="price-footer">
-                            <input type="text" class="min-price" v-model="minPrice"> ~
-                            <input type="text" class="max-price" v-model="maxPrice"> 元
+                            <input type="text" class="min-price" v-model="minPrice"> ~ <input type="text" class="max-price" v-model="maxPrice"> 元
                             <span class="btn" @click="onPriceConfirm(minPrice, maxPrice)">确定</span>
                         </div>
                     </h5-select>
                 </h5-filter-area-panel>
 
-                <h5-filter-area-panel :immediate-render="true" :title="age.title" style="position: relative; z-index: 9999;" :highlight="age.title !== '樓齡'">
+                <h5-filter-area-panel :title="age.title" :highlight="age.title !== '樓齡'">
                     <h5-select ref="ageSelect" :columns="age.options" @change="onAgeChange" />
                 </h5-filter-area-panel>
 
-                <h5-filter-area-panel :immediate-render="true" :title="sort.title" style="position: relative; z-index: 9999;" :highlight="sort.title !== '排序'">
+                <h5-filter-area-panel :title="sort.title" :highlight="sort.title !== '排序'">
                     <h5-select ref="sortSelect" :columns="sort.options" @change="onSortChange" />
                 </h5-filter-area-panel>
             </h5-filter-area>
@@ -44,32 +41,32 @@ const areaPrice = data.area_price;
 const ageOfBuilding = data.age_of_building;
 const params = {
     districtId: [],
-    subwayStation: [],
+    subwayStation: []
 };
 const sortOptions = [
     { id: 0, text: '默認排序' },
     { id: 1, text: '樓齡新到舊' },
     { id: 2, text: '樓齡舊到新' },
     { id: 3, text: '呎價低到高' },
-    { id: 4, text: '呎價低到高' },
+    { id: 4, text: '呎價低到高' }
 ];
 const options = {
     areaOptions: [{ id: 0, type: 'area', text: '不限' }],
-    subwayOptions: [],
+    subwayOptions: []
 };
 
 const subOptions = {
     areaOptions: {},
-    subwayOptions: {},
+    subwayOptions: {}
 };
 
 areaDistrict[0] = [];
 
-Object.keys(districtId).forEach((key) => {
+Object.keys(districtId).forEach(key => {
     areaDistrict[0].push(Number(key));
 });
 
-Object.keys(areaId).forEach((key) => {
+Object.keys(areaId).forEach(key => {
     options.areaOptions.push({
         id: Number(key),
         type: 'area',
@@ -77,7 +74,7 @@ Object.keys(areaId).forEach((key) => {
     });
 });
 
-Object.keys(subwayLineData).forEach((key) => {
+Object.keys(subwayLineData).forEach(key => {
     options.subwayOptions.push({
         id: Number(key),
         type: 'traffic',
@@ -85,16 +82,16 @@ Object.keys(subwayLineData).forEach((key) => {
     });
 });
 
-Object.keys(areaDistrict).forEach((key) => {
-    subOptions.areaOptions[key] = areaDistrict[key].map((item) => ({
+Object.keys(areaDistrict).forEach(key => {
+    subOptions.areaOptions[key] = areaDistrict[key].map(item => ({
         id: item,
         type: 'area',
         text: districtId[item]
     }));
 });
 
-Object.keys(subwayStationData).forEach((key) => {
-    subOptions.subwayOptions[key] = subwayStationData[key].map((item) => ({
+Object.keys(subwayStationData).forEach(key => {
+    subOptions.subwayOptions[key] = subwayStationData[key].map(item => ({
         id: item.id,
         type: 'traffic',
         text: item.name
@@ -109,17 +106,19 @@ function toQueryPair(key, value) {
 }
 function toQueryString(obj) {
     let ret = [];
-    Object.keys(obj).forEach((key) => {
+    Object.keys(obj).forEach(key => {
         key = encodeURIComponent(key);
         const values = obj[key];
-        if (values && values.constructor == Array) { // 数组
+        if (values && values.constructor == Array) {
+            // 数组
             const queryValues = [];
             for (let i = 0, len = values.length, value; i < len; i++) {
                 value = values[i];
                 queryValues.push(toQueryPair(key, value));
             }
             ret = ret.concat(queryValues);
-        } else { // 字符串
+        } else {
+            // 字符串
             ret.push(toQueryPair(key, values));
         }
     });
@@ -127,7 +126,9 @@ function toQueryString(obj) {
 }
 
 function toQueryParams() {
-    const search = this.replace(/^\s+/, '').replace(/\s+$/, '').match(/([^?#]*)(#.*)?$/);// 提取location.search中'?'后面的部分
+    const search = this.replace(/^\s+/, '')
+        .replace(/\s+$/, '')
+        .match(/([^?#]*)(#.*)?$/); // 提取location.search中'?'后面的部分
     if (!search) {
         return {};
     }
@@ -135,7 +136,8 @@ function toQueryParams() {
     const searchHash = searchStr.split('&');
 
     const ret = {};
-    for (let i = 0, len = searchHash.length; i < len; i++) { // 这里可以调用each方法
+    for (let i = 0, len = searchHash.length; i < len; i++) {
+        // 这里可以调用each方法
         const pair = searchHash[i].split('=')[0];
         if (pair) {
             const key = decodeURIComponent(pair.shift());
@@ -159,20 +161,23 @@ function toQueryParams() {
 
 const areaColumns = [
     {
-        values: [{ id: 'areaOptions', text: '區域' }, { id: 'subwayOptions', text: '港鐵' }],
+        values: [
+            { id: 'areaOptions', text: '區域' },
+            { id: 'subwayOptions', text: '港鐵' }
+        ],
         className: 'column1',
-        defaultIndex: 0,
+        defaultIndex: 0
     },
     {
         values: [...options.areaOptions],
         className: 'column2',
-        defaultIndex: -1,
+        defaultIndex: -1
     },
     {
         values: [],
         className: 'column3',
         defaultIndex: [],
-        multiple: true,
+        multiple: true
     }
 ];
 
@@ -183,12 +188,12 @@ export default {
             area: {
                 title: '區域',
                 select: null,
-                options: areaColumns,
+                options: areaColumns
             },
             price: {
                 title: '呎價',
                 select: null,
-                options: areaPrice,
+                options: areaPrice
             },
             age: {
                 title: '樓齡',
@@ -201,58 +206,41 @@ export default {
                 options: sortOptions
             },
             showAddressSelect: false,
-            showOverlayer: false,
-            imageURL: '//p2.591.com.hk/estate/crop/2019/03/29/155382676533251509_212x160.jpg',
 
             minPrice: '',
-            maxPrice: '',
+            maxPrice: ''
         };
-    },
-    computed: {
-        valueCompute() {
-            return this.activeIndex >= 0;
-        }
     },
     mounted() {
         this.$nextTick(() => {
-            this.area.select = this.$refs.areaSelect;
-            this.price.select = this.$refs.priceSelect;
-            this.age.select = this.$refs.ageSelect;
-            this.sort.select = this.$refs.sortSelect;
-
-
             const queryPrams = toQueryParams.call(window.location.search);
 
-            // 设置区域
-            if (queryPrams.areaId) {
-                this.area.select.setColumnIndex(0, 0);
-                const index = options.areaOptions.findIndex((item) => Number(queryPrams.areaId) == item.id);
-                this.area.select.setColumnValues(1, options.areaOptions);
-                this.area.select.setColumnIndex(1, index);
+            if (queryPrams.areaId) { // 设置区域
+                this.$refs.areaSelect.setColumnIndex(0, 0);
+                const index = options.areaOptions.findIndex(item => Number(queryPrams.areaId) == item.id);
+                this.$refs.areaSelect.setColumnValues(1, options.areaOptions);
+                this.$refs.areaSelect.setColumnIndex(1, index);
 
                 if (queryPrams.districtId) {
                     const districtId = queryPrams.districtId.split(',');
-                    const districtDefaultIndex = districtId.map((id) => subOptions.areaOptions[queryPrams.areaId].findIndex((option) => Number(id) === option.id));
-                    this.area.select.setColumnValues(2, subOptions.areaOptions[index]);
-                    this.area.select.setColumnIndex(2, districtDefaultIndex);
+                    const districtDefaultIndex = districtId.map(id => subOptions.areaOptions[queryPrams.areaId].findIndex(option => Number(id) === option.id));
+                    this.$refs.areaSelect.setColumnValues(2, subOptions.areaOptions[index]);
+                    this.$refs.areaSelect.setColumnIndex(2, districtDefaultIndex);
                 }
-            } else if (queryPrams.subwayLine) {
-                this.area.select.setColumnIndex(0, 1);
-                const index = options.subwayOptions.findIndex((item) => Number(queryPrams.subwayLine) == item.id);
-                this.area.select.setColumnValues(1, options.subwayOptions);
-                this.area.select.setColumnIndex(1, index);
+            } else if (queryPrams.subwayLine) { // 设置港铁
+                this.$refs.areaSelect.setColumnIndex(0, 1);
+                const index = options.subwayOptions.findIndex(item => Number(queryPrams.subwayLine) == item.id);
+                this.$refs.areaSelect.setColumnValues(1, options.subwayOptions);
+                this.$refs.areaSelect.setColumnIndex(1, index);
 
                 if (queryPrams.subwayStation) {
                     const subwayStation = queryPrams.subwayStation.split(',');
-                    const subwayStationDefaultIndex = subwayStation.map((id) => subOptions.subwayOptions[queryPrams.subwayLine].findIndex((option) => Number(id) === option.id));
-                    // areaColumns[2].values = subOptions.subwayOptions[queryPrams.subwayLine];
-                    // areaColumns[2].defaultIndex = subwayStationDefaultIndex;
-                    this.area.select.setColumnValues(2, subOptions.subwayOptions[queryPrams.subwayLine]);
-                    this.area.select.setColumnIndex(2, subwayStationDefaultIndex);
+                    const subwayStationDefaultIndex = subwayStation.map(id => subOptions.subwayOptions[queryPrams.subwayLine].findIndex(option => Number(id) === option.id));
+                    this.$refs.areaSelect.setColumnValues(2, subOptions.subwayOptions[queryPrams.subwayLine]);
+                    this.$refs.areaSelect.setColumnIndex(2, subwayStationDefaultIndex);
                 }
-            } else {
-                this.area.select.setColumnValues(1, options.areaOptions);
-                // areaColumns[1].values = options.areaOptions;
+            } else { // 默认
+                this.$refs.areaSelect.setColumnValues(1, options.areaOptions);
             }
 
             // 设置尺价
@@ -260,12 +248,10 @@ export default {
                 let isFind = false;
 
                 areaPrice.forEach((item, index) => {
-                    if (item.value && (item.value.join(',') == queryPrams.areaPrice)) {
+                    if (item.value && item.value.join(',') == queryPrams.areaPrice) {
                         isFind = true;
                         this.price.title = item.text;
-                        this.price.select.setColumnIndex(0, index);
-                        // 设置title
-                        // this.priceTxt = item.txt;
+                        this.$refs.priceSelect.setColumnIndex(0, index);
                     }
                 });
 
@@ -278,27 +264,26 @@ export default {
                     } else {
                         this.priceTxt = `${this.minPrice}元`;
                     }
-                    this.price.select.setColumnIndex(0, -1);
+                    this.$refs.priceSelect.setColumnIndex(0, -1);
                 }
             }
 
             // 設置樓齡
             if (queryPrams.ageOfBuildingSearch) {
-                const index = ageOfBuilding.findIndex((item) => item.value == queryPrams.ageOfBuildingSearch);
-                this.age.select.setColumnIndex(0, index);
+                const index = ageOfBuilding.findIndex(item => item.value == queryPrams.ageOfBuildingSearch);
+                this.$refs.ageSelect.setColumnIndex(0, index);
             }
 
             // 設置排序
             if (queryPrams.sort) {
-                const index = sortOptions.findIndex((item) => item.id == queryPrams.sort);
-                this.sort.select.setColumnIndex(0, index);
+                const index = sortOptions.findIndex(item => item.id == queryPrams.sort);
+                this.$refs.sortSelect.setColumnIndex(0, index);
             }
         });
     },
     methods: {
         complete() {
             this.activeIndex = -1;
-            this.showOverlayer = false;
         },
         // 区域重置
         resetArea() {
@@ -307,9 +292,9 @@ export default {
             delete params.subwayLine;
             delete params.subwayStation;
 
-            this.area.select.reset(0);
-            this.area.select.reset(1);
-            this.area.select.reset(2);
+            this.$refs.areaSelect.reset(0);
+            this.$refs.areaSelect.reset(1);
+            this.$refs.areaSelect.reset(2);
             this.updateTitle(this.area, '區域');
             this.updateURL();
         },
@@ -355,9 +340,9 @@ export default {
                     delete params.districtId;
                     delete params.subwayStation;
                 } else if (values[2][0].type === 'area') {
-                    params.districtId = values[2].map((item) => item.id).join(',');
+                    params.districtId = values[2].map(item => item.id).join(',');
                 } else {
-                    params.subwayStation = values[2].map((item) => item.id).join(',');
+                    params.subwayStation = values[2].map(item => item.id).join(',');
                 }
             }
 
@@ -394,7 +379,7 @@ export default {
             this.updateURL();
         },
         onPriceConfirm(minPrice, maxPrice) {
-            this.price.select.setColumnIndex(0, -1);
+            this.$refs.priceSelect.setColumnIndex(0, -1);
             minPrice = Number.parseInt(minPrice.trim(), 10) || 0;
             maxPrice = Number.parseInt(maxPrice.trim(), 10) || 200000000;
 
@@ -425,6 +410,7 @@ export default {
 
 .demo-filter-area {
     height: 2000px;
+
     .estate-footer {
         width: 100%;
         padding: 7px 0;
@@ -432,7 +418,7 @@ export default {
         left: 0;
         bottom: 0;
         text-align: center;
-        box-shadow: 0 -3px 3px 0 hsla(0, 0%, 60.8%, .4);
+        box-shadow: 0 -3px 3px 0 hsla(0, 0%, 60.8%, 0.4);
         // z-index: 21;
         background: #fff;
 

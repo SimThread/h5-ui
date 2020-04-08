@@ -1,6 +1,7 @@
 <template>
     <div>
         <h5-nav-bar
+            fixed
             v-show="title && showNav"
             class="h5-doc-nav-bar"
             :title="title"

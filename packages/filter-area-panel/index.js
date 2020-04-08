@@ -14,7 +14,7 @@ export default createComponent({
             type: Boolean,
             default: false,
         },
-        immediateRender: {
+        delayRender: {
             type: Boolean,
             default: false,
         }
@@ -22,7 +22,7 @@ export default createComponent({
 
     data() {
         return {
-            inited: false
+            inited: true
         };
     },
 
@@ -39,10 +39,6 @@ export default createComponent({
     watch: {
         'parent.curActive'() {
             this.inited = this.inited || this.selected;
-        },
-
-        title() {
-            this.parent.setLine();
         }
     },
 
@@ -68,7 +64,7 @@ export default createComponent({
         const { slots } = this;
         return (
             <div vShow={this.selected || this.parent.animated} class={bem('pane')}>
-                {this.immediateRender || this.inited ? slots() : h()}
+                {this.delayRender || this.inited ? slots() : h()}
                 {slots('title') && <div ref="title">{slots('title')}</div>}
             </div>
         );

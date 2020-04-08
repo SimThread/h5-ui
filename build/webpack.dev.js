@@ -21,7 +21,7 @@ module.exports = {
     devServer: {
         hot: true, // 开启热点
         inline: true, // 开启页面自动刷新
-        host: 'localhost',
+        host: '0.0.0.0',
         port: 8050,
         proxy: {
             '/Home': {
