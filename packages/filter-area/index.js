@@ -271,7 +271,7 @@ export default createComponent({
             const elTopToPageTop = getElementTop(this.$el);
             if (scrollTop > elTopToPageTop) {
                 this.position = 'top';
-                this.contentTop = `${this.offsetTop + this.$refs.wrap.offsetHeight}`;
+                this.contentTop = `${this.$refs.wrap.offsetHeight}`;
             } else {
                 this.position = '';
                 this.contentTop = '';
