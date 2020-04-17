@@ -46,7 +46,6 @@ export default createComponent({
         },
 
         setParentValue(val) {
-            console.log('val:', val);
             const { parent } = this;
             const value = parent.value.slice();
 

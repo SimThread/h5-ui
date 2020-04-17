@@ -2,7 +2,7 @@ import { createNamespace } from '../_utils';
 import deepClone from '../_utils/deep-clone';
 import SelectColumn from './SelectColumn';
 
-const [createComponent, bem] = createNamespace('select');
+const [createComponent, bem] = createNamespace('business-select');
 
 export default createComponent({
     props: {
@@ -15,6 +15,10 @@ export default createComponent({
             type: String,
             default: 'text'
         },
+        renderItem: {
+            type: Function,
+            default: () => {}
+        }
     },
 
     data() {
@@ -36,6 +40,7 @@ export default createComponent({
     },
 
     methods: {
+        // 设置所有column的配置项
         setColumns() {
             const columns = this.simple ? [{ values: this.columns }] : this.columns;
             columns.forEach((column, index) => {
@@ -87,12 +92,12 @@ export default createComponent({
             column && column.setIndex(optionIndex);
         },
 
-        // 通过index获取column的配置
+        // 通获取指定column的配置项
         getColumnValues(index) {
             return (this.children[index] || {}).options;
         },
 
-        // 通过index设置column的配置
+        // 设置指定column的配置项
         setColumnValues(index, options) {
             const column = this.children[index];
             if (column && JSON.stringify(column.options) !== JSON.stringify(options)) {
@@ -106,12 +111,12 @@ export default createComponent({
             }
         },
 
-        // get values of all columns
+        // 获取所有column的values
         getValues() {
             return this.children.map(child => child.getValue());
         },
 
-        // set values of all columns
+        // 设置所有column的value
         setValues(values) {
             values.forEach((value, index) => {
                 this.setColumnValue(index, value);
@@ -157,8 +162,10 @@ export default createComponent({
                                 itemHeight={this.itemHeight}
                                 defaultIndex={item.defaultIndex || this.defaultIndex}
                                 multiple={item.multiple}
+                                checkStyle={item.checkStyle}
                                 visibleItemCount={this.visibleItemCount}
                                 initialOptions={this.simple ? item : item.values}
+                                renderItem={this.renderItem}
                                 onChange={() => {
                                     this.onChange(index);
                                 }}>

@@ -6,6 +6,27 @@
   "description": "hk591的h5-ui项目",
   "glyphs": [
     {
+      "icon_id": "10284050",
+      "name": "三角下标（正方形）",
+      "font_class": "triangle-down",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "7960844",
+      "name": "三角下标（正方形）",
+      "font_class": "triangle-up",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "11905406",
+      "name": "排序",
+      "font_class": "paixu",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
       "icon_id": "9358584",
       "name": "arrow",
       "font_class": "arrow",

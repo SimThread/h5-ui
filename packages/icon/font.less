@@ -2,15 +2,13 @@
     font-style: normal;
     font-weight: normal;
     font-family: 'h5-icon';
-    src: url('./font/iconfont.woff2') format('woff2'),
-        url('./font/iconfont.woff') format('woff'),
-        url('./font/iconfont.ttf') format('truetype');
+    src: url('./font/iconfont.woff2') format('woff2'), url('./font/iconfont.woff') format('woff'), url('./font/iconfont.ttf') format('truetype');
 }
 
 .h5-icon {
     position: relative;
     display: inline-block;
-    font: normal normal normal 14px/1 "h5-icon";
+    font: normal normal normal 14px/1 'h5-icon';
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
@@ -20,34 +18,46 @@
     }
 }
 
+.h5-icon-triangle-down::before {
+    content: '\e608';
+}
+
+.h5-icon-triangle-up::before {
+    content: '\e621';
+}
+
+.h5-icon-paixu::before {
+    content: '\e636';
+}
+
 .h5-icon-arrow::before {
-    content: "\e600";
+    content: '\e600';
 }
 
 .h5-icon-arrow-up::before {
-    content: "\e601";
+    content: '\e601';
 }
 
 .h5-icon-arrow-down::before {
-    content: "\e602";
+    content: '\e602';
 }
 
 .h5-icon-arrow-left::before {
-    content: "\e603";
+    content: '\e603';
 }
 
 .h5-icon-cross::before {
-    content: "\e604";
+    content: '\e604';
 }
 
 .h5-icon-fail::before {
-    content: "\e605";
+    content: '\e605';
 }
 
 .h5-icon-plus::before {
-    content: "\e606";
+    content: '\e606';
 }
 
 .h5-icon-success::before {
-    content: "\e607";
+    content: '\e607';
 }

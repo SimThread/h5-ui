@@ -1,5 +1,8 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
+import BusinessFilterArea from './business-filter-area';
+import BusinessFilterAreaPanel from './business-filter-area-panel';
+import BusinessSelect from './business-select';
 import Button from './button';
 import Card from './card';
 import Cell from './cell';
@@ -46,6 +49,9 @@ import Locale from './_locale';
 
 const version = '0.0.8';
 const components = [
+  BusinessFilterArea,
+  BusinessFilterAreaPanel,
+  BusinessSelect,
   Button,
   Card,
   Cell,
@@ -103,6 +109,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
+  BusinessFilterArea,
+  BusinessFilterAreaPanel,
+  BusinessSelect,
   Button,
   Card,
   Cell,

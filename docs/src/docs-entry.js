@@ -7,6 +7,7 @@ export default {
   'style-guide.zh-CN': () => import('../markdown/style-guide.zh-CN.md'),
   'theme.zh-CN': () => import('../markdown/theme.zh-CN.md'),
   'ui-standard.zh-CN': () => import('../markdown/ui-standard.zh-CN.md'),
+  'business-filter-area.zh-CN': () => import('../../packages/business-filter-area/zh-CN.md'),
   'button.en-US': () => import('../../packages/button/en-US.md'),
   'button.zh-CN': () => import('../../packages/button/zh-CN.md'),
   'card.zh-CN': () => import('../../packages/card/zh-CN.md'),

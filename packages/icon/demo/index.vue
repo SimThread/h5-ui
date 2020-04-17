@@ -27,7 +27,10 @@ export default {
                 'arrow',
                 'arrow-left',
                 'arrow-up',
-                'arrow-down'
+                'arrow-down',
+                'triangle-up',
+                'triangle-down',
+                'paixu'
             ],
         };
     }

@@ -167,6 +167,10 @@ module.exports = {
                   {
                     path: '/filter-area',
                     title: 'FilterArea 筛选区'
+                  },
+                  {
+                    path: '/business-filter-area',
+                    title: 'BusinessFilterArea 新盤篩選區'
                   }
                 ]
               }

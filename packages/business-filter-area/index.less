@@ -1,0 +1,206 @@
+@import '../_style/var';
+
+.h5-business-filter-area-panel {
+    flex: 1;
+    cursor: pointer;
+    min-width: 0; // hack for flex ellipsis
+    font-size: 14px;
+    position: relative;
+    color: @gray-darker;
+    line-height: @tabs-line-height;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: @white;
+
+    span {
+        display: block;
+    }
+
+    &--active {
+        font-weight: 500;
+        color: #0c5ffe;
+    }
+
+    &--disabled {
+        color: @gray;
+    }
+
+    &--highlight {
+        color: #f60;
+    }
+
+    &__pane {
+        background-color: @white;
+    }
+}
+
+.h5-business-filter-area {
+    position: relative;
+
+    &__wrap {
+        left: 0;
+        right: 0;
+        z-index: 99;
+        overflow: hidden;
+        border-bottom: 1px solid #e7e7e7;
+
+        &--page-top {
+            position: fixed;
+        }
+
+        &--content-bottom {
+            top: auto;
+            bottom: 0;
+        }
+
+        &--scrollable {
+            .h5-tab {
+                flex: 0 0 22%;
+
+                &--complete {
+                    flex: 1 0 auto;
+                }
+            }
+
+            .h5-tabs__nav {
+                overflow: hidden;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        user-select: none;
+        position: relative;
+        background-color: @white;
+
+        &--line {
+            height: 100%;
+            box-sizing: content-box;
+        }
+
+        &--card {
+            margin: 0 15px;
+            border-radius: 2px;
+            box-sizing: border-box;
+            border: 1px solid @red;
+            height: @tabs-card-height;
+
+            .h5-filter-area-panel {
+                color: @red;
+                border-right: 1px solid @red;
+                line-height: @tabs-card-height - 2px;
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                &.h5-tab--active {
+                    color: @white;
+                    background-color: @red;
+                }
+
+                &--disabled {
+                    color: @gray;
+                }
+            }
+        }
+
+        // &--division {
+        //     height: 100%;
+        //     padding-bottom: 15px; /* 15px padding to hide scrollbar in mobile safari */
+        //     box-sizing: content-box;
+        // }
+    }
+
+    &__title {
+        position: relative;
+    }
+
+    &__division-line {
+        display: inline-block;
+        width: 1px;
+        height: 20px;
+        background: #d9d9d9;
+    }
+
+    &__line {
+        z-index: 1;
+        left: 0;
+        bottom: 15px;
+        height: 3px;
+        position: absolute;
+        border-radius: 3px;
+        background-color: @red;
+    }
+
+    &__division {
+        z-index: 1;
+        left: 0;
+        bottom: 15px;
+        height: 3px;
+        position: absolute;
+        border-radius: 3px;
+        background-color: @red;
+    }
+
+    &__content {
+        position: absolute;
+        width: 100%;
+        .h5-select-column {
+            height: 316px;
+            max-height: 500px;
+        }
+        &--animated {
+            overflow: hidden;
+        }
+    }
+
+    &__track {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        will-change: left;
+    }
+
+    &--line {
+        .h5-tabs__wrap {
+            height: @tabs-line-height;
+        }
+    }
+
+    &--devision {
+        .h5-tabs__wrap {
+            height: @tabs-line-height;
+        }
+    }
+
+    &--card {
+        .h5-tabs__wrap {
+            height: @tabs-card-height;
+        }
+    }
+
+    &__overlayer {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .h5-tab__pane {
+        width: 100%;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+}
