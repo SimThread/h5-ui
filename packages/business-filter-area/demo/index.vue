@@ -64,7 +64,7 @@
                 </h5-business-filter-area-panel>
                 <h5-business-filter-area-panel class="sort-panel">
                     <template #title><h5-icon name="paixu" /></template>
-                    <h5-business-select ref="areaSelect" :columns="sort.options" @change="onChange" value-key="text" />
+                    <h5-business-select ref="areaSelect" :columns="sort.options" value-key="text" :render-item="null" />
                 </h5-business-filter-area-panel>
             </h5-business-filter-area>
         </demo-block>
@@ -175,7 +175,12 @@ const areaColumns = [
         defaultIndex: -1
     },
     {
-        values: [...subOptions.areaOptions[options.areaOptions[0].id]],
+        values: [{
+            id: -1,
+            text: '不限',
+            type: 'district',
+            selectAll: true,
+        }, ...subOptions.areaOptions[options.areaOptions[0].id]],
         className: 'column2',
         defaultIndex: [],
         multiple: true,

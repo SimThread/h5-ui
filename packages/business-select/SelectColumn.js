@@ -25,7 +25,7 @@ export default createComponent({
         initialOptions: Array,
         visibleItemCount: Number,
         renderItem: {
-            type: Function,
+            type: Function | null,
             default: null
         }
     },
@@ -148,9 +148,14 @@ export default createComponent({
                     } else {
                         this.currentIndex.push(index);
                     }
+
+                    const selectAllIndex = this.options.findIndex(option => option.selectAll);
                     if (this.currentIndex.length >= this.options.length) {
-                        const selectAllIndex = this.options.findIndex(option => option.selectAll);
-                        selectAllIndex > -1 && this.currentIndex.push(this.options[selectAllIndex]);
+                        const curtIndex = this.currentIndex.findIndex(index => index == selectAllIndex);
+                        curtIndex == -1 && this.currentIndex.push(selectAllIndex);
+                    } else {
+                        const curtIndex = this.currentIndex.findIndex(index => index == selectAllIndex);
+                        curtIndex > -1 && this.currentIndex.splice(curtIndex, 1);
                     }
 
                     index = this.currentIndex;
