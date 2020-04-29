@@ -218,9 +218,7 @@ export default {
     },
     mounted() {
         this.$nextTick(() => {
-            console.log('options.areaOptions:', options.areaOptions);
             // this.$refs.areaSelect.setColumnValues(1, options.areaOptions);
-            console.log('subOptions.areaOptions[options.areaOptions[0].id]:', this.$refs.areaSelect);
             this.$refs.areaSelect.setColumnValues(1, subOptions.areaOptions[options.areaOptions[0].id]);
 
             // if (queryPrams.areaId) { // 设置区域
@@ -254,11 +252,12 @@ export default {
     },
     methods: {
         renderItem({ option, isSelected }) {
-            if (isSelected) {
-                return <h5-icon name="success"></h5-icon>;
-            }
+            return <div>{option.text}<h5-icon name="success"></h5-icon></div>;
+            // if (isSelected) {
+            //     return <h5-icon name="success"></h5-icon>;
+            // }
 
-            return <h5-icon name="fail"></h5-icon>;
+            // return <h5-icon name="fail"></h5-icon>;
         },
         complete() {
             this.activeIndex = -1;

@@ -26,7 +26,7 @@ export default createComponent({
         visibleItemCount: Number,
         renderItem: {
             type: Function,
-            default: () => {}
+            default: null
         }
     },
 
@@ -122,7 +122,6 @@ export default createComponent({
                 return this.options[this.currentIndex];
             }
 
-            console.log('this.currentIndex:', this.currentIndex);
             return this.currentIndex.map((index) => this.options[index]);
         },
 
@@ -149,6 +148,11 @@ export default createComponent({
                     } else {
                         this.currentIndex.push(index);
                     }
+                    if (this.currentIndex.length >= this.options.length) {
+                        const selectAllIndex = this.options.findIndex(option => option.selectAll);
+                        selectAllIndex > -1 && this.currentIndex.push(this.options[selectAllIndex]);
+                    }
+
                     index = this.currentIndex;
                 }
             }
@@ -157,7 +161,6 @@ export default createComponent({
     },
 
     render(h) {
-        console.log('renderItem:', this.renderItem);
         return (this.options && this.options.length > 0) && (
             <div class={[bem()]}>
                 <ul>
@@ -170,9 +173,8 @@ export default createComponent({
                                 })
                             ]}
                             onClick={ () => this.handleClick(index)}>
-                            <span class={bem('text-wrap')}>{ this.getOptionText(option) }
-                            </span>
-                            { this.renderItem({ option, isSelected: this.isSelected(index) }) }
+                            { this.renderItem ? this.renderItem({ option, isSelected: this.isSelected(index) }) : <span class={bem('text-wrap')}>{ this.getOptionText(option) }
+                            </span> }
                         </li>
                     ))}
                 </ul>

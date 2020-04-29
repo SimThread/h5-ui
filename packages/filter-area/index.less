@@ -39,11 +39,12 @@
     position: relative;
 
     &__wrap {
+        top: 0;
         left: 0;
         right: 0;
         z-index: 99;
         overflow: hidden;
-        border-bottom: 1px solid #e7e7e7;
+        position: absolute;
 
         &--page-top {
             position: fixed;
@@ -114,11 +115,11 @@
             }
         }
 
-        // &--division {
-        //     height: 100%;
-        //     padding-bottom: 15px; /* 15px padding to hide scrollbar in mobile safari */
-        //     box-sizing: content-box;
-        // }
+        &--division {
+            height: 100%;
+            padding-bottom: 15px; /* 15px padding to hide scrollbar in mobile safari */
+            box-sizing: content-box;
+        }
     }
 
     &__title {
@@ -165,12 +166,6 @@
     }
 
     &__content {
-        position: absolute;
-        width: 100%;
-        .h5-select-column {
-            height: 316px;
-            max-height: 500px;
-        }
         &--animated {
             overflow: hidden;
         }
@@ -185,18 +180,24 @@
     }
 
     &--line {
+        padding-top: @tabs-line-height;
+
         .h5-tabs__wrap {
             height: @tabs-line-height;
         }
     }
 
     &--devision {
+        padding-top: @tabs-line-height;
+
         .h5-tabs__wrap {
             height: @tabs-line-height;
         }
     }
 
     &--card {
+        padding-top: @tabs-card-height;
+
         .h5-tabs__wrap {
             height: @tabs-card-height;
         }
