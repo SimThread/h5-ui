@@ -13,6 +13,7 @@ export default {
   'color': () => wrapper(import('../../packages/color/demo'), 'color'),
   'dialog': () => wrapper(import('../../packages/dialog/demo'), 'dialog'),
   'field': () => wrapper(import('../../packages/field/demo'), 'field'),
+  'filter-area': () => wrapper(import('../../packages/filter-area/demo'), 'filter-area'),
   'icon': () => wrapper(import('../../packages/icon/demo'), 'icon'),
   'lazyload': () => wrapper(import('../../packages/lazyload/demo'), 'lazyload'),
   'loading': () => wrapper(import('../../packages/loading/demo'), 'loading'),
