@@ -18,8 +18,6 @@ defineReactive(proto, '$h5Messages', {
     'zh-CN': defaultMessages,
 });
 
-console.log('proto.$active:', proto.$active);
-
 export default {
     messages() {
         return proto.$h5Messages[proto.$active];

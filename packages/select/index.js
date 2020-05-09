@@ -52,11 +52,6 @@ export default createComponent({
         },
 
         onChange(columnIndex) {
-        //   if (columnIndex + 1 < this.columns.length) {
-        //     console.log('columnIndex:', columnIndex);
-        //     console.log('this.columns:', this.columns);
-        //     this.columns[columnIndex + 1].multiple ? this.columns[columnIndex + 1].defaultIndex = -1 : this.columns[columnIndex + 1].defaultIndex = [];
-        //   }
             if (this.simple) {
                 this.$emit('change', this, this.getColumnValue(0), this.getColumnIndex(0));
             } else {

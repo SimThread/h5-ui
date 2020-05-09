@@ -73,7 +73,6 @@ export default {
 
     methods: {
         onSwitchLang(lang) {
-            console.log('lang:', lang);
             this.$router.push(this.$route.path.replace(lang.from, lang.to));
             setLang(lang.to);
         }

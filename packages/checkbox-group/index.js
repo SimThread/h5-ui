@@ -11,7 +11,6 @@ export default createComponent({
 
     watch: {
         value(val) {
-            console.log('val:', val);
             this.$emit('change', val);
         }
     },

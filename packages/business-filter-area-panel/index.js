@@ -22,7 +22,7 @@ export default createComponent({
 
     data() {
         return {
-            inited: true
+            inited: false
         };
     },
 

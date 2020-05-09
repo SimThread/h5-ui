@@ -154,7 +154,9 @@ export default createComponent({
         return (
             <div class={bem()} style={{ top: `${this.menuTop + this.menuHeight}px` }} v-show="modelName == 'area'" refInFor>
                 <div class={bem('panel')}>
-                    <div class={[bem('content')]}>
+                    <div class={[bem('content')]} onTouchmove={event => {
+                        event.stopPropagation();
+                    }}>
                         {columns.map((item, index) => (
                             <SelectColumn
                                 valueKey={this.valueKey}

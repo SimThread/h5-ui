@@ -35,13 +35,11 @@ export function setDefaultLang(langFromConfig) {
     const cached = localStorage.getItem(CACHE_KEY);
 
     if (cached) {
-        console.log('cached........:', cached);
         currentLang = cached;
         return;
     }
 
     if (navigator.language && navigator.language.indexOf('zh-') !== -1) {
-        console.log('languagelanguagelanguagelanguagelanguagelanguagelanguagelanguagelanguagelanguagelanguagelanguagelanguage');
         currentLang = ZH_CN;
         return;
     }

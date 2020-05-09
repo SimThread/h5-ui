@@ -14,7 +14,6 @@ import { isMobile } from './utils';
 Vue.use(VueRouter).use(H5Doc);
 
 const routesArr = routes();
-console.log('routesArr:', routesArr);
 const router = new VueRouter({
     mode: 'hash',
     routes: routesArr

@@ -1,6 +1,6 @@
 {
   "name": "@hk591/h5-ui",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "hk591站台UI组件库，基于vant改造",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -58,7 +58,8 @@
     "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
     "nprogress": "^0.2.0",
-    "vue-lazyload": "1.2.3"
+    "vue-lazyload": "1.2.3",
+    "vue-range-component": "^1.0.3"
   },
   "peerDependencies": {
     "vue": ">= 2.5.0"
