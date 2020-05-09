@@ -152,7 +152,9 @@ export default createComponent({
         const columns = this.simple ? [this.columns] : this.columns;
 
         return (
-            <div class={bem()} style={{ top: `${this.menuTop + this.menuHeight}px` }} v-show="modelName == 'area'" refInFor>
+            <div class={bem()} style={{ top: `${this.menuTop + this.menuHeight}px` }} v-show="modelName == 'area'" refInFor onTouchmove={event => {
+                event.stopPropagation();
+            }}>
                 <div class={bem('panel')}>
                     <div class={[bem('content')]} onTouchmove={event => {
                         event.stopPropagation();
