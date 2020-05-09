@@ -408,9 +408,7 @@ export default createComponent({
                         {Nav}
                     </div>
                 </div>
-                <div ref="content" class={bem('content', { animated })} style={this.contentStyle()} onTouchmove={event => {
-                    event.stopPropagation();
-                }}>
+                <div ref="content" class={bem('content', { animated })} style={this.contentStyle()}>
                     {animated ? (
                         <div class={bem('track')} style={this.trackStyle}>
                             {this.slots()}
