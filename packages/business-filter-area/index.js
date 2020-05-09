@@ -213,7 +213,6 @@ export default createComponent({
         handlers(bind) {
             const { events } = this;
             const sticky = this.sticky && bind;
-            const swipeable = this.swipeable && bind;
 
             // 监听window的resize事件
             if (events.resize !== bind) {
@@ -226,18 +225,6 @@ export default createComponent({
                 this.scrollEl = this.scrollEl || getScrollEventTarget(this.$el);
                 (sticky ? on : off)(this.scrollEl, 'scroll', this.adjustPosition, true);
                 this.adjustPosition();
-            }
-
-            // 监听touch事件
-            if (events.swipeable !== swipeable) {
-                events.swipeable = swipeable;
-                const { content } = this.$refs;
-                const action = swipeable ? on : off;
-
-                action(content, 'touchstart', this.touchStart);
-                action(content, 'touchmove', this.touchMove);
-                action(content, 'touchend', this.onTouchEnd);
-                action(content, 'touchcancel', this.onTouchEnd);
             }
         },
 
