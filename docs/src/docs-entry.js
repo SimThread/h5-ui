@@ -31,6 +31,7 @@ export default {
   'skeleton.zh-CN': () => import('../../packages/skeleton/zh-CN.md'),
   'README': () => import('../../packages/switch/README.md'),
   'README.zh-CN': () => import('../../packages/switch/README.zh-CN.md'),
+  't-business.zh-CN': () => import('../../packages/t-business/zh-CN.md'),
   't-date.zh-CN': () => import('../../packages/t-date/zh-CN.md'),
   't-dom.zh-CN': () => import('../../packages/t-dom/zh-CN.md'),
   't-number-format.zh-CN': () => import('../../packages/t-number-format/zh-CN.md'),

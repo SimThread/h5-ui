@@ -31,6 +31,7 @@ import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
 import Skeleton from './skeleton';
 import Switch from './switch';
+import TBusiness from './t-business';
 import TDate from './t-date';
 import TDom from './t-dom';
 import TNumberFormat from './t-number-format';
@@ -46,7 +47,7 @@ import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 import Locale from './_locale';
 
-const version = '0.0.38';
+const version = '0.0.39';
 const components = [
   BusinessFilterArea,
   BusinessFilterAreaPanel,
@@ -78,6 +79,7 @@ const components = [
   SharePopupItem,
   Skeleton,
   Switch,
+  TBusiness,
   TDate,
   TDom,
   TNumberFormat,
@@ -138,6 +140,7 @@ export {
   SharePopupItem,
   Skeleton,
   Switch,
+  TBusiness,
   TDate,
   TDom,
   TNumberFormat,
