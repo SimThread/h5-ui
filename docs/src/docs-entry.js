@@ -10,7 +10,6 @@ export default {
   'business-filter-area.zh-CN': () => import('../../packages/business-filter-area/zh-CN.md'),
   'button.en-US': () => import('../../packages/button/en-US.md'),
   'button.zh-CN': () => import('../../packages/button/zh-CN.md'),
-  'card.zh-CN': () => import('../../packages/card/zh-CN.md'),
   'cell.zh-CN': () => import('../../packages/cell/zh-CN.md'),
   'checkbox.zh-CN': () => import('../../packages/checkbox/zh-CN.md'),
   'col.en-US': () => import('../../packages/col/en-US.md'),

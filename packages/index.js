@@ -4,7 +4,6 @@ import BusinessFilterArea from './business-filter-area';
 import BusinessFilterAreaPanel from './business-filter-area-panel';
 import BusinessSelect from './business-select';
 import Button from './button';
-import Card from './card';
 import Cell from './cell';
 import CellGroup from './cell-group';
 import Checkbox from './checkbox';
@@ -53,7 +52,6 @@ const components = [
   BusinessFilterAreaPanel,
   BusinessSelect,
   Button,
-  Card,
   Cell,
   CellGroup,
   Checkbox,
@@ -113,7 +111,6 @@ export {
   BusinessFilterAreaPanel,
   BusinessSelect,
   Button,
-  Card,
   Cell,
   CellGroup,
   Checkbox,
