@@ -1,27 +1,11 @@
 <template>
     <demo-section>
-        <demo-block :title="$t('basicUsage')">
-            <h5-nav-bar
-                :title="$t('title')"
-                :left-text="$t('back')"
-                :right-text="$t('button')"
-                left-arrow
-                @click-left="onClickLeft"
-                @click-right="onClickRight"
-            />
+        <demo-block title="$thouands">
+            <div>{{ $thousands(1000) }}</div>
         </demo-block>
 
-        <demo-block :title="$t('advancedUsage')">
-            <h5-nav-bar
-                :title="$t('title')"
-                :left-text="$t('back')"
-                left-arrow
-            >
-                <h5-icon
-                    name="search"
-                    slot="right"
-                />
-            </h5-nav-bar>
+        <demo-block title="$ga">
+            <h5-button @click="test$ga()">调用$ga方法</h5-button>
         </demo-block>
     </demo-section>
 </template>
@@ -29,12 +13,21 @@
 <script>
 export default {
     methods: {
-        onClickLeft() {
-            this.$toast(this.$t('back'));
-        },
-        onClickRight() {
-            this.$toast(this.$t('button'));
+        test$ga() {
+            window.ga = function(...args) {
+                // eslint-disable-next-line no-alert
+                alert(args);
+            };
+            this.$ga('1', '2', '3');
         }
     }
 };
 </script>
+
+<style lang="less">
+.demo-methods {
+    .h5-doc-demo-block {
+        padding: 0 15px;
+    }
+}
+</style>

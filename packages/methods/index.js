@@ -2,6 +2,7 @@ import NumberFormat from '../t-number-format';
 
 const Methods = {};
 
+// 添加重载方法（根据参数数量）
 function addMethod (object, name, fn) {
     // 先把原来的object[name] 方法，保存在old中
     const old = object[name];
@@ -32,12 +33,12 @@ addMethod(Methods, '$ga', (action = 'send', eventType = 'event', ec, ea, el, des
 addMethod(Methods, '$ga', (ec, ea, el) => {
     if (typeof ga !== 'undefined') {
         // eslint-disable-next-line no-undef
-        ga('send', 'event', ec, ea, el, '', 1);
+        ga('send', 'event', ec, ea, el, 1);
     }
 });
 
 Methods.install = function(Vue) {
-    Vue.mixins({ methods: Methods });
+    Vue.mixin({ methods: Methods });
 };
 
 export default Methods;

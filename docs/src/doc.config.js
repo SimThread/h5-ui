@@ -68,6 +68,18 @@ module.exports = {
             }]
           },
           {
+            name: '全局方法',
+            showInMobile: false,
+            groups: [{
+              list: [
+                {
+                  path: '/methods',
+                  title: 'Methods 方法'
+                }
+              ]
+            }]
+          },
+          {
             name: '工具类',
             showInMobile: false,
             groups: [{
@@ -198,6 +210,18 @@ module.exports = {
                   path: '/intro',
                   title: 'intro'
                 },
+              ]
+            }]
+          },
+          {
+            name: '全局方法',
+            showInMobile: false,
+            groups: [{
+              list: [
+                {
+                  path: '/methods',
+                  title: 'Methods'
+                }
               ]
             }]
           },

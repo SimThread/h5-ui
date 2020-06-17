@@ -19,6 +19,7 @@ import Icon from './icon';
 import Info from './info';
 import Lazyload from './lazyload';
 import Loading from './loading';
+import Methods from './methods';
 import NavBar from './nav-bar';
 import Overlay from './overlay';
 import Panel from './panel';
@@ -67,6 +68,7 @@ const components = [
   Icon,
   Info,
   Loading,
+  Methods,
   NavBar,
   Overlay,
   Panel,
@@ -128,6 +130,7 @@ export {
   Info,
   Lazyload,
   Loading,
+  Methods,
   NavBar,
   Overlay,
   Panel,

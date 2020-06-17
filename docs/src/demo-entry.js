@@ -15,6 +15,7 @@ export default {
   'icon': () => wrapper(import('../../packages/icon/demo'), 'icon'),
   'lazyload': () => wrapper(import('../../packages/lazyload/demo'), 'lazyload'),
   'loading': () => wrapper(import('../../packages/loading/demo'), 'loading'),
+  'methods': () => wrapper(import('../../packages/methods/demo'), 'methods'),
   'nav-bar': () => wrapper(import('../../packages/nav-bar/demo'), 'nav-bar'),
   'panel': () => wrapper(import('../../packages/panel/demo'), 'panel'),
   'picker': () => wrapper(import('../../packages/picker/demo'), 'picker'),
