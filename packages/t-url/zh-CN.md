@@ -3,7 +3,7 @@
 ### 使用指南
 
 ``` javascript
-import { TUrl } from 'h5-ui';
+import { TUrl } from '@hk591/h5-ui';
 ```
 
 ### 代码演示

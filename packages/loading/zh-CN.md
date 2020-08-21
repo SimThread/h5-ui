@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Loading } from 'h5-ui';
+import { Loading } from '@hk591/h5-ui';
 
 Vue.use(Loading);
 ```

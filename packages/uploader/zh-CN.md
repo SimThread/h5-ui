@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Uploader } from 'h5-ui';
+import { Uploader } from '@hk591/h5-ui';
 
 Vue.use(Uploader);
 ```

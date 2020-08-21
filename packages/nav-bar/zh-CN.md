@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { NavBar } from 'h5-ui';
+import { NavBar } from '@hk591/h5-ui';
 
 Vue.use(NavBar);
 ```

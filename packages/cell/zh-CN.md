@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Cell, CellGroup } from 'h5-ui';
+import { Cell, CellGroup } from '@hk591/h5-ui';
 
 Vue.use(Cell).use(CellGroup);
 ```

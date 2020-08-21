@@ -30,7 +30,7 @@
     }
     .btn-confirm {
         margin-left: 15px;
-        width: 230px;
+        width: 170px;
         height: 45px;
         line-height: 45px;
         color: #fff;

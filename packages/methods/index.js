@@ -38,7 +38,11 @@ addMethod(Methods, '$ga', (ec, ea, el) => {
 });
 
 Methods.install = function(Vue) {
-    Vue.mixin({ methods: Methods });
+    Vue.prototype.$h5 = {};
+    Object.keys(Methods).forEach((method) => {
+        console.log('method:', method);
+        Vue.prototype.$h5[method] = Methods[method];
+    });
 };
 
 export default Methods;

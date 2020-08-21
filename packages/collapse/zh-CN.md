@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Collapse, CollapseItem } from 'h5-ui';
+import { Collapse, CollapseItem } from '@hk591/h5-ui';
 
 Vue.use(Collapse).use(CollapseItem);
 ```

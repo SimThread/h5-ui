@@ -52,7 +52,7 @@ export default {
 };
 `;
 
-    fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content);
+    fs.writeFileSync(path.join(__dirname, '../packages/index.ts'), content);
 }
 
 function buildDemoEntry() {

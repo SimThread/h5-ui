@@ -6,7 +6,7 @@
 
 ```js
 import Vue from 'vue';
-import { Lazyload } from 'h5-ui';
+import { Lazyload } from '@hk591/h5-ui';
 
 // options 为可选参数，无则不传
 Vue.use(Lazyload, options);

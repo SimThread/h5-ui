@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const excludes = [
+    'index.ts',
     'index.js',
     'index.less',
     '_directives',

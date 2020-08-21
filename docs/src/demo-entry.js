@@ -3,6 +3,7 @@
 import { wrapper } from './demo-common';
 
 export default {
+  'business-filter-area': () => wrapper(import('../../packages/business-filter-area/demo'), 'business-filter-area'),
   'button': () => wrapper(import('../../packages/button/demo'), 'button'),
   'cell': () => wrapper(import('../../packages/cell/demo'), 'cell'),
   'checkbox': () => wrapper(import('../../packages/checkbox/demo'), 'checkbox'),

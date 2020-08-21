@@ -4,7 +4,7 @@
 
 ### 引入
 ``` javascript
-import { Field } from 'h5-ui';
+import { Field } from '@hk591/h5-ui';
 
 Vue.use(Field);
 ```

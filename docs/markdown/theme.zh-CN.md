@@ -52,7 +52,7 @@ module.exports = {
     [
       'import',
       {
-        libraryName: 'h5-ui',
+        libraryName: '@hk591/h5-ui',
         libraryDirectory: 'es',
         // 指定样式路径
         style: name => `${name}/style/less`

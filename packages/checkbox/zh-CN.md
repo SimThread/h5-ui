@@ -2,7 +2,7 @@
 
 ### 引入
 ``` javascript
-import { Checkbox, CheckboxGroup } from 'h5-ui';
+import { Checkbox, CheckboxGroup } from '@hk591/h5-ui';
 
 Vue.use(Checkbox).use(CheckboxGroup);
 ```

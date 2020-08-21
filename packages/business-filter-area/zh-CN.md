@@ -2,7 +2,7 @@
 
 ### 引入
 ``` javascript
-import { FilterArea, FilterAreaPannel, Select } from 'h5-ui';
+import { FilterArea, FilterAreaPannel, Select } from '@hk591/h5-ui';
 
 Vue.use(FilterArea).use(FilterAreaPannel).use(Select);
 ```

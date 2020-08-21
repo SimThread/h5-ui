@@ -3,7 +3,7 @@
 ### 使用指南
 
 ``` javascript
-import { TDom } from 'h5-ui';
+import { TDom } from '@hk591/h5-ui';
 ```
 
 ### 代码演示

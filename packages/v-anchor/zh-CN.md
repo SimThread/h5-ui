@@ -3,7 +3,7 @@
 ### 引入
 
 ``` javascript
-import { VAnchor } from 'h5-ui'
+import { VAnchor } from '@hk591/h5-ui'
 Vue.directive(VAnchor);
 ```
 

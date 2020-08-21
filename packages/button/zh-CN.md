@@ -2,7 +2,7 @@
 
 ### 引入
 ``` javascript
-import { Button } from 'h5-ui';
+import { Button } from '@hk591/h5-ui';
 
 Vue.use(Button);
 ```

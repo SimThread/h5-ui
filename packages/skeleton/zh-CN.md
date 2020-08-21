@@ -2,7 +2,7 @@
 
 ### 引入
 ``` javascript
-import { Skeleton } from 'h5-ui';
+import { Skeleton } from '@hk591/h5-ui';
 
 Vue.use(Skeleton);
 ```

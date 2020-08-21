@@ -3,7 +3,7 @@
 ### 使用指南
 
 ``` javascript
-import { TDate } from 'h5-ui';
+import { TDate } from '@hk591/h5-ui';
 ```
 
 ### 代码演示

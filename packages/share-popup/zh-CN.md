@@ -2,7 +2,7 @@
 
 ### 引入
 ``` javascript
-import { SharePopup, SharePopupItem } from 'h5-ui';
+import { SharePopup, SharePopupItem } from '@hk591/h5-ui';
 
 Vue.use(SharePopup).use(SharePopupItem);
 ```

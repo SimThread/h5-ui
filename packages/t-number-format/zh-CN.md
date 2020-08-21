@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { TNumberFormat } from 'h5-ui';
+import { TNumberFormat } from '@hk591/h5-ui';
 ```
 
 ### 代码演示

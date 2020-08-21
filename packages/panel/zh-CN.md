@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Panel } from 'h5-ui';
+import { Panel } from '@hk591/h5-ui';
 
 Vue.use(Panel);
 ```
