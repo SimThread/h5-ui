@@ -127,6 +127,12 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
+  "sideEffects": [
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.css",
+    "*.less"
+  ],
   "vetur": {
     "tags": "vetur/tags.json",
     "attributes": "vetur/attributes.json"
