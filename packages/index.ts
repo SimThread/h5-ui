@@ -48,7 +48,7 @@ import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 import Locale from './_locale';
 
-const version = '0.0.39';
+const version = '0.0.40';
 const components = [
   BusinessFilterArea,
   BusinessFilterAreaPanel,
