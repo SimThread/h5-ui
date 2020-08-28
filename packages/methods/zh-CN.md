@@ -9,6 +9,22 @@ Vue.use(Methods);
 
 ### 代码演示
 
-#### $thousands(Number | String)
+#### 添加千分符
 
-#### $ga(ec, ea, el) | $ga(action, eventType, ec, ea, el, description, count)
+```javascript
+this.$h5.thousands(Number | String): void
+```
+
+#### 添加前导0
+
+```javascript
+this.$h5.addZero(num: number | string): string
+```
+
+#### ga事件统计
+
+```javascript
+this.$h5.ga(ec: string, ea:string, el:string): void
+// 或者
+this.$h5.ga(action: string, eventType: string, ec: string, ea: string, el: string, description: string, count: number): void
+```

@@ -1,17 +1,17 @@
 /**
  * 添加前导0
  */
-function addZero (num:any) {
+function addZero (num: number | string): string {
     if (num <= 9) {
         return `0${num}`;
     }
-    return num;
+    return `${num}`;
 }
 
 /**
  * 千分符
  */
-function thousands (num:any) {
+function thousands (num: number | string): string {
     if (!num && num != 0) {
         return '';
     }

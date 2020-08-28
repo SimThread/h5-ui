@@ -26,6 +26,7 @@ export default {
   'skeleton': () => wrapper(import('../../packages/skeleton/demo'), 'skeleton'),
   'switch': () => wrapper(import('../../packages/switch/demo'), 'switch'),
   't-date': () => wrapper(import('../../packages/t-date/demo'), 't-date'),
+  't-dom': () => wrapper(import('../../packages/t-dom/demo'), 't-dom'),
   't-number-format': () => wrapper(import('../../packages/t-number-format/demo'), 't-number-format'),
   'tab': () => wrapper(import('../../packages/tab/demo'), 'tab'),
   'tabbar': () => wrapper(import('../../packages/tabbar/demo'), 'tabbar'),

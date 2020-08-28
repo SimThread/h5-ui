@@ -10,7 +10,7 @@ interface O {
   [key: string]: any,
 }
 
-function dateFormat (date: string | number | Date, fmt = 'YYYY-MM-DD HH:mm:ss') {
+function dateFormat (date: string | number | Date, fmt: string = 'YYYY-MM-DD HH:mm:ss') {
     if (!date) {
         return '';
     }
@@ -53,7 +53,21 @@ function dateFormat (date: string | number | Date, fmt = 'YYYY-MM-DD HH:mm:ss') 
     return fmt;
 }
 
+function second2Remain(s: number): { [key: string]: any } {
+    const day = window.parseInt(String(s / (60 * 60 * 24)));
+    const hour = window.parseInt(String((s % (60 * 60 * 24)) / (60 * 60)));
+    const minute = window.parseInt(String((s % (60 * 60)) / 60));
+    const second = window.parseInt(String((s % 60)));
+
+    return {
+        day,
+        hour,
+        minute,
+        second
+    };
+}
 
 export default {
     dateFormat,
+    second2Remain
 };

@@ -1,11 +1,17 @@
 <template>
     <demo-section>
-        <demo-block title="$thouands">
-            <div>{{ $h5.$thousands(1000) }}</div>
+        <demo-block title="thouands()">
+            <div style="padding: 10px;">{{ $h5.thousands(1000) }}</div>
         </demo-block>
 
-        <demo-block title="$ga">
-            <h5-button @click="test$ga()">调用$ga方法</h5-button>
+        <demo-block title="addZero()">
+            <div style="padding: 10px;">{{ $h5.addZero(9) }}</div>
+        </demo-block>
+
+        <demo-block title="ga()">
+            <div style="padding: 10px;">
+                <h5-button @click="test$ga()">调用$ga方法</h5-button>
+            </div>
         </demo-block>
     </demo-section>
 </template>
@@ -18,7 +24,7 @@ export default {
                 // eslint-disable-next-line no-alert
                 alert(args);
             };
-            this.$h5.$ga('1', '2', '3');
+            this.$h5.ga('1', '2', '3');
         }
     }
 };

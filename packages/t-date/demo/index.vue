@@ -1,6 +1,6 @@
 <template>
     <demo-section>
-        <demo-block title="日期对象转字符串">
+        <demo-block title="dateFormat()">
             <h5-cell-group>
                 <h5-field
                     v-model="value"
@@ -11,10 +11,23 @@
                 <span style="padding: 10px;">结果：{{ new Date | dateFormat(value) }}</span>
             </p>
         </demo-block>
+
+        <demo-block title="second2Remain()">
+            <h5-cell-group>
+                <h5-field
+                    v-model="value1"
+                    placeholder="请输入秒数"
+                />
+            </h5-cell-group>
+            <p class="demo-result">
+                <h5-button @click="testSecond2Remain">获取</h5-button>
+            </p>
+        </demo-block>
     </demo-section>
 </template>
 
 <script>
+/* eslint-disable no-alert */
 // import { TDate } from 'h5-ui';
 import { TDate } from '../../index.ts';
 
@@ -27,10 +40,16 @@ export default {
     data() {
         return {
             value: '',
-            result: ''
+            result: '',
+            value1: ''
         };
     },
     mounted() {
+    },
+    methods: {
+        testSecond2Remain() {
+            alert(JSON.stringify(TDate.second2Remain(this.value1 | 0)));
+        }
     }
 };
 </script>

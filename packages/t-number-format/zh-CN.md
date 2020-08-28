@@ -9,10 +9,10 @@ import { TNumberFormat } from '@hk591/h5-ui';
 
 #### 添加前导零
 ```javascript
-TNumberFormat.addZero(1) // 01
+TNumberFormat.addZero (num: number | string)
 ```
 
 #### 添加千分符
 ```javascript
-TNumberFormat.thousands(1000) // 1,000
+TNumberFormat.thousands (num: number | string)
 ```
