@@ -8,7 +8,7 @@ import { Locale } from './locale';
 import { Lazyload } from './lazyload';
 import { Waterfall } from './waterfall';
 import { ImagePreview } from './image-preview';
-import { methods } from './methods';
+import { Methods } from './Methods';
 
 export const version: string;
 export function install (vue: typeof Vue): void
@@ -82,5 +82,5 @@ export {
     Lazyload,
     Waterfall,
     ImagePreview,
-    methods
+    Methods
 };

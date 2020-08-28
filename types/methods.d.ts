@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-export interface $h5 {
+export interface Methods {
     /**
      * 谷歌统计事件
      */
@@ -14,8 +14,8 @@ export interface $h5 {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $h5: $h5
+    $h5: Methods
   }
 }
 
-// export const Notify: Notify;
+export const Methods: Methods;
