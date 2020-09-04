@@ -22,6 +22,7 @@ export default {
   'picker': () => wrapper(import('../../packages/picker/demo'), 'picker'),
   'popup': () => wrapper(import('../../packages/popup/demo'), 'popup'),
   'progress': () => wrapper(import('../../packages/progress/demo'), 'progress'),
+  'scroll': () => wrapper(import('../../packages/scroll/demo'), 'scroll'),
   'share-popup': () => wrapper(import('../../packages/share-popup/demo'), 'share-popup'),
   'skeleton': () => wrapper(import('../../packages/skeleton/demo'), 'skeleton'),
   'switch': () => wrapper(import('../../packages/switch/demo'), 'switch'),

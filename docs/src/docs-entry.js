@@ -28,6 +28,7 @@ export default {
   'picker.zh-CN': () => import('../../packages/picker/zh-CN.md'),
   'popup.zh-CN': () => import('../../packages/popup/zh-CN.md'),
   'progress.zh-CN': () => import('../../packages/progress/zh-CN.md'),
+  'scroll.zh-CN': () => import('../../packages/scroll/zh-CN.md'),
   'share-popup.zh-CN': () => import('../../packages/share-popup/zh-CN.md'),
   'skeleton.zh-CN': () => import('../../packages/skeleton/zh-CN.md'),
   'README': () => import('../../packages/switch/README.md'),

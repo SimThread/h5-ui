@@ -27,6 +27,7 @@ import Picker from './picker';
 import Popup from './popup';
 import Progress from './progress';
 import Row from './row';
+import Scroll from './scroll';
 import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
@@ -76,6 +77,7 @@ const components = [
   Popup,
   Progress,
   Row,
+  Scroll,
   Select,
   SharePopup,
   SharePopupItem,
@@ -138,6 +140,7 @@ export {
   Popup,
   Progress,
   Row,
+  Scroll,
   Select,
   SharePopup,
   SharePopupItem,

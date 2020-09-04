@@ -149,6 +149,10 @@ module.exports = {
                   {
                     path: '/skeleton',
                     title: 'Skeleton 骨架屏'
+                  },
+                  {
+                    path: '/scroll',
+                    title: 'Scroll 滑动'
                   }
                 ]
               },
