@@ -1,17 +1,17 @@
 import { createNamespace, isDef } from '../_utils';
-import { on, off } from '../_utils/event';
-import Touch from '../_mixins/touch';
-import { raf } from '../_utils/raf';
+import { on, off } from '../_utils/dom/event';
+import { TouchMixin } from '../_mixins/touch';
+import { raf } from '../_utils/dom/raf';
 
 import manager from '../_mixins/popup/manager';
 import context from '../_mixins/popup/context';
-import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
+import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/dom/scroll';
 
 const [createComponent, bem] = createNamespace('filter-area');
 const tabBem = createNamespace('filter-area-panel')[1];
 
 export default createComponent({
-    mixins: [Touch],
+    mixins: [TouchMixin],
 
     model: {
         prop: 'active',

@@ -101,29 +101,29 @@ function Skeleton(
     }
 
     function BottomRows() {
-    const Rows = [];
-    const { rowWidth } = props;
+        const Rows = [];
+        const { rowWidth } = props;
 
-    function getRowWidth(index: number) {
-        if (rowWidth === DEFAULT_ROW_WIDTH && index === +props.bottomRow - 1) {
-            return DEFAULT_LAST_ROW_WIDTH;
+        function getRowWidth(index: number) {
+            if (rowWidth === DEFAULT_ROW_WIDTH && index === +props.bottomRow - 1) {
+                return DEFAULT_LAST_ROW_WIDTH;
+            }
+
+            if (Array.isArray(rowWidth)) {
+                return rowWidth[index];
+            }
+
+            return rowWidth;
         }
 
-        if (Array.isArray(rowWidth)) {
-            return rowWidth[index];
+        for (let i = 0; i < props.bottomRow; i++) {
+            Rows.push(
+                <div class={bem('row')} style={{ width: addUnit(getRowWidth(i)) }} />
+            );
         }
 
-        return rowWidth;
+        return Rows;
     }
-
-    for (let i = 0; i < props.bottomRow; i++) {
-        Rows.push(
-            <div class={bem('row')} style={{ width: addUnit(getRowWidth(i)) }} />
-        );
-    }
-
-    return Rows;
-}
 
     function Avatar() {
         if (props.avatar) {

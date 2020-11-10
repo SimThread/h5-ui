@@ -4,6 +4,7 @@ import { camelize } from '../../packages/_utils/format/string';
 import { get } from '../../packages/_utils';
 import '../../packages/index.less';
 import Locale from '../../packages/_locale';
+import './h5-touch-emulator';
 
 import {
     progress

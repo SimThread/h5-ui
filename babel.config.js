@@ -32,6 +32,7 @@ module.exports = function (api) {
                 }
             ],
             '@babel/plugin-syntax-dynamic-import',
+            '@babel/plugin-proposal-optional-chaining',
             '@babel/plugin-transform-object-assign'
         ]
     };

@@ -153,6 +153,10 @@ module.exports = {
                   {
                     path: '/scroll',
                     title: 'Scroll 滑动'
+                  },
+                  {
+                    path: '/swipe',
+                    title: 'Swipe 轮播'
                   }
                 ]
               },
@@ -183,6 +187,10 @@ module.exports = {
                   {
                     path: '/business-filter-area',
                     title: 'BusinessFilterArea 新盤篩選區'
+                  },
+                  {
+                    path: '/album',
+                    title: 'album 相冊'
                   }
                 ]
               }

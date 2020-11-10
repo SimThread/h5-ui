@@ -3,6 +3,7 @@
 import { wrapper } from './demo-common';
 
 export default {
+  'album': () => wrapper(import('../../packages/album/demo'), 'album'),
   'business-filter-area': () => wrapper(import('../../packages/business-filter-area/demo'), 'business-filter-area'),
   'button': () => wrapper(import('../../packages/button/demo'), 'button'),
   'cell': () => wrapper(import('../../packages/cell/demo'), 'cell'),
@@ -25,6 +26,9 @@ export default {
   'scroll': () => wrapper(import('../../packages/scroll/demo'), 'scroll'),
   'share-popup': () => wrapper(import('../../packages/share-popup/demo'), 'share-popup'),
   'skeleton': () => wrapper(import('../../packages/skeleton/demo'), 'skeleton'),
+  'sticky': () => wrapper(import('../../packages/sticky/demo'), 'sticky'),
+  'swipe': () => wrapper(import('../../packages/swipe/demo'), 'swipe'),
+  'swipe-cell': () => wrapper(import('../../packages/swipe-cell/demo'), 'swipe-cell'),
   'switch': () => wrapper(import('../../packages/switch/demo'), 'switch'),
   't-date': () => wrapper(import('../../packages/t-date/demo'), 't-date'),
   't-dom': () => wrapper(import('../../packages/t-dom/demo'), 't-dom'),

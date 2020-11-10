@@ -1,5 +1,6 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
+import Album from './album';
 import BusinessFilterArea from './business-filter-area';
 import BusinessFilterAreaPanel from './business-filter-area-panel';
 import BusinessSelect from './business-select';
@@ -32,6 +33,11 @@ import Select from './select';
 import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
 import Skeleton from './skeleton';
+import Sticky from './sticky';
+import Swipe from './swipe';
+import SwipeCell from './swipe-cell';
+import SwipeItem from './swipe-item';
+import SwipeSwitch from './swipe-switch';
 import Switch from './switch';
 import TBusiness from './t-business';
 import TDate from './t-date';
@@ -51,6 +57,7 @@ import Locale from './_locale';
 
 const version = '0.0.40';
 const components = [
+  Album,
   BusinessFilterArea,
   BusinessFilterAreaPanel,
   BusinessSelect,
@@ -82,6 +89,11 @@ const components = [
   SharePopup,
   SharePopupItem,
   Skeleton,
+  Sticky,
+  Swipe,
+  SwipeCell,
+  SwipeItem,
+  SwipeSwitch,
   Switch,
   TBusiness,
   TDate,
@@ -113,6 +125,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export {
   install,
   version,
+  Album,
   BusinessFilterArea,
   BusinessFilterAreaPanel,
   BusinessSelect,
@@ -145,6 +158,11 @@ export {
   SharePopup,
   SharePopupItem,
   Skeleton,
+  Sticky,
+  Swipe,
+  SwipeCell,
+  SwipeItem,
+  SwipeSwitch,
   Switch,
   TBusiness,
   TDate,

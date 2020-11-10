@@ -1,29 +1,29 @@
 @import '../_style/var';
 
 .h5-tab {
+    position: relative;
     flex: 1;
-    cursor: pointer;
+    box-sizing: border-box;
     min-width: 0; // hack for flex ellipsis
     padding: 0 5px;
-    font-size: 14px;
-    position: relative;
-    color: @gray-darker;
+    color: @tab-text-color;
+    font-size: @tab-font-size;
     line-height: @tabs-line-height;
     text-align: center;
-    box-sizing: border-box;
-    background-color: @white;
-
-    span {
-        display: block;
-    }
+    cursor: pointer;
 
     &--active {
-        font-weight: 500;
-        color: @text-color;
+        color: @tab-active-text-color;
+        font-weight: @font-weight-bold;
     }
 
     &--disabled {
-        color: @gray;
+        color: @tab-disabled-text-color;
+        cursor: not-allowed;
+    }
+
+    &__text {
+        position: relative;
     }
 }
 
@@ -31,12 +31,7 @@
     position: relative;
 
     &__wrap {
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 99;
         overflow: hidden;
-        position: absolute;
 
         &--page-top {
             position: fixed;
@@ -69,28 +64,28 @@
     }
 
     &__nav {
-        display: flex;
-        user-select: none;
         position: relative;
-        background-color: @white;
+        display: flex;
+        background-color: @tabs-nav-background-color;
+        user-select: none;
 
         &--line {
+            box-sizing: content-box;
             height: 100%;
             padding-bottom: 15px; /* 15px padding to hide scrollbar in mobile safari */
-            box-sizing: content-box;
         }
 
         &--card {
-            margin: 0 15px;
-            border-radius: 2px;
             box-sizing: border-box;
-            border: 1px solid @red;
             height: @tabs-card-height;
+            margin: 0 @padding-md;
+            border: @border-width-base solid @tabs-default-color;
+            border-radius: @border-radius-sm;
 
             .h5-tab {
-                color: @red;
-                border-right: 1px solid @red;
+                color: @tabs-default-color;
                 line-height: @tabs-card-height - 2px;
+                border-right: @border-width-base solid @tabs-default-color;
 
                 &:last-child {
                     border-right: none;
@@ -98,30 +93,24 @@
 
                 &.h5-tab--active {
                     color: @white;
-                    background-color: @red;
+                    background-color: @tabs-default-color;
                 }
 
                 &--disabled {
-                    color: @gray;
+                    color: @tab-disabled-text-color;
                 }
             }
         }
     }
 
     &__line {
-        z-index: 1;
-        left: 0;
-        bottom: 15px;
-        height: 3px;
         position: absolute;
-        border-radius: 3px;
-        background-color: @red;
-    }
-
-    &__content {
-        &--animated {
-            overflow: hidden;
-        }
+        bottom: 15px;
+        left: 0;
+        z-index: 1;
+        height: @tabs-bottom-bar-height;
+        background-color: @tabs-bottom-bar-color;
+        border-radius: @tabs-bottom-bar-height;
     }
 
     &__track {
@@ -132,25 +121,21 @@
         will-change: left;
     }
 
-    &--line {
-        padding-top: @tabs-line-height;
+    &__content {
+        &--animated {
+            overflow: hidden;
+        }
+    }
 
+    &--line {
         .h5-tabs__wrap {
             height: @tabs-line-height;
         }
     }
 
     &--card {
-        padding-top: @tabs-card-height;
-
-        .h5-tabs__wrap {
+        > .h5-tabs__wrap {
             height: @tabs-card-height;
         }
-    }
-
-    .h5-tab__pane {
-        width: 100%;
-        flex-shrink: 0;
-        box-sizing: border-box;
     }
 }

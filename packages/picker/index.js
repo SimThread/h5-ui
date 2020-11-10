@@ -1,5 +1,5 @@
 import { createNamespace } from '../_utils';
-import { prevent } from '../_utils/event';
+import { prevent } from '../_utils/dom/event';
 import Loading from '../loading';
 import PickerColumn from './PickerColumn';
 import deepClone from '../_utils/deep-clone';

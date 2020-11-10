@@ -1,5 +1,5 @@
 import { createNamespace, isDef } from '../_utils';
-import { raf } from '../_utils/raf';
+import { raf } from '../_utils/dom/raf';
 import Cell from '../cell';
 import { cellProps } from '../cell/shared';
 import FindParent from '../_mixins/find-parent';

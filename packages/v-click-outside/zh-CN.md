@@ -3,8 +3,9 @@
 ### 引入
 
 ``` javascript
-import { VClickOutside } from 'h5-ui'
-Vue.directive(VClickOutside);
+import { VClickOutside } from '@hk591/h5-ui'
+
+Vue.use(VClickOutside);
 ```
 
 ### 基础用法

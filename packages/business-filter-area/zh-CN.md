@@ -1,127 +1,200 @@
-## FilterArea 筛选区
+## BusinessFilterArea 新筛选区
 
 ### 引入
 ``` javascript
-import { FilterArea, FilterAreaPannel, Select } from '@hk591/h5-ui';
+import { BusinessFilterArea, BusinessFilterAreaPanel, BusinessSelect } from '@hk591/h5-ui';
 
-Vue.use(FilterArea).use(FilterAreaPannel).use(Select);
+Vue.use(BusinessFilterArea).use(BusinessFilterAreaPanel).use(BusinessSelect);
 ```
 
 ### 代码演示
 
 #### 基础用法
 
-默认情况下启用关闭标签，可以通过`v-model`绑定当前激活的标签索引
+默认情况下启用关闭，可以通过`v-model`绑定当前激活的筛选面板
 
 ```html
-<h5-filter-area 
-  type="devision" 
+<h5-business-filter-area
   v-model="activeIndex" 
   :closeOnClickOverlay="true">
 
-  <h5-filter-area-panel 
-    :immediateRender="true" 
-    :title="area.title" 
-    style="position: relative;z-index: 9999;">
-    <h5-select 
-      ref="areaSelect" 
-      :columns="area.options" 
+  <h5-business-filter-area-panel 
+    title="标题">
+
+    <h5-business-select 
+      ref="select" 
+      :columns="options" 
       @change="onChange" 
       value-key="text">
-      <div slot="footer" class="estate-footer">
-        共找到<span class="count fc-org">12133</span>間房屋 
-        <span class="btn btn-warning" id="filterAreaSubmit" @click="complete()">完成</span>
-        <span class="btn btn-link" id="resetArea" @click="resetArea()">重置</span></div>
-    </h5-select>
-  </h5-filter-area-panel>
-</h5-filter-area>
+      <div slot="footer">
+        底部区域
+      </div>
+    </h5-business-select>
+
+  </h5-business-filter-area-panel>
+
+</h5-business-filter-area>
 ```
 
-
-#### 点击事件
-
-可以在`h5-filter-area`上绑定`click`事件，事件传参为标签对应的索引和标题
-
-```html
-<h5-filter-area @click="onClick">
-  <h5-filter-area-panel title="标签 1">内容 1</h5-filter-area-panel>
-  <h5-filter-area-panel title="标签 2">内容 2</h5-filter-area-panel>
-</h5-filter-area>
-```
-
-```javascript
-export default {
-  methods: {
-    onClick(index, title) {
-      this.$toast(title);
-    }
-  }
-};
-```
+其中`h5-business-filter-area-panel`为面板组件，用于放置不同内容，例如区域筛选面板、面积筛选面板、排序筛选面板；`h5-business-select`为级联筛选栏，例如区域、港铁、排序等筛选需要用到，又`vant`的`picker`组件改造而来
 
 #### 粘性布局
+注意：可能存在问题，建议使用`vant-ui`的`Sticky`组件
 
 通过`sticky`属性可以开启粘性布局，粘性布局下，当 Tab 滚动到顶部时会自动吸顶
 
 ```html
-<h5-filter-area v-model="active" sticky>
-  <h5-filter-area-panel v-for="index in 4" :title="'选项 ' + index">
+<h5-business-filter-area v-model="active" sticky>
+  <h5-business-filter-area-panel v-for="index in 4" :title="'选项 ' + index">
     内容 {{ index }}
-  </h5-filter-area-panel>
-</h5-filter-area>
+  </h5-business-filter-area-panel>
+</h5-business-filter-area>
 ```
 
-#### 自定义标签
+#### 自定义筛选面板标题
 
-通过 title 插槽可以自定义标签内容
+通过 title 插槽可以自定义筛选面板标题
 
 ```html
-<h5-filter-area v-model="active">
-  <h5-filter-area-panel v-for="index in 2">
-    <div slot="title">
-      <h5-icon name="more-o" />选项
-    </div>
-    内容 {{ index }}
-  </h5-filter-area-panel>
-</h5-filter-area>
+<h5-business-filter-area v-model="active">
+  <h5-business-filter-area-panel>
+    <template #title>
+        <div>
+            <span>区域</span>
+            <h5-icon name="triangle-down" />
+        </div>
+    </template>
+  </h5-business-filter-area-panel>
+</h5-business-filter-area>
 ```
 
-### h5-filter-area API
+#### BusinessSelect进行全选
+选中某项的时候全选其他选项，可以设置BusinessSelect组件的columns数据为`selectAll`为`true`实现，例如
+```html
+<template>
+  <h5-business-select :columns="options"></h5-business-select>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options: [
+        {
+          values: [
+            {
+              selectAll: true, // 设置这个
+              id: 0,
+              type: "district",
+              data: {
+                  number: areaOption.data.number
+              },
+              text: "不限"
+            }
+          ],
+          defaultIndex: -1
+        }
+      ]
+    }
+  }
+}
+</script>
+```
+
+#### BusinessSelect进行数据切换
+例如点击一级栏目港铁的时候，二级栏目数据切换到港铁数据；点击一级栏目地区的时候，二级栏目数据切换到地区数据。可以通过设置BusinessSelect的ref来获取picker实例，picker实例的方法见下面`BusinessSelect 方法`。
+
+
+#### BusinessSelect进行多选
+设置options的项目属性`multiple`为`true`
+
+```html
+<template>
+  <h5-business-select :columns="options"></h5-business-select>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options: [
+          {
+              values: [],
+              className: 'column1',
+              defaultIndex: -1
+          },
+          {
+              values: [],
+              className: 'column2',
+              defaultIndex: [],
+              multiple: true // 关键
+          }
+      ]
+    }
+  }
+}
+</script>
+```
+
+### BusinessFilterArea API
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|------|
-| v-model | 当前标签的索引 | `String` `Number` | `0` |
-| color | 标签颜色 | `String` | `#f44` |
-| type | 样式类型，可选值为`card` | `String` | `line` |
-| duration | 动画时间，单位秒 | `Number` | `0.3` |
-| line-width | 底部条宽度，单位 px | `Number` | - |
-| line-height | 底部条高度，单位 px | `Number` | 3 |
-| swipeable | 是否开启手势滑动切换 | `Boolean` | `false` |
+| v-model | 需要显示的h5-business-filter-area-panel组件的索引，为-1的时候都不显示  | `String` `Number` | `0` |
 | sticky | 是否使用粘性定位布局 | `Boolean` | `false` |
 | offset-top | 粘性定位布局下与顶部的最小距离，单位 px | `Number` | `0` |
-| swipe-threshold | 滚动阈值，标签数量超过多少个可滚动 | `Number` | `4` |
-| animated | 是否开启切换标签内容时的转场动画 | `Boolean` | `false` |
-| ellipsis | 是否省略过长的标题文字 | `Boolean` | `true` |
+| ellipsis | 是否省略过长的标题文字，如果标题使用自定义插槽，则无效 | `Boolean` | `true` |
 
-### h5-filter-area-panel API
+### BusinessFilterArea Event
+
+| 事件名 | 说明 | 参数 |
+|------|------|------|
+| click-overlay | 点击筛选器蒙版时触发 | - |
+| change | 当前激活的标签改变时触发 | index：标签索引，title：标题 |
+| scroll | 滚动时触发，仅在 sticky 模式下生效 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
+
+### BusinessFilterAreaPanel API
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|------|
 | title | 标题 | `String` | - |
+| delay-render | 是否延迟渲染，动态获取数据时可能用到 |
+| highlight | 是否高亮标题 |
 | disabled | 是否禁用标签 | `Boolean` | `false` |
 
-### h5-filter-area-panel Slot
+### BusinessFilterAreaPanel Slot
 
 | 名称 | 说明 |
 |------|------|
-| - | 标签页内容 |
-| title | 自定义标签 |
+| - | 筛选面板内容 |
+| title | 自定义标题 |
 
-### h5-filter-area Event
+### BusinessSelect Event
 
-| 事件名 | 说明 | 参数 |
-|------|------|------|
-| click | 点击标签时触发 | index：标签索引，title：标题 |
-| change | 当前激活的标签改变时触发 | index：标签索引，title：标题 |
-| disabled | 点击被禁用的标签时触发 | index：标签索引，title：标题 |
-| scroll | 滚动时触发，仅在 sticky 模式下生效 | { scrollTop: 距离顶部位置, isFixed: 是否吸顶 } |
+| 名称 | 说明 | 回调参数 |
+|------|------| ------ |
+| change | 选项改变时触发 | 单列：Picker 实例，选中值，选中值对应的索引 <br>多列：Picker 实例，所有列选中值，当前列对应的索引 |
+
+
+### BusinessSelect 方法
+通过 ref 可以获取到 Picker 实例并调用实例方法
+
+| 方法名 | 说明 | 参数 | 返回值 |
+|------|------|------|------|
+| getValues | 获取所有列选中的值 | - | values |
+| setValues | 设置所有列选中的值 | values | - |
+| getIndexes | 获取所有列选中值对应的索引 | - | indexes |
+| setIndexes | 设置所有列选中值对应的索引 | indexes | - |
+| getColumnValue | 获取对应列选中的值 | columnIndex | value |
+| setColumnValue | 设置对应列选中的值 | columnIndex, value | - |
+| getColumnIndex | 获取对应列选中项的索引 | columnIndex | optionIndex |
+| setColumnIndex | 设置对应列选中项的索引 | columnIndex, optionIndex | - |
+| getColumnValues | 获取对应列中所有选项 | columnIndex | values |
+| setColumnValues | 设置对应列中所有选项 | columnIndex, values | - |
+
+### BusinessSelect slot
+
+| 名称 | 说明 |
+|------|------|
+| footer | 底部区域 |
+

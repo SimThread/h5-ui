@@ -1,68 +1,80 @@
-/* eslint-disable object-shorthand */
-import { createNamespace } from '../_utils';
-import findParent from '../_mixins/find-parent';
+import { isDef, createNamespace } from '../_utils';
+import { ChildrenMixin } from '../_mixins/relation';
+import { routeProps } from '../_utils/router';
 
 const [createComponent, bem] = createNamespace('tab');
 
 export default createComponent({
-    mixins: [findParent],
+    mixins: [ChildrenMixin('vanTabs')],
 
     props: {
+        ...routeProps,
+        dot: Boolean,
+        name: [Number, String],
+        info: [Number, String],
+        badge: [Number, String],
         title: String,
-        disabled: Boolean
+        titleStyle: null,
+        disabled: Boolean,
     },
 
     data() {
         return {
-            inited: false
+            inited: false,
         };
     },
 
     computed: {
-        index() {
-            return this.parent.tabs.indexOf(this);
+        computedName() {
+            return isDef(this.name) ? this.name : this.index;
         },
 
-        selected() {
-            return this.index === this.parent.curActive;
-        }
+        isActive() {
+            return this.computedName === this.parent.currentName;
+        },
     },
 
     watch: {
-        'parent.curActive'() {
-            this.inited = this.inited || this.selected;
+    // eslint-disable-next-line object-shorthand
+        'parent.currentIndex'() {
+            this.inited = this.inited || this.isActive;
         },
 
         title() {
             this.parent.setLine();
-        }
-    },
+        },
 
-    created() {
-        this.findParent('h5-tabs');
-    },
-
-    mounted() {
-        const { tabs } = this.parent;
-        const index = this.parent.slots().indexOf(this.$vnode);
-        tabs.splice(index === -1 ? tabs.length : index, 0, this);
-
-        if (this.slots('title')) {
-            this.parent.renderTitle(this.$refs.title, this.index);
-        }
-    },
-
-    beforeDestroy() {
-        this.parent.tabs.splice(this.index, 1);
+        inited(val) {
+            if (this.parent.lazyRender && val) {
+                this.$nextTick(() => {
+                    this.parent.$emit('rendered', this.computedName, this.title);
+                });
+            }
+        },
     },
 
     render(h) {
-        const { slots } = this;
+        const { slots, parent, isActive } = this;
+        const shouldRender = this.inited || parent.scrollspy || !parent.lazyRender;
+        const show = parent.scrollspy || isActive;
+        const Content = shouldRender ? slots() : h();
+
+        if (parent.animated) {
+            return (
+                <div
+                    role="tabpanel"
+                    aria-hidden={!isActive}
+                    class={bem('pane-wrapper', { inactive: !isActive })}
+                >
+                    <div class={bem('pane')}>{Content}</div>
+                </div>
+            );
+        }
+
         return (
-            <div vShow={this.selected || this.parent.animated} class={bem('pane')}>
-                {this.inited ? slots() : h()}
-                {slots('title') && <div ref="title">{slots('title')}</div>}
+            <div vShow={show} role="tabpanel" class={bem('pane')}>
+                {Content}
             </div>
         );
-    }
+    },
 });

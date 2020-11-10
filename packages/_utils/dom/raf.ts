@@ -2,7 +2,7 @@
  * requestAnimationFrame polyfill
  */
 
-import { isServer } from './index';
+import { isServer } from '..';
 
 let prev = Date.now();
 
@@ -19,15 +19,22 @@ function fallback(fn: FrameRequestCallback): number {
 const root = <Window>(isServer ? global : window);
 
 /* istanbul ignore next */
-const iRaf = root.requestAnimationFrame || root.webkitRequestAnimationFrame || fallback;
+const iRaf = root.requestAnimationFrame || fallback;
 
 /* istanbul ignore next */
-const iCancel = root.cancelAnimationFrame || root.webkitCancelAnimationFrame || root.clearTimeout;
+const iCancel = root.cancelAnimationFrame || root.clearTimeout;
 
 export function raf(fn: FrameRequestCallback): number {
     return iRaf.call(root, fn);
 }
 
-export function cancel(id: number) {
+// double raf for animation
+export function doubleRaf(fn: FrameRequestCallback): void {
+    raf(() => {
+        raf(fn);
+    });
+}
+
+export function cancelRaf(id: number) {
     iCancel.call(root, id);
 }

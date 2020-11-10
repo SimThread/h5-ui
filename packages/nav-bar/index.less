@@ -2,11 +2,12 @@
 
 .h5-nav-bar {
     position: relative;
-    user-select: none;
-    text-align: center;
+    z-index: @nav-bar-z-index;
     height: @nav-bar-height;
     line-height: @nav-bar-height;
+    text-align: center;
     background-color: @nav-bar-background-color;
+    user-select: none;
 
     .h5-icon {
         color: @nav-bar-icon-color;
@@ -17,47 +18,48 @@
         min-width: 1em;
         font-size: @nav-bar-arrow-size;
 
-        + .h5-nav-bar__text {
+        + .van-nav-bar__text {
             margin-left: -20px;
             padding-left: 25px;
         }
     }
 
     &--fixed {
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        position: fixed;
     }
 
     &__title {
-        margin: 0 auto;
         max-width: 60%;
+        margin: 0 auto;
         color: @nav-bar-title-text-color;
+        font-weight: @font-weight-bold;
         font-size: @nav-bar-title-font-size;
-        font-weight: 500;
     }
 
     &__left,
     &__right {
-        bottom: 0;
-        font-size: 14px;
         position: absolute;
+        bottom: 0;
+        font-size: @font-size-md;
+        cursor: pointer;
     }
 
     &__left {
-        left: 15px;
+        left: @padding-md;
     }
 
     &__right {
-        right: 15px;
+        right: @padding-md;
     }
 
     &__text {
-        color: @nav-bar-text-color;
-        margin: 0 -15px;
-        padding: 0 15px;
         display: inline-block;
+        margin: 0 -@padding-md;
+        padding: 0 @padding-md;
+        color: @nav-bar-text-color;
         vertical-align: middle;
 
         &:active {

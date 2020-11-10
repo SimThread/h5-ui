@@ -1,11 +1,11 @@
 import manager from './manager';
 import context from './context';
-import Touch from '../touch';
-import { on, off } from '../../_utils/event';
-import { getScrollEventTarget } from '../../_utils/scroll';
+import { TouchMixin } from '../touch';
+import { on, off } from '../../_utils/dom/event';
+import { getScrollEventTarget } from '../../_utils/dom/scroll';
 
 export default {
-    mixins: [Touch],
+    mixins: [TouchMixin],
 
     props: {
     // 是否显示弹窗

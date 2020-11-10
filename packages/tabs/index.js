@@ -1,236 +1,191 @@
-import { createNamespace, isDef } from '../_utils';
-import Touch from '../_mixins/touch';
-import { raf } from '../_utils/raf';
-import { on, off } from '../_utils/event';
-import { setScrollTop, getScrollTop, getElementTop, getScrollEventTarget } from '../_utils/scroll';
+// Utils
+import { createNamespace, isDef, addUnit } from '../_utils';
+import { scrollLeftTo, scrollTopTo } from './utils';
+import { route } from '../_utils/router';
+import { isHidden } from '../_utils/dom/style';
+import { on, off } from '../_utils/dom/event';
+import { BORDER_TOP_BOTTOM } from '../_utils/constant';
+import {
+    getScroller,
+    getVisibleTop,
+    getElementTop,
+    getVisibleHeight,
+    setRootScrollTop,
+} from '../_utils/dom/scroll';
+
+// Mixins
+import { ParentMixin } from '../_mixins/relation';
+import { BindEventMixin } from '../_mixins/bind-event';
+
+// Components
+import Title from './Title';
+import Sticky from '../sticky';
+import Content from './Content';
 
 const [createComponent, bem] = createNamespace('tabs');
-const tabBem = createNamespace('tab')[1];
 
 export default createComponent({
-    mixins: [Touch],
+    mixins: [
+        ParentMixin('vanTabs'),
+        BindEventMixin(function(bind) {
+            if (!this.scroller) {
+                this.scroller = getScroller(this.$el);
+            }
+
+            bind(window, 'resize', this.resize, true);
+
+            if (this.scrollspy) {
+                bind(this.scroller, 'scroll', this.onScroll, true);
+            }
+        }),
+    ],
 
     model: {
-        prop: 'active'
+        prop: 'active',
     },
 
     props: {
         color: String,
         sticky: Boolean,
         animated: Boolean,
-        offsetTop: Number,
         swipeable: Boolean,
-        ellipsis: {
-            type: Boolean,
-            default: true
-        },
-        lineWidth: {
-            type: Number,
-            default: null
-        },
-        lineHeight: {
-            type: Number,
-            default: null
+        scrollspy: Boolean,
+        background: String,
+        lineWidth: [Number, String],
+        lineHeight: [Number, String],
+        titleActiveColor: String,
+        titleInactiveColor: String,
+        type: {
+            type: String,
+            default: 'line',
         },
         active: {
             type: [Number, String],
-            default: 0
+            default: 0,
         },
-        type: {
-            type: String,
-            default: 'line'
+        border: {
+            type: Boolean,
+            default: true,
+        },
+        ellipsis: {
+            type: Boolean,
+            default: true,
         },
         duration: {
-            type: Number,
-            default: 0.3
+            type: [Number, String],
+            default: 0.3,
+        },
+        offsetTop: {
+            type: [Number, String],
+            default: 0,
+        },
+        lazyRender: {
+            type: Boolean,
+            default: true,
         },
         swipeThreshold: {
-            type: Number,
-            default: 4
-        }
+            type: [Number, String],
+            default: 4,
+        },
     },
 
     data() {
         return {
-            tabs: [],
             position: '',
-            curActive: null,
+            currentIndex: null,
             lineStyle: {
-                backgroundColor: this.color
+                backgroundColor: this.color,
             },
-            events: {
-                resize: false,
-                sticky: false,
-                swipeable: false
-            }
         };
     },
 
     computed: {
     // whether the nav is scrollable
         scrollable() {
-            return this.tabs.length > this.swipeThreshold || !this.ellipsis;
-        },
-
-        wrapStyle() {
-            switch (this.position) {
-            case 'top':
-                return {
-                    top: this.offsetTop + 'px',
-                    position: 'fixed'
-                };
-            case 'bottom':
-                return {
-                    top: 'auto',
-                    bottom: 0
-                };
-            default:
-                return null;
-            }
+            return this.children.length > this.swipeThreshold || !this.ellipsis;
         },
 
         navStyle() {
             return {
-                borderColor: this.color
+                borderColor: this.color,
+                background: this.background,
             };
         },
 
-        trackStyle() {
-            if (this.animated) {
-                return {
-                    left: `${-1 * this.curActive * 100}%`,
-                    transitionDuration: `${this.duration}s`
-                };
+        currentName() {
+            const activeTab = this.children[this.currentIndex];
+
+            if (activeTab) {
+                return activeTab.computedName;
             }
-        }
+        },
+
+        scrollOffset() {
+            if (this.sticky) {
+                return +this.offsetTop + this.tabHeight;
+            }
+            return 0;
+        },
     },
 
     watch: {
-        active(val) {
-            if (val !== this.curActive) {
-                this.correctActive(val);
+        color: 'setLine',
+
+        active(name) {
+            if (name !== this.currentName) {
+                this.setCurrentIndexByName(name);
             }
         },
 
-        color() {
+        children() {
+            this.setCurrentIndexByName(this.currentName || this.active);
             this.setLine();
+
+            this.$nextTick(() => {
+                this.scrollIntoView(true);
+            });
         },
 
-        tabs() {
-            this.correctActive(this.curActive || this.active);
-            this.scrollIntoView();
-            this.setLine();
-        },
-
-        curActive() {
+        currentIndex() {
             this.scrollIntoView();
             this.setLine();
 
             // scroll to correct position
-            if (this.position === 'top' || this.position === 'bottom') {
-                setScrollTop(window, getElementTop(this.$el));
+            if (this.stickyFixed && !this.scrollspy) {
+                setRootScrollTop(Math.ceil(getElementTop(this.$el) - this.offsetTop));
             }
         },
 
-        sticky() {
-            this.handlers(true);
+        scrollspy(val) {
+            if (val) {
+                on(this.scroller, 'scroll', this.onScroll, true);
+            } else {
+                off(this.scroller, 'scroll', this.onScroll);
+            }
         },
-
-        swipeable() {
-            this.handlers(true);
-        }
     },
 
     mounted() {
-        this.$nextTick(() => {
-            this.inited = true;
-            this.handlers(true);
-        });
+        this.onShow();
     },
 
     activated() {
-        this.$nextTick(() => {
-            this.handlers(true);
-            this.scrollIntoView(true);
-        });
-    },
-
-    deactivated() {
-        this.handlers(false);
-    },
-
-    beforeDestroy() {
-        this.handlers(false);
+        this.onShow();
+        this.setLine();
     },
 
     methods: {
-    // whether to bind sticky listener
-        handlers(bind) {
-            const { events } = this;
-            const sticky = this.sticky && bind;
-            const swipeable = this.swipeable && bind;
-
-            // listen to window resize event
-            if (events.resize !== bind) {
-                events.resize = bind;
-                (bind ? on : off)(window, 'resize', this.setLine, true);
-            }
-
-            // listen to scroll event
-            if (events.sticky !== sticky) {
-                events.sticky = sticky;
-                this.scrollEl = this.scrollEl || getScrollEventTarget(this.$el);
-                (sticky ? on : off)(this.scrollEl, 'scroll', this.onScroll, true);
-                this.onScroll();
-            }
-
-            // listen to touch event
-            if (events.swipeable !== swipeable) {
-                events.swipeable = swipeable;
-                const { content } = this.$refs;
-                const action = swipeable ? on : off;
-
-                action(content, 'touchstart', this.touchStart);
-                action(content, 'touchmove', this.touchMove);
-                action(content, 'touchend', this.onTouchEnd);
-                action(content, 'touchcancel', this.onTouchEnd);
-            }
+    // @exposed-api
+        resize() {
+            this.setLine();
         },
 
-        // watch swipe touch end
-        onTouchEnd() {
-            const { direction, deltaX, curActive } = this;
-            const minSwipeDistance = 50;
-
-            /* istanbul ignore else */
-            if (direction === 'horizontal' && this.offsetX >= minSwipeDistance) {
-                /* istanbul ignore else */
-                if (deltaX > 0 && curActive !== 0) {
-                    this.setCurActive(curActive - 1);
-                } else if (deltaX < 0 && curActive !== this.tabs.length - 1) {
-                    this.setCurActive(curActive + 1);
-                }
-            }
-        },
-
-        // adjust tab position
-        onScroll() {
-            const scrollTop = getScrollTop(window) + this.offsetTop;
-            const elTopToPageTop = getElementTop(this.$el);
-            const elBottomToPageTop =
-        elTopToPageTop + this.$el.offsetHeight - this.$refs.wrap.offsetHeight;
-            if (scrollTop > elBottomToPageTop) {
-                this.position = 'bottom';
-            } else if (scrollTop > elTopToPageTop) {
-                this.position = 'top';
-            } else {
-                this.position = '';
-            }
-            const scrollParams = {
-                scrollTop,
-                isFixed: this.position === 'top'
-            };
-            this.$emit('scroll', scrollParams);
+        onShow() {
+            this.$nextTick(() => {
+                this.inited = true;
+                this.tabHeight = getVisibleHeight(this.$refs.wrap);
+                this.scrollIntoView(true);
+            });
         },
 
         // update nav bar style
@@ -238,21 +193,26 @@ export default createComponent({
             const shouldAnimate = this.inited;
 
             this.$nextTick(() => {
-                const { tabs } = this.$refs;
+                const { titles } = this.$refs;
 
-                if (!tabs || !tabs[this.curActive] || this.type !== 'line') {
+                if (
+                    !titles ||
+          !titles[this.currentIndex] ||
+          this.type !== 'line' ||
+          isHidden(this.$el)
+                ) {
                     return;
                 }
 
-                const tab = tabs[this.curActive];
+                const title = titles[this.currentIndex].$el;
                 const { lineWidth, lineHeight } = this;
-                const width = isDef(lineWidth) ? lineWidth : tab.offsetWidth / 2;
-                const left = tab.offsetLeft + (tab.offsetWidth - width) / 2;
+                const width = isDef(lineWidth) ? lineWidth : title.offsetWidth / 2;
+                const left = title.offsetLeft + title.offsetWidth / 2;
 
                 const lineStyle = {
-                    width: `${width}px`,
+                    width: addUnit(width),
                     backgroundColor: this.color,
-                    transform: `translateX(${left}px)`
+                    transform: `translateX(${left}px) translateX(-50%)`,
                 };
 
                 if (shouldAnimate) {
@@ -260,7 +220,7 @@ export default createComponent({
                 }
 
                 if (isDef(lineHeight)) {
-                    const height = `${lineHeight}px`;
+                    const height = addUnit(lineHeight);
                     lineStyle.height = height;
                     lineStyle.borderRadius = height;
                 }
@@ -269,162 +229,191 @@ export default createComponent({
             });
         },
 
-        // correct the value of active
-        correctActive(active) {
-            active = +active;
-            const exist = this.tabs.some(tab => tab.index === active);
-            const defaultActive = (this.tabs[0] || {}).index || 0;
-            this.setCurActive(exist ? active : defaultActive);
+        // correct the index of active tab
+        setCurrentIndexByName(name) {
+            const matched = this.children.filter(tab => tab.computedName === name);
+            const defaultIndex = (this.children[0] || {}).index || 0;
+            this.setCurrentIndex(matched.length ? matched[0].index : defaultIndex);
         },
 
-        setCurActive(active) {
-            active = this.findAvailableTab(active, active < this.curActive);
-            if (isDef(active) && active !== this.curActive) {
-                this.$emit('input', active);
+        setCurrentIndex(currentIndex) {
+            currentIndex = this.findAvailableTab(currentIndex);
 
-                if (this.curActive !== null) {
-                    this.$emit('change', active, this.tabs[active].title);
+            if (isDef(currentIndex) && currentIndex !== this.currentIndex) {
+                const shouldEmitChange = this.currentIndex !== null;
+                this.currentIndex = currentIndex;
+                this.$emit('input', this.currentName);
+
+                if (shouldEmitChange) {
+                    this.$emit(
+                        'change',
+                        this.currentName,
+                        this.children[currentIndex].title
+                    );
                 }
-                this.curActive = active;
             }
         },
 
-        findAvailableTab(active, reverse) {
-            const diff = reverse ? -1 : 1;
-            let index = active;
+        findAvailableTab(index) {
+            const diff = index < this.currentIndex ? -1 : 1;
 
-            while (index >= 0 && index < this.tabs.length) {
-                if (!this.tabs[index].disabled) {
+            while (index >= 0 && index < this.children.length) {
+                if (!this.children[index].disabled) {
                     return index;
                 }
+
                 index += diff;
             }
         },
 
         // emit event when clicked
         onClick(index) {
-            const { title, disabled } = this.tabs[index];
+            const { title, disabled, computedName } = this.children[index];
             if (disabled) {
-                this.$emit('disabled', index, title);
+                this.$emit('disabled', computedName, title);
             } else {
-                this.setCurActive(index);
-                this.$emit('click', index, title);
+                this.setCurrentIndex(index);
+                this.scrollToCurrentContent();
+                this.$emit('click', computedName, title);
             }
         },
 
         // scroll active tab into view
         scrollIntoView(immediate) {
-            const { tabs } = this.$refs;
+            const { titles } = this.$refs;
 
-            if (!this.scrollable || !tabs || !tabs[this.curActive]) {
+            if (!this.scrollable || !titles || !titles[this.currentIndex]) {
                 return;
             }
 
             const { nav } = this.$refs;
-            const { scrollLeft, offsetWidth: navWidth } = nav;
-            const { offsetLeft, offsetWidth: tabWidth } = tabs[this.curActive];
+            const title = titles[this.currentIndex].$el;
+            const to = title.offsetLeft - (nav.offsetWidth - title.offsetWidth) / 2;
 
-            this.scrollTo(nav, scrollLeft, offsetLeft - (navWidth - tabWidth) / 2, immediate);
+            scrollLeftTo(nav, to, immediate ? 0 : +this.duration);
         },
 
-        // animate the scrollLeft of nav
-        scrollTo(el, from, to, immediate) {
-            if (immediate) {
-                el.scrollLeft += to - from;
-                return;
+        onSticktScroll(params) {
+            this.stickyFixed = params.isFixed;
+            this.$emit('scroll', params);
+        },
+
+        scrollToCurrentContent() {
+            if (this.scrollspy) {
+                const target = this.children[this.currentIndex];
+                const el = target && target.$el;
+
+                if (el) {
+                    const to = getElementTop(el, this.scroller) - this.scrollOffset;
+
+                    this.lockScroll = true;
+                    scrollTopTo(this.scroller, to, +this.duration, () => {
+                        this.lockScroll = false;
+                    });
+                }
             }
-
-            let count = 0;
-            const frames = Math.round((this.duration * 1000) / 16);
-            const animate = () => {
-                el.scrollLeft += (to - from) / frames;
-                /* istanbul ignore next */
-                if (++count < frames) {
-                    raf(animate);
-                }
-            };
-            animate();
         },
 
-        // render title slot of child tab
-        renderTitle(el, index) {
-            this.$nextTick(() => {
-                const title = this.$refs.title[index];
-                title.parentNode.replaceChild(el, title);
-            });
+        onScroll() {
+            if (this.scrollspy && !this.lockScroll) {
+                const index = this.getCurrentIndexOnScroll();
+                this.setCurrentIndex(index);
+            }
         },
 
-        getTabStyle(item, index) {
-            const style = {};
-            const { color } = this;
-            const active = index === this.curActive;
-            const isCard = this.type === 'card';
+        getCurrentIndexOnScroll() {
+            const { children } = this;
 
-            if (color) {
-                if (!item.disabled && isCard && !active) {
-                    style.color = color;
-                }
-                if (!item.disabled && isCard && active) {
-                    style.backgroundColor = color;
-                }
-                if (isCard) {
-                    style.borderColor = color;
+            for (let index = 0; index < children.length; index++) {
+                const top = getVisibleTop(children[index].$el);
+
+                if (top > this.scrollOffset) {
+                    return index === 0 ? 0 : index - 1;
                 }
             }
 
-            if (this.scrollable && this.ellipsis) {
-                style.flexBasis = 88 / this.swipeThreshold + '%';
-            }
-
-            return style;
-        }
+            return children.length - 1;
+        },
     },
 
-    render(h) {
+    render() {
         const { type, ellipsis, animated, scrollable } = this;
 
-        const Nav = this.tabs.map((tab, index) => (
-            <div
-                ref="tabs"
+        const Nav = this.children.map((item, index) => (
+            <Title
+                ref="titles"
                 refInFor
-                class={tabBem({
-                    active: index === this.curActive,
-                    disabled: tab.disabled,
-                    complete: !ellipsis
-                })}
-                style={this.getTabStyle(tab, index)}
+                type={type}
+                dot={item.dot}
+                info={isDef(item.badge) ? item.badge : item.info}
+                title={item.title}
+                color={this.color}
+                style={item.titleStyle}
+                isActive={index === this.currentIndex}
+                ellipsis={ellipsis}
+                disabled={item.disabled}
+                scrollable={scrollable}
+                activeColor={this.titleActiveColor}
+                inactiveColor={this.titleInactiveColor}
+                swipeThreshold={this.swipeThreshold}
+                scopedSlots={{
+                    default: () => item.slots('title'),
+                }}
                 onClick={() => {
                     this.onClick(index);
+                    route(item.$router, item);
                 }}
-            >
-                <span ref="title" refInFor class={{ 'van-ellipsis': ellipsis }}>
-                    {tab.title}
-                </span>
-            </div>
+            />
         ));
 
-        return (
-            <div class={bem([type])}>
+        const Wrap = (
+            <div
+                ref="wrap"
+                class={[
+                    bem('wrap', { scrollable }),
+                    { [BORDER_TOP_BOTTOM]: type === 'line' && this.border },
+                ]}
+            >
                 <div
-                    ref="wrap"
-                    style={this.wrapStyle}
-                    class={[bem('wrap', { scrollable }), { 'van-hairline--top-bottom': type === 'line' }]}
+                    ref="nav"
+                    role="tablist"
+                    class={bem('nav', [type])}
+                    style={this.navStyle}
                 >
-                    <div ref="nav" class={bem('nav', [type])} style={this.navStyle}>
-                        {type === 'line' && <div class={bem('line')} style={this.lineStyle} />}
-                        {Nav}
-                    </div>
-                </div>
-                <div ref="content" class={bem('content', { animated })}>
-                    {animated ? (
-                        <div class={bem('track')} style={this.trackStyle}>
-                            {this.slots()}
-                        </div>
-                    ) : (
-                        this.slots()
+                    {this.slots('nav-left')}
+                    {Nav}
+                    {type === 'line' && (
+                        <div class={bem('line')} style={this.lineStyle} />
                     )}
+                    {this.slots('nav-right')}
                 </div>
             </div>
         );
-    }
+
+        return (
+            <div class={bem([type])}>
+                {this.sticky ? (
+                    <Sticky
+                        container={this.$el}
+                        offsetTop={this.offsetTop}
+                        onScroll={this.onSticktScroll}
+                    >
+                        {Wrap}
+                    </Sticky>
+                ) : (
+                    Wrap
+                )}
+                <Content
+                    count={this.children.length}
+                    animated={animated}
+                    duration={this.duration}
+                    swipeable={this.swipeable}
+                    currentIndex={this.currentIndex}
+                    onChange={this.setCurrentIndex}
+                >
+                    {this.slots()}
+                </Content>
+            </div>
+        );
+    },
 });
