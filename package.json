@@ -37,7 +37,7 @@
       "git add"
     ],
     "*.{css,less,vue}": [
-      "stylelint **/*.{vue,less} --fix",
+      "stylelint **/*.{vue,less} --fix --ignore-path .eslintignore",
       "git add"
     ]
   },
