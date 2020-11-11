@@ -132,5 +132,12 @@
   "vetur": {
     "tags": "vetur/tags.json",
     "attributes": "vetur/attributes.json"
-  }
+  },
+  "sideEffects": [
+    "docs/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.css",
+    "*.less"
+  ]
 }
