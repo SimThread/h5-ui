@@ -134,7 +134,8 @@
     "attributes": "vetur/attributes.json"
   },
   "sideEffects": [
-    "docs/**",
+    "**/iframe-router.js",
+    "**/dist/*",
     "es/**/style/*",
     "lib/**/style/*",
     "*.css",
