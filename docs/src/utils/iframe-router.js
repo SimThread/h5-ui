@@ -4,6 +4,7 @@
 
 import { iframeReady, isMobile } from '.';
 
+console.log('iframe-router inner');
 window.syncPath = function () {
     const router = window.vueRouter;
     const isInIframe = window !== window.top;

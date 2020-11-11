@@ -5,6 +5,8 @@ import componentDemos from './demo-entry';
 import { getLang, setDefaultLang } from './utils/locales';
 import './utils/iframe-router';
 
+console.log('iframe-router after');
+
 const { locales, defaultLang } = docConfig.site;
 
 setDefaultLang(defaultLang);
