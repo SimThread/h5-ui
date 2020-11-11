@@ -55,7 +55,7 @@ import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 import Locale from './_locale';
 
-const version = '0.0.40';
+const version = '0.0.41';
 const components = [
   Album,
   BusinessFilterArea,
