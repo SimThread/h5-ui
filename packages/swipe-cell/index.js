@@ -4,8 +4,8 @@ import { range } from '../_utils/format/number';
 import { preventDefault } from '../_utils/dom/event';
 
 // Mixins
-import { TouchMixin } from '../_mixins/touch.ts';
-import { ClickOutsideMixin } from '../_mixins/click-outside.ts';
+import { TouchMixin } from '../_mixins/touch';
+import { ClickOutsideMixin } from '../_mixins/click-outside';
 
 const [createComponent, bem] = createNamespace('swipe-cell');
 const THRESHOLD = 0.15;
