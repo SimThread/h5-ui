@@ -134,7 +134,7 @@
     "attributes": "vetur/attributes.json"
   },
   "sideEffects": [
-    "docs/*",
+    "docs/**",
     "es/**/style/*",
     "lib/**/style/*",
     "*.css",
