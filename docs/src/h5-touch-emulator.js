@@ -6,7 +6,6 @@
 
 var eventTarget;
 var supportTouch = 'ontouchstart' in window;
-console.log('touch-emulator');
 // polyfills
 if (!document.createTouch) {
   document.createTouch = function(

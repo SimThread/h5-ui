@@ -135,9 +135,10 @@
   },
   "sideEffects": [
     "**/iframe-router.js",
-    "**/dist/*",
+    "**/h5-touch-emulator.js",
     "es/**/style/*",
     "lib/**/style/*",
+    "*.vue",
     "*.css",
     "*.less"
   ]
