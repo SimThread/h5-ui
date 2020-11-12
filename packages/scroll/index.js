@@ -294,6 +294,7 @@ export default createComponent({
             this.scroll && this.scroll.scrollTo.call(this.scroll, ...args);
         },
         scrollToElement(...args) {
+            console.log('scroll:', scroll);
             this.scroll && this.scroll.scrollToElement.call(this.scroll, args);
         },
         clickItem(item) {

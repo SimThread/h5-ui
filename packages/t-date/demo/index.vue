@@ -31,8 +31,6 @@
 // import { TDate } from 'h5-ui';
 import { TDate } from '../../index.ts';
 
-console.log('TDate:', TDate);
-
 export default {
     filters: {
         dateFormat: TDate.dateFormat

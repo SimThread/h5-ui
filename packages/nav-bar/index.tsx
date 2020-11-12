@@ -60,9 +60,6 @@ function NavBar(
     }
   }
 
-  console.log('this.$scopedSlots:', slots);
-  console.log('slots title:', !!slots.title);
-  console.log('slots right:', !!slots.right);
   return (
     <div
       style={{ zIndex: props.zIndex }}

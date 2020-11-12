@@ -76,7 +76,7 @@ export default createComponent({
         initSwiper() {
             const self = this;
             self.swiper = new Swiper('.swiper-container', {
-            // Enable lazy loading
+                // Enable lazy loading
                 zoom: true,
                 lazy: {
                     loadPrevNext: true,
@@ -104,6 +104,7 @@ export default createComponent({
                         }
 
                         self.$nextTick(() => {
+                            console.log('slideChangeTransitionEnd:', self.$refs.scroll);
                             self.$refs.scroll.scrollToElement('.type-item.active');
                         });
                     }

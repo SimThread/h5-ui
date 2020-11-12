@@ -127,7 +127,6 @@ export default {
     },
     methods: {
         insertAfter() {
-            console.log('TDom:', TDom);
             TDom.insertAfter(document.getElementById('text'), document.getElementById('insertAfterBtn'));
         },
         remove() {
@@ -164,7 +163,6 @@ export default {
         },
         parentsUntil() {
             alert(TDom.parentsUntil(document.getElementById('parentsUntilBtn'), 'html', 'body'));
-            console.log(TDom.parentsUntil(document.getElementById('parentsUntilBtn'), 'html', 'body'));
         },
         closest() {
             alert(TDom.closest(document.getElementById('closestBtn'), 'div'));
