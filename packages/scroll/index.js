@@ -512,7 +512,6 @@ export default createComponent({
         }
         const { pullUpLoad, isPullUpLoad, pullUpTxt, pullDownStyle, pullDownRefresh, beforePullDown, refreshTxt } = this;
 
-        console.log('this.slots().default:', this.slots('default'));
         return (
             <div ref="wrapper" class={bem('wrapper')}>
                 <div class={bem('content')}>

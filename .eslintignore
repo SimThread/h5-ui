@@ -4,4 +4,4 @@ dist
 node_modules
 **/font
 **/test
-**/swiper.min.css
+**/swiper.min.less

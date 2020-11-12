@@ -24,9 +24,13 @@ export default createComponent({
             default: () => []
         },
         // 是否显示"全部"按钮
-        showAllImgBtn: {
+        showNavRight: {
             type: Boolean,
             default: true
+        },
+        navRightText: {
+            type: String,
+            default: '全部圖像'
         }
     },
     data() {
@@ -185,7 +189,7 @@ export default createComponent({
                         this.$emit('close');
                     }}>
                     <span slot="title">{ index + 1 }/{count(swiperList)}</span>
-                    <span slot="right" onClick={this.onClickAllImg}>全部圖像</span>
+                    { this.showNavRight && <span slot="right" onClick={this.onClickAllImg}>{ this.navRightText }</span> }
                 </NavBar>
 
                 <div vShow={showPreview} class="image-preview-wrap">

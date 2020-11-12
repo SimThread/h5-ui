@@ -106,6 +106,8 @@ const swiperList = [
 | pos-index | 初始显示的在所属类别中所在的索引 | `Number` | - |
 | swiper-list | 轮播数据 | `Array` | [] |
 | show-preview.sync | 是否打开大图预览模式 | `Boolean` | `true` |
+| nav-right-text | 导航右侧文本 | `String` | `全部圖像` |
+| show-nav-right | 是否显示导航右侧 | `Boolean` | `true` |
 
 ### Album Event
 

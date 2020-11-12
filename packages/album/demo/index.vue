@@ -20,6 +20,8 @@
                 :pos-index="posIndex"
                 :swiper-list="swiperList"
                 :show-preview.sync="showPreview"
+                :show-nav-right="true"
+                nav-right-text="全部"
                 @close="showAlbum = false"
             >
                 <div slot="footer" class="footer">底部banner</div>
