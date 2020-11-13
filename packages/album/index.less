@@ -22,19 +22,21 @@
         }
         .h5-tabs__line {
             width: 30px !important;
-            height: 0.04rem;
+            height: 2px;
             background: #0c5ffe;
             transform: translateX(41.5px) translateX(-50%);
         }
         .h5-tabs__nav {
             padding-left: 15px;
-            padding-right: 15px;
             .h5-tab {
                 flex: none;
                 flex-basis: auto !important;
                 padding: 0;
                 &:nth-child(n + 2) {
-                    margin-left: 0.88rem;
+                    margin-left: 44px;
+                }
+                &:nth-last-of-type(2) {
+                    padding-right: 15px;
                 }
             }
         }
@@ -44,49 +46,6 @@
         }
         .h5-tab--active {
             color: #0c5ffe;
-        }
-    }
-    .nav-list {
-        position: fixed;
-        z-index: 9;
-        top: 46px;
-        width: 7.5rem;
-        line-height: 40px;
-        background-color: #fff;
-        overflow: hidden;
-        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.03);
-        .scroll-content {
-            padding: 0 0.3rem;
-            .scroll-item {
-                font-size: 14px;
-                &:nth-child(n + 2) {
-                    margin-left: 0.88rem;
-                }
-            }
-            .nav-item {
-                padding: 0 4px;
-                font-size: 14px;
-                color: #333;
-
-                &.active {
-                    position: relative;
-                    color: #0c5ffe;
-
-                    &::after {
-                        position: absolute;
-                        top: auto;
-                        right: 0;
-                        bottom: 1px;
-                        left: 0;
-                        margin: auto;
-                        content: '';
-                        width: 30px;
-                        height: 2px;
-                        background: #0c5ffe;
-                        border-radius: 1px;
-                    }
-                }
-            }
         }
     }
     .h5-nav-bar {
@@ -213,24 +172,25 @@
             margin-top: 25px;
         }
         .img-block {
-            padding: 0.1rem 0.3rem 0;
+            padding: 5px 15px 0;
             .title {
                 font-size: 14px;
-                line-height: 60px;
+                line-height: 1.2em;
             }
             .img-container {
                 overflow: hidden;
-                padding-top: 8px;
+                width: 345px;
+                padding-top: 8.5px;
                 .img-container-wrap {
-                    margin-top: -8px;
-                    margin-left: -8px;
-                    width: 100%;
+                    margin-top: -8.5px;
+                    margin-left: -8.5px;
+                    width: 355px;
                     display: flex;
                     flex-wrap: wrap;
                 }
                 .img-item {
-                    margin-top: 8px;
-                    margin-left: 8px;
+                    margin-top: 8.5px;
+                    margin-left: 8.5px;
                     width: 80px;
                     img {
                         width: 100%;
@@ -240,7 +200,7 @@
                         width: 80px;
                         height: 60px;
                         overflow: hidden;
-                        &.vr-logo::after {
+                        .album-logo {
                             content: '';
                             position: absolute;
                             top: 0;
@@ -250,19 +210,6 @@
                             margin: auto;
                             width: 30px;
                             height: 30px;
-                        }
-                        &.video-logo::after {
-                            content: '';
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            bottom: 0;
-                            left: 0;
-                            margin: auto;
-                            width: 30px;
-                            height: 30px;
-                            // background: url('./images/icon_video.png');
-                            background-size: contain;
                         }
                     }
                     .img-text {

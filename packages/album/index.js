@@ -104,7 +104,6 @@ export default createComponent({
                         }
 
                         self.$nextTick(() => {
-                            console.log('slideChangeTransitionEnd:', self.$refs.scroll);
                             self.$refs.scroll.scrollToElement('.type-item.active');
                         });
                     }
@@ -126,9 +125,9 @@ export default createComponent({
             this.parentIndex = parentIndex;
             this.childIndex = 0;
         },
-        allSlideToChild(item, parentIndex, childIndex) {
+        onClickThumbnail(item, parentIndex, childIndex) {
             if (item.type == 'vr') {
-                this.$emit('showVr', {
+                this.$emit('clickVR', {
                     linkUrl: item.link_url,
                     note: item.note
                 });
@@ -269,10 +268,11 @@ export default createComponent({
                                                     class="img-item">
                                                     <div
                                                         class={['img-wrap', this.getTypeClass(img.type)]}
-                                                        onClick={() => { this.allSlideToChild(img, pIndex, cIndex); }}>
+                                                        onClick={() => { this.onClickThumbnail(img, pIndex, cIndex); }}>
                                                         <img
                                                             vLazy={img.thumb}
                                                             alt={img.note}/>
+                                                        {img.type && this.slots(img.type)}
                                                     </div>
                                                     <div class="img-text ellipsis">{img.note}</div>
                                                 </div>

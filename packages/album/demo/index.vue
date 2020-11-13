@@ -1,7 +1,7 @@
 <template>
     <demo-section style="height: 2000px;">
         <demo-block title="基本用法">
-            <!-- <h5-swipe ref="swiper" class="imgList" :show-indicators="indicators" style="height: 280px; overflow: hidden;" @change="onSwipeChange">
+            <h5-swipe ref="swiper" class="imgList" :show-indicators="indicators" style="height: 280px; overflow: hidden;" @change="onSwipeChange">
                 <template v-for="(imgType, parentIndex) in swiperList">
                     <h5-swipe-item v-for="(item, childIndex) in imgType.img" :key="`${imgType.name}-${childIndex}`" :data-type="`${item.type ? item.type : 'image'}-${childIndex}`" @click="goImgDisplay(item, parentIndex, childIndex)">
                         <img v-lazy="item.thumb" src="https://newhouse.debug.591.com.hk/_nuxt/img/5575d6e.png" :alt="`${imgType.name}`">
@@ -12,7 +12,7 @@
                     <h5-swipe-switch v-model="switchCurrentVal" :types="swiperTypes" @change="onSwitchChange" />
                     <div class="custom-indicator">{{ swiperCurrent + 1 }}/{{ count(swiperList) }}</div>
                 </template>
-            </h5-swipe> -->
+            </h5-swipe>
 
             <h5-album
                 v-if="showAlbum"
@@ -22,6 +22,7 @@
                 :show-preview.sync="showPreview"
                 :show-nav-right="true"
                 nav-right-text="全部"
+                @clickVR="onClickVR"
                 @close="showAlbum = false"
             >
                 <div slot="footer" class="footer">底部banner</div>
@@ -260,6 +261,11 @@ export default {
         this.swiperList = imgAdapter(data);
     },
     methods: {
+        onClickVR(vrInfo) {
+            // eslint-disable-next-line no-alert
+            alert('click VR');
+            console.log('vrInfo:', vrInfo);
+        },
         goImgDisplay(item, parentIndex, childIndex) {
             this.showAlbum = true;
             this.typeIndex = parentIndex;
