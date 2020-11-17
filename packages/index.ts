@@ -13,6 +13,7 @@ import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
 import Dialog from './dialog';
+import Empty from './empty';
 import Field from './field';
 import FilterArea from './filter-area';
 import FilterAreaPanel from './filter-area-panel';
@@ -20,6 +21,7 @@ import Icon from './icon';
 import Info from './info';
 import Lazyload from './lazyload';
 import Loading from './loading';
+import Lottie from './lottie';
 import Methods from './methods';
 import NavBar from './nav-bar';
 import Overlay from './overlay';
@@ -34,6 +36,7 @@ import SharePopup from './share-popup';
 import SharePopupItem from './share-popup-item';
 import Skeleton from './skeleton';
 import Sticky from './sticky';
+import SvgIcon from './svg-icon';
 import Swipe from './swipe';
 import SwipeCell from './swipe-cell';
 import SwipeItem from './swipe-item';
@@ -70,12 +73,14 @@ const components = [
   Collapse,
   CollapseItem,
   Dialog,
+  Empty,
   Field,
   FilterArea,
   FilterAreaPanel,
   Icon,
   Info,
   Loading,
+  Lottie,
   Methods,
   NavBar,
   Overlay,
@@ -90,6 +95,7 @@ const components = [
   SharePopupItem,
   Skeleton,
   Sticky,
+  SvgIcon,
   Swipe,
   SwipeCell,
   SwipeItem,
@@ -138,6 +144,7 @@ export {
   Collapse,
   CollapseItem,
   Dialog,
+  Empty,
   Field,
   FilterArea,
   FilterAreaPanel,
@@ -145,6 +152,7 @@ export {
   Info,
   Lazyload,
   Loading,
+  Lottie,
   Methods,
   NavBar,
   Overlay,
@@ -159,6 +167,7 @@ export {
   SharePopupItem,
   Skeleton,
   Sticky,
+  SvgIcon,
   Swipe,
   SwipeCell,
   SwipeItem,

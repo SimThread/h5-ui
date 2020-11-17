@@ -1,0 +1,33 @@
+@import '../_style/var';
+
+.h5-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: @empty-padding;
+
+    &__image {
+        width: @empty-image-size;
+        height: auto;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__description {
+        margin-top: 5px;
+        padding: @empty-description-padding;
+        color: #c8c8c8;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    &__bottom {
+        margin-top: @empty-bottom-margin-top;
+    }
+}

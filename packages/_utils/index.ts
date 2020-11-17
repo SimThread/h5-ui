@@ -1,7 +1,7 @@
 import Vue from 'vue';
+import { isNumeric } from './validate/number';
 
 export { createNamespace } from './create';
-export { addUnit } from './format/unit';
 
 export const isServer: boolean = Vue.prototype.$isServer;
 
@@ -32,4 +32,22 @@ export function get(object: any, path: string): any {
     });
 
     return result;
+}
+
+export function addUnit(value?: string | number): string | undefined {
+    if (!isDef(value)) {
+        return undefined;
+    }
+
+    return isNumeric(<string | number>value) ? `${value}px` : String(value);
+}
+
+export function getSizeStyle(originSize?: string | number) {
+    if (isDef(originSize)) {
+        const size = addUnit(originSize);
+        return {
+            width: size,
+            height: size,
+        };
+    }
 }

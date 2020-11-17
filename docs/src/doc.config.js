@@ -126,10 +126,10 @@ module.exports = {
               {
                 groupName: '基础组件',
                 list: [
-                  {
-                    path: '/button',
-                    title: 'Button 按钮'
-                  },
+                  // {
+                  //   path: '/button',
+                  //   title: 'Button 按钮'
+                  // },
                   // {
                   //   path: '/popup',
                   //   title: 'Popup 弹出层'
@@ -154,25 +154,37 @@ module.exports = {
                     path: '/scroll',
                     title: 'Scroll 滑动'
                   },
+                  // {
+                  //   path: '/swipe',
+                  //   title: 'Swipe 轮播'
+                  // },
                   {
-                    path: '/swipe',
-                    title: 'Swipe 轮播'
-                  }
-                ]
-              },
-              {
-                groupName: '表单组件',
-                list: [
-                  {
-                    path: '/checkbox',
-                    title: 'Checkbox 复选框'
+                    path: '/lottie',
+                    title: 'Lottie SVG动画'
                   },
                   {
-                    path: '/field',
-                    title: 'Field 输入框'
+                    path: '/svg-icon',
+                    title: 'SvgIcon SVG图标'
+                  },
+                  {
+                    path: '/empty',
+                    title: 'Empty 空状态'
                   },
                 ]
               },
+              // {
+              //   groupName: '表单组件',
+              //   list: [
+              //     {
+              //       path: '/checkbox',
+              //       title: 'Checkbox 复选框'
+              //     },
+              //     {
+              //       path: '/field',
+              //       title: 'Field 输入框'
+              //     },
+              //   ]
+              // },
               {
                 groupName: '业务组件',
                 list: [

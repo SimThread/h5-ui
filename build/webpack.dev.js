@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -31,6 +32,7 @@ module.exports = {
                 // secure: false, // 设置支持https协议的代理
             },
         },
+        contentBase: path.join(__dirname, '../docs/public')
     },
     resolve: {
         extensions: ['.js', '.ts', '.tsx', '.vue', '.css'],
@@ -99,8 +101,17 @@ module.exports = {
                 ]
             },
             {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                include: [path.join(__dirname, '../docs/src/assets/icons')],
+                options: {
+                    symbolId: 'icon-[name]'
+                }
+            },
+            {
                 test: /.(png|jpe?g|gif|svg)(\?.*)?$/,
                 loader: 'url-loader',
+                exclude: [path.join(__dirname, '../docs/src/assets/icons')],
                 options: {
                     limit: 10000,
                     // name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -113,7 +124,7 @@ module.exports = {
                     limit: 10000,
                     // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
                 }
-            },
+            }
         ]
     },
     plugins: [
@@ -130,7 +141,12 @@ module.exports = {
             template: 'docs/src/index.tpl',
             filename: 'mobile.html',
             inject: true
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: path.join(__dirname, '../docs/public'),
+            to: path.join(__dirname, '../docs/dist/public'),
+            ignore: ['.*']
+        }])
     ],
     // proxyTable: {
     //   '/Home': {
