@@ -247,11 +247,15 @@ export default createComponent({
                     </div>
                 </div>
 
-                <div vShow={!showPreview} class="img-list">
+                { !showPreview && (<div class="img-list">
                     <Tabs
                         vModel={this.active}
                         scrollspy
                         sticky
+                        color={'#0c5ffe'}
+                        titleActiveColor={'#0c5ffe'}
+                        lineWidth={30}
+                        lineHeight={2}
                         offsetTop={86}>
                         { swiperList && swiperList.map((imgType, pIndex) => (
                             <Tab
@@ -282,7 +286,8 @@ export default createComponent({
                                 </div>
                             </Tab>)) }
                     </Tabs>
-                </div>
+                </div>)}
+
                 {this.slots('default')}
                 {this.slots('footer')}
             </div>);
