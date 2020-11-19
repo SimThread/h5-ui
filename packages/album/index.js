@@ -248,47 +248,49 @@ export default createComponent({
                     </div>
                 </div>
 
-                <div vShow={!showPreview} class="img-list">
-                    <Tabs
-                        ref="tabs"
-                        vModel={this.active}
-                        scrollspy
-                        sticky
-                        color={'#0c5ffe'}
-                        titleActiveColor={'#0c5ffe'}
-                        lineWidth={30}
-                        lineHeight={2}
-                        offsetTop={86}>
-                        { swiperList && swiperList.map((imgType, pIndex) => (
-                            <Tab
-                                key={pIndex}
-                                title={imgType.name}>
-                                <div class="img-block page-block">
-                                    <h3 class="title">
-                                        { imgType.name }({ imgType.img.length })
-                                    </h3>
-                                    <div class="img-container">
-                                        <div class="img-container-wrap">
-                                            { imgType.img && imgType.img.map((img, cIndex) => (
-                                                <div
-                                                    class="img-item">
+                { !showPreview && (
+                    <div class="img-list">
+                        <Tabs
+                            ref="tabs"
+                            vModel={this.active}
+                            scrollspy
+                            sticky
+                            color={'#0c5ffe'}
+                            titleActiveColor={'#0c5ffe'}
+                            lineWidth={30}
+                            lineHeight={2}
+                            offsetTop={86}>
+                            { swiperList && swiperList.map((imgType, pIndex) => (
+                                <Tab
+                                    key={pIndex}
+                                    title={imgType.name}>
+                                    <div class="img-block page-block">
+                                        <h3 class="title">
+                                            { imgType.name }({ imgType.img.length })
+                                        </h3>
+                                        <div class="img-container">
+                                            <div class="img-container-wrap">
+                                                { imgType.img && imgType.img.map((img, cIndex) => (
                                                     <div
-                                                        class={['img-wrap', this.getTypeClass(img.type)]}
-                                                        onClick={() => { this.onClickThumbnail(img, pIndex, cIndex); }}>
-                                                        <img
-                                                            vLazy={img.thumb}
-                                                            alt={img.note}/>
-                                                        {img.type && this.slots(img.type)}
+                                                        class="img-item">
+                                                        <div
+                                                            class={['img-wrap', this.getTypeClass(img.type)]}
+                                                            onClick={() => { this.onClickThumbnail(img, pIndex, cIndex); }}>
+                                                            <img
+                                                                vLazy={img.thumb}
+                                                                alt={img.note}/>
+                                                            {img.type && this.slots(img.type)}
+                                                        </div>
+                                                        <div class="img-text ellipsis">{img.note}</div>
                                                     </div>
-                                                    <div class="img-text ellipsis">{img.note}</div>
-                                                </div>
-                                            )) }
+                                                )) }
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </Tab>)) }
-                    </Tabs>
-                </div>
+                                </Tab>)) }
+                        </Tabs>
+                    </div>
+                ) }
 
 
                 {this.slots('default')}
