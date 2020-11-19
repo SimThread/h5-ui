@@ -166,12 +166,13 @@ export default createComponent({
         },
         onClickImg(item, pIndex, cIndex) {
             if (item.type == 'vr') {
-                this.$emit('showVr', {
+                this.$emit('clickVR', {
                     linkUrl: item.link_url,
                     note: item.note
                 });
             } else if (item.type == 'video') {
                 item.showType = item.showType == 'video' ? 'image' : 'video';
+                this.$forceUpdate();
             }
         }
     },
@@ -247,8 +248,9 @@ export default createComponent({
                     </div>
                 </div>
 
-                { !showPreview && (<div class="img-list">
+                <div vShow={!showPreview} class="img-list">
                     <Tabs
+                        ref="tabs"
                         vModel={this.active}
                         scrollspy
                         sticky
@@ -286,7 +288,8 @@ export default createComponent({
                                 </div>
                             </Tab>)) }
                     </Tabs>
-                </div>)}
+                </div>
+
 
                 {this.slots('default')}
                 {this.slots('footer')}

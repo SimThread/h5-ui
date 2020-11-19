@@ -294,7 +294,6 @@ export default createComponent({
             this.scroll && this.scroll.scrollTo.call(this.scroll, ...args);
         },
         scrollToElement(...args) {
-            console.log('scroll:', scroll);
             this.scroll && this.scroll.scrollToElement.call(this.scroll, args);
         },
         clickItem(item) {
@@ -508,10 +507,7 @@ export default createComponent({
         }
     },
     render(h) {
-        function clickItem(item) {
-            console.log('clickItem:', item);
-        }
-        const { pullUpLoad, isPullUpLoad, pullUpTxt, pullDownStyle, pullDownRefresh, beforePullDown, refreshTxt } = this;
+        const { pullUpLoad, isPullUpLoad, pullUpTxt, pullDownStyle, pullDownRefresh, beforePullDown, refreshTxt, clickItem } = this;
 
         return (
             <div ref="wrapper" class={bem('wrapper')}>
