@@ -6,6 +6,7 @@ export default {
   'intro.zh-CN': () => import('../markdown/intro.zh-CN.md'),
   'style-guide.zh-CN': () => import('../markdown/style-guide.zh-CN.md'),
   'theme.zh-CN': () => import('../markdown/theme.zh-CN.md'),
+  'ui-develop.zh-CN': () => import('../markdown/ui-develop.zh-CN.md'),
   'ui-standard.zh-CN': () => import('../markdown/ui-standard.zh-CN.md'),
   'album.zh-CN': () => import('../../packages/album/zh-CN.md'),
   'business-filter-area.zh-CN': () => import('../../packages/business-filter-area/zh-CN.md'),

@@ -81,6 +81,7 @@ export default {
         }
 
         > p {
+            overflow: hidden;
             margin: 15px 0;
             font-size: 14px;
             line-height: 26px;

@@ -36,6 +36,10 @@ module.exports = {
                   path: '/intro',
                   title: '介绍'
                 },
+                {
+                  path: '/ui-develop',
+                  title: '组件库发布流程'
+                },
                 // {
                 //   path: '/quickstart',
                 //   title: '快速上手'
