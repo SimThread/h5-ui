@@ -37,8 +37,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.ts', '.tsx', '.vue', '.css'],
         alias: {
-            packages: path.join(__dirname, '../src'),
-            'h5-ui': path.join(__dirname, '../packages'),
+            'h5-ui': path.join(__dirname, '../src'),
         }
     },
     module: {

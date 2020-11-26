@@ -1,6 +1,6 @@
-import Locale from '../../../packages/_locale';
-import zhCN from '../../../packages/_locale/lang/zh-CN';
-import enUS from '../../../packages/_locale/lang/en-US';
+import Locale from '../../../src/locale';
+import zhCN from '../../../src/locale/lang/zh-CN';
+import enUS from '../../../src/locale/lang/en-US';
 
 const ZH_CN = 'zh-CN';
 const EN_US = 'en-US';

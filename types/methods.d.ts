@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-import { MethodsConstructor } from '../packages/methods/index';
+import { MethodsConstructor } from '../src/methods/index';
 
 declare module 'vue/types/vue' {
   interface Vue {

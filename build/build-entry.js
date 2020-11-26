@@ -52,14 +52,14 @@ export default {
 };
 `;
 
-    fs.writeFileSync(path.join(__dirname, '../packages/index.ts'), content);
+    fs.writeFileSync(path.join(__dirname, '../src/index.ts'), content);
 }
 
 function buildDemoEntry() {
-    const dir = path.join(__dirname, '../packages');
+    const dir = path.join(__dirname, '../src');
     const demos = fs.readdirSync(dir)
         .filter(name => fs.existsSync(path.join(dir, `${name}/demo/index.vue`)))
-        .map(name => `'${name}': () => wrapper(import('../../packages/${name}/demo'), '${name}')`);
+        .map(name => `'${name}': () => wrapper(import('../../src/${name}/demo'), '${name}')`);
 
     const content = `${tips}
 import { wrapper } from './demo-common';
@@ -78,7 +78,7 @@ function buildDocsEntry() {
     const docs = glob
         .sync([
             join('docs/**/*.md'),
-            join('packages/**/*.md'),
+            join('src/**/*.md'),
             '!**/node_modules/**'
         ])
         .map(fullPath => {

@@ -9,7 +9,7 @@ import H5Doc, {
     DemoBlock,
     DemoSection
 } from './components/H5Doc/index';
-import H5, { Lazyload } from '../../packages';
+import H5, { Lazyload } from '../../src';
 
 Vue
     .use(H5)

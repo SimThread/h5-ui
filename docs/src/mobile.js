@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import { camelize } from '../../packages/_utils/format/string';
-import { get } from '../../packages/_utils';
-import '../../packages/index.less';
-import Locale from '../../packages/_locale';
+import { camelize } from '../../src/utils/format/string';
+import { get } from '../../src/utils';
+import '../../src/index.less';
+import Locale from '../../src/locale';
 import './h5-touch-emulator';
 
 import {
