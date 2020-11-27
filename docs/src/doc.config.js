@@ -1,10 +1,10 @@
 /* eslint-disable */
-const version = require('../../package.json').version;
+// const version = require('../../package.json').version;
 
 const logo = {
   image: 'https://img.yzcdn.cn/vant/logo.png',
   title: 'h5-ui',
-  version,
+  // version,
   href: '#/'
 };
 
@@ -138,6 +138,10 @@ module.exports = {
                   //   path: '/popup',
                   //   title: 'Popup 弹出层'
                   // },
+                  {
+                    path: '/component1',
+                    title: 'component1 弹出层'
+                  },
                   {
                     path: '/icon',
                     title: 'Icon 图标'

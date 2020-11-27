@@ -12,6 +12,7 @@ import CheckboxGroup from './checkbox-group';
 import Col from './col';
 import Collapse from './collapse';
 import CollapseItem from './collapse-item';
+import Component1 from './component1';
 import Dialog from './dialog';
 import Empty from './empty';
 import Field from './field';
@@ -72,6 +73,7 @@ const components = [
   Col,
   Collapse,
   CollapseItem,
+  Component1,
   Dialog,
   Empty,
   Field,
@@ -143,6 +145,7 @@ export {
   Col,
   Collapse,
   CollapseItem,
+  Component1,
   Dialog,
   Empty,
   Field,

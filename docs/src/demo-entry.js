@@ -11,6 +11,7 @@ export default {
   'col': () => wrapper(import('../../src/col/demo'), 'col'),
   'collapse': () => wrapper(import('../../src/collapse/demo'), 'collapse'),
   'color': () => wrapper(import('../../src/color/demo'), 'color'),
+  'component1': () => wrapper(import('../../src/component1/demo'), 'component1'),
   'dialog': () => wrapper(import('../../src/dialog/demo'), 'dialog'),
   'empty': () => wrapper(import('../../src/empty/demo'), 'empty'),
   'field': () => wrapper(import('../../src/field/demo'), 'field'),

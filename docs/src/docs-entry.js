@@ -18,6 +18,7 @@ export default {
   'col.zh-CN': () => import('../../src/col/zh-CN.md'),
   'collapse.zh-CN': () => import('../../src/collapse/zh-CN.md'),
   'color.zh-CN': () => import('../../src/color/zh-CN.md'),
+  'component1.zh-CN': () => import('../../src/component1/zh-CN.md'),
   'dialog.zh-CN': () => import('../../src/dialog/zh-CN.md'),
   'empty.zh-CN': () => import('../../src/empty/zh-CN.md'),
   'field.zh-CN': () => import('../../src/field/zh-CN.md'),
