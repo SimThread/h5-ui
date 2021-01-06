@@ -3,7 +3,6 @@ module.exports = function (api) {
     const useESModules = BABEL_MODULE !== 'commonjs' && NODE_ENV !== 'test';
 
     api && api.cache(false);
-
     return {
         presets: [
             [
@@ -31,6 +30,7 @@ module.exports = function (api) {
                     useESModules
                 }
             ],
+            '@babel/plugin-transform-modules-umd',
             '@babel/plugin-syntax-dynamic-import',
             '@babel/plugin-proposal-optional-chaining',
             '@babel/plugin-transform-object-assign'

@@ -323,7 +323,7 @@ export default {
 
 <style lang="less">
 // @import '../../style/reset';
-@import '../../src/style/var';
+@import '../../style/var';
 
 .demo-filter-area {
     height: 2000px;

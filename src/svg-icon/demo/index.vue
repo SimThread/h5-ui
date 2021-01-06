@@ -24,8 +24,9 @@
 
 <script>
 const requireAll = requireContext => requireContext.keys().map(requireContext);
-const req = require.context('../../../docs/src/assets/icons', false, /\.svg$/);
+const req = require.context('../../../docs/public/svg', false, /\.svg$/);
 requireAll(req);
+
 export default {
     data() {
         return {};

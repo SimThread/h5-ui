@@ -55,7 +55,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../src/style/var';
+@import '../../style/var';
 
 .demo-collapse {
     .h5-icon-question-o {

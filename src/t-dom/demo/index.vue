@@ -114,8 +114,7 @@
 
 <script>
 /* eslint-disable no-alert */
-// import { TDom } from 'h5-ui';
-import { TDom } from '../../index';
+import TDom from '../index';
 
 export default {
     data() {
@@ -186,7 +185,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="less">
 .t-dom {
     .showBtn {
         display: none;

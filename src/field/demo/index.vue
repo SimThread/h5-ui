@@ -146,7 +146,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../src/style/var';
+@import '../../style/var';
 
 .demo-field {
     padding-bottom: 30px;

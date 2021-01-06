@@ -29,7 +29,7 @@
 <script>
 /* eslint-disable no-alert */
 // import { TDate } from 'h5-ui';
-import { TDate } from '../../index.ts';
+import TDate from '../index';
 
 export default {
     filters: {
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="less">
 .demo-result {
     display: flex;
     justify-content: space-between;

@@ -1,6 +1,6 @@
 <template>
     <demo-section>
-        <demo-block title="添加前导零">
+        <!-- <demo-block title="添加前导零">
             <h5-cell-group>
                 <h5-field
                     v-model="value1"
@@ -22,18 +22,18 @@
             <p class="demo-result">
                 <span style="padding: 10px;">结果：{{ value2 | thousands }}</span>
             </p>
-        </demo-block>
+        </demo-block> -->
     </demo-section>
 </template>
 
 <script>
-import { TNumberFormat } from 'h5-ui';
+// import { TNumberFormat } from 'h5-ui';
 
 export default {
-    filters: {
-        addZero: TNumberFormat.addZero,
-        thousands: TNumberFormat.thousands,
-    },
+    // filters: {
+    //     addZero: TNumberFormat.addZero,
+    //     thousands: TNumberFormat.thousands,
+    // },
     data() {
         return {
             value1: '',
@@ -54,7 +54,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="less">
 .demo-result {
     display: flex;
     justify-content: space-between;

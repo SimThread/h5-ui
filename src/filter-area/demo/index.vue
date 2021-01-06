@@ -421,7 +421,7 @@ export default {
 
 <style lang="less" scoped>
 @import '../../style/reset';
-@import '../../src/style/var';
+@import '../../style/var';
 
 .demo-filter-area {
     .estate-footer {

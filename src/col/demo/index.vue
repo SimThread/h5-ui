@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../src/style/var';
+@import '../../style/var';
 
 .demo-col {
     .van-doc-demo-block {
