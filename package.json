@@ -24,8 +24,9 @@
     "build:style": "gulp --gulpfile ./build/build-style.js",
     "build:style-entry": "node build/build-style-entry.js",
     "build:lib": "node build/build-lib.js",
-    "build:site": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config build/webpack.doc.js",
     "release": "sh build/release.sh",
+    "build:site": "h5-cli build-site",
+    "build:site-back": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config build/webpack.doc.js",
     "dev-back": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js"
   },
   "husky": {
@@ -79,7 +80,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.1.0",
-    "@h5/cli": "0.0.5",
+    "@h5/cli": "0.0.6",
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
     "@vue/babel-preset-jsx": "^1.0.0-beta.2",
