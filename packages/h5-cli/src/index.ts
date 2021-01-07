@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { command, parse, version } from 'commander';
+import { command, parse } from 'commander';
 
 // @ts-ignore
 // import packageJson from '../package.json';
@@ -12,7 +12,7 @@ import { dev } from './commands/dev';
 import { build } from './commands/build';
 // import { release } from './commands/release';
 // import { changelog } from './commands/changelog';
-// import { buildSite } from './commands/build-site';
+import { buildSite } from './commands/build-site';
 // import { commitLint } from './commands/commit-lint';
 
 // version(`@h5/cli ${packageJson.version}`);
@@ -20,8 +20,8 @@ import { build } from './commands/build';
 // process.env.VANT_CLI_VERSION = packageJson.version;
 
 command('dev')
-  .description('Run webpack dev server')
-  .action(dev);
+    .description('Run webpack dev server')
+    .action(dev);
 
 // command('lint')
 //   .description('Run eslint and stylelint')
@@ -44,17 +44,17 @@ command('dev')
 //   .action(clean);
 
 command('build')
-  .description('Compile components in production mode')
-  .option('--watch', 'Watch file change')
-  .action(build);
+    .description('Compile components in production mode')
+    .option('--watch', 'Watch file change')
+    .action(build);
 
 // command('release')
 //   .description('Compile components and release it')
 //   .action(release);
 
-// command('build-site')
-//   .description('Compile site in production mode')
-//   .action(buildSite);
+command('build-site')
+    .description('Compile site in production mode')
+    .action(buildSite);
 
 // command('changelog')
 //   .description('Generate changelog')

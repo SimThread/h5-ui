@@ -3,7 +3,6 @@ import BScroll from 'better-scroll';
 import {
     createNamespace
 } from '../utils';
-console.log('BScroll:', BScroll);
 
 const [createComponent, bem] = createNamespace('scroll');
 

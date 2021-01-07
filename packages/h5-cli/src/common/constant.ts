@@ -1,17 +1,18 @@
+/* eslint-disable global-require */
 import { get } from 'lodash';
 import { existsSync } from 'fs-extra';
 import { join, dirname, isAbsolute } from 'path';
 
 function findRootDir(dir: string): string {
-  if (dir === '/') {
-    return '/';
-  }
+    if (dir === '/') {
+        return '/';
+    }
 
-  if (existsSync(join(dir, 'h5.config.js'))) {
-    return dir;
-  }
+    if (existsSync(join(dir, 'h5.config.js'))) {
+        return dir;
+    }
 
-  return findRootDir(dirname(dir));
+    return findRootDir(dirname(dir));
 }
 
 // Colors
@@ -23,13 +24,12 @@ export const ROOT = findRootDir(CWD);
 export const ES_DIR = join(ROOT, 'es');
 export const LIB_DIR = join(ROOT, 'lib');
 export const DOCS_DIR = join(ROOT, 'docs');
-export const SITE_DIST_DIR = join(ROOT, 'site');
+export const SITE_DIST_DIR = join(ROOT, 'docs/dist');
 export const VANT_CONFIG_FILE = join(ROOT, 'h5.config.js');
 export const PACKAGE_JSON_FILE = join(ROOT, 'package.json');
 export const ROOT_WEBPACK_CONFIG_FILE = join(ROOT, 'webpack.config.js');
 export const ROOT_POSTCSS_CONFIG_FILE = join(ROOT, 'postcss.config.js');
 export const CACHE_DIR = join(ROOT, 'node_modules/.cache');
-console.log('DOCS_DIR:', DOCS_DIR);
 // Relative paths
 export const DIST_DIR = join(__dirname, '../../dist');
 export const CONFIG_DIR = join(__dirname, '../config');
@@ -39,8 +39,8 @@ export const PACKAGE_ENTRY_FILE = join(DIST_DIR, 'package-entry.js');
 export const PACKAGE_STYLE_FILE = join(DIST_DIR, 'package-style.css');
 export const SITE_MODILE_SHARED_FILE = join(DIST_DIR, 'site-mobile-shared.js');
 export const SITE_DESKTOP_SHARED_FILE = join(
-  DIST_DIR,
-  'site-desktop-shared.js'
+    DIST_DIR,
+    'site-desktop-shared.js'
 );
 export const STYPE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json');
 
@@ -58,33 +58,35 @@ export const SCRIPT_EXTS = ['.js', '.jsx', '.vue', '.ts', '.tsx'];
 export const STYLE_EXTS = ['.css', '.less', '.scss'];
 
 export function getPackageJson() {
-  delete require.cache[PACKAGE_JSON_FILE];
+    delete require.cache[PACKAGE_JSON_FILE];
 
-  return require(PACKAGE_JSON_FILE);
+    // eslint-disable-next-line import/no-dynamic-require
+    return require(PACKAGE_JSON_FILE);
 }
 
 export function getVantConfig() {
-  delete require.cache[VANT_CONFIG_FILE];
+    delete require.cache[VANT_CONFIG_FILE];
 
-  try {
-    return require(VANT_CONFIG_FILE);
-  } catch (err) {
-    return {};
-  }
+    try {
+        // eslint-disable-next-line import/no-dynamic-require
+        return require(VANT_CONFIG_FILE);
+    } catch (err) {
+        return {};
+    }
 }
 
 function getSrcDir() {
-  const vantConfig = getVantConfig();
-  const srcDir = get(vantConfig, 'build.srcDir');
+    const vantConfig = getVantConfig();
+    const srcDir = get(vantConfig, 'build.srcDir');
 
-  if (srcDir) {
-    if (isAbsolute(srcDir)) {
-      return srcDir;
+    if (srcDir) {
+        if (isAbsolute(srcDir)) {
+            return srcDir;
+        }
+
+        return join(ROOT, srcDir);
     }
-
-    return join(ROOT, srcDir);
-  }
-  return join(ROOT, 'src');
+    return join(ROOT, 'src');
 }
 
 export const SRC_DIR = getSrcDir();
