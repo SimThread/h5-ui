@@ -27,7 +27,8 @@
     "release": "sh build/release.sh",
     "build:site": "h5-cli build-site",
     "build:site-back": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config build/webpack.doc.js",
-    "dev-back": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js"
+    "dev-back": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
+    "dev-back1": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js"
   },
   "husky": {
     "hooks": {
