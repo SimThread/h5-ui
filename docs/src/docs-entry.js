@@ -52,7 +52,6 @@ export default {
   'README': () => import('../../src/tabbar/README.md'),
   'README': () => import('../../src/tag/README.md'),
   'tag.zh-CN': () => import('../../src/tag/zh-CN.md'),
-  'test-component.zh-CN': () => import('../../src/test-component/zh-CN.md'),
   'README': () => import('../../src/toast/README.md'),
   'toast.zh-CN': () => import('../../src/toast/zh-CN.md'),
   'README': () => import('../../src/uploader/README.md'),

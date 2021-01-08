@@ -1,12 +1,14 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
 import Album from './album';
+import BaseComponent from './base-component';
 import BusinessFilterArea from './business-filter-area';
 import BusinessFilterAreaPanel from './business-filter-area-panel';
 import BusinessSelect from './business-select';
 import Button from './button';
 import Cell from './cell';
 import CellGroup from './cell-group';
+import Ceshi from './ceshi';
 import Checkbox from './checkbox';
 import CheckboxGroup from './checkbox-group';
 import Col from './col';
@@ -53,7 +55,6 @@ import Tabbar from './tabbar';
 import TabbarItem from './tabbar-item';
 import Tabs from './tabs';
 import Tag from './tag';
-import TestComponent from './test-component';
 import TestLess from './test.less';
 import TestTs from './test.ts';
 import Toast from './toast';
@@ -61,15 +62,17 @@ import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 
-const version = '0.0.64';
+const version = '0.0.65';
 const components = [
   Album,
+  BaseComponent,
   BusinessFilterArea,
   BusinessFilterAreaPanel,
   BusinessSelect,
   Button,
   Cell,
   CellGroup,
+  Ceshi,
   Checkbox,
   CheckboxGroup,
   Col,
@@ -114,7 +117,6 @@ const components = [
   TabbarItem,
   Tabs,
   Tag,
-  TestComponent,
   TestLess,
   TestTs,
   Toast,
@@ -138,12 +140,14 @@ export {
   install,
   version,
   Album,
+  BaseComponent,
   BusinessFilterArea,
   BusinessFilterAreaPanel,
   BusinessSelect,
   Button,
   Cell,
   CellGroup,
+  Ceshi,
   Checkbox,
   CheckboxGroup,
   Col,
@@ -190,7 +194,6 @@ export {
   TabbarItem,
   Tabs,
   Tag,
-  TestComponent,
   TestLess,
   TestTs,
   Toast,
