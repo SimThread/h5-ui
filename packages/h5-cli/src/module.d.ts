@@ -6,6 +6,7 @@ declare module 'clean-css';
 declare module 'webpackbar';
 declare module 'release-it';
 declare module 'html-webpack-plugin';
+declare module 'copy-webpack-plugin';
 declare module 'conventional-changelog';
 declare module '@vant/markdown-vetur';
 declare module '@nuxt/friendly-errors-webpack-plugin';

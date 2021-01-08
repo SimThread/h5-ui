@@ -1,109 +1,116 @@
 import merge from 'webpack-merge';
 import WebpackBar from 'webpackbar';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { get } from 'lodash';
 import { join } from 'path';
 import { baseConfig } from './webpack.base';
 import { getVantConfig, getWebpackConfig } from '../common';
 import { VantCliSitePlugin } from '../compiler/vant-cli-site-plugin';
 import {
-  GREEN,
-  SITE_MODILE_SHARED_FILE,
-  SITE_DESKTOP_SHARED_FILE,
-  DOCS_DIR,
+    GREEN,
+    SITE_MODILE_SHARED_FILE,
+    SITE_DESKTOP_SHARED_FILE,
+    DOCS_DIR,
+    SITE_DIST_DIR
 } from '../common/constant';
 
 export function getSiteDevBaseConfig() {
-  const vantConfig = getVantConfig();
-  const baiduAnalytics = get(vantConfig, 'site.baiduAnalytics');
+    const vantConfig = getVantConfig();
+    const baiduAnalytics = get(vantConfig, 'site.baiduAnalytics');
 
-  function getSiteConfig() {
-    const siteConfig = vantConfig.site;
+    function getSiteConfig() {
+        const siteConfig = vantConfig.site;
 
-    if (siteConfig.locales) {
-      return siteConfig.locales[siteConfig.defaultLang || 'en-US'];
+        if (siteConfig.locales) {
+            return siteConfig.locales[siteConfig.defaultLang || 'en-US'];
+        }
+
+        return siteConfig;
     }
 
-    return siteConfig;
-  }
+    function getTitle(config: { title: string; description?: string }) {
+        let { title } = config;
 
-  function getTitle(config: { title: string; description?: string }) {
-    let { title } = config;
+        if (config.description) {
+            title += ` - ${config.description}`;
+        }
 
-    if (config.description) {
-      title += ` - ${config.description}`;
+        return title;
     }
 
-    return title;
-  }
+    const siteConfig = getSiteConfig();
+    const title = getTitle(siteConfig);
 
-  const siteConfig = getSiteConfig();
-  const title = getTitle(siteConfig);
-
-  return merge(baseConfig as any, {
-    entry: {
-      'site-desktop': [join(__dirname, '../../site/desktop/main.js')],
-      'site-mobile': [join(__dirname, '../../site/mobile/main.js')],
-    },
-    devServer: {
-      port: 8080,
-      quiet: true,
-      host: '0.0.0.0',
-      stats: 'errors-only',
-      // publicPath: '/',
-      disableHostCheck: true,
-      contentBase: `${DOCS_DIR}/public`
-    },
-    resolve: {
-      alias: {
-        'site-mobile-shared': SITE_MODILE_SHARED_FILE,
-        'site-desktop-shared': SITE_DESKTOP_SHARED_FILE,
-        // 'h5-ui': SRC,
-      },
-    },
-    output: {
-      chunkFilename: '[name].js',
-    },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          chunks: {
-            chunks: 'all',
-            minChunks: 2,
-            minSize: 0,
-            name: 'chunks',
-          },
+    return merge(baseConfig as any, {
+        entry: {
+            'site-desktop': [join(__dirname, '../../site/desktop/main.js')],
+            'site-mobile': [join(__dirname, '../../site/mobile/main.js')],
         },
-      },
-    },
-    plugins: [
-      new WebpackBar({
-        name: 'Vant Cli',
-        color: GREEN,
-      }),
-      new VantCliSitePlugin(),
-      new HtmlWebpackPlugin({
-        title,
-        logo: siteConfig.logo,
-        description: siteConfig.description,
-        chunks: ['chunks', 'site-desktop'],
-        template: join(__dirname, '../../site/desktop/index.html'),
-        filename: 'index.html',
-        baiduAnalytics,
-      }),
-      new HtmlWebpackPlugin({
-        title,
-        logo: siteConfig.logo,
-        description: siteConfig.description,
-        chunks: ['chunks', 'site-mobile'],
-        template: join(__dirname, '../../site/mobile/index.html'),
-        filename: 'mobile.html',
-        baiduAnalytics,
-      }),
-    ],
-  });
+        devServer: {
+            port: 8080,
+            quiet: true,
+            host: '0.0.0.0',
+            stats: 'errors-only',
+            // publicPath: '/',
+            disableHostCheck: true,
+            contentBase: `${DOCS_DIR}/public`
+        },
+        resolve: {
+            alias: {
+                'site-mobile-shared': SITE_MODILE_SHARED_FILE,
+                'site-desktop-shared': SITE_DESKTOP_SHARED_FILE,
+                // 'h5-ui': SRC,
+            },
+        },
+        output: {
+            chunkFilename: '[name].js',
+        },
+        optimization: {
+            splitChunks: {
+                cacheGroups: {
+                    chunks: {
+                        chunks: 'all',
+                        minChunks: 2,
+                        minSize: 0,
+                        name: 'chunks',
+                    },
+                },
+            },
+        },
+        plugins: [
+            new WebpackBar({
+                name: 'Vant Cli',
+                color: GREEN,
+            }),
+            new VantCliSitePlugin(),
+            new HtmlWebpackPlugin({
+                title,
+                logo: siteConfig.logo,
+                description: siteConfig.description,
+                chunks: ['chunks', 'site-desktop'],
+                template: join(__dirname, '../../site/desktop/index.html'),
+                filename: 'index.html',
+                baiduAnalytics,
+            }),
+            new HtmlWebpackPlugin({
+                title,
+                logo: siteConfig.logo,
+                description: siteConfig.description,
+                chunks: ['chunks', 'site-mobile'],
+                template: join(__dirname, '../../site/mobile/index.html'),
+                filename: 'mobile.html',
+                baiduAnalytics,
+            }),
+            new CopyWebpackPlugin([{
+                from: `${DOCS_DIR}/public`,
+                to: `${SITE_DIST_DIR}/public`,
+                ignore: ['.*']
+            }])
+        ],
+    });
 }
 
 export function getSiteDevConfig() {
-  return merge(getSiteDevBaseConfig(), getWebpackConfig());
+    return merge(getSiteDevBaseConfig(), getWebpackConfig());
 }
