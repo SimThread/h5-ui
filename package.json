@@ -1,6 +1,6 @@
 {
   "name": "@hk591/h5-ui",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "description": "hk591站台UI组件库，基于vant改造",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -16,7 +16,7 @@
   "scripts": {
     "bootstrap": "npm i",
     "dev": "h5-cli dev",
-    "build": "h5-cli build",
+    "build:lib": "h5-cli build",
     "create": "create-h5-cli-app",
     "lint": "eslint --fix --ext .js,ts,.vue --ignore-path .eslintignore . && stylelint **/*.{css,less,vue} --fix --ignore-path  .eslintignore",
     "build:entry": "node build/build-entry.js",
@@ -24,10 +24,10 @@
     "build:h5": "cross-env NODE_ENV=production webpack --color --config build/webpack.build.js && cross-env NODE_ENV=production webpack -p --color --config build/webpack.build.js",
     "build:style": "gulp --gulpfile ./build/build-style.js",
     "build:style-entry": "node build/build-style-entry.js",
-    "build:lib": "node build/build-lib.js",
     "release": "sh build/release.sh",
     "build:site": "h5-cli build-site",
     "build:site-back": "rimraf docs/dist && cross-env NODE_ENV=production webpack --config build/webpack.doc.js",
+    "build:lib-back": "node build/build-lib.js",
     "dev-back": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "dev-back1": "npm run build:entry && webpack-dev-server --inline --progress --config build/webpack.dev.js"
   },
