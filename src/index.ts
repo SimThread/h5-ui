@@ -55,14 +55,12 @@ import Tabbar from './tabbar';
 import TabbarItem from './tabbar-item';
 import Tabs from './tabs';
 import Tag from './tag';
-import TestLess from './test.less';
-import TestTs from './test.ts';
 import Toast from './toast';
 import Uploader from './uploader';
 import VAnchor from './v-anchor';
 import VClickOutside from './v-click-outside';
 
-const version = '0.0.65';
+const version = '0.0.67';
 const components = [
   Album,
   BaseComponent,
@@ -117,8 +115,6 @@ const components = [
   TabbarItem,
   Tabs,
   Tag,
-  TestLess,
-  TestTs,
   Toast,
   Uploader,
   VAnchor,
@@ -194,8 +190,6 @@ export {
   TabbarItem,
   Tabs,
   Tag,
-  TestLess,
-  TestTs,
   Toast,
   Uploader,
   VAnchor,

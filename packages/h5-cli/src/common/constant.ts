@@ -45,8 +45,7 @@ export const SITE_DESKTOP_SHARED_FILE = join(
 export const STYPE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json');
 
 // Config files
-// export const BABEL_CONFIG_FILE = join(CONFIG_DIR, 'babel.config.js');
-export const BABEL_CONFIG_FILE = join(ROOT, 'babel.config.js');
+export const BABEL_CONFIG_FILE = join(CONFIG_DIR, 'babel.config.js');
 export const POSTCSS_CONFIG_FILE = join(ROOT, 'postcss.config.js');
 export const JEST_SETUP_FILE = join(CONFIG_DIR, 'jest.setup.js');
 export const JEST_CONFIG_FILE = join(CONFIG_DIR, 'jest.config.js');

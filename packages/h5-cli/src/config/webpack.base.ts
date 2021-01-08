@@ -54,14 +54,19 @@ export const baseConfig = {
             },
             {
                 test: /\.(js|ts|jsx|tsx)$/,
-                exclude: /node_modules\/(?!(@vant\/cli))/,
+                exclude: /node_modules\/(?!(@h5\/cli))/,
                 use: [
-                    CACHE_LOADER,
+                    // CACHE_LOADER,
                     {
                         loader: 'babel-loader',
+                        // options: {
+                        //     config: {
+                        //         path: BABEL_CONFIG_FILE,
+                        //     },
+                        // },
                         options: {
                             configFile: BABEL_CONFIG_FILE
-                        },
+                        }
                     }],
             },
             {
