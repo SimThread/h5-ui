@@ -1,6 +1,6 @@
 # UI组件库发布流程
 
-## 一、组件结构
+### 一、组件结构
 
 ![1559631929479](
 https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631929479.png)
@@ -16,22 +16,19 @@ https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631929479.png)
 
 
 
-## 二、创建组件
+### 二、手动创建组件
 
 1.在packages目录中创建一个组件，组件结构参考上面的`组件结构说明`
 ![1559631004914](https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631004914.png)
 
 2.配置文档路由路径和标题
 
-在`docs/src/doc.config.js`文件中配置文档的路由路径和标题
+在`doc.config.js`文件中配置文档的路由路径和标题
 
-![1559631193337](
-https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631193337.png)
+![1559631193337](https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631193337.png)
 
-3.引入新组件样式
-在`packages/index.less`中引入新组件的样式
 
-4.重新生成路由配置文件
+3.重新生成路由配置文件
 
 执行以下命令来重新生成路由配置文件
 
@@ -39,8 +36,7 @@ https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631193337.png)
 npm run build:entry
 ```
 
-![1559631354236](
-https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631354236.png)
+![1559631354236](https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631354236.png)
 
 5.启动服务
 
@@ -49,8 +45,23 @@ npm run dev
 ```
 服务可以一开始就启动，新增组件不需要重启服务
 
+### 三、CLI生成、删除组件
 
-## 三、发布组件
+#### 创建组件
+执行以下命令，按提示操作后，自动生成组件模板
+```bash
+npm run create
+```
+
+#### 删除组件
+```bash
+npm run delete
+```
+![自动生成组件](https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/自动生成组件.gif)
+
+
+
+### 四、发布组件
 1.登录npm账号。使用npm login登录，任意账号都可以发布项目
 
 2.提交代码。需要在develop分支上提交
@@ -59,7 +70,7 @@ npm run dev
 
 4.发布版本。在develop分支上执行npm run release后，在控制台输入要发布的版号；之后会自动进行打包并发布到公司的[npm仓库](http://npmjs.addcn.com/)
 
-## 四、更新最新发布的组件库
+### 五、更新最新发布的组件库
 
 在工程目录中执行以下命令
 

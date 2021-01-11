@@ -7,13 +7,6 @@
                     <span>{{ config.title }}</span>
                     <span class="subtitle">基于<a href="https://vant-contrib.gitee.io/vant/#/zh-CN/">Vant</a>改造</span>
                 </a>
-
-                <!-- <search-input
-                    v-if="searchConfig"
-                    :lang="lang"
-                    :search-config="searchConfig"
-                /> -->
-
                 <ul class="van-doc-header__top-nav">
                     <li v-for="item in config.links" class="van-doc-header__top-nav-item">
                         <a class="van-doc-header__logo-link" target="_blank" :href="item.url">

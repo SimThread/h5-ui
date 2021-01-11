@@ -9,7 +9,7 @@
 			"searchConfig": {
 				"apiKey": "90067aecdaa2c85220e2783cd305caac",
 				"indexName": "vant",
-				"placeholder": "搜索文档..."
+				"placeholder": " "
 			},
 			"showSimulator": true,
 			"nav": [
