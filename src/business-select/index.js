@@ -16,8 +16,8 @@ export default createComponent({
             default: 'text'
         },
         renderItem: {
-            type: Function,
-            default: () => {}
+            type: [Function, null],
+            default: null
         }
     },
 

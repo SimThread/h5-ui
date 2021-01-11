@@ -11,32 +11,32 @@ import { PACKAGE_ENTRY_FILE, PACKAGE_STYLE_FILE } from '../common/constant';
 const PLUGIN_NAME = 'VantCliSitePlugin';
 
 export async function genSiteEntry() {
-  return new Promise((resolve, reject) => {
-    genStyleDepsMap()
-      .then(() => {
-        genPackageEntry({
-          outputPath: PACKAGE_ENTRY_FILE,
-        });
-        genPacakgeStyle({
-          outputPath: replaceExt(PACKAGE_STYLE_FILE, `.${CSS_LANG}`),
-        });
-        genSiteMobileShared();
-        genSiteDesktopShared();
-        resolve();
-      })
-      .catch(err => {
-        console.log(err);
-        reject(err);
-      });
-  });
+    return new Promise((resolve, reject) => {
+        genStyleDepsMap()
+            .then(() => {
+                genPackageEntry({
+                    outputPath: PACKAGE_ENTRY_FILE,
+                });
+                genPacakgeStyle({
+                    outputPath: replaceExt(PACKAGE_STYLE_FILE, `.${CSS_LANG}`),
+                });
+                genSiteMobileShared();
+                genSiteDesktopShared();
+                resolve();
+            })
+            .catch(err => {
+                console.log(err);
+                reject(err);
+            });
+    });
 }
 
 export class VantCliSitePlugin {
-  apply(compiler: Compiler) {
-    if (process.env.NODE_ENV === 'production') {
-      compiler.hooks.beforeCompile.tapPromise(PLUGIN_NAME, genSiteEntry);
-    } else {
-      compiler.hooks.watchRun.tapPromise(PLUGIN_NAME, genSiteEntry);
+    apply(compiler: Compiler) {
+        if (process.env.NODE_ENV === 'production') {
+            compiler.hooks.beforeCompile.tapPromise(PLUGIN_NAME, genSiteEntry);
+        } else {
+            compiler.hooks.watchRun.tapPromise(PLUGIN_NAME, genSiteEntry);
+        }
     }
-  }
 }

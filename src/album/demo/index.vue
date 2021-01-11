@@ -105,9 +105,7 @@ export default {
         };
     },
     watch: {
-        showPreview(newVal, oldVal) {
-            console.log('newVal:', newVal);
-        }
+        showPreview(newVal, oldVal) {}
     },
     created() {
         const data = {
@@ -264,7 +262,6 @@ export default {
         onClickVR(vrInfo) {
             // eslint-disable-next-line no-alert
             alert('click VR');
-            console.log('vrInfo:', vrInfo);
         },
         goImgDisplay(item, parentIndex, childIndex) {
             this.showAlbum = true;

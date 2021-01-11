@@ -30,7 +30,6 @@ export default {
         },
 
         config() {
-            console.log('this.$active:', this.$active);
             return docConfig.site.locales[this.$active];
         },
 

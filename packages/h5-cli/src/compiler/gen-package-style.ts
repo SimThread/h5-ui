@@ -10,36 +10,36 @@ type Options = {
 };
 
 export function genPacakgeStyle(options: Options) {
-  const styleDepsJson = require(STYPE_DEPS_JSON_FILE);
-  const ext = '.' + CSS_LANG;
+    const styleDepsJson = require(STYPE_DEPS_JSON_FILE);
+    const ext = '.' + CSS_LANG;
 
-  let content = '';
+    let content = '';
 
-  let baseFile = getCssBaseFile();
-  if (baseFile) {
-    if (options.pathResolver) {
-      baseFile = options.pathResolver(baseFile);
+    let baseFile = getCssBaseFile();
+    if (baseFile) {
+        if (options.pathResolver) {
+            baseFile = options.pathResolver(baseFile);
+        }
+
+        content += `@import "${normalizePath(baseFile)}";\n`;
     }
 
-    content += `@import "${normalizePath(baseFile)}";\n`;
-  }
+    content += styleDepsJson.sequence
+        .map((name: string) => {
+            let path = join(SRC_DIR, `${name}/index${ext}`);
 
-  content += styleDepsJson.sequence
-    .map((name: string) => {
-      let path = join(SRC_DIR, `${name}/index${ext}`);
+            if (!existsSync(path)) {
+                return '';
+            }
 
-      if (!existsSync(path)) {
-        return '';
-      }
+            if (options.pathResolver) {
+                path = options.pathResolver(path);
+            }
 
-      if (options.pathResolver) {
-        path = options.pathResolver(path);
-      }
+            return `@import "${normalizePath(path)}";`;
+        })
+        .filter((item: string) => !!item)
+        .join('\n');
 
-      return `@import "${normalizePath(path)}";`;
-    })
-    .filter((item: string) => !!item)
-    .join('\n');
-
-  smartOutputFile(options.outputPath, content);
+    smartOutputFile(options.outputPath, content);
 }

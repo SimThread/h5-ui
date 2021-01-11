@@ -59,11 +59,6 @@ export const baseConfig = {
                     // CACHE_LOADER,
                     {
                         loader: 'babel-loader',
-                        // options: {
-                        //     config: {
-                        //         path: BABEL_CONFIG_FILE,
-                        //     },
-                        // },
                         options: {
                             configFile: BABEL_CONFIG_FILE
                         }

@@ -59,8 +59,7 @@ export function getSiteDevBaseConfig() {
         resolve: {
             alias: {
                 'site-mobile-shared': SITE_MODILE_SHARED_FILE,
-                'site-desktop-shared': SITE_DESKTOP_SHARED_FILE,
-                // 'h5-ui': SRC,
+                'site-desktop-shared': SITE_DESKTOP_SHARED_FILE
             },
         },
         output: {
@@ -80,7 +79,7 @@ export function getSiteDevBaseConfig() {
         },
         plugins: [
             new WebpackBar({
-                name: 'Vant Cli',
+                name: 'H5 Cli',
                 color: GREEN,
             }),
             new VantCliSitePlugin(),

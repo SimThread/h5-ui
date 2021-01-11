@@ -34,9 +34,7 @@ export default {
 
     created() {},
     methods: {
-        animCreated() {
-            console.log('animCreated');
-        }
+        animCreated() {}
     }
 };
 </script>

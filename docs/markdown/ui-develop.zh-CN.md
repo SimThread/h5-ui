@@ -12,7 +12,7 @@ https://bear-markdown-img.oss-cn-shenzhen.aliyuncs.com/1559631929479.png)
 | demo       | 目录，通常里面是一个index.vue文件（也可以放资源文件等），会展示在文档中的demo中 |
 | index.js   | 组件的主体逻辑代码                                           |
 | index.less | 组件的样式                                                   |
-| zh-CN.md   | 组件的文档                                             |
+| README.md   | 组件的文档                                             |
 
 
 

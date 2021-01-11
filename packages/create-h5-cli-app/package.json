@@ -1,6 +1,6 @@
 {
   "name": "create-h5-cli-app",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Create Vant Cli App",
   "main": "lib/index.js",
   "bin": {
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
+    "commander": "^6.2.1",
     "consola": "^2.15.0",
     "fs-extra": "^8.1.0",
     "inquirer": "^7.0.6",

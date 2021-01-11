@@ -36,7 +36,7 @@ Vue.use(BusinessFilterArea).use(BusinessFilterAreaPanel).use(BusinessSelect);
 </h5-business-filter-area>
 ```
 
-其中`h5-business-filter-area-panel`为面板组件，用于放置不同内容，例如区域筛选面板、面积筛选面板、排序筛选面板；`h5-business-select`为级联筛选栏，例如区域、港铁、排序等筛选需要用到，又`vant`的`picker`组件改造而来
+其中`h5-business-filter-area-panel`为面板组件，用于放置不同内容，例如区域筛选面板、面积筛选面板、排序筛选面板；`h5-business-select`为级联筛选栏，例如区域、港铁、排序等筛选需要用到，由`vant`的`picker`组件改造而来
 
 #### 粘性布局
 注意：可能存在问题，建议使用`vant-ui`的`Sticky`组件
@@ -175,6 +175,15 @@ export default {
 |------|------| ------ |
 | change | 选项改变时触发 | 单列：Picker 实例，选中值，选中值对应的索引 <br>多列：Picker 实例，所有列选中值，当前列对应的索引 |
 
+### BusinessSelect API
+
+`columns`的数据格式可参考[vant picker](https://vant-contrib.gitee.io/vant/#/zh-CN/picker)
+
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|------|
+| columns | 选项对应的数据 | `Array` | - |
+| value-key | 选项文本对应的字段 | `String` | - |
+| render-item | 选项渲染函数 | `Function`或`null` | null |
 
 ### BusinessSelect 方法
 通过 ref 可以获取到 Picker 实例并调用实例方法

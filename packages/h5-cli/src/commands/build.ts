@@ -149,7 +149,6 @@ async function runBuildTasks() {
             spinner.succeed(text);
         } catch (err) {
             spinner.fail(text);
-            console.log(err);
             throw err;
         }
     }
@@ -179,7 +178,6 @@ function watchFileChange() {
             spinner.succeed('Compiled: ' + slimPath(path));
         } catch (err) {
             spinner.fail('Compile failed: ' + path);
-            console.log(err);
         }
     });
 }

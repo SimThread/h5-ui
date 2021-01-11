@@ -27,18 +27,6 @@ command('dev')
 //   .description('Run eslint and stylelint')
 //   .action(lint);
 
-// command('test')
-//   .description('Run unit tests through jest')
-//   .option(
-//     '--watch',
-//     'Watch files for changes and rerun tests related to changed files'
-//   )
-//   .option(
-//     '--clearCache',
-//     'Clears the configured Jest cache directory and then exits'
-//   )
-//   .action(test);
-
 // command('clean')
 //   .description('Clean all dist files')
 //   .action(clean);

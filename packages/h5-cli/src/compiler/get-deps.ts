@@ -9,65 +9,65 @@ let existsCache: Record<string, boolean> = {};
 const IMPORT_RE = /import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g;
 
 function matchImports(code: string): string[] {
-  return code.match(IMPORT_RE) || [];
+    return code.match(IMPORT_RE) || [];
 }
 
 function exists(filePath: string) {
-  if (!(filePath in existsCache)) {
-    existsCache[filePath] = existsSync(filePath);
-  }
+    if (!(filePath in existsCache)) {
+        existsCache[filePath] = existsSync(filePath);
+    }
 
-  return existsCache[filePath];
+    return existsCache[filePath];
 }
 
 export function fillExt(filePath: string) {
-  for (let i = 0; i < SCRIPT_EXTS.length; i++) {
-    const completePath = `${filePath}${SCRIPT_EXTS[i]}`;
-    if (exists(completePath)) {
-      return completePath;
+    for (let i = 0; i < SCRIPT_EXTS.length; i++) {
+        const completePath = `${filePath}${SCRIPT_EXTS[i]}`;
+        if (exists(completePath)) {
+            return completePath;
+        }
     }
-  }
 
-  for (let i = 0; i < SCRIPT_EXTS.length; i++) {
-    const completePath = `${filePath}/index${SCRIPT_EXTS[i]}`;
-    if (exists(completePath)) {
-      return completePath;
+    for (let i = 0; i < SCRIPT_EXTS.length; i++) {
+        const completePath = `${filePath}/index${SCRIPT_EXTS[i]}`;
+        if (exists(completePath)) {
+            return completePath;
+        }
     }
-  }
 
-  return '';
+    return '';
 }
 
 function getPathByImport(code: string, filePath: string) {
-  const divider = code.includes('"') ? '"' : "'";
-  const relativePath = code.split(divider)[1];
+    const divider = code.includes('"') ? '"' : "'";
+    const relativePath = code.split(divider)[1];
 
-  if (relativePath.includes('.')) {
-    return fillExt(join(filePath, '..', relativePath));
-  }
+    if (relativePath.includes('.')) {
+        return fillExt(join(filePath, '..', relativePath));
+    }
 
-  return null;
+    return null;
 }
 
 export function clearDepsCache() {
-  depsMap = {};
-  existsCache = {};
+    depsMap = {};
+    existsCache = {};
 }
 
 export function getDeps(filePath: string) {
-  if (depsMap[filePath]) {
-    return depsMap[filePath];
-  }
+    if (depsMap[filePath]) {
+        return depsMap[filePath];
+    }
 
-  const code = readFileSync(filePath, 'utf-8');
-  const imports = matchImports(code);
-  const paths = imports
-    .map(item => getPathByImport(item, filePath))
-    .filter(item => !!item) as string[];
+    const code = readFileSync(filePath, 'utf-8');
+    const imports = matchImports(code);
+    const paths = imports
+        .map(item => getPathByImport(item, filePath))
+        .filter(item => !!item) as string[];
 
-  depsMap[filePath] = paths;
+    depsMap[filePath] = paths;
 
-  paths.forEach(getDeps);
+    paths.forEach(getDeps);
 
-  return paths;
+    return paths;
 }

@@ -1,36 +1,39 @@
 @import './var';
 
 code {
-  position: relative;
-  display: block;
-  overflow-x: auto;
-  color: @van-doc-code-color;
-  font-weight: 400;
-  font-size: 13.4px;
-  font-family: @van-doc-code-font-family;
-  line-height: 26px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  -webkit-font-smoothing: auto;
+    position: relative;
+    display: block;
+    padding: 16px;
+    overflow-x: auto;
+    color: #58727e;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: 'Source Code Pro', 'Monaco', 'Inconsolata', monospace;
+    line-height: 26px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-font-smoothing: auto;
+    background-color: #fafafa;
+    border-radius: 16px;
 }
 
 pre {
-  margin: 20px 0 0;
+    margin: 20px 0 0;
 
-  + p {
-    margin-top: 20px;
-  }
+    + p {
+        margin-top: 20px;
+    }
 }
 
 .hljs {
-  display: block;
-  padding: 0.5em;
-  overflow-x: auto;
-  background: #fff;
+    display: block;
+    padding: 0.5em;
+    overflow-x: auto;
+    background: #fff;
 }
 
 .hljs-subst {
-  color: @van-doc-code-color;
+    color: @van-doc-code-color;
 }
 
 .hljs-string,
@@ -39,18 +42,18 @@ pre {
 .hljs-template-tag,
 .hljs-template-variable,
 .hljs-addition {
-  color: @van-doc-green;
+    color: @van-doc-green;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #999;
+    color: #999;
 }
 
 .hljs-params,
 .hljs-keyword,
 .hljs-attribute {
-  color: @van-doc-purple;
+    color: @van-doc-purple;
 }
 
 .hljs-deletion,
@@ -60,7 +63,7 @@ pre {
 .hljs-literal,
 .hljs-bullet,
 .hljs-link {
-  color: #eb6f6f;
+    color: #eb6f6f;
 }
 
 .hljs-attr,
@@ -74,9 +77,9 @@ pre {
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-strong {
-  color: #4994df;
+    color: #4994df;
 }
 
 .hljs-emphasis {
-  font-style: italic;
+    font-style: italic;
 }

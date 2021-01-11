@@ -48,12 +48,12 @@ function getRoutes() {
     if (locales) {
         routes.push({
             path: '*',
-            redirect: route => `/${getLangFromRoute(route)}/`,
+            redirect: route => `/${getLangFromRoute(route)}/intro`,
         });
     } else {
         routes.push({
             path: '*',
-            redirect: '/',
+            redirect: '/intro',
         });
     }
 

@@ -14,7 +14,7 @@ const PROMPTS = [
         name: 'componentType',
         message: '选择组件类型',
         type: 'list',
-        choices: ['Less', 'Sass'],
+        choices: [],
     },
     {
         type: 'input',
@@ -28,7 +28,7 @@ const PROMPTS = [
     },
 ];
 
-export class VanGenerator extends Generator {
+export class CreateGenerator extends Generator {
   inputs = {
       name: '',
       componentType: '',
@@ -50,9 +50,7 @@ export class VanGenerator extends Generator {
   async prompting() {
       const dataString = readFileSync(join(__dirname, '../../../doc.config.json'), 'utf-8');
       const data = JSON.parse(dataString);
-      //   console.log('readFileSync generator data:', data);
-      const types = data.locales['zh-CN'].nav.map(item => item.title);
-      //   console.log('types:', types);
+      const types = data.locales['zh-CN'].nav.map((item: any) => item.title).filter((item: any) => item !== '开发指南');
       PROMPTS[0].choices = types;
 
       return this.prompt<Record<string, string>>(PROMPTS).then(inputs => {
@@ -60,7 +58,7 @@ export class VanGenerator extends Generator {
           this.inputs.componentType = componentType;
           this.inputs.componentName = componentName;
           this.inputs.zh = zh;
-          data.locales['zh-CN'].nav = data.locales['zh-CN'].nav.map(item => {
+          data.locales['zh-CN'].nav = data.locales['zh-CN'].nav.map((item: any) => {
               if (item.title == componentType) {
                   item.items.push({
                       path: componentName,
@@ -71,15 +69,8 @@ export class VanGenerator extends Generator {
               return item;
           });
 
-          //   console.log('zh nav:', data.locales['zh-CN'].nav);
-
           const str = JSON.stringify(data, null, '\t');
           writeFileSync(join(__dirname, '../../../doc.config.json'), str);
-
-          //   const cssLang = preprocessor === 'sass' ? 'scss' : preprocessor;
-
-          //   this.inputs.cssLang = cssLang;
-          //   this.inputs.preprocessor = preprocessor;
       });
   }
 

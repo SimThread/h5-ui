@@ -2,20 +2,10 @@
 	"defaultLang": "zh-CN",
 	"locales": {
 		"zh-CN": {
-			"title": "Vant",
+			"title": "H5-ui",
 			"description": "轻量、可靠的移动端 Vue 组件库",
 			"logo": "https://img.yzcdn.cn/vant/logo.png",
 			"langLabel": "中文",
-			"links": [
-				{
-					"logo": "https://b.yzcdn.cn/vant/logo/weapp.svg",
-					"url": "/vant-weapp"
-				},
-				{
-					"logo": "https://b.yzcdn.cn/vant/logo/github.svg",
-					"url": "https://github.com/youzan/vant"
-				}
-			],
 			"searchConfig": {
 				"apiKey": "90067aecdaa2c85220e2783cd305caac",
 				"indexName": "vant",
@@ -127,6 +117,10 @@
 						{
 							"path": "business-filter-area",
 							"title": "BusinessFilterArea 新盤篩選區"
+						},
+						{
+							"path": "album",
+							"title": "Album 相册"
 						}
 					]
 				}

@@ -3,13 +3,13 @@ import { build } from '../commands/build';
 import { changelog } from '../commands/changelog';
 
 class VantCliReleasePlugin extends releaseIt.Plugin {
-  async beforeRelease() {
+    async beforeRelease() {
     // log an empty line
-    console.log('');
+        console.log('');
 
-    await build();
-    await changelog();
-  }
+        await build();
+        await changelog();
+    }
 }
 
 module.exports = VantCliReleasePlugin;

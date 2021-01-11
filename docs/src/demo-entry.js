@@ -40,6 +40,7 @@ export default {
   'tab': () => wrapper(import('../../src/tab/demo'), 'tab'),
   'tabbar': () => wrapper(import('../../src/tabbar/demo'), 'tabbar'),
   'tag': () => wrapper(import('../../src/tag/demo'), 'tag'),
+  'test-component': () => wrapper(import('../../src/test-component/demo'), 'test-component'),
   'toast': () => wrapper(import('../../src/toast/demo'), 'toast'),
   'v-anchor': () => wrapper(import('../../src/v-anchor/demo'), 'v-anchor'),
   'v-click-outside': () => wrapper(import('../../src/v-click-outside/demo'), 'v-click-outside')

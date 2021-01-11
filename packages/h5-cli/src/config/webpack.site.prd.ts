@@ -9,22 +9,22 @@ const outputDir = get(vantConfig, 'build.site.outputDir', SITE_DIST_DIR);
 const publicPath = get(vantConfig, 'build.site.publicPath', '/');
 
 export function getSitePrdConfig() {
-  return merge(
-    getSiteDevBaseConfig(),
-    {
-      mode: 'production',
-      stats: 'none',
-      performance: {
-        maxAssetSize: 5 * 1024 * 1024,
-        maxEntrypointSize: 5 * 1024 * 1024,
-      },
-      output: {
-        publicPath,
-        path: outputDir,
-        filename: '[name].[hash:8].js',
-        chunkFilename: 'async_[name].[chunkhash:8].js',
-      },
-    },
-    getWebpackConfig()
-  );
+    return merge(
+        getSiteDevBaseConfig(),
+        {
+            mode: 'production',
+            stats: 'none',
+            performance: {
+                maxAssetSize: 5 * 1024 * 1024,
+                maxEntrypointSize: 5 * 1024 * 1024,
+            },
+            output: {
+                publicPath,
+                path: outputDir,
+                filename: '[name].[hash:8].js',
+                chunkFilename: 'async_[name].[chunkhash:8].js',
+            },
+        },
+        getWebpackConfig()
+    );
 }

@@ -1,24 +1,20 @@
 #!/usr/bin/env node
+import { command, parse } from 'commander';
+import { CreateGenerator } from './generator';
+import { DeleteGenerator } from './delete';
 
-// import inquirer from 'inquirer';
-// import { ensureDir } from 'fs-extra';
-import { VanGenerator } from './generator';
+command('create')
+    .description('Run webpack dev server')
+    .action(async () => {
+        const generator = new CreateGenerator('');
+        generator.run();
+    });
 
-// const PROMPTS = [
-//     {
-//         type: 'input',
-//         name: 'name',
-//         message: 'Your package name',
-//     },
-// ];
+command('delete')
+    .description('Run webpack dev server')
+    .action(async () => {
+        const deleteor = new DeleteGenerator('');
+        deleteor.run();
+    });
 
-export default async function run() {
-    // const { name } = await inquirer.prompt(PROMPTS);
-
-    // ensureDir(name);
-
-    const generator = new VanGenerator('');
-    generator.run();
-}
-
-run();
+parse();

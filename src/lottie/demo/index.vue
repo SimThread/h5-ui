@@ -25,9 +25,7 @@ export default {
 
     },
     methods: {
-        animCreated() {
-            console.log('animCreated');
-        }
+        animCreated() {}
     }
 };
 </script>

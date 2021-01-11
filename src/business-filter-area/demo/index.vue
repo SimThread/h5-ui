@@ -64,7 +64,7 @@
                 </h5-business-filter-area-panel>
                 <h5-business-filter-area-panel class="sort-panel" :delay-render="true">
                     <template #title><h5-icon name="paixu" /></template>
-                    <h5-business-select ref="areaSelect" :columns="sort.options" value-key="text" :render-item="null" />
+                    <h5-business-select ref="areaSelect" :columns="sort.options" value-key="text" />
                 </h5-business-filter-area-panel>
             </h5-business-filter-area>
         </demo-block>
