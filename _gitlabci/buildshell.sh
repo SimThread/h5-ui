@@ -1,4 +1,5 @@
 #!/bin/bash
+ProjectDir="${HtdocsDir}/${Project}-${CI_COMMIT_REF_NAME}"
 function NpmInstall()
 {
     find ${ProjectDir}/package-lock.json -type f -print | xargs md5sum > /tmp/${ProjectName}_NpmInstall_new.md5
