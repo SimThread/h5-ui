@@ -12,16 +12,16 @@ const root = path.join(__dirname, '../');
 const join = dir => path.join(root, dir);
 
 function buildH5Entry() {
-  const uninstallComponents = [
-    'Locale',
-    'Lazyload',
-    'Waterfall'
-  ];
+    const uninstallComponents = [
+        'Locale',
+        'Lazyload',
+        'Waterfall'
+    ];
 
-  const importList = Components.map(name => `import ${uppercamelize(name)} from './${name}';`);
-  const exportList = Components.map(name => `${uppercamelize(name)}`);
-  const intallList = exportList.filter(name => !~uninstallComponents.indexOf(uppercamelize(name)));
-  const content = `${tips}
+    const importList = Components.map(name => `import ${uppercamelize(name)} from './${name}';`);
+    const exportList = Components.map(name => `${uppercamelize(name)}`);
+    const intallList = exportList.filter(name => !~uninstallComponents.indexOf(uppercamelize(name)));
+    const content = `${tips}
 ${importList.join('\n')}
 
 const version = '${version}';
@@ -52,46 +52,47 @@ export default {
 };
 `;
 
-  fs.writeFileSync(path.join(__dirname, '../packages/index.js'), content);
+    fs.writeFileSync(path.join(__dirname, '../src/index.ts'), content);
 }
 
 function buildDemoEntry() {
-  const dir = path.join(__dirname, '../packages');
-  const demos = fs.readdirSync(dir)
-    .filter(name => fs.existsSync(path.join(dir, `${name}/demo/index.vue`)))
-    .map(name => `'${name}': () => wrapper(import('../../packages/${name}/demo'), '${name}')`);
+    const dir = path.join(__dirname, '../src');
+    const demos = fs.readdirSync(dir)
+        .filter(name => fs.existsSync(path.join(dir, `${name}/demo/index.vue`)))
+        .map(name => `'${name}': () => wrapper(import('../../src/${name}/demo'), '${name}')`);
 
-  const content = `${tips}
+    const content = `${tips}
 import { wrapper } from './demo-common';
 
 export default {
   ${demos.join(',\n  ')}
 };
 `;
-  fs.writeFileSync(path.join(dir, '../docs/src/demo-entry.js'), content);
+    fs.writeFileSync(path.join(dir, '../docs/src/demo-entry.js'), content);
 }
 
-// generate webpack entry file for markdown docs
+// 为markdown文档生成webpack入口文件
 function buildDocsEntry() {
-  const output = join('docs/src/docs-entry.js');
-  const getName = fullPath => fullPath.replace(/\/(zh-CN)/, '').split('/').pop().replace('.md', '');
-  const docs = glob
-    .sync([
-      join('docs/**/*.md'),
-      join('packages/**/*.md'),
-      '!**/node_modules/**'
-    ])
-    .map(fullPath => {
-      const name = getName(fullPath);
-      return `'${name}': () => import('${path.relative(join('docs/src'), fullPath).replace(/\\/g, '/')}')`;
-    });
+    const output = join('docs/src/docs-entry.js');
+    const getName = fullPath => fullPath.replace(/\/(en|zh)/, '.$1').split('/').pop().replace('.md', '');
+    const docs = glob
+        .sync([
+            join('docs/**/*.md'),
+            join('src/**/*.md'),
+            '!**/node_modules/**'
+        ])
+        .map(fullPath => {
+            const name = getName(fullPath);
+            const mdFilePath = path.relative(join('docs/src'), fullPath).replace(/\\/g, '/');
+            return `'${name}': () => import('${mdFilePath}')`;
+        });
 
-  const content = `${tips}
+    const content = `${tips}
 export default {
   ${docs.join(',\n  ')}
 };
 `;
-  fs.writeFileSync(output, content);
+    fs.writeFileSync(output, content);
 }
 
 buildH5Entry();

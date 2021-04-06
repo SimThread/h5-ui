@@ -1,0 +1,86 @@
+{
+  "id": "1453388",
+  "name": "hk591_h5-ui",
+  "font_family": "h5-icon",
+  "css_prefix_text": "h5-icon-",
+  "description": "hk591的h5-ui项目",
+  "glyphs": [
+    {
+      "icon_id": "10284050",
+      "name": "三角下标（正方形）",
+      "font_class": "triangle-down",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "7960844",
+      "name": "三角下标（正方形）",
+      "font_class": "triangle-up",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "11905406",
+      "name": "排序",
+      "font_class": "paixu",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "9358584",
+      "name": "arrow",
+      "font_class": "arrow",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "9358585",
+      "name": "arrow-up",
+      "font_class": "arrow-up",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "9358589",
+      "name": "arrow-down",
+      "font_class": "arrow-down",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "9358590",
+      "name": "arrow-left",
+      "font_class": "arrow-left",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "9358648",
+      "name": "cross",
+      "font_class": "cross",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "9358651",
+      "name": "fail",
+      "font_class": "fail",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "9358736",
+      "name": "plus",
+      "font_class": "plus",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "9358793",
+      "name": "success",
+      "font_class": "success",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}

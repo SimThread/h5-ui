@@ -10,37 +10,35 @@ import Simulator from './component/Simulator';
 import DemoBlock from './component/DemoBlock';
 import DemoSection from './component/DemoSection';
 import progress from 'nprogress';
-import './style/nprogress.css';
+import './style/nprogress.less';
 
 const components = [
-  Nav,
-  Header,
-  Footer,
-  H5Doc,
-  Block,
-  Content,
-  Container,
-  Simulator,
-  DemoBlock,
-  DemoSection
+    Nav,
+    Header,
+    Footer,
+    H5Doc,
+    Block,
+    Content,
+    Container,
+    Simulator,
+    DemoBlock,
+    DemoSection
 ];
 
 export default function install() {
-  components.map(Component => {
-    Vue.component(Component.name, Component);
-  });
+    components.map(Component => Vue.component(Component.name, Component));
 }
 
 export {
-  Nav,
-  Header,
-  Footer,
-  H5Doc,
-  Block,
-  Content,
-  Container,
-  Simulator,
-  DemoBlock,
-  DemoSection,
-  progress
+    Nav,
+    Header,
+    Footer,
+    H5Doc,
+    Block,
+    Content,
+    Container,
+    Simulator,
+    DemoBlock,
+    DemoSection,
+    progress
 };

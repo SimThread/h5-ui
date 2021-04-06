@@ -14,7 +14,9 @@ export type ImagePreviewOptions = string[] | {
 
 export class H5ImagePreview extends H5PopupMixin {
   images: string[];
+
   showIndex: boolean;
+
   startPosition: number;
 }
 

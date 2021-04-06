@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 import Vue from 'vue';
 import { H5Component } from './component';
 import { Toast } from './toast';
@@ -7,8 +8,9 @@ import { Locale } from './locale';
 import { Lazyload } from './lazyload';
 import { Waterfall } from './waterfall';
 import { ImagePreview } from './image-preview';
+import { Methods } from './Methods';
 
-export const version: string
+export const version: string;
 export function install (vue: typeof Vue): void
 export class Actionsheet extends H5Component {}
 export class AddressEdit extends H5Component {}
@@ -73,11 +75,12 @@ export class Tag extends H5Component {}
 export class TreeSelect extends H5Component {}
 export class Uploader extends H5Component {}
 export {
-  Toast,
-  Dialog,
-  Notify,
-  Locale,
-  Lazyload,
-  Waterfall,
-  ImagePreview
-}
+    Toast,
+    Dialog,
+    Notify,
+    Locale,
+    Lazyload,
+    Waterfall,
+    ImagePreview,
+    Methods
+};

@@ -1,0 +1,129 @@
+@import '../style/var.less';
+
+.h5-skeleton {
+    display: flex;
+    padding: 0 @padding-md;
+
+    &__avatar {
+        flex-shrink: 0;
+        margin-right: @padding-md;
+        background-color: @skeleton-avatar-background-color;
+
+        &--round {
+            border-radius: 100%;
+        }
+    }
+
+    &__content {
+        width: 100%;
+    }
+
+    &__avatar + &__content {
+        padding-top: @padding-xs;
+    }
+
+    &__row,
+    &__title {
+        height: @skeleton-row-height;
+        background-color: @skeleton-row-background-color;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__row {
+        &:not(:first-child) {
+            margin-top: @skeleton-row-margin-top;
+        }
+    }
+
+    &__title + &__row {
+        margin-top: 20px;
+    }
+
+    &--animate {
+        animation: van-skeleton-blink @skeleton-animation-duration ease-in-out infinite;
+    }
+
+    // 首页
+    &--home {
+        overflow: hidden;
+    }
+    &__items-wrap {
+        display: flex;
+        margin-top: -20px;
+        flex-wrap: wrap;
+        // justify-content: space-between;
+    }
+    &__home-item {
+        margin-top: 20px;
+        // margin-left: calc();
+        display: inline-flex;
+        flex-wrap: wrap;
+        width: 20%;
+        height: 74px;
+        justify-content: center;
+    }
+    &__circle {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: @skeleton-row-background-color;
+    }
+    &__home-name {
+        margin-top: 10px;
+        width: 46px;
+        height: 13px;
+        background: @skeleton-row-background-color;
+    }
+
+    // 列表
+    &__list-item-wrap {
+        width: 100%;
+    }
+    &__list-item {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__list-img {
+        width: @skeleton-list-img-width;
+        height: @skeleton-list-img-height;
+        background: @skeleton-row-background-color;
+    }
+    &__list-content {
+        max-width: calc(100% - @skeleton-list-img-width - 10px);
+        flex-grow: 1;
+    }
+
+    // 详情
+    &--detail {
+        flex-wrap: wrap;
+    }
+    &__detail-banner {
+        width: 100%;
+        height: @skeleton-detail-banner-height;
+        background: @skeleton-row-background-color;
+    }
+    &__top-rows {
+        margin-top: 10px;
+        padding: 0 10px;
+        width: 100%;
+    }
+    &__bottom-rows {
+        padding: 0 10px;
+        width: 100%;
+    }
+    &__split-line {
+        margin: 10px 0;
+        width: 100%;
+        height: 10px;
+        background: #f5f5f5;
+    }
+}
+
+@keyframes van-skeleton-blink {
+    50% {
+        opacity: 0.6;
+    }
+}

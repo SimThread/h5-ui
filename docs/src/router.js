@@ -1,85 +1,87 @@
-import Vue from 'vue';
 import docConfig from './doc.config';
-import DemoList from './components/DemoList';
+import DemoList from './components/DemoList.vue';
 import componentDocs from './docs-entry';
 import componentDemos from './demo-entry';
-import DemoPages from './components/DemoPages';
+import { getLang, setDefaultLang } from './utils/locales';
 import './utils/iframe-router';
 
-const registerRoute = (isDemo) => {
-  const route = [{
-    path: '*',
-    redirect: () => {
-      return `/${Vue.prototype.$h5Lang}/`
-    }
-  }];
+const { locales, defaultLang } = docConfig.site;
 
-  Object.keys(docConfig).forEach((lang) => {
-    if (isDemo) {
-      route.push({
-        path: `/${lang}`,
-        component: DemoList,
-        meta: {
-          lang
-        }
-      });
-    } else {
-      route.push({
-        path: `/${lang}`,
-        redirect: `/${lang}/intro`
-      });
+setDefaultLang(defaultLang);
+
+function getLangFromRoute(route) {
+    const lang = route.path.split('/')[1];
+    const langs = Object.keys(locales);
+
+    if (langs.indexOf(lang) !== -1) {
+        return lang;
     }
 
-    function addRoute(page, lang) {
-      let {
-        path
-      } = page;
+    return getLang();
+}
 
-      if (path) {
-        path = path.replace('/', '');
+const registerRoute = (isMobileDemo) => {
+    const route = [{
+        path: '*',
+        redirect: route => `/${getLangFromRoute(route)}`
+    }];
 
-        let component;
-        if (path === 'demo') { // 正对demo页面进行特殊处理
-          component = DemoPages;
-        } else {
-          component = isDemo ? componentDemos[path] : componentDocs[`${path}`];
+    Object.keys(docConfig.site.locales).forEach((lang) => {
+        if (isMobileDemo) { // demo页面路由配置
+            route.push({
+                path: `/${lang}`,
+                component: DemoList,
+                meta: {
+                    lang
+                }
+            });
+        } else { // 文档页面配置
+            route.push({
+                path: `/${lang}`,
+                redirect: (r) => `/${lang}/intro`
+            });
         }
 
-        if (!component) {
-          return;
+        function addRoute(page, lang) {
+            let { path } = page;
+
+            if (path) {
+                path = path.replace('/', '');
+
+                // 从入口文件获取组件
+                const componentDoc = componentDocs[`${path}.${lang}`] ? componentDocs[`${path}.${lang}`] : componentDocs[`${path}.${defaultLang}`];
+                const component = isMobileDemo ? componentDemos[path] : componentDoc;
+
+                if (!component) {
+                    return;
+                }
+
+                route.push({
+                    name: `/${lang}/${path}`,
+                    component,
+                    path: `/${lang}/${path}`,
+                    meta: {
+                        lang,
+                        path,
+                        name: page.title
+                    }
+                });
+            }
         }
 
-        route.push({
-          name: lang + '/' + path,
-          component,
-          path: `/${lang}/${path}`,
-          meta: {
-            lang,
-            path,
-            name: page.title
-          }
+        const navs = docConfig.site.locales[lang].nav || [];
+        navs.forEach(nav => {
+            if (nav.groups) {
+                nav.groups.forEach(group => {
+                    group.list.forEach(page => addRoute(page, lang));
+                });
+            } else {
+                addRoute(nav, lang);
+            }
         });
-      }
-    }
-
-    const navs = docConfig[lang].nav || [];
-    navs.forEach(nav => {
-      if (nav.groups) {
-        nav.groups.forEach(group => {
-          group.list.forEach(page => addRoute(page, lang));
-        });
-      } else {
-        console.log('nav:', nav);
-        console.log('lang:', lang);
-        addRoute(nav, lang);
-      }
     });
-  });
 
-  if (!isDemo) {
-    console.log('route:', route);
-  }
-  return route;
+    return route;
 };
 
 export default registerRoute;

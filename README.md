@@ -6,7 +6,7 @@
 
 * 支持 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)
 * 支持 TypeScript
-* 支持 SSR
+* 支持 SSR 
 
 ## 安装
 ```shell
@@ -53,7 +53,7 @@ npm i babel-plugin-import -D
 接着你可以在代码中直接引入 h5-ui 组件，插件会自动将代码转化为方式二中的按需引入形式。
 
 ```js
-import { Button } from 'h5-ui';
+import { Button } from '@hk591/h5-ui';
 ```
 
 > 如果你在使用 TypeScript，可以使用 [ts-import-plugin](https://github.com/Brooooooklyn/ts-import-plugin) 实现按需引入
@@ -71,7 +71,7 @@ import 'h5-ui/lib/button/style';
 
 ```js
 import Vue from 'vue';
-import H5UI from 'h5-ui';
+import H5UI from '@hk591/h5-ui';
 import 'h5-ui/lib/index.css';
 
 Vue.use(H5UI);

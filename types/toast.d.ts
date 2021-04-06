@@ -37,6 +37,12 @@ export interface Toast {
 
 declare module 'vue/types/vue' {
   interface Vue {
+    /**
+     * test124334234
+     *
+     * @type {Toast}
+     * @memberof Vue
+     */
     $toast: Toast
   }
 }

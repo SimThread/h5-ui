@@ -37,6 +37,7 @@ then
     UpdateConfig
 else
     cd ${ProjectDir}
+    echo "${GitUser}:${GitPasswd}"
     if [ -z "`git branch --list $CI_COMMIT_REF_NAME|grep \*`" ]
     then
         echo [检测到当前分支不是"`git branch --list $CI_COMMIT_REF_NAME`"]

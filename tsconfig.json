@@ -12,7 +12,7 @@
   },
   "include": [
     "types/**/*",
-    "packages/**/*",
+    "src/**/*",
   ],
   "exclude": [
     "**/*.spec.ts",
