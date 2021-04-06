@@ -2,7 +2,6 @@ variables:
   Project: hk591-ui
   ProjecHtdocsDir: /home/htdocs/dist
   ProjectName: ${Project}-${CI_COMMIT_REF_NAME}
-  ProjectDir: ${HtdocsDir}/${Project}-${CI_COMMIT_REF_NAME}
   ProjectBuildDir: ${HtdocsDir}_191/${Project}-${CI_COMMIT_REF_NAME}
   IMAGE: hub.591.com.tw/nginx-alpine:hk591-ui-${CI_COMMIT_REF_NAME}
   replicas: "1"
