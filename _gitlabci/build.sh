@@ -1,7 +1,6 @@
 #!/bin/bash
-echo "test"
-echo "${HtdocsDir}"
-echo "${ProjectDir}"
+ProjectDir="${HtdocsDir}/${Project}-${CI_COMMIT_REF_NAME}"
+echo $ProjectDir
 function CheckoutREf()
 {
     echo [准备切换到$CI_COMMIT_REF_NAME分支]
@@ -40,7 +39,6 @@ then
     UpdateConfig
 else
     cd ${ProjectDir}
-    echo "${GitUser}:${GitPasswd}"
     if [ -z "`git branch --list $CI_COMMIT_REF_NAME|grep \*`" ]
     then
         echo [检测到当前分支不是"`git branch --list $CI_COMMIT_REF_NAME`"]
