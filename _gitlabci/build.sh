@@ -27,7 +27,7 @@ then
     cp -ap $CI_PROJECT_DIR ${ProjectDir}
     cd ${ProjectDir}
     echo [修改仓库拉取用户]
-    sed 's|gitlab-ci-token:.*@|www:xnkyfekgy4TAgtV6kpYz@|g' -i ./.git/config
+    sed "s|gitlab-ci-token:.*@|${GitUser}:${GitPasswd}@|g" -i ./.git/config
     CheckoutREf
     echo [准备获取最新的版本]
     git remote prune origin

@@ -11,14 +11,18 @@ fi
 containersName=${ProjectName}-${CI_JOB_ID}
 function PrintPOD()
 {
-
 cat<<SUB
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: ${ProjectName}
+  labels:
+    name: ${ProjectName}
 spec:
   replicas: ${replicas}
+  selector:
+    matchLabels:
+      name: ${ProjectName}
   template:
     metadata:
       labels:
@@ -36,12 +40,44 @@ spec:
         hostPath:
             path: /etc/localtime
       restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${ProjectName}
+spec:
+  selector:
+    name: ${ProjectName}
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ${ProjectName}
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - host: "h5ui.debug.591.com.hk"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: ${ProjectName}
+            port:
+              number: 80
 SUB
 }
 PrintPOD
 function RollUpdate()
 {
-    PrintPOD | kubectl -s ${KUBE_MASTER}:${KUBE_MASTER_PORT} apply -f -
+    PrintPOD | kubectl  apply -f -
 }
 
 echo [准备滚动更新]
