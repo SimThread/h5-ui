@@ -1,6 +1,7 @@
 #!/bin/bash
 echo "test"
 echo "${HtdocsDir}"
+echo "${ProjectDir}"
 function CheckoutREf()
 {
     echo [准备切换到$CI_COMMIT_REF_NAME分支]
