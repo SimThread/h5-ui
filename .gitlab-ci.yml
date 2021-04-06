@@ -1,15 +1,10 @@
 variables:
   Project: hk591-ui
-  HtdocsDir: /home/htdocs
   ProjecHtdocsDir: /home/htdocs/dist
   ProjectName: ${Project}-${CI_COMMIT_REF_NAME}
   ProjectDir: ${HtdocsDir}/${Project}-${CI_COMMIT_REF_NAME}
   ProjectBuildDir: ${HtdocsDir}_191/${Project}-${CI_COMMIT_REF_NAME}
   IMAGE: hub.591.com.tw/nginx-alpine:hk591-ui-${CI_COMMIT_REF_NAME}
-  KUBE_MASTER: 192.168.8.39
-  KUBE_MASTER_PORT: "8080"
-  KUBE_DEV: 192.168.8.39
-  KUBE_DEV_PORT: "8080"
   replicas: "1"
   
 stages:
@@ -25,7 +20,7 @@ job_build_master:
   only:
     - master
   tags:
-    - tw591-runner-php7211-node10-nfs41
+    - tw591-runner-php7211-node10-nfs41-new
     
 job_buildshell_master:
   stage: buildshell
@@ -34,7 +29,7 @@ job_buildshell_master:
   only:
     - master
   tags:
-    - tw591-runner-php7211-node10-nfs41
+    - tw591-runner-php7211-node10-nfs41-new
     
 job_BuildDocker_master:
   stage: BuildDocker
@@ -43,7 +38,7 @@ job_BuildDocker_master:
   only:
     - master
   tags:
-    - tw591-runner-php7211-node10-nfs41
+    - tw591-runner-php7211-node10-nfs41-new
     
 job_deploy_master:
   stage: deploy
@@ -52,7 +47,7 @@ job_deploy_master:
   only:
     - master
   tags:
-    - tw591-runner-php7211-node10-nfs41
+    - tw591-runner-php7211-node10-nfs41-new
     
 
     
