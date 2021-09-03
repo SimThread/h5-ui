@@ -1,6 +1,6 @@
 {
   "name": "@hk591/h5-ui",
-  "version": "0.0.68",
+  "version": "0.0.69",
   "description": "hk591站台UI组件库，基于vant改造",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -61,16 +61,13 @@
     "@babel/runtime": "^7.3.1",
     "@vant/icons": "1.0.9",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0-beta.2",
-    "axios": "^0.19.0",
     "better-scroll": "^1.15.2",
-    "lottie-web": "^5.7.5",
-    "nprogress": "^0.2.0",
     "swiper": "^5.3.8",
-    "vue-lazyload": "1.2.3",
-    "vue-range-component": "^1.0.3"
+    "vue-lazyload": "1.2.3"
   },
   "peerDependencies": {
-    "vue": ">= 2.5.0"
+    "vue": ">= 2.5.0",
+    "lottie-web": "^5.7.5"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -87,6 +84,7 @@
     "@typescript-eslint/eslint-plugin": "^2.13.0",
     "@typescript-eslint/parser": "^2.13.0",
     "@vue/babel-preset-jsx": "^1.0.0-beta.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0-beta.2",
     "autoprefixer": "^9.4.7",
     "babel-loader": "^8.0.4",
     "codecov": "^3.1.0",
