@@ -2,7 +2,4 @@ es
 lib
 dist
 node_modules
-**/font
-**/test
-**/swiper.min.less
-**/templates
+**/iconfont.js

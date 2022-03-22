@@ -1,24 +1,24 @@
-import Vue, { VNode } from 'vue';
+import { createApp, VNode } from 'vue';
 
 type ChildrenMixinOptions = {
   indexKey?: any;
 };
 
 function flattenVNodes(vnodes: VNode[]) {
-    const result: VNode[] = [];
+  const result: VNode[] = [];
 
-    function traverse(vnodes: VNode[]) {
-        vnodes.forEach(vnode => {
-            result.push(vnode);
+  function traverse(vnodes: VNode[]) {
+    vnodes.forEach((vnode) => {
+      result.push(vnode);
 
-            if (vnode.children) {
-                traverse(vnode.children);
-            }
-        });
-    }
+      if (vnode.children) {
+        traverse(vnode.children);
+      }
+    });
+  }
 
-    traverse(vnodes);
-    return result;
+  traverse(vnodes);
+  return result;
 }
 
 type ChildrenMixinThis = {
@@ -26,75 +26,75 @@ type ChildrenMixinThis = {
 };
 
 export function ChildrenMixin(
-    parent: string,
-    options: ChildrenMixinOptions = {}
+  parent: string,
+  options: ChildrenMixinOptions = {}
 ) {
-    const indexKey = options.indexKey || 'index';
+  const indexKey = options.indexKey || 'index';
 
-    return Vue.extend({
-        inject: {
-            [parent]: {
-                default: null,
-            },
-        },
+  return createApp({
+    inject: {
+      [parent]: {
+        default: null,
+      },
+    },
 
-        computed: {
-            parent() {
-                if ((this as ChildrenMixinThis).disableBindRelation) {
-                    return null;
-                }
+    computed: {
+      parent() {
+        if ((this as ChildrenMixinThis).disableBindRelation) {
+          return null;
+        }
 
-                return (this as any)[parent];
-            },
+        return (this as any)[parent];
+      },
 
-            [indexKey]() {
-                this.bindRelation();
-                return this.parent.children.indexOf(this);
-            },
-        },
+      [indexKey]() {
+        this.bindRelation();
+        return this.parent.children.indexOf(this);
+      },
+    },
 
-        mounted() {
-            this.bindRelation();
-        },
+    mounted() {
+      this.bindRelation();
+    },
 
-        beforeDestroy() {
-            if (this.parent) {
-                this.parent.children = this.parent.children.filter(
-                    (item: any) => item !== this
-                );
-            }
-        },
+    beforeUnmount() {
+      if (this.parent) {
+        this.parent.children = this.parent.children.filter(
+          (item: any) => item !== this
+        );
+      }
+    },
 
-        methods: {
-            bindRelation() {
-                if (!this.parent || this.parent.children.indexOf(this) !== -1) {
-                    return;
-                }
+    methods: {
+      bindRelation() {
+        if (!this.parent || this.parent.children.indexOf(this) !== -1) {
+          return;
+        }
 
-                const children = [...this.parent.children, this];
-                const vnodes = flattenVNodes(this.parent.slots());
-                children.sort(
-                    (a, b) => vnodes.indexOf(a.$vnode) - vnodes.indexOf(b.$vnode)
-                );
+        const children = [...this.parent.children, this];
+        const vnodes = flattenVNodes(this.parent.slots());
+        children.sort(
+          (a, b) => vnodes.indexOf(a.$vnode) - vnodes.indexOf(b.$vnode)
+        );
 
-                this.parent.children = children;
-            },
-        },
-    });
+        this.parent.children = children;
+      },
+    },
+  });
 }
 
 export function ParentMixin(parent: string) {
-    return {
-        provide() {
-            return {
-                [parent]: this,
-            };
-        },
+  return {
+    provide() {
+      return {
+        [parent]: this,
+      };
+    },
 
-        data() {
-            return {
-                children: [],
-            };
-        },
-    };
+    data() {
+      return {
+        children: [],
+      };
+    },
+  };
 }

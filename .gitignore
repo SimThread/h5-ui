@@ -6,13 +6,18 @@
 
 # npm
 node_modules
-#package-lock.json
+package-lock.json
+
+# husky
+**/.husky/_
+
+# test
+test/coverage
 
 # dist file
 es
 lib
 dist
-docs/dist
-changelog.generated.md
-test/coverage
 vetur
+site
+changelog.generated.md

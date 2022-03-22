@@ -3,3 +3,7 @@ lib
 dist
 node_modules
 **/font
+**/album
+**.scss
+**.less
+**/font.less

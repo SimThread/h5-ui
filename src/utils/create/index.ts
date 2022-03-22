@@ -1,14 +1,11 @@
-import { createBEM, BEM } from './bem';
-import { createComponent } from './component';
-// import { createI18N, Translate } from './i18n';
+import { createBEM } from './bem';
+import { createTranslate } from './translate';
 
-type CreateNamespaceReturn = [
-  ReturnType<typeof createComponent>,
-  BEM,
-  // Translate
-];
-
-export function createNamespace(name: string): CreateNamespaceReturn {
-    name = 'h5-' + name;
-    return [createComponent(name), createBEM(name)];
+export function createNamespace(name: string) {
+  const prefixedName = `h5-${name}`;
+  return [
+    prefixedName,
+    createBEM(prefixedName),
+    createTranslate(prefixedName),
+  ] as const;
 }
