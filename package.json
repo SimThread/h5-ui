@@ -23,7 +23,7 @@
   "lint-staged": {
     "*.md": "prettier --write",
     "*.{ts,js,vue,less,scss}": "prettier --write",
-    "*.{ts,tsx,js,vue}": "eslint --fix",
+    "*.{ts,tsx,js}": "eslint --fix",
     "*.{vue,css,less,scss}": "stylelint --fix"
   },
   "peerDependencies": {

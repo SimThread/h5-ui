@@ -257,10 +257,15 @@ export default {
   },
   methods: {
     renderItem({ option, isSelected }) {
-      // if (isSelected) {
-      //     return (<div>{ option.text }<h5-icon name="success"></h5-icon></div>);
-      // }
-      // return (<div>{option.text}</div>);
+      if (isSelected) {
+        return (
+          <div>
+            {option.text}
+            <h5-icon name="success"></h5-icon>
+          </div>
+        );
+      }
+      return <div>{option.text}</div>;
     },
     complete() {
       this.activeIndex = -1;
