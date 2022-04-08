@@ -1,6 +1,6 @@
 {
   "name": "h5-ui",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "",
   "main": "lib/h5-ui.js",
   "style": "lib/index.css",
@@ -44,9 +44,9 @@
       "@vant"
     ],
     "rules": {
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-this-alias": "off",
-        "@typescript-eslint/ban-types": "off"
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-this-alias": "off",
+      "@typescript-eslint/ban-types": "off"
     }
   },
   "stylelint": {
