@@ -5,7 +5,7 @@ module.exports = {
       preprocessor: 'sass',
     },
     site: {
-      publicPath: '/h5-ui/',
+      publicPath: '/',
     },
   },
   site: {
